@@ -1,9 +1,12 @@
 class Api::SessionsController < ApplicationController
+  protect_from_forgery except: :create
+  protect_from_forgery except: :destroy
+
 
   def create
     @user = User.find_by_credentials(
-      params[:users][:username],
-      params[:users][:password]
+      params[:user][:username],
+      params[:user][:password]
     )
     if @user
       login(@user)
@@ -17,7 +20,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     if logged_in?
       logout
-      render json: {}
+      render json: ["you have been logged out"]
     else
       render json: ["there is no user logged in!"], status: 404
     end
