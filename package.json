@@ -39,8 +39,8 @@
     "url": "https://github.com/willmarino/Flea/issues"
   },
   "engines": {
-    "node": "12.5.0",
-    "npm": "6.9.0"
+    "node": "10.3.0",
+    "npm": "6.4.1"
   },
   "homepage": "https://github.com/willmarino/Flea#readme"
 }
