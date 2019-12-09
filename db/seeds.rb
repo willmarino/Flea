@@ -7,5 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# u1 = User.create!(username: "billy", email: "billy@mail.com", description: "a guy named billy", location: "New York City")
-# u2 = User.create!(username: "timmy", email: "timmy@mail.com", description: "a guy named timmmy", location: "Los Angeles")
+User.destroy_all
+
+u1 = User.create!(username: "billy", password: "testuser1", email: "billy@mail.com", description: "a guy named billy", location: "New York City")
+u2 = User.create!(username: "timmy", password: "testuser2", email: "timmy@mail.com", description: "a guy named timmmy", location: "Los Angeles")
+u3 = User.create!(username: "jimmy", password: "testuser3",email: "jimmy@mail.com", description: "a guy named jimmmy", location: "Florida")
+
