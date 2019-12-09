@@ -25,7 +25,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development"
+    "webpack": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/willmarino/Flea/issues"
+  },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
   },
   "homepage": "https://github.com/willmarino/Flea#readme"
 }
