@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import sampleState from './store/sample_state';
-import { signupUser } from './actions/users_actions';
-import { receiveUser } from './actions/users_actions';
+import { signupUser, receiveUser } from './actions/users_actions';
+// import { receiveUser } from './actions/users_actions';
+// import openModal from './actions/modal_actions';
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
