@@ -8,4 +8,6 @@
 #   end
 # end
 
-json.extract! @user, :id, :username, :email, :description, :location
+# json.extract! @user, :id, :username, :email, :description, :location
+
+json.partial! 'user', user: @user

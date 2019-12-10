@@ -9,8 +9,26 @@ import { signupUser, receiveUser } from './actions/users_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  let store;
+  let pls = {};
+  if (window.currentuser){
+    pls = {
+      entities: {
+        users: {
+          [currentuser.id] : currentuser
+        }
+      },
+      session: {
+        currentUser: currentuser.id
+      },
+      ui:{
+        modal: null
+      }
+    };
+    store = configureStore(pls);
+  }
 
-  const store = configureStore();
+  store = configureStore();
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
