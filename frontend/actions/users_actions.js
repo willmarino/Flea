@@ -4,13 +4,13 @@ export const SIGN_UP_USER = "SIGN_UP_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 
 
-const receiveUser = (user) => ({
+export const receiveUser = (user) => ({
   type: SIGN_UP_USER,
   user
 });
 
 const receiveUsers = (users) => ({
-  type: SIGN_UP_USER,
+  type: RECEIVE_USERS,
   users
 });
 

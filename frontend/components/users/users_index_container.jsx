@@ -4,7 +4,8 @@ import { fetchUsers } from '../../actions/users_actions';
 
 
 const msp = (state) => ({
-  users: Object.values(state.entities.users)
+  users: Object.values(state.entities.users),
+  currentUser: state.session.currentUser
 });
 
 const mdp = (dispatch) => ({

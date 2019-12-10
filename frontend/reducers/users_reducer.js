@@ -5,6 +5,7 @@ import {
 
 
 const UsersReducer = (state={}, action) => {
+  // debugger;
   Object.freeze(state);
   switch(action.type){
     case SIGN_UP_USER:
