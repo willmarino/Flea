@@ -1,6 +1,6 @@
 import React from 'react';
 import UserHeaderContainer from '../headers/user_header_container';
-
+import CategoryNav from '../category_nav/category_nav';
 
 class UserMain extends React.Component{
     constructor(props){
@@ -14,6 +14,7 @@ class UserMain extends React.Component{
         return(
             <div>
                 <UserHeaderContainer/>
+                <CategoryNav/>
             </div>
         );
 

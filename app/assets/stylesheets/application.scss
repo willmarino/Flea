@@ -13,7 +13,12 @@
  *= require_self
  */
 
-@import './base/reset.scss';
-@import './base/global.scss';
-@import './styles/modal.scss';
-@import './styles/header.scss';
+ 
+ @import './base/reset.scss';
+ @import './base/global.scss';
+ @import './styles/modal.scss';
+ @import './styles/header.scss';
+ @import './styles/categories.scss';
+input{
+  background-color: #E8E8E8;
+}

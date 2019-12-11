@@ -1,23 +1,47 @@
 .header{
   margin: 0 auto;
-  width: 700px;
+  width: 900px;
 
   display: flex;
   align-items: center;
 
   justify-content: space-between;
 
-  padding-top: 10px;
+  padding-top: 0px;
   padding-left: 20px;
   padding-right: 20px;
+  padding-bottom: 0px;
+  height: 72px;
 }
 
 .logo{
-  font-size: 30px;
+  font-size: 38px;
 }
 
 #user-search{
-  min-width: 400px;
+  min-width: 500px;
 }
 
-// @import "
+// user header styling
+// --------------------------------------------------------------------------------------------------------------------------------
+// anon header styling
+
+
+
+
+
+.search{
+  background-color: #E8E8E8;
+  width: 600px;
+  height:50px;
+  border-radius: 30px;
+}
+
+.search:hover{
+  border: 1px solid black;
+}
+
+.search:focus{
+  background-color: white;
+}
+

@@ -12,9 +12,9 @@ class AnonHeader extends React.Component{
     return(
       <div className="header">
         <div className="logo">Flea</div>
-        <input type="text"/>
-        <button onClick={() => this.props.openModal('login')}>Login</button>
-        <div className="cart">Cart</div>
+        <input type="text" className="search"/>
+        <button onClick={() => this.props.openModal('login')}>Sign In</button>
+        <div className="cart"><i className="fas fa-shopping-cart"></i></div>
       </div>
     );
   }

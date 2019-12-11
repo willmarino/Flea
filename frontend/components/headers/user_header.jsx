@@ -27,7 +27,7 @@ class UserHeader extends React.Component{
         <div>Favorites</div>
         <div>Notifications</div>
         <button onClick={this.handleSignOut}>Sign Out</button>
-        <div>Cart</div>
+        <div><i className="fas fa-shopping-cart"></i></div>
       </div>
     )
   }
