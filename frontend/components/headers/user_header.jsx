@@ -22,7 +22,7 @@ class UserHeader extends React.Component{
     return(
       <div className="header">
         <div className="logo">Etsy</div>
-        <input type="text"/>
+        <input type="text" id="user-search"/>
         <div>Sell on Etsy</div>
         <div>Favorites</div>
         <div>Notifications</div>
