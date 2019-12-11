@@ -21,12 +21,12 @@ class UserHeader extends React.Component{
   render(){
     return(
       <div className="header">
-        <div>Etsy</div>
+        <div className="logo">Etsy</div>
         <input type="text"/>
         <div>Sell on Etsy</div>
         <div>Favorites</div>
         <div>Notifications</div>
-        <Link to="/anon"><button onClick={this.handleSignOut}>Sign Out</button></Link>
+        <button onClick={this.handleSignOut}>Sign Out</button>
         <div>Cart</div>
       </div>
     )

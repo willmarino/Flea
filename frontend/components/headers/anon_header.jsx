@@ -11,7 +11,7 @@ class AnonHeader extends React.Component{
   render(){
     return(
       <div className="header">
-        <div id="logo">Flea</div>
+        <div className="logo">Flea</div>
         <input type="text"/>
         <button onClick={() => this.props.openModal('login')}>Login</button>
         <div className="cart">Cart</div>
