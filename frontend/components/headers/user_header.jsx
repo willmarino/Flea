@@ -26,7 +26,7 @@ class UserHeader extends React.Component{
         <div>Sell on Etsy</div>
         <div>Favorites</div>
         <div>Notifications</div>
-        <Link to="/"><button onClick={this.handleSignOut}>Sign Out</button></Link>
+        <Link to="/anon"><button onClick={this.handleSignOut}>Sign Out</button></Link>
         <div>Cart</div>
       </div>
     )

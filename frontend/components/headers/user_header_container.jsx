@@ -19,6 +19,6 @@ const mdp = dispatch => ({
 });
 
 
-export default connect(msp, mdp)(UserHeader)
+export default connect(msp, mdp)(UserHeader);
 
 

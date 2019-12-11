@@ -11,6 +11,7 @@ import { signupUser, receiveUser } from './actions/users_actions';
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   let pls = {};
+  // debugger;
   if (window.currentuser){
     pls = {
       entities: {
@@ -29,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
     store = configureStore(pls);
+  }else{
+    store = configureStore();
   }
-
-  store = configureStore();
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
