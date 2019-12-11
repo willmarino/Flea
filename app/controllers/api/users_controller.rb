@@ -28,7 +28,6 @@ class Api::UsersController < ApplicationController
       render json: @user.errors.full_message, status: 422
     end
   end
-  # line 28, status: 422
 
   def user_params
     params.require(:user).permit(:username, :password, :email)
