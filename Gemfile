@@ -36,6 +36,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # gem 'rails_12factor'
 gem 'jquery-rails'
+gem 'rails-ujs'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,7 +55,6 @@ group :development do
   gem 'pry-rails'
   gem 'annotate'
   gem 'bcrypt'
-  gem 'rails-ujs'
 end
 
 group :test do
