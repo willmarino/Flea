@@ -16,7 +16,7 @@ class Modal extends React.Component{
     let res;
     switch(this.props.modal){
       case 'login':
-        res = <UserLoginContainer/>;
+        res = <UserLoginContainer />;
         break;
       case 'sign up':
         res = <UserFormContainer/>;

@@ -14,6 +14,9 @@ import AnonMain from './main/anon_main';
 import UserMain from './main/user_main';
 import Test from './headers/test_header';
 
+// if user is logged in, they will hit the "/" path and go on to userMain,
+// if they try to go to the anon page while logged in they will be pushed back
+// same in reverse for the "anon" page, for users who are not logged in.
 
 const App = () => {
   // debugger;

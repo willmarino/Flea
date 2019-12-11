@@ -33,17 +33,28 @@ class UserLogin extends React.Component{
 
   render(){
     return(
-      <form className="modal-form">
-        <label> Username
-          <input type="text" onChange={this.update('username')} value={this.state.username}/>
-        </label>
-        <label> Password
-          <input type="password" onChange={this.update('password')} value={this.state.password}/>
-        </label>
-        <button type="submit" onClick={this.handleLogin}>Log In</button>
-        <button type="submit" onClick={this.handleLogout}>Log Out</button>
-        <button type="submit" onClick={this.handleSwitch}>Sign Up</button>
-        {/* {this.props.signupForm} */}
+      <form className="modal-form" >
+        <div id="one" className="form-row">
+          <div>Sign In</div>
+          <button type="button" onClick={this.handleSwitch}>Register</button>
+        </div>
+
+        <div id="two" className="form-row">
+          <label> Username
+            <input type="text" onChange={this.update('username')} value={this.state.username}/>
+          </label>
+        </div>
+
+        <div id="three" className="form-row">
+          <label> Password
+            <input type="password" onChange={this.update('password')} value={this.state.password}/>
+          </label>
+        </div>
+
+        <div id="four" className="form-row">
+          <button type="submit" onClick={this.handleLogin}>Sign In</button>
+        </div>
+        {/* <button type="submit" onClick={this.handleLogout}>Log Out</button> */}
       </form>
     );
   }
