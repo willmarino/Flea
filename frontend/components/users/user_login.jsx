@@ -41,13 +41,13 @@ class UserLogin extends React.Component{
 
         <div id="two" className="form-row">
           <label> Username
-            <input type="text" onChange={this.update('username')} value={this.state.username}/>
+            <input className="login-input" type="text" onChange={this.update('username')} value={this.state.username}/>
           </label>
         </div>
 
         <div id="three" className="form-row">
           <label> Password
-            <input type="password" onChange={this.update('password')} value={this.state.password}/>
+            <input className="login-input" type="password" onChange={this.update('password')} value={this.state.password}/>
           </label>
         </div>
 
