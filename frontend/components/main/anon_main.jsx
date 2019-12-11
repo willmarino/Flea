@@ -13,7 +13,7 @@ class AnonMain extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="anon-main">
                 <AnonHeaderContainer/>
                 <ModalContainer/>
                 <CategoryNav/>

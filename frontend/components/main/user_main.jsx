@@ -12,7 +12,7 @@ class UserMain extends React.Component{
     render(){
 
         return(
-            <div>
+            <div className="user-main">
                 <UserHeaderContainer/>
                 <CategoryNav/>
             </div>

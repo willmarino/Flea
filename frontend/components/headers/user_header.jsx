@@ -21,9 +21,9 @@ class UserHeader extends React.Component{
   render(){
     return(
       <div className="header">
-        <div className="logo">Etsy</div>
+        <div className="logo">Flea</div>
         <input type="text" id="user-search"/>
-        <div>Sell on Etsy</div>
+        <div>Sell on Flea</div>
         <div>Favorites</div>
         <div>Notifications</div>
         <button onClick={this.handleSignOut}>Sign Out</button>

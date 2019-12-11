@@ -16,9 +16,11 @@
  
  @import './base/reset.scss';
  @import './base/global.scss';
+ @import './styles/main.scss';
  @import './styles/modal.scss';
  @import './styles/header.scss';
  @import './styles/categories.scss';
+
 input{
   background-color: #E8E8E8;
 }
