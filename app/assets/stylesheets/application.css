@@ -63,12 +63,21 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/* .header{
-  margin: 0 auto;
-  width: 300px;
 
-  display: flex;
-  align-items: center;
+.modal-child{
+	position: absolute;
+	background: red;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 500px;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+  };
 
-  justify-content: space-between;
-} */
+.modal-form{
+	display: flex;
+	flex-direction: column;
+}

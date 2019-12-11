@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UsersIndex from './users_index';
-import { fetchUsers } from '../../actions/users_actions';
+import { fetchUsers } from '../../../actions/users_actions';
 
 
 const msp = (state) => ({

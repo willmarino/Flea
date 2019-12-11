@@ -33,7 +33,7 @@ class UserLogin extends React.Component{
 
   render(){
     return(
-      <form>
+      <form className="modal-form">
         <label> Username
           <input type="text" onChange={this.update('username')} value={this.state.username}/>
         </label>
