@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  protect_from_forgery except: :create
+  # protect_from_forgery except: :create
 
   def show
     @user = User.find_by_credentials(
