@@ -54,7 +54,6 @@ class UserLogin extends React.Component{
         <div id="four" className="form-row">
           <button type="submit" onClick={this.handleLogin}>Sign In</button>
         </div>
-        {/* <button type="submit" onClick={this.handleLogout}>Log Out</button> */}
       </form>
     );
   }

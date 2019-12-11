@@ -20,31 +20,30 @@ class UserForm extends React.Component{
 
   render(){
     return(
-      <div>
-        <form className="modal-form" onSubmit={this.handleSubmit}>
-          <label> Username
-            <input type="text" onChange={this.update('username')} value={this.state.username}/>
-          </label>
-          <br/>
-          <label> Password
-            <input type="password" onChange={this.update('password')} value={this.state.password} />
-          </label>
-          <br/>
+      <form className="modal-form" onSubmit={this.handleSubmit}>
+        <div className="signup-form-row" id="signup-one">
+          <div>Create your account</div>
+          <p>Registration is easy.</p>
+        </div>
+        <div className="signup-form-row" id="signup-two">
           <label> Email
             <input type="text" onChange={this.update('email')} value={this.state.email} />
           </label>
-          <br/>
-          {/* <label> Tell Us About Yourself
-            <input type="text" onChange={this.update('description')} value={this.state.description} />
-          </label>  
-          <br />
-          <label>Location
-            <input type="text" onChange={this.update('location')} value={this.state.location} />
+        </div>
+        <div className="signup-form-row" id="signup-three">
+          <label> Username
+            <input type="text" onChange={this.update('username')} value={this.state.username}/>
           </label>
-          <br /> */}
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
+        </div>
+        <div className="signup-form-row" id="signup-four">
+          <label> Password
+            <input type="password" onChange={this.update('password')} value={this.state.password} />
+          </label>
+        </div>
+        <div className="signup-form-row" id="signup-five">
+          <button type="submit">Register</button>
+        </div>
+      </form>
     )
   }
 

@@ -29,7 +29,6 @@
   align-items: center;
 }
 
-
 .form-row{
   width: 100%;
   padding: 10px;
@@ -80,5 +79,43 @@
 }
 
 #four button{
+  width: 90%;
+}
+
+
+
+
+
+// login styling 
+// ------------------------------------------------------------------------------------------------
+// sign up styling
+
+
+.signup-form-row{
+  width: 100%;
+  padding: 10px;
+}
+
+.signup-form-row input{
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+}
+
+.signup-form-row{
+  width: 100%;
+  padding: 10px;
+}
+
+#signup-one div{
+  font-size: 28px;
+  font-weight: 600;
+}
+
+#signup-one p{
+  font-weight: lighter;
+}
+
+.signup-form-row button{
   width: 90%;
 }

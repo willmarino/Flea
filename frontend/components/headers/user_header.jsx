@@ -21,7 +21,7 @@ class UserHeader extends React.Component{
   render(){
     return(
       <div className="header">
-        <img src="" alt="Logo"/>
+        <div>Etsy</div>
         <input type="text"/>
         <div>Sell on Etsy</div>
         <div>Favorites</div>
