@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
           [currentuser.id] : currentuser
         }
       },
+      errors: {
+        sessionErrors: {}
+      },
       session: {
         currentUser: currentuser.id
       },

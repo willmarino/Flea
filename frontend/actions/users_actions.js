@@ -13,7 +13,7 @@ export const receiveUser = (user) => ({
 const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
-})
+});
 
 const receiveUsers = (users) => ({
   type: RECEIVE_USERS,

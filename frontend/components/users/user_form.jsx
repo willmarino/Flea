@@ -11,7 +11,7 @@ class UserForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     this.props.signupUser(this.state);
-    this.props.loginUser(this.state);
+    // this.props.loginUser(this.state);
   }
 
   update(field){
@@ -34,14 +34,14 @@ class UserForm extends React.Component{
             <input type="text" onChange={this.update('email')} value={this.state.email} />
           </label>
           <br/>
-          <label> Tell Us About Yourself
+          {/* <label> Tell Us About Yourself
             <input type="text" onChange={this.update('description')} value={this.state.description} />
           </label>  
           <br />
           <label>Location
             <input type="text" onChange={this.update('location')} value={this.state.location} />
           </label>
-          <br />
+          <br /> */}
           <button type="submit">Sign Up</button>
         </form>
       </div>

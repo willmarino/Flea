@@ -8,7 +8,7 @@ import {
 } from '../../actions/modal_actions';
 
 const msp = state => ({
-  user: {username: "", password: "", email: "", location: "", description: ""},
+  user: {username: "", password: "", email: ""},
   formtype: 'sign up'
 });
 
