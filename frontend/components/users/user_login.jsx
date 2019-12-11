@@ -7,7 +7,7 @@ class UserLogin extends React.Component{
 
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
-    // this.handleSwitch = this.handleSwitch.bind(this);
+    this.handleSwitch = this.handleSwitch.bind(this);
   }
 
   handleLogin(e){
@@ -20,7 +20,12 @@ class UserLogin extends React.Component{
     this.props.logoutUser();
   }
 
-  // handleSwitch
+  handleSwitch(e){
+    e.preventDefault();
+    this.props.signupForm();
+  }
+
+
 
   update(field){
     return e => this.setState({[field]: e.currentTarget.value});
@@ -37,8 +42,8 @@ class UserLogin extends React.Component{
         </label>
         <button type="submit" onClick={this.handleLogin}>Log In</button>
         <button type="submit" onClick={this.handleLogout}>Log Out</button>
-        {/* <button type="submit" onClick={this.handleSwitch}>Log Out</button> */}
-        {this.props.signupForm}
+        <button type="submit" onClick={this.handleSwitch}>Sign Up</button>
+        {/* {this.props.signupForm} */}
       </form>
     );
   }

@@ -1,21 +1,24 @@
+// if we are logged in, we want to render the UserHeaderContainer
+// if we are not logged in, we want to render the AnonHeaderContainer and the Modal for login and signup
+
+// There is currently a protected route redirecting anons to "/" if they attempt to visit the user home page
+// Also needed is an Auth or Prot route which redirects users to their home if they try to login
+
+// no real splash page, just different types of 'base' pages
+
+
 import React from 'react';
 import { Route, Link} from 'react-router-dom';
-import UsersIndexContainer from './users/users_index_container';
-import UserFormContainer from './users/user_form_container';
-import UserLoginContainer from './users/user_login_container';
-import ModalContainer from './modal/modal_container';
-import HeaderContainer from './headers/header_container';
-import {ProtectedRoute} from '../util/route_util';
+import {ProtectedRoute, AuthRoute} from '../util/route_util';
+import AnonMain from './main/anon_main';
+import UserMain from './main/user_main';
+
 
 const App = () => {
   return (
     <div>
-      <Route exact path="/">
-        <HeaderContainer/>
-        <ModalContainer/>
-        <UsersIndexContainer/>
-      </Route>
-      <ProtectedRoute exact path="/home" component={HeaderContainer}/>
+      <AuthRoute exact path="/" component={AnonMain}/>
+      <ProtectedRoute exact path="/home" component={UserMain}/>
     </div>
   )
 };

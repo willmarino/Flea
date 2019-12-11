@@ -20,7 +20,8 @@ const removeUser = () => ({
 
 export const loginUser = user => dispatch => (
   SessionApi.loginUser(user)
-    .then(user => dispatch(receiveUser(user)))
+    .then(user => dispatch(receiveUser(user))),
+    errors => dispatch(receiveErrors(errors.responseJSON))
 );
 
 export const logoutUser = () => dispatch => (
