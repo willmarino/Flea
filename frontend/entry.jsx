@@ -11,6 +11,8 @@ import { signupUser, receiveUser } from './actions/users_actions';
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   let pls = {};
+  let UErrors = {};
+  let SErrors = {};
   // debugger;
   if (window.currentuser){
     pls = {
@@ -20,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       },
       errors: {
-        sessionErrors: {}
+        sessionErrors: [],
+        usersErrors: []
       },
       session: {
         currentUser: currentuser.id

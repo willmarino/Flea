@@ -11,7 +11,6 @@ class UserForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     this.props.signupUser(this.state);
-    // this.props.loginUser(this.state);
   }
 
   update(field){
@@ -19,6 +18,9 @@ class UserForm extends React.Component{
   }
 
   render(){
+    
+
+
     return(
       <form className="modal-form" onSubmit={this.handleSubmit}>
         <div className="signup-form-row" id="signup-one">

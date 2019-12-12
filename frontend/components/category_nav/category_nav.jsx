@@ -4,15 +4,16 @@ class CategoryNav extends React.Component{
   constructor(props){
     super(props);
 
-    this.categories = ["Jewelry & Accessories", 
+    this.categories = [
+    "Gifts",
+    "Jewelry & Accessories", 
     "Clothing & Shoes", 
     "Home & Living", 
     "Wedding & Party", 
     "Toys & Entertainment", 
     "Arts & Collectibles",
     "Craft Supplies",
-    "Vintage",
-    "Gifts"
+    "Vintage"
   ];
   }
 

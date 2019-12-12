@@ -22,12 +22,14 @@ class UserHeader extends React.Component{
     return(
       <div className="header">
         <div className="logo">Flea</div>
-        <input type="text" id="user-search"/>
-        <div>Sell on Flea</div>
-        <div>Favorites</div>
-        <div>Notifications</div>
-        <button onClick={this.handleSignOut}>Sign Out</button>
-        <div><i className="fas fa-shopping-cart"></i></div>
+        <input type="text" className="search"/>
+        <div className="header-items">
+          <div id="header-item-one">Sell on Flea</div>
+          <div id="header-item-two">Favorites</div>
+          <div id="header-item-three">Notifications</div>
+          <button id="header-item-four" onClick={this.handleSignOut}>Sign Out</button>
+          <div id="header-item-five"><i className="fas fa-shopping-cart"></i></div>
+        </div>
       </div>
     )
   }
