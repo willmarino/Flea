@@ -13,3 +13,4 @@ User.destroy_all
 # u2 = User.create!(username: "timmy", password: "testuser2", email: "timmy@mail.com", description: "a guy named timmmy", location: "Los Angeles")
 # u3 = User.create!(username: "jimmy", password: "testuser3",email: "jimmy@mail.com", description: "a guy named jimmmy", location: "Florida")
 
+u1 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
