@@ -70,14 +70,14 @@ class UserLogin extends React.Component{
           <div id="two" className="form-row">
             <label> Username
               <input className="login-input" type="text" onChange={this.update('username')} value={this.state.username}/>
-              {userErrors}
+              {/* {userErrors} */}
             </label>
           </div>
 
           <div id="three" className="form-row">
             <label> Password
               <input className="login-input" type="password" onChange={this.update('password')} value={this.state.password}/>
-              {passwordErrors}
+              {/* {passwordErrors} */}
             </label>
           </div>
 
