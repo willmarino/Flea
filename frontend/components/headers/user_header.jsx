@@ -21,8 +21,8 @@ class UserHeader extends React.Component{
   render(){
     return(
       <div className="header">
-        <div className="logo">Flea</div>
-        <input type="text" className="search"/>
+        <div className="logo" id="first">Flea</div>
+        <input type="text" className="search" id="second"/>
         <div className="header-items">
           <div id="header-item-one">Sell on Flea</div>
           <div id="header-item-two">Favorites</div>

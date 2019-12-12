@@ -4,7 +4,8 @@
 
 .header{
   margin: 0 auto;
-  width: 1330px;
+  // width: 1330px;
+  width: 90%;
 
   display: flex;
   align-items: center;
@@ -35,11 +36,18 @@
   align-items: center;
 }
 
+#second{
+  flex: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 // -----------------------------------------------------------------------------
 // user header styling
 
 .logo{
   font-size: 38px;
+  padding-right: 30px;
 }
 
 #user-search{
