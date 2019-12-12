@@ -4,15 +4,16 @@
   align-items: center;
   justify-content: space-between;
 
-  // width: 1330px;
   width: 90%;
-  height: 20px;
+  max-width: 1330px;
+  height: 26px;
 
-  padding: 0px 10px 10px 10px;
+  padding: 0px 10px 5px 10px;
 }
 
 .category{
   font-size: 13px;
   font-weight: 300;
   color:	#222;
+  font-family: Helvetica;
 }

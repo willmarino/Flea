@@ -8,7 +8,7 @@ class AnonHeader extends React.Component{
 
     this.state = {
       search: "Search for items or shops"
-    }
+    };
 
   }
 
@@ -17,7 +17,7 @@ class AnonHeader extends React.Component{
     return(
       <div className="header">
         <div className="logo" id="first">Flea</div>
-        <input type="text" className="search" id="second" value={this.state.search}/>
+        <input type="text" className="search" id="second" />
         <div className="header-items" id="third">  
           <button onClick={() => this.props.openModal('login')}>Sign In</button>
           <DemoUserContainer/>
