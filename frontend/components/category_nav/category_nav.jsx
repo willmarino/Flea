@@ -21,9 +21,18 @@ class CategoryNav extends React.Component{
     let i = -1;
     const catsArr = this.categories.map((cat) => {
       i += 1;
-      return(
-        <li className="category" key={i}>{cat}</li>
-      );
+      if(cat === "Gifts"){
+        return(
+          <li className="category" id="gift" key={i}>
+            <i className="fa fa-gift"></i>
+            {cat}
+          </li>
+        );
+      }else{
+        return(
+          <li className="category" key={i}>{cat}</li>
+        );
+      }
     });
     return(
       <ul className="category-container">

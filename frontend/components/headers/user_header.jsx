@@ -22,13 +22,25 @@ class UserHeader extends React.Component{
     return(
       <div className="header">
         <div className="logo" id="first">Flea</div>
-        <input type="text" className="search" id="second"/>
-        <div className="header-items">
+        <div className="search-and-icon" id="second">
+          <input type="text" className="search" id="user-search"/>
+          <i className="fa fa-search" id="user-search-icon"></i>  
+        </div>
+        <div className="header-items" id="user-header-items">
           <div id="header-item-one">Sell on Flea</div>
-          <div id="header-item-two">Favorites</div>
-          <div id="header-item-three">Notifications</div>
-          <button id="header-item-four" onClick={this.handleSignOut}>Sign Out</button>
-          <div id="header-item-five"><i className="fas fa-shopping-cart"></i></div>
+          <div id="header-item-two">
+            <i className="fa fa-heart"></i>
+            <p>Favorites</p>
+          </div>
+          <div id="header-item-three">
+            <i className="fa fa-bell"></i>
+            <p>Notifications</p>
+          </div>
+          <button id="header-item-four" onClick={this.handleSignOut}>
+            <i className="fa fa-user"></i>
+            <p>You(sign out)</p>
+          </button>
+          <div id="header-item-five"><i className="fa fa-shopping-cart"></i></div>
         </div>
       </div>
     )
