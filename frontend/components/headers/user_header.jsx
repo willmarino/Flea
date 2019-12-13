@@ -20,7 +20,7 @@ class UserHeader extends React.Component{
 
   render(){
 
-    let currentUserName = this.props.currentUser.username;
+    // let currentUserName = this.props.currentUser.username;
 
     return(
       <div className="header">
@@ -47,7 +47,7 @@ class UserHeader extends React.Component{
               <div className="dropdown-content-top">
                   <i className="fa fa-user fa-2x" aria-hidden="true"></i>
                   <div>
-                    <p>{currentUserName}</p>
+                    {/* <p>{currentUserName}</p> */}
                     <p>View Profile</p>
                   </div>
               </div>
