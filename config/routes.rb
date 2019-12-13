@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
 
     resources :shops, only: [:create, :show, :update, :destroy] do
-      resources :products, only: [:create, :update, :show, :destroy]
+      resources :products, only: [:create, :update]
     end
 
-    resources :products, only: [:index]
+    resources :products, only: [:index, :show, :destroy]
 
   end
 

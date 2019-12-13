@@ -14,6 +14,13 @@ export const fetchUser = user => (
   })
 );
 
+export const userById = userId => (
+ $.ajax({
+   method: "GET",
+   url: `/api/users/${userId}`
+ })
+);
+
 export const createUser = (user) => (
   $.ajax({
     method: "POST",

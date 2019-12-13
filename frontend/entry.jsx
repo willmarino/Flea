@@ -4,7 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 import sampleState from './store/sample_state';
 import { signupUser, receiveUser } from './actions/users_actions';
-
+import {fetchProduct} from './util/product_util';
+import {userById} from './util/user_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 
   // window.dispatch = store.dispatch;
   // window.receiveUser = receiveUser;
+  window.fetchProduct = fetchProduct;
   window.state = store.getState;
   // window.signupUser = signupUser;
   // 
