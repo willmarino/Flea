@@ -1,5 +1,6 @@
 import React from 'react';
 import DemoUserContainer from '../users/demo_user_container';
+import { fetchUsers } from '../../actions/users_actions';
 
 
 class AnonHeader extends React.Component{
@@ -12,6 +13,9 @@ class AnonHeader extends React.Component{
 
   }
 
+  componentDidMount(){
+    this.props.fetchProducts();
+  }
 
   render(){
     return(

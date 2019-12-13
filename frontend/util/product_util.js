@@ -7,10 +7,10 @@ export const createProduct = (shopId, product) => (
   })
 );
 
-export const updateProduct = (shopId, productId) => (
+export const updateProduct = (productId) => (
   $.ajax({
     method: "PATCH",
-    url: `/api/shops/${shopId}/products/${productId}`,
+    url: `/api/products/${productId}`,
     data: { product }
   })
 );
