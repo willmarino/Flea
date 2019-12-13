@@ -65,6 +65,16 @@ class UserLogin extends React.Component{
     //   passwordErrors = <p>{this.errors.password}</p>;
     // }
 
+    let passErrors;
+    let userErrors;
+
+    if(this.props.errors){
+      if(this.props.errors.includes("password")){
+        passErrors = <SessionErrors/>;
+      }else{
+        userErrors = <SessionErrors/>;
+      }
+    }
 
 
     return(
@@ -78,13 +88,15 @@ class UserLogin extends React.Component{
           <div id="two" className="form-row">
               <p>Username</p>
               <input className="login-input" type="text" onChange={this.update('username')} value={this.state.username}/>
-              <SessionErrors/>
+              {/* <SessionErrors/> */}
+              <div>{userErrors}</div>
           </div>
 
           <div id="three" className="form-row">
               <p>Password</p>
               <input className="login-input" type="password" onChange={this.update('password')} value={this.state.password}/>
-              <SessionErrors/>
+              {/* <SessionErrors/> */}
+              <div>{passErrors}</div>
           </div>
 
           <div className="login-options">

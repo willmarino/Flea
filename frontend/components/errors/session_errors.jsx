@@ -8,7 +8,7 @@ class SessionErrors extends React.Component{
 
   render(){
     return(
-      <div>{this.props.sessionErrors}</div>
+      <div className="errors">{this.props.sessionErrors}</div>
     );
   }
 

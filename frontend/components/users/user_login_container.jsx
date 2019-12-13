@@ -7,7 +7,8 @@ import { receiveErrors } from '../../actions/session_actions';
 
 const msp = state => ({
   user: {username: "", password: ""},
-  formType: 'login'
+  formType: 'login',
+  errors: state.errors.sessionErrors
 });
 
 const mdp = dispatch => ({
