@@ -46,41 +46,59 @@ class UserForm extends React.Component{
 
         <div className="signup-half-one">
           <div className="signup-form-row" id="signup-one">
-            <div>Create your account</div>
-            <p>Registration is easy.</p>
+            <div className="create-account">Create your account</div>
+            <p className="registration-account">Registration is easy.</p>
           </div>
           <div className="signup-form-row" id="signup-two">
-            <label> Email
-              <input type="text" onChange={this.update('email')} value={this.state.email} />
-            </label>
+            {/* <label> Email */}
+              <p>Email</p>
+              <input className="signup-input" type="text" onChange={this.update('email')} value={this.state.email} />
+            {/* </label> */}
           </div>
           <div className="signup-form-row" id="signup-three">
-            <label> Username
-              <input type="text" onChange={this.update('username')} value={this.state.username}/>
-            </label>
+            {/* <label> Username */}
+              <p>Username</p>
+              <input className="signup-input" type="text" onChange={this.update('username')} value={this.state.username}/>
+            {/* </label> */}
           </div>
           <div className="signup-form-row" id="signup-four">
-            <label> Password
-              <input type="password" onChange={this.update('password')} value={this.state.password} />
-            </label>
+            {/* <label> Password */}
+              <p>Password</p>
+              <input className="signup-input" type="password" onChange={this.update('password')} value={this.state.password} />
+            {/* </label> */}
           </div>
           <div className="signup-form-row" id="signup-five">
-            <button type="submit">Register</button>
+            <button className="signup-input" type="submit">Register</button>
           </div>
+
+
+          <div className="divider">
+
+            <div className="signup-divider-or">OR</div>
+
+          </div>
+
+
+
         </div>
 
         <div className="signup-half-two">
-          <div className="continue-button-one">
-            <i className="fa fa-google"></i>
-            <button>Continue With Google</button>
-          </div>
 
-          <div className="continue-button-one">
-            <i className="fa fa-facebook"></i>
-            <button>Continue With Facebook</button>
-          </div>
+          <button className="continue-button-one">
+            <div className="button-content">
+              <i className="fa fa-google"></i>
+              <p>Continue With Google</p>
+            </div>
+          </button>
 
-          <div className="">
+          <button className="continue-button-two">
+            <div className="button-content">
+              <i className="fa fa-facebook"></i>
+              <p>Continue With Facebook</p>
+            </div>
+          </button>
+
+          <div className="warning">
             <p>Warning text about stuff Warning text about stuff Warning text about stuff Warning text about stuff Warning text about stuff</p>
           </div>
 

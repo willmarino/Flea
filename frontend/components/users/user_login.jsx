@@ -68,22 +68,25 @@ class UserLogin extends React.Component{
           </div>
 
           <div id="two" className="form-row">
-            <label> Username
+            {/* <label> Username */}
+              <p>Username</p>
               <input className="login-input" type="text" onChange={this.update('username')} value={this.state.username}/>
               {/* {userErrors} */}
-            </label>
+            {/* </label> */}
           </div>
 
           <div id="three" className="form-row">
-            <label> Password
+            {/* <label> Password */}
+              <p>Password</p>
               <input className="login-input" type="password" onChange={this.update('password')} value={this.state.password}/>
               {/* {passwordErrors} */}
-            </label>
+            {/* </label> */}
           </div>
 
           <div className="login-options">
             <div className="option-one">
-              <i className="fa fa-square"></i>
+              {/* <i class="far fa-square fa-2x"></i> */}
+              <button></button>
               <p>Stay Signed In</p>
             </div>
             <div className="option-two">
@@ -94,7 +97,20 @@ class UserLogin extends React.Component{
           <div id="four" className="form-row">
             <button type="submit" onClick={this.handleLogin}>Sign In</button>
           </div>
+
+
+          <div className="divider">
+
+            <p className="divider-trouble">Trouble Signing In?</p>
+
+            <div className="divider-or">OR</div>
+
+          </div>
+
+
+
         </div>
+
 
 
 
@@ -107,16 +123,20 @@ class UserLogin extends React.Component{
           </div> */}
 
           <button className="continue-button-one">
-            <i className="fa fa-google"></i>
-            <p>Continue With Google</p>
+            <div className="button-content">
+              <i className="fa fa-google"></i>
+              <p>Continue With Google</p>
+            </div>
           </button>
 
-          <div className="continue-button-two">
-            <i className="fa fa-facebook"></i>
-            <button>Continue With Facebook</button>
-          </div>
+          <button className="continue-button-two">
+            <div className="button-content">
+              <i className="fa fa-facebook"></i>
+              <p>Continue With Facebook</p>
+            </div>
+          </button>
 
-          <div className="">
+          <div className="warning">
             <p>Warning text about stuff Warning text about stuff Warning text about stuff Warning text about stuff Warning text about stuff</p>
           </div>
 

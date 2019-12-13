@@ -15,8 +15,8 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 340px;
-	height: 650px;
+	width: 350px;
+	height: 750px;
 	z-index: 10;
 	display: flex;
   flex-direction: column;
@@ -34,26 +34,42 @@
 
 
 .half-one{
-  height: 50%;
+  height: 60%;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.15);
 }
 .half-two{
-  height: 50%;
+  height: 40%;
 }
 
 // --------
 // 'continue with' button styling
 
 .continue-button-one, .continue-button-two{
-  position: relative;
-  height: 40px;
+  display: flex;
+  justify-content: center;
+
+  // padding: 10px;
+  min-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  border: 1px solid rgba(34, 34, 34, 0.15);
+  border-radius: 3px;
+  
+  height: 50px;
 }
 
-// .continue-button-one button, .continue-button-two button{
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-// }
+.button-content{
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-content p{
+  font-weight: bold;
+  font-size: 16px;
+}
+
 
 
 
@@ -61,23 +77,39 @@
 
 .form-row{
   width: 100%;
-  padding: 10px;
+  // padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.form-row #two, #three{
-  padding: 10px;
+
+// username and password inputs
+#two, #three{
+  // padding: 10px;
   width: 100%;
+  height: 80px;
 }
+
+#two, #three{
+  background-color: white;
+
+}
+
+#two p, #three p{
+  padding-bottom: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
 
 .form-row input{
   width: 100%;
-  height: 40px;
   font-size: 14px;
 }
 
-.form-row label{
-  width: 100%;
-}
+// .form-row label{
+//   width: 100%;
+// }
 
 .modal-form button{
   width: 50px;
@@ -87,6 +119,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #four {
@@ -116,14 +149,20 @@
 
 #four button{
   width: 100%;
-  height: 40px;
+  height: 45px;
   background-color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
 }
 
 
 .login-input{
   border-radius: 5px;
   border: 1px solid lightgray;
+  height: 44px;
 }
 
 .login-input:hover{
@@ -142,28 +181,66 @@
 
 
 .signup-half-one{
-  height: 50%;
+  min-width: 100%;
+  height: 60%;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.15);
 }
 .signup-half-two{
-  height: 50%;
+  min-width: 100%;
+  height: 40%;
+}
+
+.signup-input{
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  height: 44px;
+}
+
+.signup-input:hover{
+  border-radius: 5px;
+  border: 1px solid gray;
+  height: 44px;
+}
+
+.signup-input:focus{
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 44px;
+}
+
+#signup-five input:hover{
+  background-color: 	#383838;
+}
+
+.registration-account{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 
-.signup-form-row{
-  width: 100%;
-  padding: 10px;
-}
 
 .signup-form-row input{
   width: 100%;
-  height: 40px;
-  font-size: 14px;
 }
 
-.signup-form-row{
-  width: 100%;
-  padding: 10px;
+.signup-form-row p{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
+
+#signup-five button{
+  width: 100%;
+  height: 45px;
+  background-color: black;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+}
+
+
 
 #signup-one div{
   font-size: 28px;
@@ -179,5 +256,117 @@
 }
 
 // -----------------------------------------------------------------------------
+// half styling
+
+.half-one{
+  min-width: 100%;
+}
 
 
+
+
+
+
+// -----------------------------------------------------------------------------
+// options styling (stay signed in, checkbox, forgot password?, middle of login)
+
+.login-options{
+  
+  min-width: 100%;
+
+  display: flex;
+
+  // margin: 10px;
+  // padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.option-one{
+  display: flex;
+
+  width: 135px;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.option-one button{
+  width: 30px;
+  height: 30px;
+
+  border: 2px solid rgba(34, 34, 34, 0.15);
+
+  // padding-right: 10px;
+}
+
+.option-one p{
+
+}
+
+.option-two{
+  display: flex;
+
+  align-items: center;
+}
+
+.option-two p{
+  font-size: 13px;
+  font-weight: lighter;
+  text-decoration: underline;
+  color :#595959;
+}
+
+.option-two p:hover{
+  color: #404040;
+}
+
+// -----------------------------------------------------------------------------
+// divider styling
+
+.divider{
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+}
+
+.divider-trouble{
+
+}
+
+.divider-or{
+  position: absolute;
+  top: 43px;
+  z-index: 15;
+  background: white;
+  color: gray;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.signup-divider-or{
+  position: absolute;
+  top: 35px;
+  z-index: 15;
+  background: white;
+  color: gray;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+// -----------------------------------------------------------------------------
+// warning styling
+
+.warning{
+  padding-top: 10px;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #585858;
+}
