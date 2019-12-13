@@ -16,7 +16,7 @@
     background: white;
     font-size: 14px;
 
-
+    height: 300px;
 
     border: 2px solid rgba(34, 34, 34, 0.15);
 }
@@ -28,13 +28,32 @@
 
 }
 
+.dropdown-content-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 25%;
+
+    padding: 5px;
+}
+
 .dropdown-content-mid{
     display: flex;
     flex-direction: column;
+
+    height: 60%;
+    padding: 5px;
+}
+
+.dropdown-content-bottom{
+    height: 15%;
+    padding: 5px;
 }
 
 [class^='dropdown-content-mid-']{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }

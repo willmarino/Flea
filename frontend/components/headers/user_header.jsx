@@ -19,6 +19,9 @@ class UserHeader extends React.Component{
   }
 
   render(){
+
+    let currentUserName = this.props.currentUser.username;
+
     return(
       <div className="header">
         <div className="logo" id="first">Flea</div>
@@ -42,9 +45,11 @@ class UserHeader extends React.Component{
             <p>You(Sign Out)</p>
             <div className="dropdown-content">
               <div className="dropdown-content-top">
-                <div>
-                  <i className="fa fa-user" aria-hidden="true"></i>
-                </div>
+                  <i className="fa fa-user fa-2x" aria-hidden="true"></i>
+                  <div>
+                    <p>{currentUserName}</p>
+                    <p>View Profile</p>
+                  </div>
               </div>
               <div className="dropdown-content-mid">
                 <div className="dropdown-content-mid-gifts">

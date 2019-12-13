@@ -11,7 +11,9 @@ import UserHeader from './user_header';
 import {logoutUser} from '../../actions/session_actions';
 
 const msp = state => ({
-    user: state.session.currentUser
+    // user: state.session.currentUser,
+    // users: state.entities.users
+    currentUser: state.entities.users[state.session.currentUser]
 });
 
 const mdp = dispatch => ({
