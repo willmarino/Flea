@@ -12,7 +12,7 @@ const SessionReducer = (state=_nullSession, action) => {
   Object.freeze(state);
   switch (action.type) {
     case SIGN_UP_USER:
-      return Object.assign({}, state, {currentUser: action.user.id})
+      return Object.assign({}, state, {currentUser: action.user.id});
     case LOG_IN_USER:
       return Object.assign({}, state, {currentUser: action.user.id});
     case LOG_OUT_USER:

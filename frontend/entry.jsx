@@ -4,15 +4,13 @@ import configureStore from './store/store';
 import Root from './components/root';
 import sampleState from './store/sample_state';
 import { signupUser, receiveUser } from './actions/users_actions';
-// import { receiveUser } from './actions/users_actions';
-// import openModal from './actions/modal_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   let pls = {};
-  let UErrors = {};
-  let SErrors = {};
+  // let UErrors = {};
+  // let SErrors = {};
   // debugger;
   if (window.currentuser){
     pls = {
@@ -36,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }else{
     store = configureStore();
   }
+  // debugger;
 
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);

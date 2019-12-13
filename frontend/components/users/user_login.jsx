@@ -1,14 +1,16 @@
 import React from 'react';
+import SessionErrors from '../errors/session_errors_container';
+import UserErrors from '../errors/user_errors_container';
 
 class UserLogin extends React.Component{
   constructor(props){
     super(props);
     this.state = this.props.user;
 
-    this.errors = {
-      username: null,
-      password: null
-    };
+    // this.errors = {
+    //   username: null,
+    //   password: null
+    // };
     
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -17,14 +19,20 @@ class UserLogin extends React.Component{
   }
 
   handleLogin(e){
-    // e.preventDefault();
-    // if (this.state.username.length === 0) {
-    //   this.errors.username = "Username Can't Be Blank";
-    // } else if (this.state.password.length < 6) {
-    //   this.errors.password = "Password Was Incorrect";
-    // } else {
+    e.preventDefault();
+    // debugger;
+    // if(this.state.username.length === 0){
+    //   this.props.sendErrors(["Username cannot be blank"]);
+    //   this.errors.username = <SessionErrors/>;
+    //   // debugger;
+    // }else if(this.state.password.length < 6){
+    //   this.props.sendErrors(["Password must be at least 6 characters"]);
+    //   this.errors.password = <SessionErrors/>;
+    //   // debugger;
+    // }else{
     //   this.props.loginUser(this.state);
     // }
+    // debugger;
     this.props.loginUser(this.state);
   }
 
@@ -45,16 +53,16 @@ class UserLogin extends React.Component{
   }
 
   render(){
+    // debugger;
 
-
-    // let userErrors = null;
+    // let usernameErrors = null;
     // let passwordErrors = null;
 
     // if (this.errors.username) {
-    //   userErrors = <p>{this.errors.username}</p>;
+    //   usernameErrors = <p>{this.errors.username}</p>;
     // }
-    // if (this.errors.username) {
-    //   passwordErrors = <p>{this.errors.username}</p>;
+    // if (this.errors.password) {
+    //   passwordErrors = <p>{this.errors.password}</p>;
     // }
 
 
@@ -68,24 +76,19 @@ class UserLogin extends React.Component{
           </div>
 
           <div id="two" className="form-row">
-            {/* <label> Username */}
               <p>Username</p>
               <input className="login-input" type="text" onChange={this.update('username')} value={this.state.username}/>
-              {/* {userErrors} */}
-            {/* </label> */}
+              <SessionErrors/>
           </div>
 
           <div id="three" className="form-row">
-            {/* <label> Password */}
               <p>Password</p>
               <input className="login-input" type="password" onChange={this.update('password')} value={this.state.password}/>
-              {/* {passwordErrors} */}
-            {/* </label> */}
+              <SessionErrors/>
           </div>
 
           <div className="login-options">
             <div className="option-one">
-              {/* <i class="far fa-square fa-2x"></i> */}
               <button></button>
               <p>Stay Signed In</p>
             </div>
@@ -116,11 +119,6 @@ class UserLogin extends React.Component{
 
 
         <div className="half-two">
-
-          {/* <div className="continue-button-one">
-            <i className="fa fa-google"></i>
-            <button>Continue With Google</button>
-          </div> */}
 
           <button className="continue-button-one">
             <div className="button-content">

@@ -24,7 +24,6 @@ const App = () => {
     <div>
       <AuthRoute exact path="/anon" component={AnonMain}/>
       <ProtectedRoute exact path="/" component={UserMain}/>
-      <Route exact path="/test" component={Test}/>
     </div>
   )
 };

@@ -10,8 +10,8 @@ class DemoUser extends React.Component{
 
   handleDemoSignin(e){
     e.preventDefault();
-    this.props.loginDemoUser(this.props.demoUser)
-    this.props.sendUserToState(this.props.demoUser)
+    this.props.loginDemoUser(this.props.demoUser);
+    this.props.sendUserToState(this.props.demoUser);
   }
 
   render(){

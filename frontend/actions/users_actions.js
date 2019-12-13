@@ -12,7 +12,7 @@ export const receiveUser = (user) => ({
   user
 });
 
-const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
@@ -24,7 +24,10 @@ const receiveUsers = (users) => ({
 
 export const signupUser = (user) => dispatch => (
   UserApi.createUser(user)
-    .then(user => dispatch(receiveUser(user))), errors => dispatch(receiveErrors(errors.responseJSON))
+    .then(
+      user => dispatch(receiveUser(user)), 
+      errors => dispatch(receiveErrors(errors.responseJSON))
+    )
 
 );
 

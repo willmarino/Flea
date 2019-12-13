@@ -6,6 +6,7 @@ import { loginUser } from '../../actions/session_actions';
 import {
   openModal, closeModal, OPEN_MODAL, CLOSE_MODAL
 } from '../../actions/modal_actions';
+import {receiveErrors} from '../../actions/users_actions';
 
 const msp = state => ({
   user: {username: "", password: "", email: ""},
@@ -18,7 +19,8 @@ const mdp = dispatch => ({
   loginForm: (
     <button onClick={() => dispatch(openModal('login'))}>Login</button>
   ),
-  closeModal: () => dispatch(closeModal())
+  closeModal: () => dispatch(closeModal()),
+  sendErrors: (errors) => dispatch(receiveErrors(errors))
 });
 
 export default connect(msp, mdp)(UserForm);

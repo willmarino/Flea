@@ -50,22 +50,16 @@ class UserForm extends React.Component{
             <p className="registration-account">Registration is easy.</p>
           </div>
           <div className="signup-form-row" id="signup-two">
-            {/* <label> Email */}
               <p>Email</p>
               <input className="signup-input" type="text" onChange={this.update('email')} value={this.state.email} />
-            {/* </label> */}
           </div>
           <div className="signup-form-row" id="signup-three">
-            {/* <label> Username */}
               <p>Username</p>
               <input className="signup-input" type="text" onChange={this.update('username')} value={this.state.username}/>
-            {/* </label> */}
           </div>
           <div className="signup-form-row" id="signup-four">
-            {/* <label> Password */}
               <p>Password</p>
               <input className="signup-input" type="password" onChange={this.update('password')} value={this.state.password} />
-            {/* </label> */}
           </div>
           <div className="signup-form-row" id="signup-five">
             <button className="signup-input" type="submit">Register</button>

@@ -9,7 +9,7 @@ export const receiveUser = (user) => ({
   user
 });
 
-const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
 });
@@ -20,8 +20,10 @@ const removeUser = () => ({
 
 export const loginUser = user => dispatch => (
   SessionApi.loginUser(user)
-    .then(user => dispatch(receiveUser(user))),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    .then(
+      user => dispatch(receiveUser(user)),
+      errors => dispatch(receiveErrors(errors.responseJSON))
+    )
 );
 
 export const logoutUser = () => dispatch => (
