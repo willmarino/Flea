@@ -1,28 +1,17 @@
 import React from 'react';
+import UserErrors from '../errors/user_errors_container';
 
 class UserForm extends React.Component{
   constructor(props){
     super(props);
     this.state = this.props.user;
-    
-
-    this.errors = {
-      username: null,
-      password: null
-    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    if(this.state.username.length === 0){
-      this.errors.username = "Username Can't Be Blank";
-    }else if(this.state.password.length < 6){
-      this.errors.password = "Password Was Incorrect";
-    }else{
-      this.props.signupUser(this.state);
-    }
+    this.props.signupUser(this.state);
   }
 
   update(field){
@@ -31,15 +20,14 @@ class UserForm extends React.Component{
 
   render(){
 
-    // let userErrors = null;
-    // let passwordErrors = null;
+    let passErrors;
+    let userErrors;
 
-    // if(this.errors.username){
-    //   userErrors = <p>{this.errors.username}</p>;
-    // }
-    // if(this.errors.username){
-    //   passwordErrors = <p>{this.errors.username}</p>;
-    // }
+    if(this.props.errors.includes("password") || this.props.errors.includes("Password")){
+      passErrors = <UserErrors/>;
+    } else{
+      userErrors = <UserErrors/>;
+    }
 
     return(
       <form className="modal-form" onSubmit={this.handleSubmit}>
@@ -56,10 +44,12 @@ class UserForm extends React.Component{
           <div className="signup-form-row" id="signup-three">
               <p>Username</p>
               <input className="signup-input" type="text" onChange={this.update('username')} value={this.state.username}/>
+              {userErrors}
           </div>
           <div className="signup-form-row" id="signup-four">
               <p>Password</p>
               <input className="signup-input" type="password" onChange={this.update('password')} value={this.state.password} />
+              {passErrors}
           </div>
           <div className="signup-form-row" id="signup-five">
             <button className="signup-input" type="submit">Register</button>

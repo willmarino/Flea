@@ -10,7 +10,8 @@ import {receiveErrors} from '../../actions/users_actions';
 
 const msp = state => ({
   user: {username: "", password: "", email: ""},
-  formtype: 'sign up'
+  formtype: 'sign up',
+  errors: state.errors.userErrors
 });
 
 const mdp = dispatch => ({

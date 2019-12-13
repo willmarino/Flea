@@ -8,7 +8,7 @@ class UserErrors extends React.Component{
 
   render(){
     return(
-      <div className="user-errors">{this.props.userErrors}</div>
+      <div className="errors">{this.props.userErrors}</div>
     );
   }
 }

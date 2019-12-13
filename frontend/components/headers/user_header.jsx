@@ -36,10 +36,41 @@ class UserHeader extends React.Component{
             <i className="fa fa-bell"></i>
             <p>Notifications</p>
           </div>
-          <button id="header-item-four" onClick={this.handleSignOut}>
+
+          <button id="header-item-four" className="dropdown">
             <i className="fa fa-user"></i>
-            <p>You(sign out)</p>
+            <p>You(Sign Out)</p>
+            <div className="dropdown-content">
+              <div className="dropdown-content-top">
+                <div>
+                  <i className="fa fa-user" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div className="dropdown-content-mid">
+                <div className="dropdown-content-mid-gifts">
+                  <i className="fa fa-gift" aria-hidden="true"></i>
+                  <p>$93.46</p>
+                </div>
+                <div className="dropdown-content-mid-messages">
+                  <i className="fa fa-comment-o" aria-hidden="true"></i>
+                  <p>Messages</p>
+                </div>
+                <div className="dropdown-content-mid-pr">
+                  <p>Purchases and reviews</p>
+                </div>
+                <div className="dropdown-content-mid-as">
+                  <p>Accout Settings</p>
+                </div>
+              </div>
+              <div className="dropdown-content-bottom">
+                <div className="dropdown-content-signout" onClick={this.handleSignOut}>
+                  <p>Sign Out</p>
+                </div>
+              </div>
+            </div>
           </button>
+
+
           <div id="header-item-five"><i className="fa fa-shopping-cart"></i></div>
         </div>
       </div>
@@ -48,3 +79,6 @@ class UserHeader extends React.Component{
 }
 
 export default UserHeader;
+
+
+// onClick={this.handleSignOut} line 40

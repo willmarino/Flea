@@ -1,0 +1,40 @@
+.dropdown{
+    position: relative;
+}
+
+.dropdown-content{
+    display: none;
+
+    position: absolute;
+    top: 50px;
+    right: 2px;
+
+    min-width: 240px;
+    padding: 10px;
+    z-index: 1;
+
+    background: white;
+    font-size: 14px;
+
+
+
+    border: 2px solid rgba(34, 34, 34, 0.15);
+}
+
+.dropdown:focus .dropdown-content{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dropdown-content-mid{
+    display: flex;
+    flex-direction: column;
+}
+
+[class^='dropdown-content-mid-']{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

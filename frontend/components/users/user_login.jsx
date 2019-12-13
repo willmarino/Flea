@@ -1,17 +1,11 @@
 import React from 'react';
 import SessionErrors from '../errors/session_errors_container';
-import UserErrors from '../errors/user_errors_container';
+
 
 class UserLogin extends React.Component{
   constructor(props){
     super(props);
     this.state = this.props.user;
-
-    // this.errors = {
-    //   username: null,
-    //   password: null
-    // };
-    
 
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -20,19 +14,6 @@ class UserLogin extends React.Component{
 
   handleLogin(e){
     e.preventDefault();
-    // debugger;
-    // if(this.state.username.length === 0){
-    //   this.props.sendErrors(["Username cannot be blank"]);
-    //   this.errors.username = <SessionErrors/>;
-    //   // debugger;
-    // }else if(this.state.password.length < 6){
-    //   this.props.sendErrors(["Password must be at least 6 characters"]);
-    //   this.errors.password = <SessionErrors/>;
-    //   // debugger;
-    // }else{
-    //   this.props.loginUser(this.state);
-    // }
-    // debugger;
     this.props.loginUser(this.state);
   }
 
@@ -88,14 +69,12 @@ class UserLogin extends React.Component{
           <div id="two" className="form-row">
               <p>Username</p>
               <input className="login-input" type="text" onChange={this.update('username')} value={this.state.username}/>
-              {/* <SessionErrors/> */}
               <div>{userErrors}</div>
           </div>
 
           <div id="three" className="form-row">
               <p>Password</p>
               <input className="login-input" type="password" onChange={this.update('password')} value={this.state.password}/>
-              {/* <SessionErrors/> */}
               <div>{passErrors}</div>
           </div>
 
