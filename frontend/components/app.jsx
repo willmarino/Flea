@@ -8,7 +8,7 @@
 
 
 import React from 'react';
-import { Route, Link} from 'react-router-dom';
+import { Route, Link, Switch} from 'react-router-dom';
 import {ProtectedRoute, AuthRoute} from '../util/route_util';
 import AnonMain from './main/anon_main';
 import UserMain from './main/user_main';
@@ -24,8 +24,10 @@ const App = () => {
   // debugger;
   return (
     <div>
-      <AuthRoute exact path="/anon" component={AnonMain}/>
-      <ProtectedRoute exact path="/" component={UserMain}/>
+      <Switch>
+        <AuthRoute path="/anon" component={AnonMain}/>
+        <ProtectedRoute path="/" component={UserMain}/>
+      </Switch>
     </div>
   )
 };
