@@ -14,6 +14,11 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :creator_id
 
+  has_one :cart,
+    class_name: "Cart",
+    primary_key: :id,
+    foreign_key: :user_id
+
 
 
   def self.find_by_credentials(username, password)
