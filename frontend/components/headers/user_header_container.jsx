@@ -9,15 +9,17 @@
 import { connect } from 'react-redux';
 import UserHeader from './user_header';
 import {logoutUser} from '../../actions/session_actions';
+import {fetchProducts} from '../../actions/product_actions';
+import {fetchShops} from '../../actions/shop_actions';
 
 const msp = state => ({
-    // user: state.session.currentUser,
-    // users: state.entities.users
     currentUser: state.entities.users[state.session.currentUser]
 });
 
 const mdp = dispatch => ({
-    signoutUser: () => dispatch(logoutUser())
+    signoutUser: () => dispatch(logoutUser()),
+    fetchProducts: () => dispatch(fetchProducts()),
+    fetchShops: () => dispatch(fetchShops())
 });
 
 

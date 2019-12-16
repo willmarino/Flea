@@ -19626,3 +19626,169 @@ Processing by Api::ShopsController#show as JSON
 Completed 200 OK in 24ms (Views: 5.7ms | ActiveRecord: 9.2ms)
 
 
+Started GET "/" for ::1 at 2019-12-15 21:41:57 -0500
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/will/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1955ms (Views: 1948.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/products" for ::1 at 2019-12-15 21:42:00 -0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (23.2ms)
+Completed 200 OK in 50ms (Views: 33.2ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/api/shops" for ::1 at 2019-12-15 21:42:06 -0500
+Processing by Api::ShopsController#index as JSON
+  Rendering api/shops/index.json.jbuilder
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/api/shops/index.json.jbuilder:2
+  Rendered api/shops/index.json.jbuilder (13.6ms)
+Completed 200 OK in 24ms (Views: 14.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2019-12-15 21:44:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 668ms (Views: 664.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/products" for ::1 at 2019-12-15 21:44:08 -0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Started GET "/api/shops" for ::1 at 2019-12-15 21:44:08 -0500
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (4.5ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 1.0ms)
+
+
+Processing by Api::ShopsController#index as JSON
+  Rendering api/shops/index.json.jbuilder
+  [1m[36mShop Load (1.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/api/shops/index.json.jbuilder:2
+  Rendered api/shops/index.json.jbuilder (3.6ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/session" for ::1 at 2019-12-15 22:40:15 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"demouser", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demouser"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demouser"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  Rendering api/sessions/show.json.jbuilder
+  Rendered api/sessions/show.json.jbuilder (1.9ms)
+Completed 200 OK in 292ms (Views: 12.0ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/" for ::1 at 2019-12-15 22:41:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "KB4PJuCUk_aT7NWa7tspDg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "KB4PJuCUk_aT7NWa7tspDg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 764ms (Views: 760.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/products" for ::1 at 2019-12-15 22:41:14 -0500
+Started GET "/api/shops" for ::1 at 2019-12-15 22:41:14 -0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (7.5ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.7ms)
+
+
+Processing by Api::ShopsController#index as JSON
+  Rendering api/shops/index.json.jbuilder
+  [1m[36mShop Load (2.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/api/shops/index.json.jbuilder:2
+  Rendered api/shops/index.json.jbuilder (6.6ms)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-12-15 22:41:21 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "KB4PJuCUk_aT7NWa7tspDg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "KB4PJuCUk_aT7NWa7tspDg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demouser"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@mail.com"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "E4ePdM4aXijfDmNAmbceRQ"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."password_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["password_digest", "$2a$12$KpSCXjIMPQG/BZj8ObpT8.BuKnYgx87XThMDRSJ.X2oIoK1CZhU2y"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "E4ePdM4aXijfDmNAmbceRQ"], ["updated_at", "2019-12-16 03:41:21.946273"], ["id", 10]]
+  ↳ app/models/user.rb:43
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:43
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/products" for ::1 at 2019-12-15 22:41:21 -0500
+Started GET "/api/shops" for ::1 at 2019-12-15 22:41:21 -0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+Processing by Api::ShopsController#index as JSON
+  [1m[36mProduct Load (5.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (13.9ms)
+Completed 200 OK in 29ms (Views: 23.6ms | ActiveRecord: 5.0ms)
+
+
+  Rendering api/shops/index.json.jbuilder
+  [1m[36mShop Load (2.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/api/shops/index.json.jbuilder:2
+  Rendered api/shops/index.json.jbuilder (8.0ms)
+Completed 200 OK in 26ms (Views: 22.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2019-12-15 22:50:47 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 666ms (Views: 663.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/products" for ::1 at 2019-12-15 22:50:48 -0500
+Processing by Api::ProductsController#index as JSON
+Started GET "/api/shops" for ::1 at 2019-12-15 22:50:48 -0500
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:2
+  Rendered api/products/index.json.jbuilder (4.0ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 1.1ms)
+
+
+Processing by Api::ShopsController#index as JSON
+  Rendering api/shops/index.json.jbuilder
+  [1m[36mShop Load (1.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/views/api/shops/index.json.jbuilder:2
+  Rendered api/shops/index.json.jbuilder (3.3ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 1.2ms)
+
+

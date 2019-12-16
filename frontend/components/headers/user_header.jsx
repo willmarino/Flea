@@ -18,6 +18,11 @@ class UserHeader extends React.Component{
     this.props.signoutUser();
   }
 
+  componentDidMount(){
+    this.props.fetchProducts();
+    this.props.fetchShops();
+  }
+
   render(){
 
     // let currentUserName = this.props.currentUser.username;

@@ -18,6 +18,11 @@ class Api::ShopsController < ApplicationController
     end
   end
 
+  def index
+    @shops = Shop.all
+    render :index
+  end
+
   def update
     @shop = Shop.find(params[:id])
     if @shop.update_attributes

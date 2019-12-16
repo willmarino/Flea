@@ -16,6 +16,7 @@ class Index extends React.Component {
     arr = Object.values(this.props.products);
 
     productsArr = arr.map((product) => {
+      let shop = this.props.shops[product.shop_id]
       return(
         <IndexItem product={product} key={product.id}/>
       );

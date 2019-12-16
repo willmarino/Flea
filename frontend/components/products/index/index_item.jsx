@@ -5,12 +5,12 @@ class IndexItem extends React.Component{
   constructor(props){
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e){
+  // handleClick(e){
 
-  }
+  // }
 
   render(){
     let path = `/anon/products/${this.props.product.id}`;
@@ -20,7 +20,6 @@ class IndexItem extends React.Component{
       </li>
     )
   }
-
 }
 
 export default IndexItem;
