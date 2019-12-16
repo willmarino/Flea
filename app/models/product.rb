@@ -6,7 +6,7 @@ class Product < ApplicationRecord
     primary_key: :id,
     foreign_key: :shop_id
 
-  
+  has_one_attached :photo
 
 
 end
