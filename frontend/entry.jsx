@@ -6,6 +6,7 @@ import Root from './components/root';
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   let pls = {};
+  
   if (window.currentuser){
     pls = {
       entities: {
@@ -14,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         products: {
           
+        },
+        shops: {
+
         }
       },
       errors: {
