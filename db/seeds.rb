@@ -11,8 +11,8 @@ User.destroy_all
 Shop.destroy_all
 Product.destroy_all
 
-u2 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
 u1 = User.create!(username: "Lary", password: "password", email: "lary@mail.com")
+u2 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
 u3 = User.create!(username: "Greg", password: "password", email: "greg@mail.com")
 u4 = User.create!(username: "Lisa", password: "password", email: "lisa@mail.com")
 u5 = User.create!(username: "Sarah", password: "password", email: "sarah@mail.com")
@@ -44,3 +44,15 @@ p9 = Product.create!(name: "dark gray sweater", shop_id: s2.id, high_level_categ
 p10 = Product.create!(name: "glue", shop_id: s2.id, high_level_category: "Craft Supplies", price: 76.87, stock_amt: 9001)
 p11 = Product.create!(name: "blue t shirt", shop_id: s4.id, high_level_category: "Clothing and Shoes", price: 82.87, stock_amt: 3)
 p12 = Product.create!(name: "scarf", shop_id: s5.id, high_level_category: "Clothing and Shoes", price: 81.87, stock_amt: 8)
+
+
+
+# 10.times do
+#     seed_name = Faker::Name.unique.first_name
+#     User.create!(
+#         username: seed_name,
+#         password: password,
+#         email: "#{seed_name}@mail.com"
+#     )
+# end
+
