@@ -5,15 +5,7 @@ class IndexItem extends React.Component{
   constructor(props){
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e){
-    e.preventDefault();
-    // let path = `/anon/products/${this.props.product.id}`;
-    // <Redirect to={path}/>
-    // this.props.history.push(path);
-
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   render(){

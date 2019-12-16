@@ -30,7 +30,7 @@ class Index extends React.Component {
     let i = -1;
     let catComps = categories.map((cat) => {
       i += 1;
-      return <IndexRowContainer category={cat} type="complex" key={i}/>;
+      return <IndexRowContainer category={cat} type="simple" key={i}/>;
     });
 
 

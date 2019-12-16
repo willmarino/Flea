@@ -14,20 +14,24 @@ class IndexRow extends React.Component{
     }
 
     render(){
+
+        // if(this.props.type === "c"){
+
+        // }
+
         let shop;
         let products;
         if(Object.keys(this.props.shops).length === 0 || Object.keys(this.props.products).length === 0){
-            products = <p></p>
+            products = <p></p>;
         }else{
             products = this.props.products.map((p) => {
-                console.log(this.props.shops);
-                console.log(this.props.products);
                 return <IndexItem product={p} type={this.props.type} shop={this.props.shops[p.shop_id]} key={p.id}/>
             });
         }
         // debugger;
         return(
             <li>
+                <h2>{this.props.category}</h2>
                 <ul>
                     {products}
                 </ul>

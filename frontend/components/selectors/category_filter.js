@@ -1,6 +1,6 @@
 
 
-const categoryFilter = (obj, category) => {
+export const categoryFilter = (obj, category) => {
     let res = [];
     // debugger;
     let productsArr = Object.values(obj);
@@ -14,4 +14,20 @@ const categoryFilter = (obj, category) => {
     return res.slice(0, 6);
 };
 
-export default categoryFilter;
+export const randomFilter = (obj) => {
+    let res = [];
+    let productsArr = Object.values(obj);
+    let randomNums = [];
+    let count = 0;
+    while (count < 6){
+        debugger;
+        let i = Math.random() * productsArr.length;
+        if(!res.includes(productsArr[i])){
+            count += 1;
+            res.push(productsArr[i]);
+        }
+    }
+    return res;
+};
+
+// export default categoryFilter;
