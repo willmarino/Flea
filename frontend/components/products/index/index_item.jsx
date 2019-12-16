@@ -16,7 +16,9 @@ class IndexItem extends React.Component{
     let path = `/anon/products/${this.props.product.id}`;
     return (
       <li>
-        <Link to={path}>{this.props.product.name}</Link>
+        <Link to={path}>
+          {this.props.product.name}
+        </Link>
       </li>
     )
   }

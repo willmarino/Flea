@@ -17,3 +17,4 @@ const categoryFilter = (obj, category) => {
     return res;
 };
 
+export default categoryFilter;
