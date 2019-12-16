@@ -1,5 +1,6 @@
 import React from 'react';
 import IndexItem from './index_item';
+import IndexRowContainer from '../row/index_row_container';
 
 
 class Index extends React.Component {
@@ -22,13 +23,19 @@ class Index extends React.Component {
 
   render() {
 
-    let categorynums = [Math.random() * 9, Math.random() * 9];
-    let categories = categorynums.map((num) => {
+    // let categorynums = [Math.random() * 9, Math.random() * 9];
+    let categories = [1, 2].map((num) => {
       return this.categories[num];
     });
+    let i = -1;
+    let catComps = categories.map((cat) => {
+      i += 1;
+      return <IndexRowContainer category={cat} type="complex" key={i}/>;
+    });
 
-    let arr;
-    let productsArr;
+
+    // let arr;
+    // let productsArr;
 
     // debugger;
     // arr = Object.values(this.props.products);
@@ -43,12 +50,10 @@ class Index extends React.Component {
     //   );
     // });
 
-    
-
-
     return (
-      <ul>
-        {productsArr}
+      <ul className="primary-index">
+        {/* {productsArr} */}
+        {catComps}
       </ul>
     );
   }

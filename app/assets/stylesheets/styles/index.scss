@@ -1,0 +1,19 @@
+.primary-index{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 1240px;
+  width: 90%;
+
+  margin-top: 20px;
+  margin: 0 auto;
+}
+
+.primary-index > li > ul{
+  display: flex;
+  flex-direction: row;
+
+
+}

@@ -32,19 +32,23 @@ s7 = Shop.create!(name: "a not so nice shop", creator_id: u7.id, description: "n
 
 
 # debugger
-p1 = Product.create!(name: "gray sweater", shop_id: s1.id, high_level_category: "Clothing and Shoes", price: 20.87, stock_amt: 12)
-p2 = Product.create!(name: "gold chain", shop_id: s1.id, high_level_category: "Jewelry and Accessories", price: 21.87, stock_amt: 112)
-p3 = Product.create!(name: "green sweater", shop_id: s2.id, high_level_category: "Clothing and Shoes", price: 29.37, stock_amt: 121)
-p4 = Product.create!(name: "black sweater", shop_id: s2.id, high_level_category: "Clothing and Shoes", price: 1.87, stock_amt: 0)
-p5 = Product.create!(name: "desk", shop_id: s2.id, high_level_category: "Home and Living", price: 204.87, stock_amt: 23)
-p6 = Product.create!(name: "blue jeans", shop_id: s2.id, high_level_category: "Clothing and Shoes", price: 98.87, stock_amt: 0)
-p7 = Product.create!(name: "some denim", shop_id: s2.id, high_level_category: "Clothing and Shoes", price: 14.87, stock_amt: 235)
-p8 = Product.create!(name: "bouquet", shop_id: s2.id, high_level_category: "Wedding and Party", price: 4.87, stock_amt: 273)
-p9 = Product.create!(name: "dark gray sweater", shop_id: s2.id, high_level_category: "Clothing and Shoes", price: 20.10, stock_amt: 98)
+p1 = Product.create!(name: "gray sweater", shop_id: s1.id, high_level_category: "Clothing & Shoes", price: 20.87, stock_amt: 12)
+p2 = Product.create!(name: "gold chain", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+p3 = Product.create!(name: "green sweater", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 29.37, stock_amt: 121)
+p4 = Product.create!(name: "black sweater", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 1.87, stock_amt: 0)
+p5 = Product.create!(name: "desk", shop_id: s2.id, high_level_category: "Home & Living", price: 204.87, stock_amt: 23)
+p6 = Product.create!(name: "blue jeans", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 98.87, stock_amt: 0)
+p7 = Product.create!(name: "some denim", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 14.87, stock_amt: 235)
+p8 = Product.create!(name: "bouquet", shop_id: s2.id, high_level_category: "Wedding & Party", price: 4.87, stock_amt: 273)
+p9 = Product.create!(name: "dark gray sweater", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 20.10, stock_amt: 98)
 p10 = Product.create!(name: "glue", shop_id: s2.id, high_level_category: "Craft Supplies", price: 76.87, stock_amt: 9001)
-p11 = Product.create!(name: "blue t shirt", shop_id: s4.id, high_level_category: "Clothing and Shoes", price: 82.87, stock_amt: 3)
-p12 = Product.create!(name: "scarf", shop_id: s5.id, high_level_category: "Clothing and Shoes", price: 81.87, stock_amt: 8)
-
+p11 = Product.create!(name: "blue t shirt", shop_id: s4.id, high_level_category: "Clothing & Shoes", price: 82.87, stock_amt: 3)
+p12 = Product.create!(name: "scarf", shop_id: s5.id, high_level_category: "Clothing & Shoes", price: 81.87, stock_amt: 8)
+p13 = Product.create!(name: "silver chain", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+p14 = Product.create!(name: "ring", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+p15 = Product.create!(name: "necklace", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+p16 = Product.create!(name: "bracelet", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+p17 = Product.create!(name: "choker", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
 
 
 # 10.times do

@@ -2,19 +2,16 @@
 
 const categoryFilter = (obj, category) => {
     let res = [];
+    // debugger;
     let productsArr = Object.values(obj);
-    productsArr.forEach((p, i) => {
+    productsArr.forEach((p) => {
+        // debugger;
         if(p.high_level_category === category){
-            delete productsArr[i];
             res.push(p);
-        };
+        }
     });
-    while(res.length < 6){
-        productsArr.forEach((p) => {
-            res.push(p);
-        });
-    };
-    return res;
+    // debugger;
+    return res.slice(0, 6);
 };
 
 export default categoryFilter;

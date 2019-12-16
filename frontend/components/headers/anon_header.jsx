@@ -1,7 +1,7 @@
 import React from 'react';
 import DemoUserContainer from '../users/demo_user_container';
 import { fetchUsers } from '../../actions/users_actions';
-
+import {Link} from 'react-router-dom';
 
 class AnonHeader extends React.Component{
   constructor(props){
@@ -14,17 +14,17 @@ class AnonHeader extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchProducts();
     this.props.fetchShops();
+    this.props.fetchProducts();
   }
 
   render(){
     return(
       <div className="header">
-        <div className="logo" id="first">Flea</div>
+        <Link to="/anon"><div className="logo" id="first">Flea</div></Link>
         <div className="search-and-icon" id="second">
           <input type="text" className="search" />
-          <i className="fa fa-search" id="user-search-icon"></i>
+          <i className="fa fa-search" id="user-search-icon"></i> 
         </div>
         <div className="header-items anon-header-items" id="third">  
           <button onClick={() => this.props.openModal('login')}>Sign In</button>

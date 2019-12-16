@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
-
   def current_user
     @current_user || User.find_by(session_token: session[:session_token])
   end
@@ -20,6 +19,14 @@ class ApplicationController < ActionController::Base
     @current_user = nil
     session[:session_token] = nil
   end
+
+  # def all_products
+  #   return Product.all
+  # end
+
+  # def all_shops
+  #   return Shop.all
+  # end
 
 
 end
