@@ -8,6 +8,7 @@ import ProductShowContainer from '../products/show/product_show_container';
 import Advert from '../segments/advert';
 import IndexRowContainer from '../products/row/index_row_container';
 import CategoryRow from '../products/row/category_row';
+import Info from '../segments/info';
 
 class AnonMain extends React.Component{
     constructor(props){
@@ -27,7 +28,7 @@ class AnonMain extends React.Component{
                     <Route exact path="/anon" render={(props) => <ul className="primary-index"><IndexRowContainer {...props} type="complex" /></ul>}/>
                     <Route exact path="/anon" component={AnonIndexContainer}/>
                     <Route exact path="/anon" render={() => <ul className="primary-index"><CategoryRow/></ul>}/>
-                    {/* <Route exact path="/anon" render={(props) => <ul className="primary-index"><CategoryRow {...props} type="" /></ul>} /> */}
+                    <Route exact path="/anon" component={Info}/>
                     <Route path={showPath} component={ProductShowContainer}/>
                 </div>
             </div>
