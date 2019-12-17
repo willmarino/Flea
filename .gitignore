@@ -3,3 +3,17 @@ bundle.js
 bundle.js.map
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+
+/storage/*
+!/storage/.keep
+/yarn.error.log
+
+/public/assets
+/.byebug_history

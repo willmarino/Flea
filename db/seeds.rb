@@ -94,6 +94,19 @@ jewelry = [
     "https://flea-seeds.s3.amazonaws.com/stock_photos/jewelry/silver-colored-pendant-with-green-gemstone-1458867.jpg"
 ]
 
+jewelrynames = [
+    "armband",
+    "pocketwatch",
+    "diamond earings",
+    "diamond stud",
+    "earings",
+    "blue earings",
+    "necklace",
+    "gold bands",
+    "suede thing",
+    "shiny"
+]
+
 u1 = User.create!(username: "Lary", password: "password", email: "lary@mail.com")
 u2 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
 u3 = User.create!(username: "Greg", password: "password", email: "greg@mail.com")
@@ -116,22 +129,22 @@ shops = [s1, s2, s3, s4, s5, s6, s7]
 
 # debugger
 # p1 = Product.create!(name: "gray sweater", shop_id: s1.id, high_level_category: "Clothing & Shoes", price: 20.87, stock_amt: 12)
-p2 = Product.create!(name: "gold chain", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+# p2 = Product.create!(name: "gold chain", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
 # p3 = Product.create!(name: "green sweater", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 29.37, stock_amt: 121)
 # p4 = Product.create!(name: "black sweater", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 1.87, stock_amt: 0)
-p5 = Product.create!(name: "desk", shop_id: s2.id, high_level_category: "Home & Living", price: 204.87, stock_amt: 23)
+# p5 = Product.create!(name: "desk", shop_id: s2.id, high_level_category: "Home & Living", price: 204.87, stock_amt: 23)
 # p6 = Product.create!(name: "blue jeans", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 98.87, stock_amt: 0)
 # p7 = Product.create!(name: "some denim", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 14.87, stock_amt: 235)
-p8 = Product.create!(name: "bouquet", shop_id: s2.id, high_level_category: "Wedding & Party", price: 4.87, stock_amt: 273)
+# p8 = Product.create!(name: "bouquet", shop_id: s2.id, high_level_category: "Wedding & Party", price: 4.87, stock_amt: 273)
 # p9 = Product.create!(name: "dark gray sweater", shop_id: s2.id, high_level_category: "Clothing & Shoes", price: 20.10, stock_amt: 98)
-p10 = Product.create!(name: "glue", shop_id: s2.id, high_level_category: "Craft Supplies", price: 76.87, stock_amt: 9001)
+# p10 = Product.create!(name: "glue", shop_id: s2.id, high_level_category: "Craft Supplies", price: 76.87, stock_amt: 9001)
 # p11 = Product.create!(name: "blue t shirt", shop_id: s4.id, high_level_category: "Clothing & Shoes", price: 82.87, stock_amt: 3)
 # p12 = Product.create!(name: "scarf", shop_id: s5.id, high_level_category: "Clothing & Shoes", price: 81.87, stock_amt: 8)
-p13 = Product.create!(name: "silver chain", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
-p14 = Product.create!(name: "ring", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
-p15 = Product.create!(name: "necklace", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
-p16 = Product.create!(name: "bracelet", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
-p17 = Product.create!(name: "choker", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+# p13 = Product.create!(name: "silver chain", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+# p14 = Product.create!(name: "ring", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+# p15 = Product.create!(name: "necklace", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+# p16 = Product.create!(name: "bracelet", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
+# p17 = Product.create!(name: "choker", shop_id: s1.id, high_level_category: "Jewelry & Accessories", price: 21.87, stock_amt: 112)
 
 
 
@@ -152,3 +165,19 @@ while i < 9
 
 end
 
+
+i = 0
+while i < 10
+    x = Product.create!(
+        name: jewelrynames[i],
+        shop_id: shops[i % shops.length].id,
+        high_level_category: "Jewelry & Accessories",
+        price: rand(200.00),
+        stock_amt: rand(50)
+    )
+    file = open(jewelry[i])
+    indiv_file = jewelry[i].split("jewelry/")[-1]
+    x.photo.attach(io: file, filename: indiv_file)
+
+    i += 1
+end

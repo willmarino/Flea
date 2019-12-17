@@ -17,8 +17,9 @@ class IndexItem extends React.Component{
       item = (
         <li className="simple">
           <Link to={path}>
-            <div className="index-fake-image"></div>
+            <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
+
             <p>{this.props.product.price}</p>
         </li>
       )
@@ -27,7 +28,7 @@ class IndexItem extends React.Component{
       item = (
         <li className="complex">
           <Link to={path}>
-            <div className="index-fake-image"></div>
+            <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
             <p>{this.props.product.name}</p>
             <p>{this.props.shop.name}</p>

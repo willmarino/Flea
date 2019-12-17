@@ -10,5 +10,6 @@
     json.low_level_category product.low_level_category
     json.price product.price
     json.stock_amt product.stock_amt
+    json.photoURL url_for(product.photo)
   end
 end
