@@ -6,6 +6,8 @@
   margin: 10px;
   margin-bottom: 2px;
 
+  object-fit: cover;
+
 }
 
 .index-fake-image:hover{
@@ -15,5 +17,10 @@
 .simple, .complex{
   justify-content: center;
   // align-items: center;
-  text-align: center;
+  // text-align: center;
+}
+
+.simple div, .complex div{
+  padding: 10px;
+  text-align: left;
 }

@@ -22,8 +22,9 @@ class IndexItem extends React.Component{
           <Link to={path} >
             <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
-
+          <div className="item-labels">
             <p>{this.props.product.price}</p>
+          </div>
         </li>
       )
     }else if(this.props.type === "complex"){
@@ -32,10 +33,12 @@ class IndexItem extends React.Component{
           <Link to={path}>
             <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
+          <div className="item-labels">
             <p>{this.props.product.name}</p>
             <p>{this.props.shop.name}</p>
             <p>Rating</p>
             <p>{this.props.product.price}</p>
+          </div>
         </li>
       )
     }
