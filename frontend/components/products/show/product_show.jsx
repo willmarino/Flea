@@ -4,14 +4,14 @@ class ProductShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            size: "",
+            // size: "",
             quantity: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(){
-        // create cart with info
+        
     }
     
     update(field){
@@ -70,10 +70,10 @@ class ProductShow extends React.Component{
                             <div className="product-title">{this.props.product.name}</div>
                             <div className="price">{this.props.product.price}</div>
                             <form onSubmit={this.handleSubmit}>
-                                <div className="select-size">
+                                {/* <div className="select-size">
                                     <p>Size</p>
                                     <button className="product-dropdown" onChange={this.update("size")}></button>
-                                </div>
+                                </div> */}
                                 <div className="quantity">
                                     <p>Quantity</p>
                                     <button className="product-dropdown" onChange={this.update("quantity")}></button>
