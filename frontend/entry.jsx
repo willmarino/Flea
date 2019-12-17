@@ -18,6 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         shops: {
 
+        },
+        cart: {
+
+        },
+        cartItems: {
+
+        },
+        reviews: {
+
         }
       },
       errors: {

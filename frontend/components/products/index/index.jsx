@@ -21,6 +21,11 @@ class Index extends React.Component {
 
   }
 
+  componentDidMount(){
+    this.props.fetchProducts();
+    this.props.fetchShops();
+  }
+
   render() {
 
     // let categorynums = [Math.random() * 9, Math.random() * 9];

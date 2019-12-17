@@ -10,10 +10,15 @@ import IndexRowContainer from '../products/row/index_row_container';
 import CategoryRow from '../products/row/category_row';
 import Info from '../segments/info';
 
+
 class AnonMain extends React.Component{
     constructor(props){
         super(props);
     }
+
+    componentDidMount(){
+    }
+
     render(){
         let showPath = "/anon/products/:prodId";
         return(

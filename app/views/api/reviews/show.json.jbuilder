@@ -1,0 +1,1 @@
+json.extract! @review, :title, :body, :rating, :item_id, :author_id

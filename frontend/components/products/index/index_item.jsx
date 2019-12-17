@@ -8,15 +8,18 @@ class IndexItem extends React.Component{
     // this.handleClick = this.handleClick.bind(this);
   }
 
+  // handleClick(e){
+  //   e.preventDefault();
+  // }
+
   render(){
     let path = `/anon/products/${this.props.product.id}`;
-    // let shop = this.props.shops[this.props.product.shop_id];
     let item;
 
     if(this.props.type === "simple"){
       item = (
         <li className="simple">
-          <Link to={path}>
+          <Link to={path} >
             <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
 
@@ -24,7 +27,6 @@ class IndexItem extends React.Component{
         </li>
       )
     }else if(this.props.type === "complex"){
-      // debugger;
       item = (
         <li className="complex">
           <Link to={path}>
