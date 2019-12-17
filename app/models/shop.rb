@@ -14,4 +14,8 @@ class Shop < ApplicationRecord
     primary_key: :id,
     foreign_key: :creator_id
 
+  has_many :reviews,
+    through: :products,
+    source: :reviews
+
 end

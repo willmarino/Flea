@@ -12,4 +12,8 @@ class CartItem < ApplicationRecord
     primary_key: :id,
     foreign_key: :item_id
 
+  belongs_to :user,
+    through: :cart,
+    source: :user
+
 end

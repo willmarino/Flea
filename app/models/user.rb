@@ -19,6 +19,24 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
+  has_many :cart_items,
+    through: :cart,
+    source: :items
+
+  has_many :reviews,
+    class_name: "Review",
+    primary_key: :id,
+    foreign_key: :author_id
+
+  has_many :orders,
+    class_name: "Order",
+    primary_key: :id,
+    foreign_key: :user_id
+
+  has_many :past_items,
+    through: :orders,
+    source: :items
+
 
 
   def self.find_by_credentials(username, password)

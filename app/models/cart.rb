@@ -1,6 +1,6 @@
 class Cart < ApplicationRecord
 
-  validates :user_id, presence: true
+  validates :user_id, presence: true, uniqueness: true
 
   belongs_to :user,
     class_name: "User",
@@ -11,5 +11,6 @@ class Cart < ApplicationRecord
     class_name: "CartItem",
     primary_key: :id,
     foreign_key: :item_id
+
 
 end

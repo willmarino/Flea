@@ -6,6 +6,11 @@ class Product < ApplicationRecord
     primary_key: :id,
     foreign_key: :shop_id
 
+  has_many :reviews,
+    class_name: "Review",
+    primary_key: :id,
+    foreign_key: :item_id
+
   has_one_attached :photo
 
 
