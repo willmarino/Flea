@@ -10,6 +10,8 @@ import IndexRowContainer from '../products/row/index_row_container';
 // import CategoryRow from '../products/row/category_row';
 import CategoryRowContainer from '../products/row/category_row_container';
 import Info from '../segments/info';
+import Footer from '../segments/footer';
+import ReviewSegmentContainer from '../segments/reviews_segment_container';
 
 
 class AnonMain extends React.Component{
@@ -33,6 +35,8 @@ class AnonMain extends React.Component{
                     <Route exact path="/anon" component={AnonIndexContainer}/>
                     <Route exact path="/anon" render={() => <ul className="primary-index"><CategoryRowContainer /></ul>}/>
                     <Route exact path="/anon" component={Info}/>
+                    <Route exact path="/anon" component={ReviewSegmentContainer} />
+                    <Route exact path="/anon" component={Footer} />
                     <Route path={showPath} component={ProductShowContainer}/>
                 </div>
             </div>

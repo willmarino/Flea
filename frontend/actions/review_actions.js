@@ -19,6 +19,6 @@ export const createReview = (review) => dispatch => (
 );
 
 export const fetchReviews = () => dispatch => (
-  ReviewApiUtil.fetchReviews(review)
+  ReviewApiUtil.fetchReviews()
     .then(reviews => dispatch(receiveReviews(reviews)))
 );

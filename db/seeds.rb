@@ -291,7 +291,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -322,7 +322,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -353,7 +353,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -383,7 +383,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -414,7 +414,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -444,7 +444,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -473,7 +473,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -502,7 +502,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -531,7 +531,7 @@ while i < 6
         Review.create!(
             title: "placeholder title",
             body: "placeholder body",
-            rating: rand(5),
+            rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
