@@ -16,8 +16,6 @@ class AnonMain extends React.Component{
         super(props);
     }
 
-    componentDidMount(){
-    }
 
     render(){
         let showPath = "/anon/products/:prodId";

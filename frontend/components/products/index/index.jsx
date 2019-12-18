@@ -8,15 +8,15 @@ class Index extends React.Component {
     super(props);
 
     this.categories = [
-      "Gifts",
       "Jewelry & Accessories",
       "Clothing & Shoes",
       "Home & Living",
-      "Wedding & Party",
-      "Toys & Entertainment",
       "Arts & Collectibles",
       "Craft Supplies",
-      "Vintage"
+      "Toys & Entertainment",
+      "Wedding & Party",
+      "Vintage",
+      "Gifts"
     ];
 
   }
@@ -26,10 +26,12 @@ class Index extends React.Component {
     this.props.fetchShops();
   }
 
-  render() {
+  randomNumber(n){
+    return Math.round(Math.random() * n)
+  }
 
-    // let categorynums = [Math.random() * 9, Math.random() * 9];
-    let categories = [1, 2].map((num) => {
+  render() {
+    let categories = [this.randomNumber(4), this.randomNumber(4)].map((num) => {
       return this.categories[num];
     });
     let i = -1;
@@ -38,26 +40,8 @@ class Index extends React.Component {
       return <IndexRowContainer category={cat} type="simple" key={i}/>;
     });
 
-
-    // let arr;
-    // let productsArr;
-
-    // debugger;
-    // arr = Object.values(this.props.products);
-    // let i = 0;
-    // productsArr = arr.map((product) => {
-    //   let cur_cat = categories[i];
-    //   let shop = this.props.shops[product.shop_id];
-    //   i += 1;
-    //   return(
-    //     // <IndexItem product={product} key={product.id}/>
-    //     <IndexRow category={cur_cat} />
-    //   );
-    // });
-
     return (
       <ul className="primary-index">
-        {/* {productsArr} */}
         {catComps}
       </ul>
     );

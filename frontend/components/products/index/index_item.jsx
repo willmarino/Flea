@@ -4,13 +4,8 @@ import React from 'react';
 class IndexItem extends React.Component{
   constructor(props){
     super(props);
-
-    // this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick(e){
-  //   e.preventDefault();
-  // }
 
   render(){
     let path = `/anon/products/${this.props.product.id}`;
@@ -36,7 +31,7 @@ class IndexItem extends React.Component{
           <div className="item-labels">
             <p>{this.props.product.name}</p>
             <p>{this.props.shop.name}</p>
-            <p>Rating</p>
+            <p>{this.props.product.rating}</p>
             <p>{this.props.product.price}</p>
           </div>
         </li>

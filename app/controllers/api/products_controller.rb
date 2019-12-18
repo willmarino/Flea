@@ -3,6 +3,7 @@ class Api::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      @rating = @product.rating
       render :show
     else
       render json: @product.errors.full_messages, status: 422
@@ -19,6 +20,7 @@ class Api::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes
+      @rating = @product.rating
       render :show
     else
       render json: @product.errors.full_messages, status: 422
@@ -29,6 +31,7 @@ class Api::ProductsController < ApplicationController
     # debugger
     @product = Product.find(params[:id])
     if @product
+      @rating = @product.rating
       render :show
     else
       render json: ["Product not found"], status: 404
