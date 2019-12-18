@@ -35,7 +35,7 @@ class Index extends React.Component {
     // let categories = [randNum, (randNum + 2) % this.categories.length].map((num) => {
     //   return this.categories[num];
     // });
-    let categories = [1, 3].map((num) => {
+    let categories = [5, 3].map((num) => {
       return this.categories[num];
     });
     let i = -1;

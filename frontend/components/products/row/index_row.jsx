@@ -17,11 +17,6 @@ class IndexRow extends React.Component{
     }
 
     render(){
-
-        // if(this.props.type === "c"){
-
-        // }
-
         let shop;
         let products;
         if(Object.keys(this.props.shops).length === 0 || Object.keys(this.props.products).length === 0){

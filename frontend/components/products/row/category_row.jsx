@@ -5,7 +5,6 @@ class CategoryRow extends React.Component{
   constructor(props){
     super(props);
     this.categories = [
-      "Gifts",
       "Jewelry & Accessories",
       "Clothing & Shoes",
       "Home & Living",
@@ -13,34 +12,35 @@ class CategoryRow extends React.Component{
       "Toys & Entertainment",
       "Arts & Collectibles",
       "Craft Supplies",
-      "Vintage"
+      "Vintage",
+      "Gifts"
     ];
   }
 
   render(){
-    // let cats = [];
-    // let i = 0;
-    // while(cats.length < 6){
-    //   let item = <CategoryIndexItem category={this.categories[i]} key={i}/>
-    //   cats.push(item);
-    //   i += 1;
-    // }
-
+    debugger;
+    if(this.props.productsArr.length === 0){
+      return <p>loading</p>;
+    }
+    debugger;
     let pics = [];
-    let i = 0
-    // debugger;
-    while (i < 6){
-      let cur_category = this.categories[i];
-      this.props.productsArr.forEach((p) => {
-        let pushed = false;
-        while(pushed === false){
-          if(p.high_level_category === cur_category){
-            pics.push(<CategoryIndexItem product={p} key={p.id}/>);
-            pushed === true;
-          }
+    let i = 0;
+    while(i < 6){
+      let cur_cat = this.categories[i];
+      let pushed = false;
+      let j = 0;
+      while(!pushed){
+        let cur_prod = this.props.productsArr[j];
+        debugger;
+        if(cur_prod.high_level_category === cur_cat){
+          pics.push(<CategoryIndexItem p={cur_prod}/>);
+          pushed = true;
+          i += 1;
+          j = 0;
         }
-      })
-      i += 1
+        j += 1;
+      }
+      debugger;
     }
 
     return(
