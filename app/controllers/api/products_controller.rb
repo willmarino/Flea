@@ -11,9 +11,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def index
-    # debugger
     @products = Product.all
-    # debugger
     render :index
   end
 
@@ -28,7 +26,6 @@ class Api::ProductsController < ApplicationController
   end
 
   def show
-    # debugger
     @product = Product.find(params[:id])
     if @product
       @rating = @product.rating

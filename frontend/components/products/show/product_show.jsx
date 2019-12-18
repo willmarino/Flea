@@ -3,22 +3,18 @@ import React from 'react';
 class ProductShow extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            // size: "",
-            quantity: ""
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(){
+    // handleSubmit(){
         
-    }
+    // }
     
-    update(field){
-        return(
-            e => this.setState({[field] : e.currentTarget.value})
-        );
-    }
+    // update(field){
+    //     return(
+    //         e => this.setState({[field] : e.currentTarget.value})
+    //     );
+    // }
 
     render(){
         // debugger;
@@ -69,16 +65,6 @@ class ProductShow extends React.Component{
                             </div>
                             <div className="product-title">{this.props.product.name}</div>
                             <div className="price">{this.props.product.price}</div>
-                            <form onSubmit={this.handleSubmit}>
-                                {/* <div className="select-size">
-                                    <p>Size</p>
-                                    <button className="product-dropdown" onChange={this.update("size")}></button>
-                                </div> */}
-                                <div className="quantity">
-                                    <p>Quantity</p>
-                                    <button className="product-dropdown" onChange={this.update("quantity")}></button>
-                                </div>
-                            </form>
                         </div>
                         <div className="details">
                             <p>detail</p>

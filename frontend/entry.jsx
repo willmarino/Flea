@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         shops: {
 
         },
-        cart: {
+        carts: {
 
         },
         cartItems: {

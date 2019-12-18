@@ -20,7 +20,7 @@ export const randomFilter = (obj) => {
     let randomNums = [];
     let count = 0;
     while (count < 6){
-        debugger;
+        // debugger;
         let i = Math.random() * productsArr.length;
         if(!res.includes(productsArr[i])){
             count += 1;

@@ -19,8 +19,8 @@ class UserHeader extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchProducts();
-    this.props.fetchShops();
+    // this.props.fetchProducts();
+    // this.props.fetchShops();
   }
 
   render(){

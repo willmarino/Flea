@@ -9,8 +9,11 @@ class IndexRow extends React.Component{
 
     componentDidMount(){
         // debugger;
-        this.props.fetchProducts();
-        this.props.fetchShops();
+        if(Object.keys(this.props.products).length === 0 || Object.keys(this.props.shops).length === 0){
+            // debugger;
+            this.props.fetchProducts();
+            this.props.fetchShops();
+        }
     }
 
     render(){
