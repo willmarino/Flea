@@ -278,7 +278,7 @@ users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
 
 # clothing and shoes
 i = 0
-while i < 9
+while i < 6
     x = Product.create!(
         name: clothingandshoes_names[i],
         shop_id: shops[i % shops.length].id,
@@ -297,18 +297,19 @@ while i < 9
         )
         j += 1
     end
-
+    debugger
     file = open(clothingandshoes[i])
     indiv_file = clothingandshoes[i].split("clothingandshoes/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    debugger
     i += 1
+    debugger
 
 end
 
 # jewelry
 i = 0
-while i < 10
+while i < 6
     x = Product.create!(
         name: jewelrynames[i],
         shop_id: shops[i % shops.length].id,
@@ -338,7 +339,7 @@ end
 
 # home and living
 i = 0
-while i < 11
+while i < 6
     x = Product.create!(
         name: homeandliving[i],
         shop_id: shops[i % shops.length].id,
@@ -368,7 +369,7 @@ end
 
 # arts and crafts
 i = 0
-while i < 10
+while i < 6
     x = Product.create!(
         name: artsandcrafts[i],
         shop_id: shops[i % shops.length].id,
@@ -399,7 +400,7 @@ end
 
 # art and collectibles
 i = 0
-while i < 11
+while i < 6
     x = Product.create!(
         name: artsandcollect_names[i],
         shop_id: shops[i % shops.length].id,
@@ -429,7 +430,7 @@ end
 
 
 i = 0
-while i < 10
+while i < 6
     x = Product.create!(
         name: weddingandparty_names[i],
         shop_id: shops[i % shops.length].id,
@@ -458,7 +459,7 @@ while i < 10
 end
 
 i = 0
-while i < 11
+while i < 6
     x = Product.create!(
         name: vintage_names[i],
         shop_id: shops[i % shops.length].id,
@@ -487,7 +488,7 @@ while i < 11
 end
 
 i = 0
-while i < 11
+while i < 6
     x = Product.create!(
         name: vintage_names[i],
         shop_id: shops[i % shops.length].id,
@@ -516,7 +517,7 @@ while i < 11
 end
 
 i = 0
-while i < 11
+while i < 6
     x = Product.create!(
         name: tande_names[i],
         shop_id: shops[i % shops.length].id,
