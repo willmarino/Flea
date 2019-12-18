@@ -297,13 +297,13 @@ while i < 6
         )
         j += 1
     end
-    debugger
+    # debugger
     file = open(clothingandshoes[i])
     indiv_file = clothingandshoes[i].split("clothingandshoes/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    debugger
+    # debugger
     i += 1
-    debugger
+    # debugger
 
 end
 
