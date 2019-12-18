@@ -8,6 +8,7 @@ class ReviewSegment extends React.Component{
 
   componentDidMount(){
     this.props.fetchReviews();
+    this.props.fetchShops();
   }
 
 
@@ -21,7 +22,7 @@ class ReviewSegment extends React.Component{
 
     let products = [];
     let reviews = [];
-    while (reviews.length < 3){
+    while (reviews.length < 6){
       let cur_review = Object.values(this.props.reviews)[Math.round(Math.random() * 150)];
       if(!reviews.includes(cur_review) && cur_review.rating >= 4){
         reviews.push(cur_review);
@@ -30,7 +31,7 @@ class ReviewSegment extends React.Component{
       }
     }
 
-
+    debugger;
 
     return(
       <div className="reviews-segment">
@@ -70,20 +71,20 @@ class ReviewSegment extends React.Component{
           <p>Trends</p>
           <div>
             <div id="row-three-col-one">
-              <p>photo</p>
-              <p>featured shops</p>
+              <img src={products[3].photoURL} alt="" className="trend-product-photo"/>
+              <p>{this.props.shops[products[3].shop_id].name}</p>
               <p>title</p>
               <p>blurb</p>
             </div>
             <div id="row-three-col-one">
-              <p>photo</p>
-              <p>featured shops</p>
+              <img src={products[4].photoURL} alt="" className="trend-product-photo" />
+              <p>{this.props.shops[products[4].shop_id].name}</p>
               <p>title</p>
               <p>blurb</p>
             </div>
             <div id="row-three-col-one">
-              <p>photo</p>
-              <p>featured shops</p>
+              <img src={products[5].photoURL} alt="" className="trend-product-photo"/>
+              <p>{this.props.shops[products[5].shop_id].name}</p>
               <p>title</p>
               <p>blurb</p>
             </div>
