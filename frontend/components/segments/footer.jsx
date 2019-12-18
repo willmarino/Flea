@@ -14,17 +14,20 @@ class Footer extends React.Component{
           <input type="text"/>
         </div>
         <div id="middle">
-          <div className="Shop">
+          <div className="shop">
+            <p>Shop</p>
             <p>Gift cards</p>
             <p>Etsy blog</p>
           </div>
-          <div className="Sell">
+          <div className="sell">
+            <p>Sell</p>
             <p>Sell on Etsy</p>
             <p>Teams</p>
             <p>Forums</p>
             <p>Affiliates</p>
           </div>
-          <div className="About">
+          <div className="about">
+            <p>About</p>
             <p>Etsy, Inc.</p>
             <p>Policies</p>
             <p>Investors</p>
@@ -32,10 +35,11 @@ class Footer extends React.Component{
             <p>Press</p>
             <p>Impact</p>
           </div>
-          <div className="Help">
+          <div className="help">
+            <p>Help</p>
             <div>
               <p>Help Center</p>
-              <p>Privacy Sttings</p>
+              <p>Privacy Settings</p>
             </div>
             <div>
               <button></button>
