@@ -5,6 +5,7 @@ import { Route, Link } from 'react-router-dom';
 import AnonIndexContainer from '../products/index/anon_index_container';
 import ProductShowContainer from '../products/show/product_show_container';
 import CategoryRow from '../products/row/category_row';
+import IndexRowContainer from '../products/row/index_row_container';
 
 class UserMain extends React.Component{
     constructor(props){
@@ -22,9 +23,9 @@ class UserMain extends React.Component{
                     <CategoryNav/>
                 </div>
                 <div className="user-main-mid">
-                {/* <Route exact path="/" render={(props) => <ul className="primary-index"><IndexRowContainer {...props} type="complex" /></ul>}/> */}
+                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/>
                     <Route exact path="/" component={AnonIndexContainer}/>
-                    <Route exact path="/" render={() => <ul className="primary-index"><CategoryRow/></ul>}/>
+                    {/* <Route exact path="/" render={() => <ul className="primary-index"><CategoryRow/></ul>}/> */}
                     <Route path={showPath} component={ProductShowContainer}/>
                 </div>
             </div>

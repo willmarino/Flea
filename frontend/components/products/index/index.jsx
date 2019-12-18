@@ -27,11 +27,11 @@ class Index extends React.Component {
   }
 
   randomNumber(n){
-    return Math.round(Math.random() * n)
+    return Math.round(Math.random() * n);
   }
 
   render() {
-    let randNum = this.randomNumber(7)
+    let randNum = this.randomNumber(7);
     // let categories = [randNum, (randNum + 2) % this.categories.length].map((num) => {
     //   return this.categories[num];
     // });

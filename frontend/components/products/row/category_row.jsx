@@ -18,11 +18,11 @@ class CategoryRow extends React.Component{
   }
 
   render(){
-    debugger;
+    // debugger;
     if(this.props.productsArr.length === 0){
       return <p>loading</p>;
     }
-    debugger;
+    // debugger;
     let pics = [];
     let i = 0;
     while(i < 6){
@@ -31,16 +31,16 @@ class CategoryRow extends React.Component{
       let j = 0;
       while(!pushed){
         let cur_prod = this.props.productsArr[j];
-        debugger;
+        // debugger;
         if(cur_prod.high_level_category === cur_cat){
-          pics.push(<CategoryIndexItem p={cur_prod}/>);
+          pics.push(<CategoryIndexItem p={cur_prod} key={i}/>);
           pushed = true;
           i += 1;
           j = 0;
         }
         j += 1;
       }
-      debugger;
+      // debugger;
     }
 
     return(

@@ -1,8 +1,8 @@
 
-export const createProduct = (shopId, product) => (
+export const createProduct = (product) => (
   $.ajax({
     method: "POST",
-    url: `/api/shops/${shopId}/products`,
+    url: `/api/products`,
     data: { product }
   })
 );
