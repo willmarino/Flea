@@ -5,19 +5,16 @@ class ProductShow extends React.Component{
     constructor(props){
         super(props);
 
-        // let reviewsNeeded = Object.values(this.props.reviews).map((r) => {
-        //     if(r.item_id === this.props.product.id){
-        //         return r;
-        //     }
-        // })
-
-        this.state = {
-            title: "",
-            body: "",
-            rating: "",
-            item_id: this.props.product.id,
-            author_id: this.props.currentUser.id
-        };
+        if(this.props.product && this.props.user){
+            this.state = {
+                title: "",
+                body: "",
+                rating: "",
+                item_id: this.props.product.id,
+                author_id: this.props.user
+            };
+        }
+        // debugger;
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -32,7 +29,8 @@ class ProductShow extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.createReview(this.state);
+        // debugger;
+        this.props.createReview({title: this.state.title, body: this.state.body, rating: this.state.rating, item_id: this.state.item_id, author_id: this.state.author_id});
     }
 
 
@@ -48,9 +46,7 @@ class ProductShow extends React.Component{
         if(!this.props.product || !this.props.shops || !this.props.reviews || !this.props.products){
             return <p>Loading</p>
         }
-        // if(!this.state.product || !this.state.shop){
-        //     return <p>Loading</p>
-        // }
+  
         let shop = this.props.shops[this.props.product.shop_id];
 
         let productRatings = [];
@@ -91,7 +87,7 @@ class ProductShow extends React.Component{
                     </div>
                     <div>
                         <p>Body</p>
-                        <input type="text" onChange={this.update("body")} value={this.state.body}/>
+                        <textarea type="text" onChange={this.update("body")} value={this.state.body}/>
                     </div>
                     <div>
                         <p>Rating</p>
@@ -105,7 +101,7 @@ class ProductShow extends React.Component{
         };
 
 
-        // debugger;
+        debugger;
         return(
             <div className="product-show-container">
                 <div className="product">
@@ -140,9 +136,9 @@ class ProductShow extends React.Component{
                     <div className="product-details">
                         <div className="buy-product">
                             <div className="top-bar">
-                                <div>{shop.name}</div>
-                                <div>{stars}</div>
-                                <div>NumReviews</div>
+                                <div className="gray-text">{shop.name}</div>
+                                <div className="stars">{stars}</div>
+                                <div className="review_count">({i})</div>
                             </div>
                             <div className="product-title">{this.props.product.name}</div>
                             <div className="price">{this.props.product.price}</div>

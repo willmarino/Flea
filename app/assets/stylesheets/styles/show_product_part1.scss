@@ -51,11 +51,6 @@
 
 // -----------------------------------------------------------------------------
 
-.top-bar{
-  display: flex;
-  flex-direction: row;
-}
-
 
 // -----------------------------------------------------------------------------
 
@@ -99,4 +94,35 @@
 .other-products > #section-one, .other-products > #section-two, .other-products > #section-three{
   height: 33%;
   width: 100%;
+}
+
+// _______-----_-__-_-_--_----_____----___----__----__----__---__
+
+.top-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.gray-text{
+  color: #757575;
+}
+
+.stars{
+  // height: 100px;
+  // width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.review-count{
+  color: #595959;
+}
+
+.product-title{
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-size: 20px;
+  color: #333;
 }

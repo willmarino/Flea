@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {fetchProduct} from '../../../actions/product_actions';
 import {fetchProducts} from '../../../actions/product_actions';
 import {fetchShops} from '../../../actions/shop_actions';
-import {createCart} from '../../../actions/cart_actions';
+// import {createCart} from '../../../actions/cart_actions';
+import {createReview} from '../../../actions/review_actions';
 import {fetchReviews} from'../../../actions/review_actions';
 import ProductShow from './product_show';
 
@@ -14,8 +15,9 @@ const msp = (state, ownProps) => ({
     reviews: state.entities.reviews,
     products: state.entities.products,
     loggedIn: Boolean(state.session.currentUser),
-    currentUser: state.session.currentUser
+    user: state.session.currentUser
 });
+// debugger;
 
 const mdp = dispatch => ({
     fetchProduct: (id) => dispatch(fetchProduct(id)),

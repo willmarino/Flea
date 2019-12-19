@@ -10,14 +10,14 @@ class UserSubheader extends React.Component{
 
   render(){
     
-    if(Object.keys(this.props.products).length === 0){
+    if(!this.props.products || !this.props.user){
       return <p>loading</p>;
-    }else if(!this.props.products){
+    }else if(Object.keys(this.props.products).length === 0 || Object.keys(this.props.user).length === 0){
       return <p>loading</p>;
     }
     
 
-    let showPath = "/products/:prodId";
+    // let showPath = `/products/${this.prop}`;
     let randNums = [];
     let i = 0;
     while(i < 4){
@@ -39,8 +39,7 @@ class UserSubheader extends React.Component{
           <p>Based on your recent activity</p>
         </div>
         <div className="itemlist">
-          {/* {suggestedProds} */}
-          <Link to={`/products/${this.props.products[randNums[0]].id}`}><p>{Object.values(this.props.products)[randNums[0]].name}</p></Link>
+          <Link to={`/products/${Object.values(this.props.products)[randNums[0]].id}`}><p>{Object.values(this.props.products)[randNums[0]].name}</p></Link>
         </div>
 
       </div>
