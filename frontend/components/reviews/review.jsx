@@ -8,7 +8,28 @@ class Review extends React.Component{
 
     render(){
         return(
-            <p>THIS IS THE REVIEW COMPONENT</p>
+            <div>
+                <div>
+                    <i className="fas fa-user"></i>
+                </div>
+                <div>
+                    <div>
+                        <p>Username</p>
+                        <p>Date created</p>
+                    </div>
+                    <div>
+                        <p>Rating</p>
+                    </div>
+                    <div>
+                        Body
+                    </div>
+                </div>
+                <div>
+                    <p>Product Image</p>
+                    <p>Product Name</p>
+                </div>
+            </div>
+                
         );
     }
 }

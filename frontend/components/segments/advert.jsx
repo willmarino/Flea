@@ -1,5 +1,4 @@
 import React from 'react';
-// import Photo from '../../../app/assets/images/city.jpg';
 
 class Advert extends React.Component{
     constructor(props){
@@ -12,27 +11,19 @@ class Advert extends React.Component{
             <div className="advert-whole">
                 <p>Hey you, there's some pretty good stuff on here</p>
                 <div className="advert-images">
-                    {/* <div id="kids-gifts">
-                        <div className="big-photo"></div>
-                    </div>
-                    <div> */}
                     <div id="gifts">
                         <div id="gift-one">
-
+                            <p>Looking for a new pair of shoes?</p>
+                            <p>Browse clothing</p>
                         </div>
-                        <div id="gift-two">
-
-                        </div>
+                        <img src="https://flea-seeds.s3.amazonaws.com/stock_photos/intro_page/nature-red-forest-leaves-33109.jpg" alt="" id="gift-two"/>
                     </div>
                     <div className="shop-now">
-                        <div id="find-shop">
-
-                        </div>
+                        <img src="https://flea-seeds.s3.amazonaws.com/stock_photos/intro_page/left-human-hand-2764675.jpg" alt="" id="find-shop" />
                         <div id="five-stars">
-
+                            <button>Five Star Products</button>
                         </div>
                     </div>
-                    {/* </div> */}
                 </div>
                 <div className="advert-messages">
                     <div className="add-message" id="first">

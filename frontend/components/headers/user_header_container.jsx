@@ -11,6 +11,7 @@ import UserHeader from './user_header';
 import {logoutUser} from '../../actions/session_actions';
 import {fetchProducts} from '../../actions/product_actions';
 import {fetchShops} from '../../actions/shop_actions';
+import { fetchReviews } from '../../actions/review_actions';
 
 const msp = state => ({
     currentUser: state.entities.users[state.session.currentUser]
@@ -19,7 +20,8 @@ const msp = state => ({
 const mdp = dispatch => ({
     signoutUser: () => dispatch(logoutUser()),
     fetchProducts: () => dispatch(fetchProducts()),
-    fetchShops: () => dispatch(fetchShops())
+    fetchShops: () => dispatch(fetchShops()),
+    fetchReviews: () => dispatch(fetchReviews())
 });
 
 

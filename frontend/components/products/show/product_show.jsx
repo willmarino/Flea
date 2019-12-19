@@ -101,7 +101,7 @@ class ProductShow extends React.Component{
         };
 
 
-        debugger;
+        // debugger;
         return(
             <div className="product-show-container">
                 <div className="product">

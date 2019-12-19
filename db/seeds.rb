@@ -15,6 +15,7 @@ Review.destroy_all
 Order.destroy_all
 Cart.destroy_all
 CartItem.destroy_all
+Image.destroy_all
 
 artsandcollect = [
     "https://flea-seeds.s3.amazonaws.com/stock_photos/artandcollectibles/art-artistic-bright-colors-1170576.jpg",
@@ -252,6 +253,19 @@ weddingandparty_names = [
     "balloons",
     "more balloons"
 ]
+
+# images = [
+#     "https://flea-seeds.s3.amazonaws.com/stock_photos/intro_page/nature-red-forest-leaves-33109.jpg",
+#     "https://flea-seeds.s3.amazonaws.com/stock_photos/intro_page/left-human-hand-2764675.jpg"
+# ]
+
+# intropage_names = [
+#     "forest",
+#     "thumbs-up"
+# ]
+
+# i1 = Image.create!(url: "https://flea-seeds.s3.amazonaws.com/stock_photos/intro_page/nature-red-forest-leaves-33109.jpg", name: "forest")
+# i2 = Image.create!(url: "https://flea-seeds.s3.amazonaws.com/stock_photos/intro_page/left-human-hand-2764675.jpg", name: "thumbs-up")
 
 u1 = User.create!(username: "Lary", password: "password", email: "lary@mail.com")
 u2 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
