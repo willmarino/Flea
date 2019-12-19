@@ -27,7 +27,7 @@ class ProductShow extends React.Component{
 
     render(){
         debugger;
-        if(!this.props.product || !this.props.shops || !this.props.reviews){
+        if(!this.props.product || !this.props.shops || !this.props.reviews || !this.props.products){
             return <p>Loading</p>
         }
         // if(!this.state.product || !this.state.shop){
@@ -58,7 +58,6 @@ class ProductShow extends React.Component{
         Object.values(this.props.reviews).forEach(r => {
             let prod = this.props.products[r.item_id];
             if(prod.shop_id === shop.id && shopRatings.length < 20){
-                // shovel in ul with review title, body, and rating
                 shopRatings.push(<Review review={r} product={prod} key={r.id}/>);
                 j += 1;
             };

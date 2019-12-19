@@ -23,7 +23,7 @@ class IndexRow extends React.Component{
             products = <p></p>;
         }else{
             products = this.props.products.map((p) => {
-                return <IndexItem product={p} type={this.props.type} shop={this.props.shops[p.shop_id]} key={p.id}/>
+                return <IndexItem product={p} type={this.props.type} shop={this.props.shops[p.shop_id]} loggedIn={this.props.loggedIn} key={p.id}/>
             });
         }
         // debugger;

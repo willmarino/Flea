@@ -25,11 +25,9 @@ class UserHeader extends React.Component{
 
   render(){
 
-    // let currentUserName = this.props.currentUser.username;
-
     return(
       <div className="header">
-        <div className="logo" id="first">Flea</div>
+        <Link to="/"><div className="logo" id="first">Flea</div></Link>
         <div className="search-and-icon" id="second">
           <input type="text" className="search" id="user-search"/>
           <i className="fa fa-search" id="user-search-icon"></i>  

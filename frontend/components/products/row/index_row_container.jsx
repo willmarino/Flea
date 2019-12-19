@@ -13,7 +13,8 @@ const msp = (state, ownProps) => {
     products: fetchedProd,
     shops: state.entities.shops,
     type: ownProps.type,
-    category: ownProps.category || "Popular Now"
+    category: ownProps.category || "Popular Now",
+    loggedIn: Boolean(state.session.currentUser)
   });
 };
 

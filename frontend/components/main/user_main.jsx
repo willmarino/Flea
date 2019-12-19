@@ -9,7 +9,7 @@ import IndexRowContainer from '../products/row/index_row_container';
 import Footer from '../segments/footer';
 import Info from '../segments/info';
 import ReviewSegmentContainer from '../segments/reviews_segment_container';
-
+import UserSubheaderContainer from '../headers/user_subheader_container';
 
 class UserMain extends React.Component{
     constructor(props){
@@ -27,6 +27,7 @@ class UserMain extends React.Component{
                     <CategoryNav/>
                 </div>
                 <div className="user-main-mid">
+                    <Route exact path="/" component={UserSubheaderContainer}/>
                     <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/>
                     <Route exact path="/" component={AnonIndexContainer}/>
                     <Route exact path="/" render={() => <ul className="primary-index"><CategoryRowContainer/></ul>}/>

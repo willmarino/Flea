@@ -8,7 +8,12 @@ class IndexItem extends React.Component{
 
 
   render(){
-    let path = `/anon/products/${this.props.product.id}`;
+    let path;
+    if(!this.props.loggedIn){
+      path = `/anon/products/${this.props.product.id}`;
+    }else{
+      path = `/products/${this.props.product.id}`;
+    }
     let item;
 
     if(this.props.type === "simple"){
