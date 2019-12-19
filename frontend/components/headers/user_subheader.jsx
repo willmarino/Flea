@@ -29,7 +29,7 @@ class UserSubheader extends React.Component{
     //   <Link to={showPath}><p>{Object.values(this.props.products)[num].name}</p></Link>
     // });
     
-    debugger;
+    // debugger;
 
     return(
       <div className="user-subheader">
