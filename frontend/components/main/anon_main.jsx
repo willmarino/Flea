@@ -7,7 +7,6 @@ import AnonIndexContainer from '../products/index/anon_index_container';
 import ProductShowContainer from '../products/show/product_show_container';
 import Advert from '../segments/advert';
 import IndexRowContainer from '../products/row/index_row_container';
-// import CategoryRow from '../products/row/category_row';
 import CategoryRowContainer from '../products/row/category_row_container';
 import Info from '../segments/info';
 import Footer from '../segments/footer';

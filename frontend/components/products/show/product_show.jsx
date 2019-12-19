@@ -19,18 +19,22 @@ class ProductShow extends React.Component{
     }
 
     componentDidMount(){
-        // this.props.fetchProduct(this.props.match.params.prodId)
-        // this.setState({})
+        this.props.fetchProduct(this.props.match.params.prodId);
+        this.props.fetchProducts();
+        this.props.fetchShops();
+        this.props.fetchReviews();
     }
 
     render(){
         debugger;
-        if(!this.props.product || !this.props.shop){
+        if(!this.props.product || !this.props.shops || !this.props.reviews){
             return <p>Loading</p>
         }
         // if(!this.state.product || !this.state.shop){
         //     return <p>Loading</p>
         // }
+        let shop = this.props.shops[this.props.product.shop_id];
+
         let productRatings = [];
         let rating = 0;
         let count = 0;
@@ -53,7 +57,7 @@ class ProductShow extends React.Component{
         let j = 0;
         Object.values(this.props.reviews).forEach(r => {
             let prod = this.props.products[r.item_id];
-            if(prod.shop_id === this.props.shop.id && shopRatings.length < 20){
+            if(prod.shop_id === shop.id && shopRatings.length < 20){
                 // shovel in ul with review title, body, and rating
                 shopRatings.push(<Review review={r} product={prod} key={r.id}/>);
                 j += 1;
@@ -93,7 +97,7 @@ class ProductShow extends React.Component{
                     <div className="product-details">
                         <div className="buy-product">
                             <div className="top-bar">
-                                <div>{this.props.shop.name}</div>
+                                <div>{shop.name}</div>
                                 <div>{stars}</div>
                                 <div>NumReviews</div>
                             </div>

@@ -4,8 +4,12 @@ import CategoryNav from '../category_nav/category_nav';
 import { Route, Link } from 'react-router-dom';
 import AnonIndexContainer from '../products/index/anon_index_container';
 import ProductShowContainer from '../products/show/product_show_container';
-import CategoryRow from '../products/row/category_row';
+import CategoryRowContainer from '../products/row/category_row_container';
 import IndexRowContainer from '../products/row/index_row_container';
+import Footer from '../segments/footer';
+import Info from '../segments/info';
+import ReviewSegmentContainer from '../segments/reviews_segment_container';
+
 
 class UserMain extends React.Component{
     constructor(props){
@@ -25,7 +29,10 @@ class UserMain extends React.Component{
                 <div className="user-main-mid">
                     <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/>
                     <Route exact path="/" component={AnonIndexContainer}/>
-                    {/* <Route exact path="/" render={() => <ul className="primary-index"><CategoryRow/></ul>}/> */}
+                    <Route exact path="/" render={() => <ul className="primary-index"><CategoryRowContainer/></ul>}/>
+                    <Route exact path="/" component={ReviewSegmentContainer} />
+                    <Route exact path="/" component={Info} />
+                    <Route exact path="/" component={Footer} />
                     <Route path={showPath} component={ProductShowContainer}/>
                 </div>
             </div>

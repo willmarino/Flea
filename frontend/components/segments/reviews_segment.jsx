@@ -1,4 +1,5 @@
 import React from 'react';
+import TrendingContainer from './trending_container';
 
 class ReviewSegment extends React.Component{
   constructor(props){
@@ -29,6 +30,34 @@ class ReviewSegment extends React.Component{
         let cur_prod_id = cur_review.item_id;
         products.push(this.props.products[cur_prod_id]);
       }
+    }
+
+    if(this.props.loggedIn){
+      return(
+        <div className="r-row-three">
+          <p>Trends</p>
+          <div>
+            <div id="row-three-col-one">
+              <img src={products[3].photoURL} alt="" className="trend-product-photo" />
+              <p>{this.props.shops[products[3].shop_id].name}</p>
+              <p>title</p>
+              <p>blurb</p>
+            </div>
+            <div id="row-three-col-one">
+              <img src={products[4].photoURL} alt="" className="trend-product-photo" />
+              <p>{this.props.shops[products[4].shop_id].name}</p>
+              <p>title</p>
+              <p>blurb</p>
+            </div>
+            <div id="row-three-col-one">
+              <img src={products[5].photoURL} alt="" className="trend-product-photo" />
+              <p>{this.props.shops[products[5].shop_id].name}</p>
+              <p>title</p>
+              <p>blurb</p>
+            </div>
+          </div>
+        </div>
+      );
     }
 
     // debugger;
@@ -67,6 +96,8 @@ class ReviewSegment extends React.Component{
             <p>{products[2].title}</p>
           </div>
         </div>
+        {/* <Trending products={products} shops={this.props.shops} reviews={this.props.reviews}/> */}
+        {/* <TrendingContainer/> */}
         <div className="r-row-three">
           <p>Trends</p>
           <div>
