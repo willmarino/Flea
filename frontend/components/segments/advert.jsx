@@ -40,21 +40,26 @@ class Advert extends React.Component{
                             <i className="fa fa-check" aria-hidden="true"></i>
                             <p>header1</p>
                         </div>
-                        <p className="message">text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 text1 </p>
+                        <p className="message">Quis
+                            autem vel eum iure reprehenderit qui in ea voluptate velit
+                            esse quam nihil molestiae consequatur? </p>
                     </div>
                     <div className="add-message">
                         <div className="add-header">
                             <i className="fa fa-check" aria-hidden="true"></i>
                             <p>header2</p>
                         </div>
-                        <p className="message">text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 text2 </p>
+                        <p className="message">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
                     </div>
                     <div className="add-message" id="last">
                         <div className="add-header">
                             <i className="fa fa-check" aria-hidden="true"></i>
                             <p>header3</p>
                         </div>
-                        <p className="message">text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 text3 </p>
+                        <p className="message">Nemo enim ipsam voluptatem quia voluptas sit
+                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+                            ratione voluptatem sequi nesciunt.</p>
                     </div>
                 </div>
             </div>

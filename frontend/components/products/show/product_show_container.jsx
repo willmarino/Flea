@@ -5,14 +5,12 @@ import {fetchShops} from '../../../actions/shop_actions';
 import {createCart} from '../../../actions/cart_actions';
 import ProductShow from './product_show';
 
-const msp = (state, ownProps) => {
-    let product = state.entities.products[ownProps.match.params.prodId];
-    return{
-        product: product,
-        shop: state.entities.shops[product.shop_id]
-    };
-
-};
+const msp = (state, ownProps) => ({
+    product: state.entities.products[ownProps.match.params.prodId],
+    shop: state.entities.shops[state.entities.products[ownProps.match.params.prodId].shop_id],
+    reviews: state.entities.reviews,
+    products: state.entities.products
+});
 
 const mdp = dispatch => ({
     fetchProduct: (id) => dispatch(fetchProduct(id)),

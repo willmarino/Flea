@@ -31,7 +31,7 @@ class ReviewSegment extends React.Component{
       }
     }
 
-    debugger;
+    // debugger;
 
     return(
       <div className="reviews-segment">

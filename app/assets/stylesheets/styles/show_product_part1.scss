@@ -6,9 +6,7 @@
   margin: 0 auto;
 }
 
-.product-show-container div{
-  border: 2px solid black;
-}
+
 
 .product{
   width: 100%;
@@ -32,8 +30,11 @@
   padding: 40px;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid gray;
 }
 
 
@@ -42,23 +43,10 @@
 }
 
 .photo img{
-  width: 350px;
-  height: 700px;
+  width: 500px;
+  height: 500px;
 
   object-fit: cover;
-}
-
-.mini-photos{
-  display: flex;
-  flex-direction: column;
-}
-
-.mini-photos img{
-  height: 60px;
-  width: 60px;
-
-  margin-top: 10px;
-  margin-top: 10px;
 }
 
 // -----------------------------------------------------------------------------

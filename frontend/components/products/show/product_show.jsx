@@ -1,82 +1,121 @@
 import React from 'react';
+import Review from '../../reviews/review';
 
 class ProductShow extends React.Component{
     constructor(props){
         super(props);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+
+        // let reviewsNeeded = Object.values(this.props.reviews).map((r) => {
+        //     if(r.item_id === this.props.product.id){
+        //         return r;
+        //     }
+        // })
+
+        // this.state={
+        //     product: this.props.product,
+        //     reviews: reviewsNeeded,
+        //     shop: this.props.shop
+        // }
     }
 
-    // handleSubmit(){
-        
-    // }
-    
-    // update(field){
-    //     return(
-    //         e => this.setState({[field] : e.currentTarget.value})
-    //     );
-    // }
+    componentDidMount(){
+        // this.props.fetchProduct(this.props.match.params.prodId)
+        // this.setState({})
+    }
 
     render(){
-        // debugger;
+        debugger;
         if(!this.props.product || !this.props.shop){
             return <p>Loading</p>
         }
+        // if(!this.state.product || !this.state.shop){
+        //     return <p>Loading</p>
+        // }
+        let productRatings = [];
+        let rating = 0;
+        let count = 0;
+        Object.values(this.props.reviews).forEach((r) => {
+            if(r.item_id === this.props.product.id){
+                productRatings.push(<Review review={r} product={this.props.product} key={r.id}/>)
+                rating += r.rating;
+                count += 1
+            }
+        })
+        rating = Math.round(rating / count);
+        let stars = [];
+        let i = 0;
+        while(i < rating){
+            stars.push(<i className="fa fa-star" key={i}></i>)
+            i += 1
+        }
+
+        let shopRatings = [];
+        let j = 0;
+        Object.values(this.props.reviews).forEach(r => {
+            let prod = this.props.products[r.item_id];
+            if(prod.shop_id === this.props.shop.id && shopRatings.length < 20){
+                // shovel in ul with review title, body, and rating
+                shopRatings.push(<Review review={r} product={prod} key={r.id}/>);
+                j += 1;
+            };
+        })
+        debugger;
         return(
             <div className="product-show-container">
                 <div className="product">
                     <div className="photo-reviews">
                         <div className="photo">
-                            <div className="mini-photos">
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                                <img src={this.props.product.photoURL} alt="" />
-                            </div>
-
                             <img src={this.props.product.photoURL} alt=""/>
                         </div>
                         <div className="reviews">
-                            <p>
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
-                                reviews text reviews text reviews text reviews text
+                            <div className="review-meta-info">
+                                <p>Reviews</p>
+                                <p>{stars}</p>
+                                <p>({i})</p>
+                            </div>
+                            <div>
+                                <div>
+                                    <p>For this item</p>
+                                    <p>({i})</p>
+                                </div>
+                                <div>
+                                    <p>For this shop</p>
+                                    <p>({j})</p>
+                                </div>
+                            </div>
 
-                            </p>
+                            <div className="reviews-list">
+                                {productRatings}
+                            </div>
+                            
                         </div>
                     </div>
                     <div className="product-details">
                         <div className="buy-product">
                             <div className="top-bar">
                                 <div>{this.props.shop.name}</div>
-                                <div>Review</div>
+                                <div>{stars}</div>
                                 <div>NumReviews</div>
                             </div>
                             <div className="product-title">{this.props.product.name}</div>
                             <div className="price">{this.props.product.price}</div>
                         </div>
                         <div className="details">
-                            <p>detail</p>
-                            <p>detail</p>
-                            <p>detail</p>
-                            <p>detail</p>
-                            <p>detail</p>
-                            <p>detail</p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+                            accusantium doloremque laudantium, totam rem aperiam, eaque
+                            ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                            vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+                            ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
+                            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
+                            non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                            voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+                            autem vel eum iure reprehenderit qui in ea voluptate velit
+                            esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                            quo voluptas nulla pariatur?
                         </div>
                     </div>
-
-
                 </div>
                 <div className="other-products">
                     <div id="section-one">
