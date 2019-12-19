@@ -12,14 +12,17 @@ const msp = (state, ownProps) => ({
     // shop: state.entities.shops[state.entities.products[ownProps.match.params.prodId].shop_id],
     shops: state.entities.shops,
     reviews: state.entities.reviews,
-    products: state.entities.products
+    products: state.entities.products,
+    loggedIn: Boolean(state.session.currentUser),
+    currentUser: state.session.currentUser
 });
 
 const mdp = dispatch => ({
     fetchProduct: (id) => dispatch(fetchProduct(id)),
     fetchProducts: () => dispatch(fetchProducts()),
     fetchShops: () => dispatch(fetchShops()),
-    fetchReviews: () => dispatch(fetchReviews())
+    fetchReviews: () => dispatch(fetchReviews()),
+    createReview: (review) => dispatch(createReview(review))
     // createCart: (cart) => dispatch(createCart(cart))
 });
 

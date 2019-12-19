@@ -11,11 +11,15 @@ class ProductShow extends React.Component{
         //     }
         // })
 
-        // this.state={
-        //     product: this.props.product,
-        //     reviews: reviewsNeeded,
-        //     shop: this.props.shop
-        // }
+        this.state = {
+            title: "",
+            body: "",
+            rating: "",
+            item_id: this.props.product.id,
+            author_id: this.props.currentUser.id
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -25,8 +29,22 @@ class ProductShow extends React.Component{
         this.props.fetchReviews();
     }
 
+
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.createReview(this.state);
+    }
+
+
+    update(field){
+        return(
+            e => this.setState({[field] : e.currentTarget.value})
+        );
+    }
+
+
     render(){
-        debugger;
+        // debugger;
         if(!this.props.product || !this.props.shops || !this.props.reviews || !this.props.products){
             return <p>Loading</p>
         }
@@ -62,7 +80,32 @@ class ProductShow extends React.Component{
                 j += 1;
             };
         })
-        debugger;
+
+        let reviewForm;
+        if(this.props.loggedIn){
+            reviewForm = (
+                <form onSubmit={this.handleSubmit} className="review-form">
+                    <div>
+                        <p>Title</p>
+                        <input type="text" onChange={this.update("title")} value={this.state.title}/>
+                    </div>
+                    <div>
+                        <p>Body</p>
+                        <input type="text" onChange={this.update("body")} value={this.state.body}/>
+                    </div>
+                    <div>
+                        <p>Rating</p>
+                        <input type="text" onChange={this.update("rating")} value={this.state.rating}/>
+                    </div>
+                    <input type="submit" value="submit"/>
+                </form>
+            );
+        }else{
+            reviewForm = <p className="null"></p>;
+        };
+
+
+        // debugger;
         return(
             <div className="product-show-container">
                 <div className="product">
@@ -86,6 +129,7 @@ class ProductShow extends React.Component{
                                     <p>({j})</p>
                                 </div>
                             </div>
+                            {reviewForm}
 
                             <div className="reviews-list">
                                 {productRatings}
