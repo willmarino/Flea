@@ -11,7 +11,7 @@ class Info extends React.Component{
       <div className="info-whole">
         <div className="info-top">
           <p>What is Flea?</p>
-          <p>I'm really not sure, you figure it out</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error</p>
         </div>
         <div className="info-mid">
           <div id="info-mid-one">
@@ -37,10 +37,10 @@ class Info extends React.Component{
             </p>
           </div>
         </div>
-        <div className="info-bottom">
+        {/* <div className="info-bottom">
           <p>Have questions?</p>
           <button>Me too</button>
-        </div>
+        </div> */}
       </div>
     );
   }

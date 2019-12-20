@@ -28,8 +28,9 @@ class IndexItem extends React.Component{
           </Link>
           <div className="item-labels-simple">
             <div className="item-price">
-              <i className="fas fa-dollar-sign"></i>
-              <p>{this.props.product.price}</p>
+              {/* <i className="fas fa-dollar-sign"></i> */}
+              <i className="fa fa-euro-sign"></i>
+              <p>${this.props.product.price}</p>
             </div>
             {widgets[Math.round(Math.random())]}
           </div>
@@ -43,7 +44,7 @@ class IndexItem extends React.Component{
           </Link>
           <div className="item-labels">
             <div id="item-label-top">
-              <p>{this.props.product.price}</p>
+              <p>${this.props.product.price}</p>
               <p>{this.props.product.name}</p>
             </div>
             <p>{this.props.shop.name}</p>
