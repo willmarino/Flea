@@ -9,7 +9,7 @@ class ProductShow extends React.Component{
             this.state = {
                 title: "",
                 body: "",
-                rating: "",
+                rating: 0,
                 // item_id: this.props.product.id,
                 // author_id: this.props.user
                 item_id: this.props.product.id,
@@ -38,6 +38,11 @@ class ProductShow extends React.Component{
 
 
     update(field){
+        if(field === "rating"){
+            return(
+                e => this.setState({[field] : parseInt(e.currentTarget.value, 10)})
+            );
+        }
         return(
             e => this.setState({[field] : e.currentTarget.value})
         );
@@ -127,10 +132,10 @@ class ProductShow extends React.Component{
                                     <p>For this item</p>
                                     <p>({i})</p>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <p>For this shop</p>
                                     <p>({j})</p>
-                                </div>
+                                </div> */}
                             </div>
                             {reviewForm}
 
@@ -149,6 +154,7 @@ class ProductShow extends React.Component{
                             </div>
                             <div className="product-title">{this.props.product.name}</div>
                             <div className="price">{this.props.product.price}</div>
+                            <div className="bestseller" id="showpage"><p>Bestseller</p></div>
                         </div>
                         <div className="details">
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem 

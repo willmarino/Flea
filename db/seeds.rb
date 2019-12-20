@@ -531,13 +531,13 @@ end
 
 
 # 5 men, 4 women
-s1 = Shop.create!(name: "a nice shop", creator_id: u1.id, description: "its a pretty nice shop, but its not that nice")
-s2 = Shop.create!(name: "a shop", creator_id: u2.id, description: "its a pretty wierd shop, but its not that wierd")
-s3 = Shop.create!(name: "a dark shop", creator_id: u3.id, description: "its a pretty dark shop, but its not that dark")
-s4 = Shop.create!(name: "a brightly lit shop", creator_id: u4.id, description: "its a pretty bright shop, but its not that bright")
-s5 = Shop.create!(name: "a spooky shop", creator_id: u5.id, description: "its a pretty spooky shop, but its not that spooky")
-s6 = Shop.create!(name: "a thought-provoking shop", creator_id: u6.id, description: "its a pretty thoughtful shop, but its not that thoughtful")
-s7 = Shop.create!(name: "a not so nice shop", creator_id: u7.id, description: "not great")
+s1 = Shop.create!(name: "#{u1.username}'s shop", creator_id: u1.id, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+s2 = Shop.create!(name: "#{u8.username}'s shop", creator_id: u2.id, description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+s3 = Shop.create!(name: "#{u3.username}'s emporium", creator_id: u3.id, description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
+s4 = Shop.create!(name: "#{u4.username}'s brightly lit shop", creator_id: u4.id, description: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?")
+s5 = Shop.create!(name: "#{u5.username}'s spooky shop", creator_id: u5.id, description: "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?")
+s6 = Shop.create!(name: "#{u6.username}'s shop", creator_id: u6.id, description: "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.")
+s7 = Shop.create!(name: "#{u7.username}'s not so nice shop", creator_id: u7.id, description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
 
 shops = [s1, s2, s3, s4, s5, s6, s7]
 # users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]

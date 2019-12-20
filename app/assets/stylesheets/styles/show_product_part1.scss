@@ -4,6 +4,11 @@
   width: 90%;
 
   margin: 0 auto;
+
+  
+}
+.product-show-container p{
+  font-family: "Guardian-EgypTT",Arial,sans-serif;
 }
 
 
@@ -23,7 +28,8 @@
 }
 
 .photo{
-  height: 30%;
+  // height: 30%;
+  height: 500px;
 
   // background: gray;
 
@@ -73,6 +79,7 @@
 
 .buy-product{
   padding: 10px;
+  padding-top: 40px;
   height: 50%;
 
 }
@@ -106,7 +113,7 @@
 }
 
 .gray-text{
-  color: #757575;
+  color: 	#484848;
 }
 
 .stars{
@@ -117,7 +124,7 @@
 }
 
 .review-count{
-  color: 	#303030;
+  color:#484848;
 }
 
 .product-title{
@@ -126,4 +133,10 @@
 
   font-size: 20px;
   color: 	#303030;
+}
+
+.review-meta-info{
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
 }

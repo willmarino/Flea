@@ -46,7 +46,7 @@ class ReviewSegment extends React.Component{
       return(
         <div className="r-row-three">
           <p>Trends</p>
-          <div>
+          <div className="trending-pics">
             <div id="row-three-col-one">
               <img src={products[3].photoURL} alt="" className="trend-product-photo"/>
               <p>Featured Shop</p>
