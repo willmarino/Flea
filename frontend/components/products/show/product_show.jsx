@@ -10,8 +10,10 @@ class ProductShow extends React.Component{
                 title: "",
                 body: "",
                 rating: "",
+                // item_id: this.props.product.id,
+                // author_id: this.props.user
                 item_id: this.props.product.id,
-                author_id: this.props.user
+                author_id: this.props.users[this.props.user]
             };
         }
         // debugger;
@@ -20,17 +22,18 @@ class ProductShow extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchProduct(this.props.match.params.prodId);
-        this.props.fetchProducts();
-        this.props.fetchShops();
-        this.props.fetchReviews();
+        // this.props.fetchProduct(this.props.match.params.prodId);
+        // this.props.fetchProducts();
+        // this.props.fetchShops();
+        // this.props.fetchReviews();
+        // this.props.fetchUsers();
     }
 
 
     handleSubmit(e){
         e.preventDefault();
         // debugger;
-        this.props.createReview({title: this.state.title, body: this.state.body, rating: this.state.rating, item_id: this.state.item_id, author_id: this.state.author_id});
+        this.props.createReview(this.state);
     }
 
 
@@ -43,9 +46,11 @@ class ProductShow extends React.Component{
 
     render(){
         // debugger;
-        if(!this.props.product || !this.props.shops || !this.props.reviews || !this.props.products){
-            return <p>Loading</p>
-        }
+        // if(!this.props.product || !this.props.shops || !this.props.reviews || !this.props.products || !this.props.users){
+        //     return <p>Loading</p>;
+        // }else if(Object.keys(this.props.users).length === 0){
+        //     return <p>Loading</p>;
+        // }
   
         let shop = this.props.shops[this.props.product.shop_id];
 
@@ -54,7 +59,9 @@ class ProductShow extends React.Component{
         let count = 0;
         Object.values(this.props.reviews).forEach((r) => {
             if(r.item_id === this.props.product.id){
-                productRatings.push(<Review review={r} product={this.props.product} key={r.id}/>)
+                // debugger;
+                let author = (this.props.users)[r.author_id]
+                productRatings.push(<Review review={r} author={author} product={this.props.product} key={r.id}/>)
                 rating += r.rating;
                 count += 1
             }

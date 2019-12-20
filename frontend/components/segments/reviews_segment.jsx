@@ -48,22 +48,28 @@ class ReviewSegment extends React.Component{
           <p>Trends</p>
           <div>
             <div id="row-three-col-one">
-              <img src={products[3].photoURL} alt="" className="trend-product-photo" />
-              <p>{this.props.shops[products[3].shop_id].name}</p>
-              <p>title</p>
-              <p>blurb</p>
+              <img src={products[3].photoURL} alt="" className="trend-product-photo"/>
+              <p>Featured Shop</p>
+              <div>
+                <p>{this.props.shops[products[3].shop_id].name}</p>
+                <p>{reviews[4].body}</p>
+              </div>
             </div>
             <div id="row-three-col-one">
               <img src={products[4].photoURL} alt="" className="trend-product-photo" />
-              <p>{this.props.shops[products[4].shop_id].name}</p>
-              <p>title</p>
-              <p>blurb</p>
+              <p>Featured Item</p>
+              <div>
+                <p>{this.props.shops[products[3].shop_id].name}</p>
+                <p>{reviews[4].body}</p>
+              </div>
             </div>
             <div id="row-three-col-one">
-              <img src={products[5].photoURL} alt="" className="trend-product-photo" />
-              <p>{this.props.shops[products[5].shop_id].name}</p>
-              <p>title</p>
-              <p>blurb</p>
+              <img src={products[5].photoURL} alt="" className="trend-product-photo"/>
+              <p>Featured Style</p>
+              <div>
+                <p>{this.props.shops[products[3].shop_id].name}</p>
+                <p>{reviews[5].body}</p>
+              </div>
             </div>
           </div>
         </div>

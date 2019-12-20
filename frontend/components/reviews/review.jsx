@@ -4,29 +4,38 @@ class Review extends React.Component{
     constructor(props){
         super(props);
 
+        this.starsify = this.starsify.bind(this);
     }
+
+    starsify(n){
+        let stars = [];
+            while(stars.length < n){
+                stars.push(<i className="fa fa-star" key={stars.length}></i>)
+            }
+          return stars;
+      }
 
     render(){
         return(
-            <div>
+            <div className="review-comp">
                 <div>
-                    <i className="fas fa-user"></i>
+                    <img src={this.props.author.photoURL} alt="" id="review-avatar"/>
                 </div>
                 <div>
                     <div>
-                        <p>Username</p>
-                        <p>Date created</p>
+                        <p>{this.props.author.username}</p>
+                        <p>{this.props.review.created_at}</p>
                     </div>
                     <div>
-                        <p>Rating</p>
+                        <p>{this.starsify(this.props.review.rating)}</p>
                     </div>
                     <div>
-                        Body
+                        <p>{this.props.review.body}</p>
                     </div>
                 </div>
                 <div>
-                    <p>Product Image</p>
-                    <p>Product Name</p>
+                    <img src={this.props.product.photoURL} alt=""/>
+                    <p>{this.props.product.name}</p>
                 </div>
             </div>
                 

@@ -6,6 +6,7 @@ import {fetchShops} from '../../../actions/shop_actions';
 // import {createCart} from '../../../actions/cart_actions';
 import {createReview} from '../../../actions/review_actions';
 import {fetchReviews} from'../../../actions/review_actions';
+import {fetchUsers} from '../../../actions/users_actions';
 import ProductShow from './product_show';
 
 const msp = (state, ownProps) => ({
@@ -15,7 +16,8 @@ const msp = (state, ownProps) => ({
     reviews: state.entities.reviews,
     products: state.entities.products,
     loggedIn: Boolean(state.session.currentUser),
-    user: state.session.currentUser
+    user: state.session.currentUser,
+    users: state.entities.users
 });
 // debugger;
 
@@ -24,7 +26,8 @@ const mdp = dispatch => ({
     fetchProducts: () => dispatch(fetchProducts()),
     fetchShops: () => dispatch(fetchShops()),
     fetchReviews: () => dispatch(fetchReviews()),
-    createReview: (review) => dispatch(createReview(review))
+    createReview: (review) => dispatch(createReview(review)),
+    fetchUsers: () => dispatch(fetchUsers())
     // createCart: (cart) => dispatch(createCart(cart))
 });
 
