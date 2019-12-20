@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+require 'faker'
 
 User.destroy_all
 Shop.destroy_all
@@ -258,17 +259,17 @@ Image.destroy_all
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 artsandcollect = [
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/art-artistic-bright-colors-1170576.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/art-painting-on-walls-1227497.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/astronaut-graffiti-on-semi-trailers-163811.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/gray-metal-cubes-decorative-1005644.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/low-angle-photo-of-eiffel-tower-699466.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/multicolored-abstract-painting-1012982.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/nativity-painting-of-people-inside-a-dome-159862.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/painting-of-purple-crepe-myrtle-trees-1406863.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/selective-photograph-of-a-wall-with-grafitti-1194420.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/shallow-focus-photography-of-paper-crane-1272838.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artandcollectibles/worms-eye-view-of-spiral-stained-glass-decors-through-the-161154.jpg"
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/art-artistic-bright-colors-1170576-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/art-painting-on-walls-1227497-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/astronaut-graffiti-on-semi-trailers-163811-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/gray-metal-cubes-decorative-1005644-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/low-angle-photo-of-eiffel-tower-699466-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/multicolored-abstract-painting-1012982-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/nativity-painting-of-people-inside-a-dome-159862-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/painting-of-purple-crepe-myrtle-trees-1406863-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/selective-photograph-of-a-wall-with-grafitti-1194420-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/shallow-focus-photography-of-paper-crane-1272838-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcollectibles/worms-eye-view-of-spiral-stained-glass-decors-through-the-161154-min.jpg"
 ]
 
 
@@ -287,13 +288,13 @@ artsandcollect_names = [
 ]
 
 artsandcrafts = [
-    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/assorted-color-button-pin-on-brown-surface-1232131.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/assorted-commemorative-plates-716107.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/black-and-grey-star-sewing-machine-3119949.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/blue-scissor-neat-red-tape-1117543.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/brush-painting-color-paint-102127.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/bunch-of-green-beads-1331699.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/color-pencil-lot-2836955.jpg"
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/assorted-color-button-pin-on-brown-surface-1232131-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/assorted-commemorative-plates-716107-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/black-and-grey-star-sewing-machine-3119949-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/blue-scissor-neat-red-tape-1117543-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/brush-painting-color-paint-102127-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/bunch-of-green-beads-1331699-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/artsandcrafts2/color-pencil-lot-2836955-min.jpg"
 ]
 
 artsandcrafts_names = [
@@ -310,15 +311,15 @@ artsandcrafts_names = [
 ]
 
 clothingandshoes = [
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/black-denim-jeans-on-white-panel-65676.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/black-framed-eyeglasses-on-white-jacket-and-blue-denim-934070.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/dachshund-dog-wearing-a-red-sweater-755380.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/jeans-levis-pants-6898.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/man-in-formal-suit-jacket-holding-his-necktie-1342609.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/man-wearing-black-notched-lapel-suit-jacket-1096849.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/photo-of-man-standing-near-flowers-2635315.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/sweater-cardigan-jumper-men-clothes-45982.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/woman-wearing-green-sweater-holding-dried-pine-leaf-2705753.jpg"
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/black-denim-jeans-on-white-panel-65676-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/black-framed-eyeglasses-on-white-jacket-and-blue-denim-934070-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/dachshund-dog-wearing-a-red-sweater-755380-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/jeans-levis-pants-6898-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/man-in-formal-suit-jacket-holding-his-necktie-1342609-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/man-wearing-black-notched-lapel-suit-jacket-1096849-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/photo-of-man-standing-near-flowers-2635315-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/sweater-cardigan-jumper-men-clothes-45982-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/clothingandshoes2/woman-wearing-green-sweater-holding-dried-pine-leaf-2705753-min.jpg"
 ]
 
 clothingandshoes_names = [
@@ -338,17 +339,17 @@ gifts = [
 ]
 
 homeandliving = [
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/apartment-architecture-carpet-chair-276583.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/apartment-contemporary-couch-curtains-275484.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/blanket-environment-foggy-haze-590137.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/blue-sofa-2986011.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/comfortable-grey-couch-with-pillows-5732.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/contemporary-design-112811.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/five-bulb-lights-1036936.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/four-gray-textiles-821649.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/red-chair-coach-sofa-96940.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/white-bedspread-beside-glass-sliding-door-1841149.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/white-ceramic-cup-on-saucer-2659387.jpg"
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/apartment-architecture-carpet-chair-276583-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/apartment-contemporary-couch-curtains-275484-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/blanket-environment-foggy-haze-590137-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/blue-sofa-2986011-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/comfortable-grey-couch-with-pillows-5732-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/contemporary-design-112811-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/five-bulb-lights-1036936-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/four-gray-textiles-821649-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/red-chair-coach-sofa-96940-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/white-bedspread-beside-glass-sliding-door-1841149-min.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/homeandliving2/white-ceramic-cup-on-saucer-2659387-min.jpg"
 ]
 
 # 11
@@ -392,12 +393,12 @@ jewelrynames = [
 ]
 
 gifts = [
-    "https://flea-seeds-two.s3.amazonaws.com/gifts2/a-pomeranian-inside-a-gift-box-3309884.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/gifts2/happy-anniversary-signage-2072175.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/gifts2/photo-of-cookies-on-string-3334477.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/gifts2/pink-and-teal-heart-box-2072148.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/gifts2/red-petaled-flowers-1899631.jpg",
-    "https://flea-seeds-two.s3.amazonaws.com/gifts2/woman-carrying-christmas-presents-3264665.jpg"
+    "https://flea-seeds-two.s3.amazonaws.com/gifts2/a-pomeranian-inside-a-gift-box-3309884.min-jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/gifts2/happy-anniversary-signage-2072175.min-jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/gifts2/photo-of-cookies-on-string-3334477.min-jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/gifts2/pink-and-teal-heart-box-2072148.min-jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/gifts2/red-petaled-flowers-1899631.min-jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/gifts2/woman-carrying-christmas-presents-3264665.min-jpg"
 ]
 
 gift_names = [
@@ -496,15 +497,24 @@ weddingandparty_names = [
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 u1 = User.create!(username: "Lary", password: "password", email: "lary@mail.com")
+
 u2 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
+
 u3 = User.create!(username: "Greg", password: "password", email: "greg@mail.com")
+
 u4 = User.create!(username: "Lisa", password: "password", email: "lisa@mail.com")
+
 u5 = User.create!(username: "Sarah", password: "password", email: "sarah@mail.com")
+
 u6 = User.create!(username: "Eve", password: "password", email: "eve@mail.com")
+
 u7 = User.create!(username: "Morty", password: "password", email: "morty@mail.com")
+
 u8 = User.create!(username: "Bert", password: "password", email: "bert@mail.com")
+
 u9 = User.create!(username: "Hillary", password: "password", email: "hillary@mail.com")
 
+# 5 men, 4 women
 s1 = Shop.create!(name: "a nice shop", creator_id: u1.id, description: "its a pretty nice shop, but its not that nice")
 s2 = Shop.create!(name: "a shop", creator_id: u2.id, description: "its a pretty wierd shop, but its not that wierd")
 s3 = Shop.create!(name: "a dark shop", creator_id: u3.id, description: "its a pretty dark shop, but its not that dark")
@@ -531,8 +541,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -562,8 +572,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -593,8 +603,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -623,8 +633,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -654,8 +664,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -684,8 +694,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -713,8 +723,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -742,8 +752,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,
@@ -771,8 +781,8 @@ while i < 6
     j = 0
     while j < 4;
         Review.create!(
-            title: "placeholder title",
-            body: "placeholder body",
+            title: Faker::Lorem.words(number: 3).join(" "),
+            body: Faker::TvShows::Simpsons.quote,
             rating: rand(6),
             item_id: x.id,
             author_id: users[rand(7)].id,

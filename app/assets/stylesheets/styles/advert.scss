@@ -48,6 +48,11 @@
     color: #f2f4fa;
     font-family: 'Inria Serif', serif;
     font-size: 40px;
+    text-align: center;
+}
+#gift-one p:last-child{
+    margin-top: 10px;
+    color: #f2f4fa;
 }
 
 #gift-two{
@@ -85,6 +90,20 @@
     width: 100%;
 
     margin-top: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#five-stars button{
+    color: #f2f4fa;
+    font-size: 22px;
+    font-family: 'Inria Serif', serif;
+}
+
+#five-stars button:hover{
 
 }
 

@@ -37,6 +37,7 @@ class User < ApplicationRecord
     through: :orders,
     source: :items
 
+  has_one_attached :photo
 
 
   def self.find_by_credentials(username, password)

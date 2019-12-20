@@ -22,6 +22,7 @@ class UserHeader extends React.Component{
     this.props.fetchProducts();
     this.props.fetchShops();
     this.props.fetchReviews();
+    this.props.fetchUsers();
   }
 
   render(){

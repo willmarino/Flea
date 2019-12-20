@@ -29,7 +29,7 @@ class IndexRow extends React.Component{
         // debugger;
         return(
             <li>
-                <h2>{this.props.category}</h2>
+                <h2 className="row-header">{this.props.category}</h2>
                 <ul>
                     {products}
                 </ul>

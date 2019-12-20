@@ -45,7 +45,7 @@ class CategoryRow extends React.Component{
 
     return(
       <li>
-        <h2>Gifts!</h2>
+        <h2 className= "row-header">Gifts!</h2>
         <ul>
           {pics}
         </ul>

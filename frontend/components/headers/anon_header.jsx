@@ -17,6 +17,7 @@ class AnonHeader extends React.Component{
     this.props.fetchShops();
     this.props.fetchProducts();
     this.props.fetchReviews();
+    this.props.fetchUsers();
   }
 
   render(){

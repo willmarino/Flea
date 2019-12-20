@@ -5,19 +5,29 @@ class ReviewSegment extends React.Component{
   constructor(props){
     super(props);
 
+    this.starsify = this.starsify.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchReviews();
-    this.props.fetchShops();
+    // this.props.fetchReviews();
+    // this.props.fetchShops();
+    // this.props.fetchUsers();
+  }
+
+  starsify(n){
+    let stars = [];
+        while(stars.length < n){
+            stars.push(<i className="fa fa-star" key={stars.length}></i>)
+        }
+      return stars;
   }
 
 
   render(){
-    if(!this.props.products || !this.props.reviews){
+    if(!this.props.products || !this.props.reviews || !this.props.users){
       return <p></p>
     }
-    if (Object.keys(this.props.products).length === 0 || Object.keys(this.props.reviews).length === 0){
+    if (Object.keys(this.props.products).length === 0 || Object.keys(this.props.users).length === 0 || Object.keys(this.props.reviews).length === 0){
       return <p></p>
     }
 
@@ -62,23 +72,25 @@ class ReviewSegment extends React.Component{
 
     // debugger;
 
+
     return(
       <div className="reviews-segment">
         <p>Reviews from happy people</p>
         <div className="r-row-one">
           <div id="row-one-col-one">
-            <i className="fa fa-smile avatar"></i>
-            <p>{reviews[0].rating}</p>
+            <img src="https://flea-seeds-two.s3.amazonaws.com/avatar-photos/man-wearing-black-zip-up-jacket-near-beach-smiling-at-the-736716.jpg" alt=""/>
+            <p>{this.starsify(reviews[0].rating)}</p>
+            <p>{this.props.users[reviews[0].author_id].username}</p>
             <p>{reviews[0].body}</p>
           </div>
           <div id="row-one-col-two">
-            <i className="far fa-smile avatar"></i>
-            <p>{reviews[1].rating}</p>
+            <img src="https://flea-seeds-two.s3.amazonaws.com/avatar-photos/photography-of-a-guy-wearing-green-shirt-1222271.jpg" alt=""/>
+            <p>{this.starsify(reviews[1].rating)}</p>
             <p>{reviews[1].body}</p>
           </div>
           <div id="row-one-col-three">
-            <i className="far fa-smile avatar"></i>
-            <p>{reviews[2].rating}</p>
+            <img src="https://flea-seeds-two.s3.amazonaws.com/avatar-photos/woman-wearing-black-eyeglasses-1239291.jpg" alt=""/>
+            <p>{this.starsify(reviews[2].rating)}</p>
             <p>{reviews[2].body}</p>
           </div>
         </div>

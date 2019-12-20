@@ -59,6 +59,14 @@
   width: 300px;
 }
 
+#row-one-col-one img, #row-one-col-two img, #row-one-col-three img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+
+  object-fit: cover;
+}
+
 .avatar{
   height: 20px;
   width: 20px;

@@ -34,7 +34,7 @@ class Trending extends React.Component{
             <div id="row-three-col-one">
               <img src={this.props.products[3].photoURL} alt="" className="trend-product-photo" />
               <p>{this.props.shops[this.props.products[3].shop_id].name}</p>
-              <p>title</p>
+              <p>{}</p>
               <p>blurb</p>
             </div>
             <div id="row-three-col-one">
