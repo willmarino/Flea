@@ -9,7 +9,7 @@ class CategoryIndexItem extends React.Component{
   render(){
 
     return(
-      <li className="Category">
+      <li className="category">
         {/* make this whole block a link to the category's index page */}
         <img src={this.props.p.photoURL} alt="" className="index-fake-image"/>
         <p>{this.props.p.high_level_category}</p>

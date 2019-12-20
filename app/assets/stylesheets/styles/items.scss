@@ -18,11 +18,27 @@
 
 .simple, .complex{
   justify-content: center;
-  // align-items: center;
-  // text-align: center;
 }
 
-.simple div, .complex div{
+.simple > div, .complex > div{
   padding: 10px;
   text-align: left;
+}
+
+.item-labels-simple{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.item-label-top{
+  display: flex;
+
+}
+
+.item-label-top p{
+  font-size: 14px;
+  color:#222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
 }

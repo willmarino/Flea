@@ -1,0 +1,35 @@
+.bestseller{
+    margin-left: 5px;
+    max-height: 13px;
+    width: 70px;
+    background: #fad655;
+    border-radius: 15px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.on-sale{
+    margin-left: 5px;
+    height: 13px;
+    width: 70px;
+    background: #61d457;
+    border-radius: 15px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.on-sale p, .bestseller p{
+    font-size: 10px
+}
+
+.item-price{
+    display: flex;
+    align-items: center;
+
+    color:#222;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

@@ -7,7 +7,11 @@ class IndexItem extends React.Component{
   }
 
 
-  render(){
+
+    render(){
+    // let percentOff = Math.round(Math.random() * 50) + 10;
+
+    let widgets = [<div className="bestseller"><p>Bestseller</p></div>, <div className="on-sale"><p>Free Shipping</p></div>]
     let path;
     if(!this.props.loggedIn){
       path = `/anon/products/${this.props.product.id}`;
@@ -22,8 +26,12 @@ class IndexItem extends React.Component{
           <Link to={path} >
             <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
-          <div className="item-labels">
-            <p>{this.props.product.price}</p>
+          <div className="item-labels-simple">
+            <div className="item-price">
+              <i className="fas fa-dollar-sign"></i>
+              <p>{this.props.product.price}</p>
+            </div>
+            {widgets[Math.round(Math.random())]}
           </div>
         </li>
       )
@@ -34,10 +42,12 @@ class IndexItem extends React.Component{
             <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
           <div className="item-labels">
-            <p>{this.props.product.name}</p>
+            <div id="item-label-top">
+              <p>{this.props.product.price}</p>
+              <p>{this.props.product.name}</p>
+            </div>
             <p>{this.props.shop.name}</p>
             <p>{this.props.product.rating}</p>
-            <p>{this.props.product.price}</p>
           </div>
         </li>
       )

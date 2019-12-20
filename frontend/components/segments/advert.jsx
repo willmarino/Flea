@@ -32,8 +32,7 @@ class Advert extends React.Component{
                             <p>header1</p>
                         </div>
                         <p className="message">Quis
-                            autem vel eum iure reprehenderit qui in ea voluptate velit
-                            esse quam nihil molestiae consequatur? </p>
+                            autem vel eum iure reprehenderit qui in ea? </p>
                     </div>
                     <div className="add-message">
                         <div className="add-header">
@@ -41,7 +40,7 @@ class Advert extends React.Component{
                             <p>header2</p>
                         </div>
                         <p className="message">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                            laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                            laboriosam?</p>
                     </div>
                     <div className="add-message" id="last">
                         <div className="add-header">
@@ -49,8 +48,7 @@ class Advert extends React.Component{
                             <p>header3</p>
                         </div>
                         <p className="message">Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
-                            ratione voluptatem sequi nesciunt.</p>
+                            aspernatur aut odit aut fugit.</p>
                     </div>
                 </div>
             </div>
