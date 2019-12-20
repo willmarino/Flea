@@ -16,18 +16,19 @@
 }
 
 .photo-reviews{
-  width: 60%;
+  width: 70%;
   
   display: flex;
   flex-direction: column;
 }
 
 .photo{
-  height: 35%;
+  height: 30%;
 
-  background: gray;
+  // background: gray;
 
   padding: 40px;
+  margin-right: 20px;
 
   display: flex;
   justify-content: center;
@@ -116,7 +117,7 @@
 }
 
 .review-count{
-  color: #595959;
+  color: 	#303030;
 }
 
 .product-title{
@@ -124,5 +125,5 @@
   margin-bottom: 10px;
 
   font-size: 20px;
-  color: #333;
+  color: 	#303030;
 }

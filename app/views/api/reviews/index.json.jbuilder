@@ -5,5 +5,6 @@
     json.rating r.rating
     json.item_id r.item_id
     json.author_id r.author_id
+    json.created_at r.created_at
   end
 end

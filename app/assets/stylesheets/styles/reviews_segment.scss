@@ -11,7 +11,7 @@
 
 .review-product-photo{
   height: 225px;
-  width: 225px;
+  width: 250px;
   border-radius: 5px;
   object-fit: cover;
 }
@@ -35,7 +35,30 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.r-row-two > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.r-row-one p{
+  color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.r-row-two p{
+  color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  text-align: center;
 }
 
 .r-row-three{

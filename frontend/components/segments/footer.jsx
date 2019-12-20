@@ -10,8 +10,10 @@ class Footer extends React.Component{
     return(
       <div className="footer">
         <div id="top">
-          <p>subscribe</p>
-          <input type="text"/>
+          <div className="footer-input">
+            <p>Get fresh Flea trends and unique gift ideas delivered right to your inbox.</p>
+            <input type="text"/>
+          </div>
         </div>
         <div id="middle">
           <div className="shop">

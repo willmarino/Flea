@@ -609,7 +609,7 @@ end
 i = 0
 while i < 6
     x = Product.create!(
-        name: homeandliving[i],
+        name: homeandliving_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Home & Living",
         price: rand(200.00),
@@ -639,7 +639,7 @@ end
 i = 0
 while i < 6
     x = Product.create!(
-        name: artsandcrafts[i],
+        name: artsandcrafts_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Craft Supplies",
         price: rand(200.00),
@@ -659,7 +659,7 @@ while i < 6
     end
 
     file = open(artsandcrafts[i])
-    indiv_file = artsandcrafts[i].split("artsandcrafts/")[-1]
+    indiv_file = artsandcrafts[i].split("artsandcrafts2/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
 
     i += 1
