@@ -496,23 +496,39 @@ weddingandparty_names = [
 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
+
+user_avatars = [
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/adult-beard-boy-casual-220453.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/blur-boy-casual-close-up-428333.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/close-up-photography-of-man-wearing-sunglasses-1212984.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/brown-haired-girl-in-white-sleeveless-dress-standing-beside-756453.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/close-up-photography-of-a-woman-near-wall-1065084.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/woman-wearing-black-eyeglasses-1239291.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/man-wearing-black-zip-up-jacket-near-beach-smiling-at-the-736716.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/woman-wearing-eyeglasses-773371.jpg",
+    "https://flea-seeds-two.s3.amazonaws.com/avatar-photos/photography-of-a-guy-wearing-green-shirt-1222271.jpg"
+
+
+]
+
 u1 = User.create!(username: "Lary", password: "password", email: "lary@mail.com")
-
 u2 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
-
 u3 = User.create!(username: "Greg", password: "password", email: "greg@mail.com")
-
 u4 = User.create!(username: "Lisa", password: "password", email: "lisa@mail.com")
-
 u5 = User.create!(username: "Sarah", password: "password", email: "sarah@mail.com")
-
 u6 = User.create!(username: "Eve", password: "password", email: "eve@mail.com")
-
 u7 = User.create!(username: "Morty", password: "password", email: "morty@mail.com")
-
 u8 = User.create!(username: "Bert", password: "password", email: "bert@mail.com")
-
 u9 = User.create!(username: "Hillary", password: "password", email: "hillary@mail.com")
+
+users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
+
+users.each_with_index do |user, i|
+    file = open(user_avatars[i])
+    indiv_file = user_avatars[i].split("avatar-photos/")[-1]
+    user.photo.attach(io: file, filename: indiv_file)
+end
+
 
 # 5 men, 4 women
 s1 = Shop.create!(name: "a nice shop", creator_id: u1.id, description: "its a pretty nice shop, but its not that nice")
@@ -524,7 +540,7 @@ s6 = Shop.create!(name: "a thought-provoking shop", creator_id: u6.id, descripti
 s7 = Shop.create!(name: "a not so nice shop", creator_id: u7.id, description: "not great")
 
 shops = [s1, s2, s3, s4, s5, s6, s7]
-users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
+# users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
 
 # debugger
 

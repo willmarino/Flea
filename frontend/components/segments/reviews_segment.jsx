@@ -72,25 +72,27 @@ class ReviewSegment extends React.Component{
 
     // debugger;
 
-
     return(
       <div className="reviews-segment">
         <p>Reviews from happy people</p>
         <div className="r-row-one">
           <div id="row-one-col-one">
-            <img src="https://flea-seeds-two.s3.amazonaws.com/avatar-photos/man-wearing-black-zip-up-jacket-near-beach-smiling-at-the-736716.jpg" alt=""/>
+            
+            <img src={this.props.users[reviews[0].author_id].photoURL} alt=""/>
             <p>{this.starsify(reviews[0].rating)}</p>
             <p>{this.props.users[reviews[0].author_id].username}</p>
             <p>{reviews[0].body}</p>
           </div>
           <div id="row-one-col-two">
-            <img src="https://flea-seeds-two.s3.amazonaws.com/avatar-photos/photography-of-a-guy-wearing-green-shirt-1222271.jpg" alt=""/>
+            <img src={this.props.users[reviews[1].author_id].photoURL} alt=""/>
             <p>{this.starsify(reviews[1].rating)}</p>
+            <p>{this.props.users[reviews[1].author_id].username}</p>
             <p>{reviews[1].body}</p>
           </div>
           <div id="row-one-col-three">
-            <img src="https://flea-seeds-two.s3.amazonaws.com/avatar-photos/woman-wearing-black-eyeglasses-1239291.jpg" alt=""/>
+            <img src={this.props.users[reviews[2].author_id].photoURL} alt=""/>
             <p>{this.starsify(reviews[2].rating)}</p>
+            <p>{this.props.users[reviews[2].author_id].username}</p>
             <p>{reviews[2].body}</p>
           </div>
         </div>
