@@ -44,12 +44,12 @@ class ReviewSegment extends React.Component{
 
     if(this.props.loggedIn){
       return(
-        <div className="r-row-three">
-          <p>Trends</p>
+        <div className="r-row-three loggedIn">
+          <p id="loggedIn-header">Trends</p>
           <div className="trending-pics">
             <div id="row-three-col-one">
               <img src={products[3].photoURL} alt="" className="trend-product-photo"/>
-              <p>Featured Shop</p>
+              <p id="bold">Featured Shop</p>
               <div>
                 <p>{this.props.shops[products[3].shop_id].name}</p>
                 <p>{reviews[4].body}</p>
@@ -57,7 +57,7 @@ class ReviewSegment extends React.Component{
             </div>
             <div id="row-three-col-one">
               <img src={products[4].photoURL} alt="" className="trend-product-photo" />
-              <p>Featured Item</p>
+              <p id="bold">Featured Item</p>
               <div>
                 <p>{this.props.shops[products[3].shop_id].name}</p>
                 <p>{reviews[4].body}</p>
@@ -65,7 +65,7 @@ class ReviewSegment extends React.Component{
             </div>
             <div id="row-three-col-one">
               <img src={products[5].photoURL} alt="" className="trend-product-photo"/>
-              <p>Featured Style</p>
+              <p id="bold">Featured Style</p>
               <div>
                 <p>{this.props.shops[products[3].shop_id].name}</p>
                 <p>{reviews[5].body}</p>

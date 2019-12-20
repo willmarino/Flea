@@ -27,7 +27,7 @@ class UserMain extends React.Component{
                     <CategoryNav/>
                 </div>
                 <div className="user-main-mid">
-                    <Route exact path="/" component={UserSubheaderContainer}/>
+                    {/* <Route exact path="/" component={UserSubheaderContainer}/> */}
                     <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/>
                     <Route exact path="/" component={AnonIndexContainer}/>
                     <Route exact path="/" render={() => <ul className="primary-index"><CategoryRowContainer/></ul>}/>
