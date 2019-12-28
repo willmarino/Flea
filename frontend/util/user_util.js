@@ -29,3 +29,18 @@ export const createUser = (user) => (
   })
 );
 
+export const addRecentlyViewed = (product) => (
+  // product must be an obj => {product_id: 53}
+  $.ajax({
+    method: "POST",
+    url: `api/users/add_viewed`,
+    data: { product }
+  })
+)
+
+export const fetchRecentlyViewed = (id) => (
+  $.ajax({
+    method: "GET",
+    url: `/api/users/${id}recently_viewed`
+  })
+)

@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userErrors: []
       },
       session: {
-        currentUser: currentuser.id
+        currentUser: currentuser
       },
       ui:{
         modal: null

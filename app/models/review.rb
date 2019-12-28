@@ -12,4 +12,15 @@ class Review < ApplicationRecord
     primary_key: :id,
     foreign_key: :author_id
 
+
+  def self.filter_by_rating(filter_rating)
+    reviews = []
+    Review.all.each do |r|
+      if r.rating >= filter_rating
+        reviews << r
+      end
+    end
+    return reviews
+  end
+
 end

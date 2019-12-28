@@ -68,5 +68,38 @@ class User < ApplicationRecord
 
   end
 
+  def add_viewed(product_id)
+    self.viewed.unshift(product_id)
+    self.save!
+end
+
+def all_viewed
+    return self.viewed.uniq
+end
+
+def recently_viewed
+    products = []
+    if self.all_viewed.length <= 6
+        viewed_product_ids = self.all_viewed
+        viewed_product_ids.each do |vpi|
+            products << Product.find(vpi)
+        end
+
+        while products.length < 6
+            random_num = rand(Product.first.id..Product.last.id)
+            products << Product.find(random_num)
+        end
+
+        return products
+    else
+        viewed_product_ids = self.all_viewed[0..5]
+        viewed_product_ids.each do |vpi|
+            products << Product.find(vpi)
+        end
+        return products
+    end
+end
+
+  
 
 end

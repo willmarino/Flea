@@ -15,3 +15,9 @@ export const fetchReviews = () => (
   })
 );
 
+export const fetchHappyReviews = () => (
+  $.ajax({
+    method: "GET",
+    url: "/api/reviews/happy_reviews"
+  })
+);

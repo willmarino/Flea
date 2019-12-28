@@ -4,10 +4,20 @@ import {
   REMOVE_PRODUCT
 } from '../actions/product_actions';
 
+import { RECENTLY_VIEWED_PRODUCTS } from '../actions/users_actions';
+
+import { RECEIVE_HAPPY_REVIEWS } from '../actions/review_actions';
+
 const ProductsReducer = (state={}, action) => {
   // debugger;
   Object.freeze(state);
   switch(action.type){
+    case RECEIVE_HAPPY_REVIEWS:
+      return Object.assign({}, state, action.reviews[products])
+    case RECENTLY_VIEWED_PRODUCTS:
+      return Object.assign({}, state, action.products);
+    case RECEIVE_CATEGORY:
+      return Object.assign({}, state, {[Object.values(action.products)[0].high_level_category]: action.products});
     case RECEIVE_PRODUCTS:
       return Object.assign({}, state, action.products);
     case RECEIVE_PRODUCT:

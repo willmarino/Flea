@@ -35,3 +35,18 @@ export const removeProduct = (productId) => (
     url: `api/products/${productId}`
   })
 );
+
+export const fetchByCategory = (category) => (
+  $.ajax({
+      method: "GET",
+      url: "/api/products/grab_by_category",
+      data: { category }
+  })
+);
+
+export const fetchProductReviews = (id) => (
+  $.ajax({
+      method: "GET",
+      url: `/api/products/${id}/product_reviews`
+  })
+);

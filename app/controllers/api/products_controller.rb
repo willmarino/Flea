@@ -43,6 +43,30 @@ class Api::ProductsController < ApplicationController
     end
   end
 
+  def grab_by_ids #all products which were recently viewed
+    #params[ids_arr]
+    @products = Product.by_ids(params[:ids_arr])
+    render :recent_row
+end
+
+def grab_by_category #grab by category
+    @category = params[:category_obj][:category]
+    @products = Product.by_category(params[:category_obj][:category])
+    # debugger
+    render :category_row
+end
+
+def product_reviews
+    product = Product.find(params[:id])
+    @reviews = []
+    Review.all.each do |r|
+      if r.item_id === product.id
+        @reviews << r
+      end
+    end
+    render :product_reviews
+end
+
   def product_params
     params.require(:product).permit(:name, :shop_id, :description, 
       :high_level_category, :mid_level_category, :low_level_category, 

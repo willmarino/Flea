@@ -511,15 +511,15 @@ user_avatars = [
 
 ]
 
-u1 = User.create!(username: "Lary", password: "password", email: "lary@mail.com")
-u2 = User.create!(username: "demouser", password: "password", email: "demo@mail.com")
-u3 = User.create!(username: "Greg", password: "password", email: "greg@mail.com")
-u4 = User.create!(username: "Lisa", password: "password", email: "lisa@mail.com")
-u5 = User.create!(username: "Sarah", password: "password", email: "sarah@mail.com")
-u6 = User.create!(username: "Eve", password: "password", email: "eve@mail.com")
-u7 = User.create!(username: "Morty", password: "password", email: "morty@mail.com")
-u8 = User.create!(username: "Bert", password: "password", email: "bert@mail.com")
-u9 = User.create!(username: "Hillary", password: "password", email: "hillary@mail.com")
+u1 = User.create!(username: "Lary", viewed: [], password: "password", email: "lary@mail.com")
+u2 = User.create!(username: "demouser", viewed: [], password: "password", email: "demo@mail.com")
+u3 = User.create!(username: "Greg", viewed: [], password: "password", email: "greg@mail.com")
+u4 = User.create!(username: "Lisa", viewed: [], password: "password", email: "lisa@mail.com")
+u5 = User.create!(username: "Sarah", viewed: [], password: "password", email: "sarah@mail.com")
+u6 = User.create!(username: "Eve", viewed: [], password: "password", email: "eve@mail.com")
+u7 = User.create!(username: "Morty", viewed: [], password: "password", email: "morty@mail.com")
+u8 = User.create!(username: "Bert", viewed: [], password: "password", email: "bert@mail.com")
+u9 = User.create!(username: "Hillary", viewed: [], password: "password", email: "hillary@mail.com")
 
 users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
 

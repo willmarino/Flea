@@ -4,7 +4,14 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: {format: :json} do
-    resources :users, only: [:create, :index, :show]
+    resources :users, only: [:create, :index, :show] do
+      collection do
+        post 'add_viewed' #add a viewed product's id to user's viewed attribute
+      end
+      member do
+        get 'recently_viewed' #return recently viewed product objects
+      end
+    end
     resources :carts, only: [:show, :create, :delete]
     resources :cart_items, only: [:index, :create, :delete]
     resources :orders, only: [:show, :index, :create]
@@ -14,9 +21,21 @@ Rails.application.routes.draw do
       resources :products, only: [:create]
     end
 
-    resources :products, only: [:index, :show, :destroy, :update]
+    resources :products, only: [:index, :show, :destroy, :update] do
+      collection do
+        # get 'grab_by_ids'
+        get 'grab_by_category'
+      end
+      member do
+        get 'product_reviews'
+      end
+    end
       
-    resources :reviews, only: [:create, :index]
+    resources :reviews, only: [:create, :index] do
+      collection do
+        get 'happy_reviews'
+      end
+    end
 
 
   end

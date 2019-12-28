@@ -30,6 +30,21 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def add_viewed
+    current_user.add_viewed(viewed_params[:product_id])
+  end
+
+  def recently_viewed
+    @user = User.find(params[:id])
+    @recently_viewed = @user.recently_viewed
+    # debugger
+    render :recently_viewed
+  end
+
+  def viewed_params
+    params.require(:product).permit(:product_id)
+  end
+
   def user_params
     params.require(:user).permit(:username, :password, :email)
   end

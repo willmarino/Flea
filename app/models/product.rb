@@ -12,6 +12,24 @@ class Product < ApplicationRecord
     return total / (self.reviews.length * 1.0)
   end
 
+  def self.by_ids(ids_arr)
+    products = []
+    ids_arr.each do |p| # p is id of product
+      products << Product.find(p)
+    end
+    return products
+  end
+
+  def self.by_category(category)
+    products = []
+    Product.all.each do |p|
+      if p.high_level_category === category
+        products << p
+      end
+    end
+    return products[0..5]
+  end
+
   belongs_to :shop,
     class_name: "Shop",
     primary_key: :id,
