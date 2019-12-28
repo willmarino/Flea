@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
       member do
         get 'recently_viewed' #return recently viewed product objects
+        post 'clear_views'
       end
     end
     resources :carts, only: [:show, :create, :delete]

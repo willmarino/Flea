@@ -36,11 +36,11 @@ export const addRecentlyViewed = (product) => (
     url: `api/users/add_viewed`,
     data: { product }
   })
-)
+);
 
 export const fetchRecentlyViewed = (id) => (
   $.ajax({
     method: "GET",
-    url: `/api/users/${id}recently_viewed`
+    url: `/api/users/${id}/recently_viewed`
   })
-)
+);

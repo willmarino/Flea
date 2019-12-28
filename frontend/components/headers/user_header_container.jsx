@@ -14,8 +14,13 @@ import {fetchShops} from '../../actions/shop_actions';
 import {fetchUsers} from '../../actions/users_actions';
 import { fetchReviews } from '../../actions/review_actions';
 
+// ---
+
+import { fetchRecentlyViewed } from '../../actions/users_actions';
+
 const msp = state => ({
-    currentUser: state.entities.users[state.session.currentUser]
+    // currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.session.currentUser
 });
 
 const mdp = dispatch => ({
@@ -23,7 +28,8 @@ const mdp = dispatch => ({
     fetchProducts: () => dispatch(fetchProducts()),
     fetchShops: () => dispatch(fetchShops()),
     fetchReviews: () => dispatch(fetchReviews()),
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers()),
+    fetchRecentlyViewed: (id) => dispatch(fetchRecentlyViewed(id))
 });
 
 

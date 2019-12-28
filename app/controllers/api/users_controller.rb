@@ -41,6 +41,11 @@ class Api::UsersController < ApplicationController
     render :recently_viewed
   end
 
+  def clear_views
+    @user = User.find(params[:id])
+    @user.clear_views
+  end
+
   def viewed_params
     params.require(:product).permit(:product_id)
   end

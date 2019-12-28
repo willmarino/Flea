@@ -11,8 +11,8 @@ class IndexRow extends React.Component{
         // debugger;
         if(Object.keys(this.props.products).length === 0 || Object.keys(this.props.shops).length === 0){
             // debugger;
-            this.props.fetchProducts();
-            this.props.fetchShops();
+            // this.props.fetchProducts();
+            // this.props.fetchShops();
         }
     }
 

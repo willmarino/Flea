@@ -19,10 +19,11 @@ class UserHeader extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchProducts();
+    // this.props.fetchProducts();
     this.props.fetchShops();
     this.props.fetchReviews();
     this.props.fetchUsers();
+    // this.props.fetchRecentlyViewed(this.props.currentUser.id);
   }
 
   render(){

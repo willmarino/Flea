@@ -73,6 +73,11 @@ class User < ApplicationRecord
     self.save!
 end
 
+def clear_views
+  self.viewed = [];
+  self.save!
+end
+
 def all_viewed
     return self.viewed.uniq
 end

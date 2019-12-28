@@ -10,6 +10,7 @@ class IndexItem extends React.Component{
 
     render(){
     // let percentOff = Math.round(Math.random() * 50) + 10;
+    // debugger;
 
     let widgets = [<div className="bestseller"><p>Bestseller</p></div>, <div className="on-sale"><p>Free Shipping</p></div>]
     let path;

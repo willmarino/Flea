@@ -48,7 +48,7 @@ export const fetchUser = (user) => dispatch => (
     .then(user => dispatch(receiveUser(user)))
 );
 
-export const fetchRecentlyViewed = (id) => (
+export const fetchRecentlyViewed = (id) => dispatch => (
   UserApi.fetchRecentlyViewed(id)
     .then(products => dispatch(recentlyViewedProducts(products)))
 );

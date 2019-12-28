@@ -1,7 +1,8 @@
 import {
   RECEIVE_PRODUCTS,
   RECEIVE_PRODUCT,
-  REMOVE_PRODUCT
+  REMOVE_PRODUCT,
+  RECEIVE_CATEGORY
 } from '../actions/product_actions';
 
 import { RECENTLY_VIEWED_PRODUCTS } from '../actions/users_actions';
@@ -11,6 +12,7 @@ import { RECEIVE_HAPPY_REVIEWS } from '../actions/review_actions';
 const ProductsReducer = (state={}, action) => {
   // debugger;
   Object.freeze(state);
+  debugger;
   switch(action.type){
     case RECEIVE_HAPPY_REVIEWS:
       return Object.assign({}, state, action.reviews[products])
