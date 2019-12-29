@@ -30,11 +30,16 @@ class UserMain extends React.Component{
                 </div>
                 <div className="user-main-mid">
                     {/* <Route exact path="/" component={UserSubheaderContainer}/> */}
-                    <Route exact path="/" render={() => <ul className="primary-index"><ProductRowContainer type='recent'/></ul>}/>
-                    {/* <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/> */}
-                    {/* <Route exact path="/" component={AnonIndexContainer}/> */}
-                    {/* <Route exact path="/" render={() => <ul className="primary-index"><CategoryRowContainer/></ul>}/> */}
-                    {/* <Route exact path="/" component={ReviewSegmentContainer} /> */}
+                    {/* <div className="primary-index">
+                        <Route exact path="/" render={() => <ProductRowContainer type='recent'/>}/>
+                        <Route exact path="/" render={() => <ProductRowContainer type='category'/>}/>
+                        <Route exact path="/" render={() => <ProductRowContainer type='category'/>}/>
+                        <Route exact path="/" render={() => <CategoryRowContainer/>}/>
+                    </div> */}
+                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/>
+                    <Route exact path="/" component={AnonIndexContainer}/>
+                    <Route exact path="/" render={() => <ul className="primary-index"><CategoryRowContainer/></ul>}/>
+                    <Route exact path="/" component={ReviewSegmentContainer} />
                     <Route exact path="/" component={Info} />
                     <Route exact path="/" component={Footer} />
                     <Route path={showPath} component={ProductShowContainer}/>

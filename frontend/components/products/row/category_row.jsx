@@ -17,8 +17,15 @@ class CategoryRow extends React.Component{
     ];
   }
 
+  componentDidMount(){
+    // this.props.productCategories();
+  }
+
   render(){
     // debugger;
+    if(!this.props.productsArr){
+      return <p>Loading</p>;
+    }
     if(this.props.productsArr.length === 0){
       return <p>loading</p>;
     }
@@ -31,7 +38,7 @@ class CategoryRow extends React.Component{
       let j = 0;
       while(!pushed){
         let cur_prod = this.props.productsArr[j];
-        debugger;
+        // debugger;
         if(cur_prod.high_level_category === cur_cat){
           pics.push(<CategoryIndexItem p={cur_prod} key={i}/>);
           pushed = true;
@@ -42,6 +49,15 @@ class CategoryRow extends React.Component{
       }
       // debugger;
     }
+    // if(!this.props.products['categories']){
+    //   return <p>loading categories</p>
+    // }
+    // let pics;
+    // let i = 0;
+    // pics = Object.values(this.props.products['categories']).map((product) => {
+    //   i += 1;
+    //   return <CategoryIndexItem p={product} key={i}/>
+    // });
 
     return(
       <li>

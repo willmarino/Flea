@@ -50,3 +50,10 @@ export const fetchProductReviews = (id) => (
       url: `/api/products/${id}/product_reviews`
   })
 );
+
+export const fetchProductCategories = () => (
+  $.ajax({
+    method: "GET",
+    url: "/api/products/categories"
+  })
+);

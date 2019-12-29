@@ -6,6 +6,7 @@ export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 
 export const RECEIVE_CATEGORY = "RECEIVE_CATEGORY";
 export const RECEIVE_PRODUCT_REVIEWS = "RECEIVE_PRODUCT_REVIEWS";
+export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
 
 
 const receiveProduct = (product) => ({
@@ -33,6 +34,10 @@ const receiveProductReviews = (reviews) => ({
   reviews
 });
 
+const receiveCategories = (products) => ({
+  type: RECEIVE_CATEGORIES,
+  products
+});
 
 export const fetchProduct = (productId) => dispatch => (
   ProductUtil.fetchProduct(productId)
@@ -61,12 +66,17 @@ export const updateProduct = (product) => dispatch => (
 
 // --------------------------------------------------------------------------------
 
-export const productsbyCategory = (category) => dispatch => (
-  ProductApi.fetchByCategory(category)
+export const productsByCategory = (category) => dispatch => (
+  ProductUtil.fetchByCategory(category)
       .then(products => dispatch(receiveCategory(products)))
 );
 
 export const productReviews = (id) => dispatch => (
-  ProductApi.fetchProductReviews(id)
+  ProductUtil.fetchProductReviews(id)
       .then(reviews => dispatch(receiveProductReviews(reviews)))
+);
+
+export const productCategories = () => dispatch => (
+  ProductUtil.fetchProductCategories()
+    .then(products => dispatch(receiveCategories(products)))
 );

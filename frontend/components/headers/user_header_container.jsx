@@ -18,6 +18,8 @@ import { fetchReviews } from '../../actions/review_actions';
 
 import { fetchRecentlyViewed } from '../../actions/users_actions';
 
+import { productCategories } from '../../actions/product_actions';
+
 const msp = state => ({
     // currentUser: state.entities.users[state.session.currentUser]
     currentUser: state.session.currentUser
@@ -29,7 +31,8 @@ const mdp = dispatch => ({
     fetchShops: () => dispatch(fetchShops()),
     fetchReviews: () => dispatch(fetchReviews()),
     fetchUsers: () => dispatch(fetchUsers()),
-    fetchRecentlyViewed: (id) => dispatch(fetchRecentlyViewed(id))
+    fetchRecentlyViewed: (id) => dispatch(fetchRecentlyViewed(id)),
+    productCategories: () => dispatch(productCategories())
 });
 
 

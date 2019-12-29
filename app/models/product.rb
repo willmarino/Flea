@@ -30,6 +30,25 @@ class Product < ApplicationRecord
     return products[0..5]
   end
 
+  def self.product_categories
+    categories = [
+    "Jewelry & Accessories",
+    "Clothing & Shoes",
+    "Home & Living",
+    "Wedding & Party",
+    "Toys & Entertainment",
+    "Arts & Collectibles",
+    "Craft Supplies",
+    "Vintage",
+    "Gifts"
+    ]
+    products = []
+    categories.each do |category|
+      products << Product.find_by(high_level_category: category)
+    end
+    return products[0..5]
+  end
+
   belongs_to :shop,
     class_name: "Shop",
     primary_key: :id,

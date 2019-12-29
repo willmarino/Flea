@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       collection do
         # get 'grab_by_ids'
         get 'grab_by_category'
+        get 'categories'
       end
       member do
         get 'product_reviews'

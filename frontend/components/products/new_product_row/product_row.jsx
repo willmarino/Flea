@@ -14,7 +14,7 @@ class ProductRow extends React.Component{
         if(this.props.type !== "recent"){
             this.props.productsByCategory(categoryObj);
         }else{
-            debugger;
+            // debugger;
             this.props.fetchRecentlyViewed(this.props.currentUser.id);
         }
     }
@@ -37,7 +37,7 @@ class ProductRow extends React.Component{
 
         if(this.props.type !== "recent"){
             label = this.category;
-            products = this.props.products[this.category].map((product) => {
+            products = Object.values(this.props.products[this.category]).map((product) => {
                 i += 1;
                 return <IndexItem product={product} type="simple" loggedIn={this.props.loggedIn} key={i}/>
             });

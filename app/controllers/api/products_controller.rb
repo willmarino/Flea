@@ -47,16 +47,17 @@ class Api::ProductsController < ApplicationController
     #params[ids_arr]
     @products = Product.by_ids(params[:ids_arr])
     render :recent_row
-end
+  end
 
-def grab_by_category #grab by category
-    @category = params[:category_obj][:category]
-    @products = Product.by_category(params[:category_obj][:category])
+  def grab_by_category #grab by category
+    # debugger
+    @category = params[:category][:category]
+    @products = Product.by_category(params[:category][:category])
     # debugger
     render :category_row
-end
+  end
 
-def product_reviews
+  def product_reviews
     product = Product.find(params[:id])
     @reviews = []
     Review.all.each do |r|
@@ -65,7 +66,13 @@ def product_reviews
       end
     end
     render :product_reviews
-end
+  end
+
+  def categories
+    @products = Product.product_categories
+    # debugger
+    render :categories
+  end
 
   def product_params
     params.require(:product).permit(:name, :shop_id, :description, 
