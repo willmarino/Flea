@@ -30,8 +30,10 @@ class AnonMain extends React.Component{
                 </div>
                 <div className="anon-main-mid">
                     <Route exact path="/anon" component={Advert}/>
-                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/>
-                    <Route exact path="/anon" component={AnonIndexContainer}/>
+                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
+                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
+                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
+                    {/* <Route exact path="/anon" component={AnonIndexContainer}/> */}
                     <Route exact path="/anon" render={() => <ul className="primary-index"><CategoryRowContainer /></ul>}/>
                     <Route exact path="/anon" component={Info}/>
                     <Route exact path="/anon" component={ReviewSegmentContainer} />

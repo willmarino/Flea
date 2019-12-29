@@ -60,12 +60,14 @@ class CategoryRow extends React.Component{
     // });
 
     return(
-      <li>
+      <>
         <h2 className= "row-header">Gifts!</h2>
-        <ul>
-          {pics}
-        </ul>
-      </li>
+        <li>
+          <ul>
+            {pics}
+          </ul>
+        </li>
+      </>
     );
   }
 }

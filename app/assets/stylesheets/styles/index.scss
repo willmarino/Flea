@@ -20,6 +20,7 @@
 .header-container{
   display: flex;
   justify-content: left;
+  // align-items: left;
 
   max-width: 1240px;
   width: 100%;
@@ -30,8 +31,31 @@
   color:#222;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   padding-left: 10px;
+
+  width: 100%;
+  display: flex;
+  justify-content: left;
 }
 
 .product-row{
   display: flex;
+}
+
+.primary-index > li{
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+
+}
+
+.primary-index > li > ul{
+  width: 100%;
+  display: flex;
+
+
+}
+
+.simple{
+  flex: 1 1 auto;
 }

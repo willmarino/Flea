@@ -24,7 +24,7 @@ class IndexItem extends React.Component{
     if(this.props.type === "simple"){
       item = (
         <li className="simple">
-          <Link to={path} >
+          <Link to={path} className="link-container" >
             <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
           </Link>
           <div className="item-labels-simple">

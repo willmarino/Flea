@@ -19,21 +19,27 @@ class IndexRow extends React.Component{
     render(){
         let shop;
         let products;
-        if(Object.keys(this.props.shops).length === 0 || Object.keys(this.props.products).length === 0){
-            products = <p></p>;
+        if(!this.props.products){
+            return <p></p>;
+        }
+        if(Object.keys(this.props.shops).length === 0 || this.props.products.length === 0){
+            return <p></p>;
         }else{
             products = this.props.products.map((p) => {
                 return <IndexItem product={p} type={this.props.type} shop={this.props.shops[p.shop_id]} loggedIn={this.props.loggedIn} key={p.id}/>
             });
         }
         // debugger;
+        let category = this.props.products[0].high_level_category;
         return(
-            <li>
-                <h2 className="row-header">{this.props.category}</h2>
-                <ul>
-                    {products}
-                </ul>
-            </li>
+            <>
+                <h2 className="row-header">{category}</h2>
+                <li>
+                    <ul>
+                        {products}
+                    </ul>
+                </li>
+            </>
         );
     }
 }

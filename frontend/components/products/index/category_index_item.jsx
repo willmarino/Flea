@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CategoryIndexItem extends React.Component{
   constructor(props){
@@ -10,9 +11,12 @@ class CategoryIndexItem extends React.Component{
 
     return(
       <li className="category">
-        {/* make this whole block a link to the category's index page */}
-        <img src={this.props.p.photoURL} alt="" className="index-fake-image"/>
-        <p>{this.props.p.high_level_category}</p>
+        <Link to="/" className="link-container">
+          <img src={this.props.p.photoURL} alt="" className="index-fake-image"/>
+        </Link>
+        <div className="category-details">
+          <p>{this.props.p.high_level_category}</p>
+        </div>
       </li>
     );
   }

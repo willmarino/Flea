@@ -1,6 +1,18 @@
 
 
-export const categoryFilter = (obj, category) => {
+export const categoryFilter = (obj) => {
+    let categories = [
+        "Gifts",
+        "Jewelry & Accessories", 
+        "Clothing & Shoes", 
+        "Home & Living", 
+        "Wedding & Party", 
+        "Toys & Entertainment", 
+        "Arts & Collectibles",
+        "Craft Supplies",
+        "Vintage"
+    ];
+    let category = categories[Math.round(Math.random() * 9)];
     let res = [];
     // debugger;
     let productsArr = Object.values(obj);
@@ -13,6 +25,7 @@ export const categoryFilter = (obj, category) => {
     // debugger;
     return res.slice(0, 6);
 };
+
 
 export const randomFilter = (obj) => {
     let res = [];

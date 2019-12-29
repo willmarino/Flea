@@ -36,8 +36,10 @@ class UserMain extends React.Component{
                         <Route exact path="/" render={() => <ProductRowContainer type='category'/>}/>
                         <Route exact path="/" render={() => <CategoryRowContainer/>}/>
                     </div> */}
-                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="complex" /></ul>}/>
-                    <Route exact path="/" component={AnonIndexContainer}/>
+                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
+                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
+                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
+                    {/* <Route exact path="/" component={AnonIndexContainer}/> */}
                     <Route exact path="/" render={() => <ul className="primary-index"><CategoryRowContainer/></ul>}/>
                     <Route exact path="/" component={ReviewSegmentContainer} />
                     <Route exact path="/" component={Info} />

@@ -8,12 +8,15 @@ import IndexRow from './index_row';
 
 const msp = (state, ownProps) => {
   // debugger;
-  let fetchedProd = (ownProps.category) ? categoryFilter(state.entities.products, ownProps.category) : (Object.values(state.entities.products).slice(0, 6));
+  // let fetchedProd = (ownProps.category) ? categoryFilter(state.entities.products, ownProps.category) : (Object.values(state.entities.products).slice(0, 6));
+  let fetchedProd = categoryFilter(state.entities.products);
+  // debugger;
   return({
     products: fetchedProd,
     shops: state.entities.shops,
     type: ownProps.type,
-    category: ownProps.category || "Popular Now",
+    // category: ownProps.category || "Popular Now",
+    // category: fetchedProd[0].high_level_category,
     loggedIn: Boolean(state.session.currentUser)
   });
 };
