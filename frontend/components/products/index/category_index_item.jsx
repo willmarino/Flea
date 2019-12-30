@@ -10,7 +10,7 @@ class CategoryIndexItem extends React.Component{
   render(){
 
     return(
-      <li className="category">
+      <li className="category cat-item">
         <Link to="/" className="link-container">
           <img src={this.props.p.photoURL} alt="" className="index-fake-image"/>
         </Link>

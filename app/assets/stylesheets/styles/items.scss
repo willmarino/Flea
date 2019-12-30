@@ -11,7 +11,7 @@
 
   border-radius: 4px;
 
-  flex-grow: 1;
+  // flex-grow: 1;
 }
 
 .link-container{
@@ -27,11 +27,13 @@
   margin-left: 10px;
   margin-right: 10px;
 
+  width: 185px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1 1 auto;
+  // flex: 1 1 auto;
 }
 
 .simple > div, .complex > div{
@@ -66,4 +68,8 @@
 
 .simple:hover, .complex:hover{
   text-decoration: underline;
+}
+
+.category{
+  // flex: 1 1 auto;
 }

@@ -29,7 +29,7 @@ class Advert extends React.Component{
                     <div className="add-message" id="first">
                         <div className="add-header">
                             <i className="fa fa-check" aria-hidden="true"></i>
-                            <p>header1</p>
+                            <p>Looking for shoes?</p>
                         </div>
                         <p className="message">Quis
                             autem vel eum iure reprehenderit qui in ea? </p>
@@ -37,7 +37,7 @@ class Advert extends React.Component{
                     <div className="add-message">
                         <div className="add-header">
                             <i className="fa fa-check" aria-hidden="true"></i>
-                            <p>header2</p>
+                            <p>Gifts for the new Year?</p>
                         </div>
                         <p className="message">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
                             laboriosam?</p>
@@ -45,7 +45,7 @@ class Advert extends React.Component{
                     <div className="add-message" id="last">
                         <div className="add-header">
                             <i className="fa fa-check" aria-hidden="true"></i>
-                            <p>header3</p>
+                            <p>Interested in modern art?</p>
                         </div>
                         <p className="message">Nemo enim ipsam voluptatem quia voluptas sit
                             aspernatur aut odit aut fugit.</p>

@@ -23,14 +23,14 @@ class CategoryNav extends React.Component{
       i += 1;
       if(cat === "Gifts"){
         return(
-          <li className="category" id="gift" key={i}>
+          <li className="category-h gift-nav" id="gift" key={i}>
             <i className="fa fa-gift"></i>
             {cat}
           </li>
         );
       }else{
         return(
-          <li className="category" key={i}>{cat}</li>
+          <li className="category-h" key={i}>{cat}</li>
         );
       }
     });

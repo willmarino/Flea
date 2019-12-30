@@ -1,12 +1,14 @@
 class User < ApplicationRecord
 
+  require 'open-uri'
+
   validates :username, :email, :session_token, :password_digest, presence: true
   validates :username, :email, :session_token, :password_digest, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
   attr_reader :password
 
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_photo
 
   
   has_many :shops,
@@ -39,6 +41,11 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  def ensure_photo
+    file = open("https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/avatarphotos/grayscale-photo-of-french-mastiff-close-up-photo-1435517_tn.jpg")
+    indiv_file = "basic-profile-pic"
+    self.photo.attach(io: file, filename: indiv_file)
+  end
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

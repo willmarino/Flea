@@ -23,7 +23,7 @@ class AnonHeader extends React.Component{
   render(){
     return(
       <div className="header">
-        <Link to="/anon"><div className="logo" id="first">Flea</div></Link>
+        <Link to="/anon"><div className="logo" >Flea</div></Link>
         <div className="search-and-icon" id="second">
           <input type="text" className="search" />
           <i className="fa fa-search" id="user-search-icon"></i> 
