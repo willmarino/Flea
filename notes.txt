@@ -1,0 +1,10 @@
+- changed how products are filtered out into rows
+- might have to change how cur categories are stored/changed
+- need to change how everything is fetched, should be when the main mounts, not when the header mounts
+
+- I can generate three or however many categories with one dispatched action on mount of main
+    - I want to have the generation of categories on mount of main, and have the rows filter their products by
+    going through the generated categories and checking if they are already in use. If they are not, I use grabbyrow,
+    or rather a modified version of it to grab the 6 products I need per row.
+      - pertinent questions: what is the best way to generate the categories initially?
+      - pertinent questions: how do I tell each row which category to use from those selected? (manual inline prop)

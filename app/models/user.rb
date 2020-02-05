@@ -101,7 +101,6 @@ class User < ApplicationRecord
         random_num = rand(Product.first.id..Product.last.id)
         products << Product.find(random_num)
       end
-      # debugger
 
       return products
     else

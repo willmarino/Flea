@@ -24,7 +24,6 @@ class Modal extends React.Component{
       default:
         return null;
     }
-    // debugger;
     return(
       <div className="modal-background" onClick={this.props.closeModal}>
         <div className="modal-child" onClick={e => e.stopPropagation()}>

@@ -1,8 +1,11 @@
 import * as ShopApiUtil from '../util/shop_util';
 
+import { RECEIVE_REVIEWS } from '../actions/review_actions';
+
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const REMOVE_SHOP = "REMOVE_SHOP";
+
 
 const receiveShop = (shop) => ({
     type: RECEIVE_SHOP,
@@ -19,6 +22,11 @@ const removeShop = (shopId) => ({
     shopId
 });
 
+const receiveShopReviews = (reviews) => ({
+    type: RECEIVE_REVIEWS,
+    reviews
+})
+
 
 export const fetchShops = () => dispatch => (
     ShopApiUtil.fetchShops()
@@ -29,6 +37,11 @@ export const fetchShop = (shopId) => dispatch =>(
     ShopApiUtil.fetchShop(shopId)
         .then(shop => dispatch(receiveShop(shop)))
 );
+
+export const fetchShopReviews = (shopId) => dispatch => (
+    ShopApiUtil.fetchShopReviews(shopId)
+        .then(reviews => dispatch(receiveShopReviews(reviews)))
+)
 
 export const createShop = (shop) => dispatch =>(
     ShopApiUtil.createShop(shop)

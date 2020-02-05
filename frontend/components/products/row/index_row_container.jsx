@@ -1,27 +1,27 @@
 import {connect} from 'react-redux';
-
 import { fetchProducts } from '../../../actions/product_actions';
 import { fetchShops } from '../../../actions/shop_actions';
-
-import {categoryFilter, randomFilter} from '../../selectors/category_filter';
+import {
+  receiveCurCat
+} from '../../../actions/current_categories_actions';
+import {grabRow} from '../../selectors/category_filter';
 import IndexRow from './index_row';
 
 const msp = (state, ownProps) => {
-  // debugger;
-  // let fetchedProd = (ownProps.category) ? categoryFilter(state.entities.products, ownProps.category) : (Object.values(state.entities.products).slice(0, 6));
-  let fetchedProd = categoryFilter(state.entities.products);
-  // debugger;
+  let products;
+  // if(state.categories.currentCategories.length > 0){}
+  debugger;
+  products = grabRow(state.entities.products, state.categories.currentCategories[ownProps.rowId]);
   return({
-    products: fetchedProd,
+    products: products,
     shops: state.entities.shops,
     type: ownProps.type,
-    // category: ownProps.category || "Popular Now",
-    // category: fetchedProd[0].high_level_category,
     loggedIn: Boolean(state.session.currentUser)
   });
 };
 
 const mdp = (dispatch) => ({
+  receiveCurCat: (cat) => dispatch(receiveCurCat(cat)),
   fetchProducts: () => dispatch(fetchProducts()),
   fetchShops: () => dispatch(fetchShops())
 });

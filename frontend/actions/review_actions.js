@@ -29,3 +29,8 @@ export const fetchReviews = () => dispatch => (
   ReviewApiUtil.fetchReviews()
     .then(reviews => dispatch(receiveReviews(reviews)))
 );
+
+export const fetchReviewsByProduct = (id) => dispatch => (
+  ReviewApiUtil.fetchReviewsByProduct(id)
+    .then(reviews => dispatch(receiveReviews(reviews)))
+);

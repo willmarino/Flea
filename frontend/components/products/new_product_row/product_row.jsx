@@ -14,13 +14,11 @@ class ProductRow extends React.Component{
         if(this.props.type !== "recent"){
             this.props.productsByCategory(categoryObj);
         }else{
-            // debugger;
             this.props.fetchRecentlyViewed(this.props.currentUser.id);
         }
     }
 
     render(){
-        // debugger;
         if(this.props.type !== "recent"){
             if(!this.props.products[this.category]){
                 return <p>Loading category</p>

@@ -5,7 +5,6 @@ import { productCategories } from '../../../actions/product_actions';
 
 const msp = state => ({
     productsArr: Object.values(state.entities.products)
-    // products: state.entities.products
 });
 
 const mdp = dispatch => ({

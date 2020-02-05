@@ -800,7 +800,6 @@ s7 = Shop.create!(name: "#{u7.username}'s not so nice shop", creator_id: u7.id, 
 shops = [s1, s2, s3, s4, s5, s6, s7]
 # users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
 
-# debugger
 
 # clothing and shoes
 i = 0
@@ -817,19 +816,16 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
         j += 1
     end
-    # debugger
     file = open(clothingandshoes[i])
     indiv_file = clothingandshoes[i].split("clothingandshoes/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # debugger
     i += 1
-    # debugger
 
 end
 
@@ -848,7 +844,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -879,7 +875,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -899,7 +895,7 @@ while i < 6
     x = Product.create!(
         name: artsandcrafts_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Craft Supplies",
+        high_level_category: "Craft & Supplies",
         price: (rand() * 200).round(2),
         stock_amt: rand(50)
     )
@@ -909,7 +905,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -930,7 +926,7 @@ while i < 6
     x = Product.create!(
         name: artsandcollect_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Arts & Collectibles",
+        high_level_category: "Art & Collectibles",
         price: (rand() * 200).round(2),
         stock_amt: rand(50)
     )
@@ -940,7 +936,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -970,7 +966,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -999,7 +995,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -1016,9 +1012,9 @@ end
 i = 0
 while i < 6
     x = Product.create!(
-        name: vintage_names[i],
+        name: gift_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Vintage",
+        high_level_category: "Gifts",
         price: (rand() * 200).round(2),
         stock_amt: rand(50)
     )
@@ -1028,15 +1024,15 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
         j += 1
     end
 
-    file = open(vintage[i])
-    indiv_file = vintage[i].split("vintage/")[-1]
+    file = open(gifts[i])
+    indiv_file = gifts[i].split("gifts/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
 
     i += 1
@@ -1057,7 +1053,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(6),
+            rating: rand(1..6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )

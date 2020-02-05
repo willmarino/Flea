@@ -37,3 +37,9 @@ export const deleteShop = (shopId) => (
     })
 );
 
+export const fetchShopReviews = (shopId) => (
+    $.ajax({
+        method: "GET",
+        url: `/api/shops/${shopId}/shop_reviews`
+    })
+)

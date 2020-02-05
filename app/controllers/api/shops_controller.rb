@@ -18,6 +18,17 @@ class Api::ShopsController < ApplicationController
     end
   end
 
+  def shop_reviews
+    @shop = Shop.find(params[:id])
+    if @shop
+      @reviews = @shop.reviews
+      render :shop_reviews
+    else
+      render json: ['Shop not found']
+    end
+  end
+
+
   def index
     @shops = Shop.all
     render :index
@@ -40,6 +51,7 @@ class Api::ShopsController < ApplicationController
       render json: ["Shop could not be found"]
     end
   end
+
 
   def shop_params
     params.require(:shop).permit(:name, :image_url, :location, :creator_id, :description, :announcement)

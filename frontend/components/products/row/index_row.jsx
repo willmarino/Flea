@@ -8,12 +8,7 @@ class IndexRow extends React.Component{
     }
 
     componentDidMount(){
-        // debugger;
-        if(Object.keys(this.props.products).length === 0 || Object.keys(this.props.shops).length === 0){
-            // debugger;
-            // this.props.fetchProducts();
-            // this.props.fetchShops();
-        }
+        
     }
 
     render(){
@@ -28,7 +23,6 @@ class IndexRow extends React.Component{
         products = this.props.products.map((p) => {
             return <IndexItem product={p} type={this.props.type} shop={this.props.shops[p.shop_id]} loggedIn={this.props.loggedIn} key={p.id}/>
         });
-        // debugger;
         let category = this.props.products[0].high_level_category;
         return(
             <>

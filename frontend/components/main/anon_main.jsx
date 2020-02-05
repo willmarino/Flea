@@ -1,9 +1,8 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import ModalContainer from '../modal/modal_container';
 import AnonHeaderContainer from '../headers/anon_header_container';
 import CategoryNav from '../category_nav/category_nav';
-import AnonIndexContainer from '../products/index/anon_index_container';
 import ProductShowContainer from '../products/show/product_show_container';
 import Advert from '../segments/advert';
 import IndexRowContainer from '../products/row/index_row_container';
@@ -18,8 +17,18 @@ class AnonMain extends React.Component{
         super(props);
     }
 
+    componentDidMount(){
+        this.props.fetchShops();
+        this.props.fetchReviews();
+        this.props.fetchUsers();
+        this.props.generateCats();
+        this.props.fetchProducts();
+    }
 
     render(){
+        if(Object.keys(this.props.products).length === 0){
+            return <p></p>;
+        }
         let showPath = "/anon/products/:prodId";
         return(
             <div>
@@ -30,10 +39,9 @@ class AnonMain extends React.Component{
                 </div>
                 <div className="anon-main-mid">
                     <Route exact path="/anon" component={Advert}/>
-                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
-                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
-                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" /></ul>}/>
-                    {/* <Route exact path="/anon" component={AnonIndexContainer}/> */}
+                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" rowId={0}/></ul>}/>
+                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" rowId={1}/></ul>}/>
+                    <Route exact path="/anon" render={() => <ul className="primary-index"><IndexRowContainer type="simple" rowId={2}/></ul>}/>
                     <Route exact path="/anon" render={() => <ul className="primary-index" id="cat-row"><CategoryRowContainer /></ul>}/>
                     <Route exact path="/anon" component={Info}/>
                     <Route exact path="/anon" component={ReviewSegmentContainer} />

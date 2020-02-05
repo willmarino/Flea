@@ -50,10 +50,8 @@ class Api::ProductsController < ApplicationController
   end
 
   def grab_by_category #grab by category
-    # debugger
     @category = params[:category][:category]
     @products = Product.by_category(params[:category][:category])
-    # debugger
     render :category_row
   end
 
@@ -70,7 +68,6 @@ class Api::ProductsController < ApplicationController
 
   def categories
     @products = Product.product_categories
-    # debugger
     render :categories
   end
 

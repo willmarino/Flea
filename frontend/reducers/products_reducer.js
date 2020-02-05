@@ -12,9 +12,7 @@ import { RECEIVE_HAPPY_REVIEWS } from '../actions/review_actions';
 
 
 const ProductsReducer = (state={}, action) => {
-  // debugger;
   Object.freeze(state);
-  // debugger;
   switch(action.type){
     case RECEIVE_CATEGORIES:
       return Object.assign({}, state, {categories: action.products})

@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ui:{
         modal: null
       },
-      categories: [
+      categories: {
+        allCategories: [
           "Gifts",
           "Jewelry & Accessories",
           "Clothing & Shoes",
@@ -49,7 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
           "Art & Collectibles",
           "Craft & Supplies",
           "Vintage"
-      ]
+        ],
+        currentCategories: [
+
+        ]
+      }
     };
     store = configureStore(pls);
   }else{

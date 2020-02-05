@@ -17,7 +17,6 @@ class Trending extends React.Component{
     let products = [];
     let reviews = [];
     while (reviews.length < 6) {
-      // debugger;
       let cur_review = Object.values(this.props.reviews)[Math.round(Math.random() * 150)];
       if (!reviews.includes(cur_review) && cur_review.rating >= 4) {
         reviews.push(cur_review);

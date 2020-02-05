@@ -5,31 +5,28 @@ class CategoryRow extends React.Component{
   constructor(props){
     super(props);
     this.categories = [
+      "Gifts",
       "Jewelry & Accessories",
       "Clothing & Shoes",
       "Home & Living",
       "Wedding & Party",
       "Toys & Entertainment",
-      "Arts & Collectibles",
-      "Craft Supplies",
-      "Vintage",
-      "Gifts"
-    ];
+      "Art & Collectibles",
+      "Craft & Supplies",
+      "Vintage"
+  ];
   }
 
   componentDidMount(){
-    // this.props.productCategories();
   }
 
   render(){
-    // debugger;
     if(!this.props.productsArr){
       return <p>Loading</p>;
     }
     if(this.props.productsArr.length === 0){
       return <p>loading</p>;
     }
-    // debugger;
     let pics = [];
     let i = 0;
     while(i < 6){
@@ -38,7 +35,6 @@ class CategoryRow extends React.Component{
       let j = 0;
       while(!pushed){
         let cur_prod = this.props.productsArr[j];
-        // debugger;
         if(cur_prod.high_level_category === cur_cat){
           pics.push(<CategoryIndexItem p={cur_prod} key={i}/>);
           pushed = true;
@@ -47,7 +43,6 @@ class CategoryRow extends React.Component{
         }
         j += 1;
       }
-      // debugger;
     }
     // if(!this.props.products['categories']){
     //   return <p>loading categories</p>

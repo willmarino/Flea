@@ -18,11 +18,9 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    # debugger
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      # debugger
       render :show
     else
       # render json: @user.errors.full_message, status: 422
@@ -37,7 +35,6 @@ class Api::UsersController < ApplicationController
   def recently_viewed
     @user = User.find(params[:id])
     @recently_viewed = @user.recently_viewed
-    # debugger
     render :recently_viewed
   end
 

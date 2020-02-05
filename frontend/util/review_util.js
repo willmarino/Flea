@@ -21,3 +21,11 @@ export const fetchHappyReviews = () => (
     url: "/api/reviews/happy_reviews"
   })
 );
+
+
+export const fetchReviewsByProduct = (id) => (
+  $.ajax({
+    method: "GET",
+    url: `/api/products/${id}/product_reviews`
+  })
+)

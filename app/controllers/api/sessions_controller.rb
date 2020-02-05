@@ -1,7 +1,6 @@
 class Api::SessionsController < ApplicationController
 
   def create
-    # debugger
     @user = User.find_by(username: params[:user][:username])
     if !@user
       render json: ["Username not found"], status: 422
@@ -12,13 +11,11 @@ class Api::SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
     )
-    # debugger
     if @user
       login(@user)
       render :show
     else
       render json: ["Wrong password"], status: 422
-      # debugger
     end
   end
 

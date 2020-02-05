@@ -24,14 +24,12 @@ class ReviewSegment extends React.Component{
 
 
   render(){
-    // debugger;
     if(!this.props.products || !this.props.reviews || !this.props.users){
       return <p></p>
     }
     if (Object.keys(this.props.products).length === 0 || Object.keys(this.props.users).length === 0 || Object.keys(this.props.reviews).length === 0){
       return <p></p>
     }
-    // debugger;
 
     let products = [];
     let reviews = [];
@@ -78,7 +76,6 @@ class ReviewSegment extends React.Component{
       );
     }
 
-    // debugger;
 
     let dates = reviews.map((r) => {
       let cur_date = r.created_at.split("T");

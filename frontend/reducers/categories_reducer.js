@@ -1,18 +1,10 @@
+import AllCategoriesReducer from './all_categories_reducer';
+import CurrentCategoriesReducer from './current_categories_reducer';
+import { combineReducers } from 'redux';
 
-let categories = [
-    "Gifts",
-    "Jewelry & Accessories",
-    "Clothing & Shoes",
-    "Home & Living",
-    "Wedding & Party",
-    "Toys & Entertainment",
-    "Art & Collectibles",
-    "Craft & Supplies",
-    "Vintage"
-];
-
-const CategoriesReducer = (state=categories, action) => {
-    return state;
-}
+const CategoriesReducer = combineReducers({
+    allCategories: AllCategoriesReducer,
+    currentCategories: CurrentCategoriesReducer
+})
 
 export default CategoriesReducer;

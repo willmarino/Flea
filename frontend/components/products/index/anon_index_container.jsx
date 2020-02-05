@@ -5,7 +5,6 @@ import { fetchShops } from '../../../actions/shop_actions';
 import { connect } from 'react-redux';
 
 const msp = state => {
-  // debugger;
   return({
     products: state.entities.products,
     shops: state.entities.shops

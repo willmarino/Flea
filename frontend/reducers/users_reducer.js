@@ -11,7 +11,6 @@ import { LOG_IN_USER } from '../actions/session_actions';
 
 
 const UsersReducer = (state={}, action) => {
-  // debugger;
   Object.freeze(state);
   switch(action.type){
     case LOG_IN_USER:

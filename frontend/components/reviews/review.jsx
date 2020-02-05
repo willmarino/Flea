@@ -16,19 +16,22 @@ class Review extends React.Component{
       }
 
     render(){
+        debugger;
         return(
             <div className="review-comp">
                 <div>
                     <img src={this.props.author.photoURL} alt="" id="review-avatar"/>
+                    <div>
+                        <div>
+                            <p>{this.props.author.username}</p>
+                            <p>{this.props.review.created_at}</p>
+                        </div>
+                        <div>
+                            <p>{this.starsify(this.props.review.rating)}</p>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <div>
-                        <p>{this.props.author.username}</p>
-                        <p>{this.props.review.created_at}</p>
-                    </div>
-                    <div>
-                        <p>{this.starsify(this.props.review.rating)}</p>
-                    </div>
                     <div>
                         <p>{this.props.review.body}</p>
                     </div>

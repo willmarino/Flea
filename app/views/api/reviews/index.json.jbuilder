@@ -1,5 +1,6 @@
 @reviews.each do |r|
   json.set! r.id do
+    json.id r.id
     json.title r.title
     json.body r.body
     json.rating r.rating

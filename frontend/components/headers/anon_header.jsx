@@ -6,18 +6,9 @@ import {Link} from 'react-router-dom';
 class AnonHeader extends React.Component{
   constructor(props){
     super(props);
-
     this.state = {
       search: "Search for items or shops"
     };
-
-  }
-
-  componentDidMount(){
-    this.props.fetchShops();
-    this.props.fetchProducts();
-    this.props.fetchReviews();
-    this.props.fetchUsers();
   }
 
   render(){

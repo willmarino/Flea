@@ -11,7 +11,6 @@ class UsersIndex extends React.Component{
   }
 
   render(){
-    // debugger;
     let usersArr = this.props.users.map((user) => {
       return <User user={user} key={user.id}/>
     });

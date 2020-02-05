@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
 
     resources :shops, only: [:create, :show, :index, :update, :destroy] do
+      member do
+        get 'shop_reviews'
+      end
       resources :products, only: [:create]
     end
 
