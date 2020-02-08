@@ -11,7 +11,7 @@ class UserForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.signupUser(this.state);
+    this.props.signupUser2(this.state);
   }
 
   update(field){

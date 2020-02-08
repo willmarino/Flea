@@ -1,0 +1,70 @@
+// individual review (of the three in the total segment)
+.happy-review{
+  width: 33%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// top container with avatar, star rating, timestamp, and review body
+.hr-container-one{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 75%;
+  height: 105px;
+
+  margin-bottom: 10px;
+}
+
+
+// profile photo used in review
+.avatar{
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+}
+
+// star rating
+.star-rating{
+  display: flex;
+  object-fit: cover;
+}
+
+.review-body{
+  width: 75%;
+  height: 35px;
+
+  text-align: center;
+
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+.product-photo{
+  width: 215px;
+  height: 215px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+  object-fit: cover;
+}
+
+.product-description{
+  text-align: center;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

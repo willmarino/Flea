@@ -1,5 +1,6 @@
+# include UrlFor
 class User < ApplicationRecord
-
+  include Rails.application.routes.url_helpers
   require 'open-uri'
 
   validates :username, :email, :session_token, :password_digest, presence: true
@@ -8,7 +9,7 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  after_initialize :ensure_session_token, :ensure_photo
+  after_initialize :ensure_session_token, :set_photourl
 
   
   has_many :shops,
@@ -45,6 +46,12 @@ class User < ApplicationRecord
     file = open("https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/avatarphotos/grayscale-photo-of-french-mastiff-close-up-photo-1435517_tn.jpg")
     indiv_file = "basic-profile-pic"
     self.photo.attach(io: file, filename: indiv_file)
+  end
+
+  def set_photourl
+    if self.photo.attached?
+      self.photoURL = rails_blob_path(self.photo, only_path: true)
+    end
   end
 
   def self.find_by_credentials(username, password)

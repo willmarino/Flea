@@ -44,3 +44,10 @@ export const fetchRecentlyViewed = (id) => (
     url: `/api/users/${id}/recently_viewed`
   })
 );
+
+export const fetchUserCart = (userId) => (
+  $.ajax({
+    method: "GET",
+    url: `/api/users/${userId}/cart`
+  })
+)

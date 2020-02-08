@@ -4,6 +4,11 @@ export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 
 export const RECEIVE_HAPPY_REVIEWS = "RECEIVE_HAPPY_REVIEWS";
+export const HAPPY_PRODUCTS = "HAPPY_PRODUCTS";
+export const HAPPY_USERS = "HAPPY_USERS";
+
+export const RECEIVE_PRODUCT_REVIEWS = "RECEIVE_PRODUCT_REVIEWS";
+export const RECEIVE_SHOP_REVIEWS = "RECEIVE_SHOP_REVIEWS";
 
 const receiveReview = (review) => ({
   type: RECEIVE_REVIEW,
@@ -20,6 +25,26 @@ const recieveHappyReviews = reviews => ({
   reviews
 })
 
+const receiveProductReviews = (reviews) => ({
+  type: RECEIVE_PRODUCT_REVIEWS,
+  reviews
+})
+
+const receiveShopReviews = (reviews) => ({
+  type: RECEIVE_SHOP_REVIEWS,
+  reviews
+})
+
+const happyReviewProducts = products => ({
+  type: HAPPY_PRODUCTS,
+  products
+})
+
+const happyReviewUsers = users => ({
+  type: HAPPY_USERS,
+  users
+})
+
 export const createReview = (review) => dispatch => (
   ReviewApiUtil.createReview(review)
     .then(review => dispatch(receiveReview(review)))
@@ -32,5 +57,19 @@ export const fetchReviews = () => dispatch => (
 
 export const fetchReviewsByProduct = (id) => dispatch => (
   ReviewApiUtil.fetchReviewsByProduct(id)
-    .then(reviews => dispatch(receiveReviews(reviews)))
+    .then(reviews => dispatch(receiveProductReviews(reviews)))
+);
+
+export const fetchReviewsByShop = (id) => dispatch => (
+  ReviewApiUtil.fetchReviewsByShop(id)
+    .then(reviews => dispatch(receiveShopReviews(reviews)))
+)
+
+export const fetchHappyReviews = () => dispatch => (
+  ReviewApiUtil.fetchHappyReviews()
+    .then((hrs) => {
+      dispatch(recieveHappyReviews(hrs.happy_reviews.reviews));
+      dispatch(happyReviewProducts(hrs.happy_reviews.products));
+      dispatch(happyReviewUsers(hrs.happy_reviews.users));
+    })
 );

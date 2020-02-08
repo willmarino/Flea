@@ -29,6 +29,11 @@ class Api::ReviewsController < ApplicationController
     @happy_reviews.each do |hr|
         @products << Product.find(hr.item_id)
     end
+
+    @users = []
+    @happy_reviews.each do |hr|
+      @users << User.find(hr.author_id)
+    end
     
     render :happy_reviews
 end

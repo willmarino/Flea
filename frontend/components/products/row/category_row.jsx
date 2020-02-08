@@ -18,48 +18,26 @@ class CategoryRow extends React.Component{
   }
 
   componentDidMount(){
+    this.props.productCategories();
   }
 
   render(){
-    if(!this.props.productsArr){
+    if(!this.props.products){
       return <p>Loading</p>;
     }
-    if(this.props.productsArr.length === 0){
-      return <p>loading</p>;
+
+    let products = [];
+    for(let i = 0; i < this.props.products.length; i++){
+      let p = this.props.products[i];
+      products.push(<CategoryIndexItem p={p} key={p.id}/>)
     }
-    let pics = [];
-    let i = 0;
-    while(i < 6){
-      let cur_cat = this.categories[i];
-      let pushed = false;
-      let j = 0;
-      while(!pushed){
-        let cur_prod = this.props.productsArr[j];
-        if(cur_prod.high_level_category === cur_cat){
-          pics.push(<CategoryIndexItem p={cur_prod} key={i}/>);
-          pushed = true;
-          i += 1;
-          j = 0;
-        }
-        j += 1;
-      }
-    }
-    // if(!this.props.products['categories']){
-    //   return <p>loading categories</p>
-    // }
-    // let pics;
-    // let i = 0;
-    // pics = Object.values(this.props.products['categories']).map((product) => {
-    //   i += 1;
-    //   return <CategoryIndexItem p={product} key={i}/>
-    // });
 
     return(
       <>
         <h2 className= "row-header">Gifts!</h2>
         <li>
           <ul>
-            {pics}
+            {products}
           </ul>
         </li>
       </>

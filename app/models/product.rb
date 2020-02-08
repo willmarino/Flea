@@ -1,5 +1,14 @@
+# include UrlFor
 class Product < ApplicationRecord
+  include Rails.application.routes.url_helpers
   validates :name, :shop_id, :high_level_category, :price, :stock_amt, presence: true
+  after_initialize :set_photourl
+
+  def set_photourl
+    if self.photo.attached?
+      self.photoURL = rails_blob_path(self.photo, only_path: true)
+    end
+  end
 
   def rating
     if(!self.reviews)
@@ -37,8 +46,8 @@ class Product < ApplicationRecord
     "Home & Living",
     "Wedding & Party",
     "Toys & Entertainment",
-    "Arts & Collectibles",
-    "Craft Supplies",
+    "Art & Collectibles",
+    "Craft & Supplies",
     "Vintage",
     "Gifts"
     ]

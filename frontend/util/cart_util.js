@@ -7,6 +7,15 @@ export const fetchCart = (cartId) => (
   })
 );
 
+
+export const addItemToCart = (item, cartId) => (
+  $.ajax({
+    method: "POST",
+    url: `/api/carts/${cartId}/add_item`,
+    data: { item }
+  })
+)
+
 export const createCart = (cart) => (
   $.ajax({
     method: "POST",

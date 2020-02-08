@@ -18,15 +18,12 @@ class AnonMain extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchShops();
-        this.props.fetchReviews();
-        this.props.fetchUsers();
-        this.props.generateCats();
-        this.props.fetchProducts();
+        this.props.fetchHappyReviews();
+        this.props.fetchIndex();
     }
 
     render(){
-        if(Object.keys(this.props.products).length === 0){
+        if(!this.props.products.index){
             return <p></p>;
         }
         let showPath = "/anon/products/:prodId";

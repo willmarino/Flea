@@ -17,17 +17,16 @@ class UserMain extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchShops();
-        this.props.fetchReviews();
-        this.props.fetchUsers();
-        this.props.generateCats();
-        this.props.fetchProducts();
+        // this.props.fetchShops();
+        this.props.fetchHappyReviews();
+        this.props.fetchIndex();
+        this.props.fetchUserCart(this.props.user.id);
     }
 
 
     render(){
-        if(Object.keys(this.props.products).length === 0){
-            return <p></p>;
+        if(!this.props.products.index){
+            return <p></p>
         }
         let showPath = "/products/:prodId";
         return(

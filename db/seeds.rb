@@ -779,12 +779,23 @@ u7 = User.create!(username: "Morty", viewed: [], password: "password", email: "m
 u8 = User.create!(username: "Bert", viewed: [], password: "password", email: "bert@mail.com")
 u9 = User.create!(username: "Hillary", viewed: [], password: "password", email: "hillary@mail.com")
 
+c1 = Cart.create!(user_id: u1.id, products: [])
+c2 = Cart.create!(user_id: u2.id, products: [])
+c3 = Cart.create!(user_id: u3.id, products: [])
+c4 = Cart.create!(user_id: u4.id, products: [])
+c5 = Cart.create!(user_id: u5.id, products: [])
+c6 = Cart.create!(user_id: u6.id, products: [])
+c7 = Cart.create!(user_id: u7.id, products: [])
+c8 = Cart.create!(user_id: u8.id, products: [])
+c9 = Cart.create!(user_id: u9.id, products: [])
+
 users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
 
 users.each_with_index do |user, i|
     file = open(user_avatars[i])
     indiv_file = user_avatars[i].split("avatar-photos/")[-1]
     user.photo.attach(io: file, filename: indiv_file)
+    # user.photoURL = user.photo.service_url
 end
 
 
@@ -825,6 +836,7 @@ while i < 6
     file = open(clothingandshoes[i])
     indiv_file = clothingandshoes[i].split("clothingandshoes/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
+    # x.photoURL = x.photo.service_url
     i += 1
 
 end
@@ -854,7 +866,7 @@ while i < 6
     file = open(jewelry[i])
     indiv_file = jewelry[i].split("jewelry/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
 
@@ -885,7 +897,7 @@ while i < 6
     file = open(homeandliving[i])
     indiv_file = homeandliving[i].split("homeandliving/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
 
@@ -915,7 +927,7 @@ while i < 6
     file = open(artsandcrafts[i])
     indiv_file = artsandcrafts[i].split("artsandcrafts/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
  
@@ -946,7 +958,7 @@ while i < 6
     file = open(artsandcollect[i])
     indiv_file = artsandcollect[i].split("artandcollectibles/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
 
@@ -976,7 +988,7 @@ while i < 6
     file = open(weddingandparty[i])
     indiv_file = weddingandparty[i].split("weddingandparty/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
 
@@ -1005,7 +1017,7 @@ while i < 6
     file = open(vintage[i])
     indiv_file = vintage[i].split("vintage/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
 
@@ -1034,7 +1046,7 @@ while i < 6
     file = open(gifts[i])
     indiv_file = gifts[i].split("gifts/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
 
@@ -1063,7 +1075,7 @@ while i < 6
     file = open(toysandentertainment[i])
     indiv_file = toysandentertainment[i].split("toysandentertainment/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-
+    # x.photoURL = x.photo.service_url
     i += 1
 end
 # Orders ------------------------------------------------------------------

@@ -4,7 +4,8 @@ import CategoryRow from './category_row';
 import { productCategories } from '../../../actions/product_actions';
 
 const msp = state => ({
-    productsArr: Object.values(state.entities.products)
+    // productsArr: Object.values(state.entities.products)
+    products: state.entities.products.categories
 });
 
 const mdp = dispatch => ({

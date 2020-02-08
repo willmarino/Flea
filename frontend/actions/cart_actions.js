@@ -2,8 +2,9 @@ import * as CartApiUtil from '../util/cart_util';
 
 export const RECEIVE_CART = "RECEIVE_CART";
 export const REMOVE_CART = "REMOVE_CART";
+export const RECEIVE_CART_ITEM = "RECEIVE_CART_ITEM";
 
-const receiveCart = (cart) => ({
+export const receiveCart = (cart) => ({
   type: RECEIVE_CART,
   cart
 });
@@ -13,8 +14,18 @@ const removeCart = (cartId) => ({
   cartId
 });
 
+const receiveCartItem = (item) => ({
+  type: RECEIVE_CART_ITEM,
+  item
+})
+
 export const fetchCart = (cartId) => dispatch => (
   CartApiUtil.fetchCart(cartId)
+    .then(cart => dispatch(receiveCart(cart)))
+);
+
+export const addItemToCart = (item, cartId) => dispatch => (
+  CartApiUtil.addItemToCart(item, cartId)
     .then(cart => dispatch(receiveCart(cart)))
 );
 
@@ -27,4 +38,3 @@ export const deleteCart = (cartId) => dispatch => (
   CartApiUtil.deleteCart(cart)
     .then((cart) => dispatch(removeCart(cart.id)))
 );
-

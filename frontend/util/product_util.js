@@ -29,6 +29,13 @@ export const fetchProducts = () => (
   })
 );
 
+export const fetchIndex = () => (
+  $.ajax({
+    method: "GET",
+    url: '/api/products/grab_index'
+  })
+)
+
 export const removeProduct = (productId) => (
   $.ajax({
     method: "DELETE",
@@ -57,3 +64,17 @@ export const fetchProductCategories = () => (
     url: "/api/products/categories"
   })
 );
+
+export const fetchShopByProduct = (prodId) => (
+  $.ajax({
+    method: "GET",
+    url: `/api/products/${prodId}`
+  })
+)
+
+export const fetchProductShow = (prodId) => (
+  $.ajax({
+    method: "GET",
+    url: `/api/products/${prodId}/product_show`
+  })
+)

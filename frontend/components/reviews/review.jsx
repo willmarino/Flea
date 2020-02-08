@@ -5,6 +5,7 @@ class Review extends React.Component{
         super(props);
 
         this.starsify = this.starsify.bind(this);
+        this.configureDate = this.configureDate.bind(this);
     }
 
     starsify(n){
@@ -13,30 +14,49 @@ class Review extends React.Component{
                 stars.push(<i className="fa fa-star" key={stars.length}></i>)
             }
           return stars;
-      }
+    }
+
+    configureDate(str){
+        let months = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December'
+        ];
+        let [year, month, day] = str.split('-');
+        return `${months[month - 1]}, ${day}`
+    
+    }
 
     render(){
-        debugger;
         return(
-            <div className="review-comp">
-                <div>
-                    <img src={this.props.author.photoURL} alt="" id="review-avatar"/>
-                    <div>
-                        <div>
-                            <p>{this.props.author.username}</p>
-                            <p>{this.props.review.created_at}</p>
+            <div className="review">
+                <div className='review-info-and-avatar'>
+                    <img src={this.props.author.photoURL} alt="" className="review-avatar"/>
+                    <div className='review-info'>
+                        <div className='review-username-and-time'>
+                            <p className='review-username'>{this.props.author.username}</p>
+                            <p className='review-timestamp'>{this.configureDate((this.props.review.created_at).slice(0, 10))}</p>
                         </div>
                         <div>
-                            <p>{this.starsify(this.props.review.rating)}</p>
+                            <p className='review-star-rating'>{this.starsify(this.props.review.rating)}</p>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div>
-                        <p>{this.props.review.body}</p>
+                        <p className='user-review-body'>{this.props.review.body}</p>
                     </div>
                 </div>
-                <div>
+                <div className='product-img-and-name'>
                     <img src={this.props.product.photoURL} alt=""/>
                     <p>{this.props.product.name}</p>
                 </div>

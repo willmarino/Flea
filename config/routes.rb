@@ -10,10 +10,15 @@ Rails.application.routes.draw do
       end
       member do
         get 'recently_viewed' #return recently viewed product objects
+        get 'cart'
         post 'clear_views'
       end
     end
-    resources :carts, only: [:show, :create, :delete]
+    resources :carts, only: [:show, :create, :delete] do
+      member do
+        post 'add_item'
+      end
+    end
     resources :cart_items, only: [:index, :create, :delete]
     resources :orders, only: [:show, :index, :create]
     resource :session, only: [:create, :destroy]
@@ -28,11 +33,14 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show, :destroy, :update] do
       collection do
         # get 'grab_by_ids'
+        get 'grab_index'
         get 'grab_by_category'
         get 'categories'
       end
       member do
         get 'product_reviews'
+        get 'shop_by_product'
+        get 'product_show'
       end
     end
       

@@ -49,6 +49,32 @@ class Api::ProductsController < ApplicationController
     render :recent_row
   end
 
+  def grab_index
+    categories = [
+      "Gifts",
+      "Jewelry & Accessories",
+      "Clothing & Shoes",
+      "Home & Living",
+      "Wedding & Party",
+      "Toys & Entertainment",
+      "Art & Collectibles",
+      "Craft & Supplies",
+      "Vintage"
+    ]
+    @res = []
+    cats = []
+    while cats.length < 3
+      c = categories[rand(9)]
+      if(!cats.include?(c))
+        cats.push(c)
+      end
+    end
+    cats.each do |cat|
+      @res.push(Product.by_category(cat))
+    end
+    render :index
+  end
+
   def grab_by_category #grab by category
     @category = params[:category][:category]
     @products = Product.by_category(params[:category][:category])
@@ -56,19 +82,37 @@ class Api::ProductsController < ApplicationController
   end
 
   def product_reviews
-    product = Product.find(params[:id])
-    @reviews = []
-    Review.all.each do |r|
-      if r.item_id === product.id
-        @reviews << r
-      end
-    end
+    @reviews = Product.find(params[:id]).reviews
     render :product_reviews
   end
 
   def categories
     @products = Product.product_categories
     render :categories
+  end
+
+  def shop_by_product
+    product = Product.find(params[:id])
+    @shop = product.shop
+    render 'api/shops/show'
+  end
+
+  def product_show
+    @product = Product.find(params[:id])
+    @shop = @product.shop
+    @product_reviews = @product.reviews
+    @shop_reviews = @shop.reviews
+    @shop_review_authors = []
+    @shop_review_products = []
+    @shop_reviews.each do |sr|
+      @shop_review_authors.push(sr.user)
+      @shop_review_products.push(Product.find(sr.item_id))
+    end
+    @product_review_authors = []
+    @product_reviews.each do |pr|
+      @product_review_authors.push(pr.user)
+    end
+    render :product_show
   end
 
   def product_params

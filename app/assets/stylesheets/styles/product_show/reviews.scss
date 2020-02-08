@@ -1,0 +1,96 @@
+.reviews-meta-info{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.reviews-tabs{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+.reviews-tab{
+}
+
+// container for all reviews in product show page
+.reviews-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+// single review
+.review{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+// block which contains user avatar, username, timestamp, and start rating  
+.review-info-and-avatar{
+  display: flex;
+
+  
+  height: 60px;
+  width: 300px;
+}
+
+.review-info{
+  margin-left: 10px;
+}
+
+// block containing username and timestamp of review
+.review-username-and-time{
+  display: flex;
+  align-items: center;
+  width: 240px;
+
+}
+
+// name of user who left review
+.review-username{
+  text-align: center;
+}
+
+// when review was left
+.review-timestamp{
+  margin-left: 5px;
+  text-align: center;
+}
+
+// review author photo
+.review-avatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+// actual star rating
+.review-star-rating{
+  margin-top: 7px;
+}
+
+// review body
+.user-review-body{
+  margin-left: 60px;
+  margin-bottom: 10px;
+  width: 400px;
+  font-family: 'Biryani', sans-serif;
+}
+
+// product img and name
+.product-img-and-name{
+  display: flex;
+  margin-left: 60px;
+  align-items: center;
+}
+
+// product img
+.product-img-and-name img{
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  object-fit: cover;
+}

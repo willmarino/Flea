@@ -1,12 +1,13 @@
-import {RECEIVE_CART, REMOVE_CART} from '../actions/cart_actions';
+import {RECEIVE_CART, REMOVE_CART, RECEIVE_CART_ITEM} from '../actions/cart_actions';
 
 const CartsReducer = (state={}, action) => {
   Object.freeze(state);
+  let newState;
   switch(action.type){
     case RECEIVE_CART:
-      return Object.assign({}, state, { [action.type.id] : action.type});
+      return {'currentCart' : action.cart};
     case REMOVE_CART:
-      let newState = Object.assign({}, state);
+      newState = Object.assign({}, state);
       delete newState[action.cartId];
       return newState;
     default:

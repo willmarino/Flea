@@ -5,7 +5,8 @@ import { RECEIVE_REVIEWS } from '../actions/review_actions';
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const REMOVE_SHOP = "REMOVE_SHOP";
-
+export const RECEIVE_SHOP_BY_PRODUCT = "RECEIVE_SHOP_BY_PRODUCT";
+export const RECEIVE_PRODUCT_SHOW_SHOP = "RECEIVE_PRODUCT_SHOW_SHOP";
 
 const receiveShop = (shop) => ({
     type: RECEIVE_SHOP,
@@ -22,9 +23,19 @@ const removeShop = (shopId) => ({
     shopId
 });
 
-const receiveShopReviews = (reviews) => ({
-    type: RECEIVE_REVIEWS,
-    reviews
+// const receiveShopReviews = (reviews) => ({
+//     type: RECEIVE_REVIEWS,
+//     reviews
+// })
+
+export const receiveShopByProduct = (shop) => ({
+    type: RECEIVE_SHOP_BY_PRODUCT,
+    shop
+})
+
+export const receiveProductShowShop = (shop) => ({
+    type: RECEIVE_PRODUCT_SHOW_SHOP,
+    shop
 })
 
 

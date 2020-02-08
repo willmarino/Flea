@@ -43,6 +43,12 @@ class Api::UsersController < ApplicationController
     @user.clear_views
   end
 
+  def cart
+    @user = User.find(params[:id])
+    @cart = @user.cart
+    render 'api/carts/show'
+  end
+
   def viewed_params
     params.require(:product).permit(:product_id)
   end

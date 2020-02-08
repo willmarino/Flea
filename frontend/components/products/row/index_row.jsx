@@ -12,16 +12,11 @@ class IndexRow extends React.Component{
     }
 
     render(){
-        let shop;
-        let products;
         if(!this.props.products){
             return <p></p>;
         }
-        if(Object.keys(this.props.shops).length === 0 || this.props.products.length === 0){
-            return <p></p>;
-        }
-        products = this.props.products.map((p) => {
-            return <IndexItem product={p} type={this.props.type} shop={this.props.shops[p.shop_id]} loggedIn={this.props.loggedIn} key={p.id}/>
+        let products = this.props.products.map((p) => {
+            return <IndexItem product={p} type={this.props.type} loggedIn={this.props.loggedIn} key={p.id}/> //shop={this.props.shops[p.shop_id]}
         });
         let category = this.props.products[0].high_level_category;
         return(

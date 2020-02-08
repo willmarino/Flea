@@ -1,21 +1,17 @@
 import { connect } from 'react-redux';
 import ReviewSegment from './reviews_segment';
-import {fetchReviews} from '../../actions/review_actions';
-import {fetchShops} from '../../actions/shop_actions';
-import {fetchUsers} from '../../actions/users_actions';
+import { fetchHappyReviews } from '../../actions/review_actions';
 
 const msp = (state) => ({
-  products: state.entities.products,
-  reviews: state.entities.reviews,
+  products: state.entities.products.happyProducts,
+  reviews: state.entities.reviews.happyReviews,
+  users: state.entities.users.happyUsers,
   shops: state.entities.shops,
   loggedIn: Boolean(state.session.currentUser),
-  users: state.entities.users
 });
 
 const mdp = (dispatch) => ({
-  fetchReviews: () => dispatch(fetchReviews()),
-  fetchShops: () => dispatch(fetchShops()),
-  fetchUsers: () => dispatch(fetchUsers())
+  fetchHappyReviews: () => dispatch(fetchHappyReviews())
 });
 
 

@@ -8,12 +8,8 @@ import {grabRow} from '../../selectors/category_filter';
 import IndexRow from './index_row';
 
 const msp = (state, ownProps) => {
-  let products;
-  // if(state.categories.currentCategories.length > 0){}
-  debugger;
-  products = grabRow(state.entities.products, state.categories.currentCategories[ownProps.rowId]);
   return({
-    products: products,
+    products: state.entities.products.index[ownProps.rowId],
     shops: state.entities.shops,
     type: ownProps.type,
     loggedIn: Boolean(state.session.currentUser)
