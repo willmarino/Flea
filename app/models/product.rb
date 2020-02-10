@@ -68,6 +68,19 @@ class Product < ApplicationRecord
     primary_key: :id,
     foreign_key: :item_id
 
+  has_many :taggings,
+    class_name: 'Tagging',
+    primary_key: :id,
+    foreign_key: :product_id
+  
+  has_many :tags,
+    through: :taggings,
+    source: :tag
+
+  has_many :associated_products,
+    through: :tags,
+    source: :tagged_products
+
   has_one_attached :photo
 
 
