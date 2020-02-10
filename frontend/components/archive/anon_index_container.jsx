@@ -1,7 +1,7 @@
 import React from 'react';
-import Index from './index';
-import { fetchProducts } from '../../../actions/product_actions';
-import { fetchShops } from '../../../actions/shop_actions';
+import Index from '../products/index/index';
+import { fetchProducts } from '../../actions/product_actions';
+import { fetchShops } from '../../actions/shop_actions';
 import { connect } from 'react-redux';
 
 const msp = state => {

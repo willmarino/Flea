@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IndexItem from '../index/index_item';
+import IndexItem from '../../products/index/index_item';
 
 class ProductRow extends React.Component{
     constructor(props){

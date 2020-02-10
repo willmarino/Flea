@@ -6,7 +6,12 @@ import { addItemToCart } from '../../../actions/cart_actions';
 
 const msp = (state, ownProps) => ({
   cart: state.entities.carts['currentCart'],
-  item: ownProps.product
+  product: ownProps.product,
+  shop: ownProps.shop,
+  productAvg: ownProps.productAvg,
+  pCount: ownProps.pCount,
+  loggedIn: Boolean(state.session.currentUser),
+  topLevelDoc: ownProps.topLevelDoc
 });
 
 const mdp = (dispatch) => ({

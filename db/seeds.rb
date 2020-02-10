@@ -809,18 +809,30 @@ s6 = Shop.create!(name: "#{u6.username}'s shop", creator_id: u6.id, description:
 s7 = Shop.create!(name: "#{u7.username}'s not so nice shop", creator_id: u7.id, description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
 
 shops = [s1, s2, s3, s4, s5, s6, s7]
-# users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
 
 
 # clothing and shoes
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: clothingandshoes_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Clothing & Shoes",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
+
     )
     j = 0
     while j < 4;
@@ -836,7 +848,6 @@ while i < 6
     file = open(clothingandshoes[i])
     indiv_file = clothingandshoes[i].split("clothingandshoes/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 
 end
@@ -844,12 +855,24 @@ end
 # jewelry
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: jewelrynames[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Jewelry & Accessories",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
     j = 0
     while j < 4;
@@ -866,7 +889,6 @@ while i < 6
     file = open(jewelry[i])
     indiv_file = jewelry[i].split("jewelry/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
 
@@ -874,12 +896,24 @@ end
 # home and living
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: homeandliving_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Home & Living",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
 
     j = 0
@@ -897,19 +931,30 @@ while i < 6
     file = open(homeandliving[i])
     indiv_file = homeandliving[i].split("homeandliving/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
 
 # arts and crafts
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: artsandcrafts_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Craft & Supplies",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
 
     j = 0
@@ -927,7 +972,6 @@ while i < 6
     file = open(artsandcrafts[i])
     indiv_file = artsandcrafts[i].split("artsandcrafts/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
  
@@ -935,12 +979,24 @@ end
 # art and collectibles
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: artsandcollect_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Art & Collectibles",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
 
     j = 0
@@ -958,19 +1014,30 @@ while i < 6
     file = open(artsandcollect[i])
     indiv_file = artsandcollect[i].split("artandcollectibles/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
 
 
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: weddingandparty_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Wedding & Party",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
 
     j = 0
@@ -988,18 +1055,29 @@ while i < 6
     file = open(weddingandparty[i])
     indiv_file = weddingandparty[i].split("weddingandparty/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
 
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: vintage_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Vintage",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
 
     j = 0
@@ -1017,18 +1095,29 @@ while i < 6
     file = open(vintage[i])
     indiv_file = vintage[i].split("vintage/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
 
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: gift_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Gifts",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
 
     j = 0
@@ -1046,18 +1135,29 @@ while i < 6
     file = open(gifts[i])
     indiv_file = gifts[i].split("gifts/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
 
 i = 0
 while i < 6
+    possible_options = ['size', 'color', 'secondary color']
+    possible_option_details = [['small', 'medium', 'large'], ['blue', 'red', 'green'], ['purple', 'black', 'navy']]
+    option_details = []
+    options = []
+    (0...possible_options.length).each do |i|
+        if rand() > 0.5
+            options << possible_options[i]
+            option_details << possible_option_details[i]
+        end
+    end
     x = Product.create!(
         name: tande_names[i],
         shop_id: shops[i % shops.length].id,
         high_level_category: "Toys & Entertainment",
         price: (rand() * 200).round(2),
-        stock_amt: rand(50)
+        stock_amt: rand(50),
+        options: options,
+        options_details: option_details
     )
 
     j = 0
@@ -1075,7 +1175,6 @@ while i < 6
     file = open(toysandentertainment[i])
     indiv_file = toysandentertainment[i].split("toysandentertainment/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
-    # x.photoURL = x.photo.service_url
     i += 1
 end
 # Orders ------------------------------------------------------------------

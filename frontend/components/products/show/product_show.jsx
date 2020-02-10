@@ -3,6 +3,7 @@ import Review from '../../reviews/review';
 
 import AddToCartFormContainer from './add_to_cart_form_container';
 import { Link } from 'react-router-dom';
+import AddToCartForm from './add_to_cart_form';
 
 class ProductShow extends React.Component{
     constructor(props){
@@ -133,7 +134,7 @@ class ProductShow extends React.Component{
             count = this.sCount;
         }
 
-        let addToCartForm = (this.props.loggedIn) ? <AddToCartFormContainer product={this.props.product}/> : <p></p>;
+        // let addToCartForm = (this.props.loggedIn) ? <AddToCartFormContainer product={this.props.product}/> : <p></p>;
 
         let reviewDisplaySwitcher = (this.state.limitMessage === 'All Reviews') 
             ? <Link to='/anon'><button>{this.state.limitMessage}</button></Link> 
@@ -141,7 +142,7 @@ class ProductShow extends React.Component{
 
         this.limitChanged = false;
         return(
-            <div className="product-show-container">
+            <div className="product-show-container" id='prod-show'>
                 <div className="product">
                     <div className="photo-reviews">
                         <div className="photo">
@@ -173,17 +174,12 @@ class ProductShow extends React.Component{
                         </div>
                     </div>
                     <div className="product-details">
-                        <div className="buy-product">
-                            <div className="top-bar">
-                                <div className="gray-text">{this.props.shop.name}</div>
-                                <div className="stars">{this.productAvg}</div>
-                                <div className="review_count">({this.pCount})</div>
-                            </div>
-                            <div className="product-title">{this.props.product.name}</div>
-                            <div className="price">{this.props.product.price}</div>
-                            <div className="bestseller" id="showpage"><p>Bestseller</p></div>
-                            {addToCartForm}
-                        </div>
+                        <AddToCartFormContainer 
+                            product={this.props.product}
+                            shop={this.props.shop}
+                            productAvg={this.productAvg}
+                            pCount={this.pCount}
+                            topLevelDoc={document.getElementById('prod-show')}/>
                         <div className="details">
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
                             accusantium doloremque laudantium, totam rem aperiam, eaque

@@ -1,0 +1,35 @@
+// li container which holds button and dropdown
+.dropdown-button-container{
+  position: relative;
+  display: inline-block;
+}
+
+// dropdown content
+.dropdown-menu{
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background:	rgb(40,40,40);
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 200px;
+  z-index: 5;
+  
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  color: white;
+}
+
+.dropdown-menu li:hover{
+  background: blue;
+}
+
+// individual dropdown activators
+.dropdown-button{
+  height: 30px;
+  width: 200px;
+  border: 1px solid gray;
+}
