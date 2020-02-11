@@ -1,9 +1,10 @@
 import React from 'react';
 import Review from '../../reviews/review';
-
-import AddToCartFormContainer from './add_to_cart_form_container';
 import { Link } from 'react-router-dom';
-import AddToCartForm from './add_to_cart_form';
+import AddToCartFormContainer from './add_to_cart_form_container';
+import ShopPreviewContainer from './shop_preview_container';
+
+
 
 class ProductShow extends React.Component{
     constructor(props){
@@ -11,8 +12,8 @@ class ProductShow extends React.Component{
 
         this.state = {
             tab: 'product',
-            limit: 10,
-            limitMessage: 'show 20'
+            limit: 4,
+            limitMessage: '+ More'
         };
         this.limitChanged = false;
         this.allReviewInfo = null;
@@ -36,15 +37,15 @@ class ProductShow extends React.Component{
     }
 
     switchTabToProduct(){
-        this.setState({tab: 'product', limit: 10, limitMessage: 'Show 20'});
+        this.setState({tab: 'product', limit: 4, limitMessage: '+ More'});
     }
 
     switchTabToShop(){
-        this.setState({tab: 'shop', limit: 10, limitMessage: 'Show 20'});
+        this.setState({tab: 'shop', limit: 4, limitMessage: '+ More'});
     }
 
     switchReviewDisplay(){
-        if(this.state.limit === 10){
+        if(this.state.limit === 4){
             this.setState({limit: 20});
             this.setState({limitMessage: 'All Reviews'})
         }
@@ -57,36 +58,38 @@ class ProductShow extends React.Component{
                 stars.push(<i className="fa fa-star" key={stars.length}></i>)
             }
           return stars;
-      }
+    }
 
     compileReviews(){
         let productReviews = [];
-        let productAvg = 0;
+        // let productAvg = 0;
         let productReviewCount = this.props.productReviews.length;
         for(let i = 0; i < ( (this.state.limit === ('all') || this.props.productReviews.length < this.state.limit) ? this.props.productReviews.length : this.state.limit); i++){
             let r = this.props.productReviews[i];
+            // while(i < this.state.limit){
             productReviews.push(
                 <Review review={r} author={this.props.productReviewAuthors[i]} product={this.props.product} key={r.id}/>
             );
-            productAvg += r.rating;
+            // }
+            // productAvg += r.rating;
         }
-        productAvg = Math.round(productAvg / productReviewCount);
+        // productAvg = Math.round(productAvg / productReviewCount);
 
         let shopReviews = [];
-        let shopAvg = 0;
+        // let shopAvg = 0;
         let shopReviewCount = this.props.shopReviews.length;
         for(let i = 0; i < ( (this.state.limit === ('all') || this.props.shopReviews.length < this.state.limit) ? this.props.shopReviews.length : this.state.limit); i++){
             let r = this.props.shopReviews[i];
             shopReviews.push(
                 <Review review={r} author={this.props.shopReviewAuthors[i]} product={this.props.shopReviewProducts[i]} key={r.id}/>
             );
-            shopAvg += r.rating;
+            // shopAvg += r.rating;
         }
-        shopAvg = Math.round(shopAvg / shopReviewCount);
+        // shopAvg = Math.round(shopAvg / shopReviewCount);
 
         return { 
-            product: { reviews: productReviews, avg: productAvg, count: productReviewCount }, 
-            shop: { reviews: shopReviews, avg: shopAvg, count: shopReviewCount}
+            product: { reviews: productReviews, count: productReviewCount }, 
+            shop: { reviews: shopReviews, count: shopReviewCount}
         };
     }
 
@@ -105,19 +108,16 @@ class ProductShow extends React.Component{
     }
 
     render(){
-        // if(!this.props.shopReviewProducts){
-        //     return <p></p>;
-        // }
         if(!this.allPresent()){
             return <p></p>;
         }
         if(!this.allReviewInfo || this.limitChanged){
             this.allReviewInfo = this.compileReviews();
             this.productReviews = this.allReviewInfo.product.reviews;
-            this.productAvg = this.starsify(this.allReviewInfo.product.avg);
+            this.productAvg = this.starsify(Math.round(this.props.product.rating));
             this.pCount = this.allReviewInfo.product.count;
             this.shopReviews = this.allReviewInfo.shop.reviews;
-            this.shopAvg = this.starsify(this.allReviewInfo.shop.avg);
+            this.shopAvg = this.starsify(Math.round(this.props.shop.rating));
             this.sCount = this.allReviewInfo.shop.count;
         }
 
@@ -134,11 +134,9 @@ class ProductShow extends React.Component{
             count = this.sCount;
         }
 
-        // let addToCartForm = (this.props.loggedIn) ? <AddToCartFormContainer product={this.props.product}/> : <p></p>;
-
         let reviewDisplaySwitcher = (this.state.limitMessage === 'All Reviews') 
-            ? <Link to='/anon'><button>{this.state.limitMessage}</button></Link> 
-            : <button onClick={this.switchReviewDisplay}>{this.state.limitMessage}</button> ;
+            ? <Link to='/anon'><button className='review-display-button'>{this.state.limitMessage}</button></Link> 
+            : <button className='review-display-button' onClick={this.switchReviewDisplay}>{this.state.limitMessage}</button> ;
 
         this.limitChanged = false;
         return(
@@ -197,18 +195,7 @@ class ProductShow extends React.Component{
                         </div>
                     </div>
                 </div>
-                {/* <div className="other-products">
-                    <div id="section-one">
-                        <p>By this shop</p>
-                    </div>
-                    <div id="section-two">
-                        <p>Related</p>
-                    </div>
-                    <div id="section-three">
-                        <p>Related</p>
-                    </div>
-                </div> */}
-
+                <ShopPreviewContainer shop={this.props.shop} shopReviewCount={this.sCount} shopStarRating={this.shopAvg}/>
             </div>
         );
     }
@@ -261,3 +248,16 @@ export default ProductShow;
                 // tab: 'product'
             // };
         // }
+
+
+{/* <div className="other-products">
+                    <div id="section-one">
+                        <p>By this shop</p>
+                    </div>
+                    <div id="section-two">
+                        <p>Related</p>
+                    </div>
+                    <div id="section-three">
+                        <p>Related</p>
+                    </div>
+                </div> */}

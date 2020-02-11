@@ -1,8 +1,15 @@
+// reviews container
+.reviews{
+  display: inline-block;
+}
+
+// review description/rating/stuff
 .reviews-meta-info{
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+// product and shop reviews
 .reviews-tabs{
   display: flex;
   justify-content: space-between;
@@ -12,6 +19,19 @@
 }
 
 .reviews-tab{
+}
+
+// button to change how many reviews are displayed, or to link to shop reviews page
+.review-display-button{
+  text-decoration: underline;
+  margin-top: 5px;
+  margin-bottom: 10px;
+
+}
+
+.review-display-button:hover{
+  color: gray;
+  cursor: pointer;
 }
 
 // container for all reviews in product show page

@@ -28,6 +28,12 @@ class Api::ShopsController < ApplicationController
     end
   end
 
+  def products
+    shop = Shop.find(params[:id])
+    @products = shop.products[0...5]
+    render :products
+  end
+
 
   def index
     @shops = Shop.all

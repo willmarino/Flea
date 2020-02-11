@@ -15,9 +15,9 @@
 
 .product{
   width: 100%;
-  height: 100%;
   display: flex;
-
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px;
 }
 
 .photo-reviews{
@@ -28,11 +28,7 @@
 }
 
 .photo{
-  // height: 30%;
   height: 500px;
-
-  // background: gray;
-
   padding: 40px;
   margin-right: 20px;
 
@@ -45,9 +41,7 @@
 }
 
 
-.reviews{
-  height: 65%;
-}
+
 
 .photo img{
   width: 500px;

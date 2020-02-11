@@ -5,7 +5,8 @@ import {
   RECEIVE_CATEGORY,
   RECEIVE_CATEGORIES,
   RECEIVE_INDEX,
-  RECEIVE_SHOP_REVIEW_PRODUCTS
+  RECEIVE_SHOP_REVIEW_PRODUCTS,
+  RECEIVE_PRODUCTS_BY_SHOP
 } from '../actions/product_actions';
 
 import { HAPPY_PRODUCTS } from '../actions/review_actions';
@@ -15,6 +16,8 @@ import { RECENTLY_VIEWED_PRODUCTS } from '../actions/users_actions';
 const ProductsReducer = (state={}, action) => {
   Object.freeze(state);
   switch(action.type){
+    case RECEIVE_PRODUCTS_BY_SHOP:
+      return Object.assign({}, state, { shopProducts : action.products })
     case RECEIVE_SHOP_REVIEW_PRODUCTS:
       return Object.assign({}, state, { shopReviewProducts : action.products })
     case HAPPY_PRODUCTS:
@@ -24,7 +27,6 @@ const ProductsReducer = (state={}, action) => {
     case RECENTLY_VIEWED_PRODUCTS:
       return Object.assign({}, state, action.products);
     case RECEIVE_CATEGORY:
-      // return Object.assign({}, state, {[Object.keys(action.products)[0]]: action.products});
       return Object.assign({}, state, action.products)
     case RECEIVE_PRODUCTS:
       return Object.assign({}, state, action.products);

@@ -16,6 +16,7 @@ export const RECEIVE_PRODUCT_SHOW_PRODUCT = "RECEIVE_PRODUCT_SHOW_PRODUCT";
 export const RECEIVE_SHOP_REVIEWS = "RECEIVE_SHOP_REVIEWS";
 
 export const RECEIVE_SHOP_REVIEW_PRODUCTS = 'RECEIVE_SHOP_REVIEW_PRODUCTS';
+export const RECEIVE_PRODUCTS_BY_SHOP = "RECEIVE_PRODUCTS_BY_SHOP";
 
 const receiveProduct = (product) => ({
   type: RECEIVE_PRODUCT,
@@ -68,6 +69,11 @@ const receiveShopReviews = (reviews) => ({
 
 const receiveShopReviewProducts = (products) => ({
   type: RECEIVE_SHOP_REVIEW_PRODUCTS,
+  products
+})
+
+const receiveProductsByShop = (products) => ({
+  type: RECEIVE_PRODUCTS_BY_SHOP,
   products
 })
 
@@ -136,3 +142,8 @@ export const fetchProductShow = (prodId) => dispatch => (
       dispatch(receiveShopReviewProducts(ps.product_show.shop_review_products));
     })
 )
+
+export const fetchProductsByShop = (shopId) => dispatch => (
+  ProductUtil.fetchProductsByShop(shopId)
+    .then(products => dispatch(receiveProductsByShop(products)))
+) 

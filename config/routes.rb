@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :shops, only: [:create, :show, :index, :update, :destroy] do
       member do
         get 'shop_reviews'
+        get 'products'
       end
       resources :products, only: [:create]
     end

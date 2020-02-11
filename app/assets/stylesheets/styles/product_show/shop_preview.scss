@@ -1,0 +1,27 @@
+// overall shop preview container
+.shop-preview-container{
+
+}
+
+
+// shop products
+.shop-products-container{
+  display: flex;
+}
+
+// fake shop avatar 
+.fake-shop-preview-photo{
+  height: 75px;
+  width: 75px;
+  background: black;
+}
+
+// both rows of shop info
+.shop-preview-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-preview-info-section{
+  display: flex;
+}

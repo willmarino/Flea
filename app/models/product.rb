@@ -10,6 +10,17 @@ class Product < ApplicationRecord
     end
   end
 
+  def set_rating
+    total = 0
+    count = 0
+    self.reviews.each do |r|
+      count += 1
+      total += r.rating
+    end
+    self.rating = total / (count * 1.0)
+    self.save
+  end
+
   def rating
     if(!self.reviews)
       return "null"

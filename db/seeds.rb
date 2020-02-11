@@ -360,7 +360,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -375,6 +375,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(clothingandshoes[i])
     indiv_file = clothingandshoes[i].split("clothingandshoes/")[-1]
@@ -410,7 +412,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -425,6 +427,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(jewelry[i])
     indiv_file = jewelry[i].split("jewelry/")[-1]
@@ -461,7 +465,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -476,6 +480,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(homeandliving[i])
     indiv_file = homeandliving[i].split("homeandliving/")[-1]
@@ -511,7 +517,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -526,6 +532,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(artsandcrafts[i])
     indiv_file = artsandcrafts[i].split("artsandcrafts/")[-1]
@@ -562,7 +570,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -577,6 +585,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(artsandcollect[i])
     indiv_file = artsandcollect[i].split("artandcollectibles/")[-1]
@@ -612,7 +622,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -627,6 +637,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(weddingandparty[i])
     indiv_file = weddingandparty[i].split("weddingandparty/")[-1]
@@ -661,7 +673,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -676,6 +688,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(vintage[i])
     indiv_file = vintage[i].split("vintage/")[-1]
@@ -710,7 +724,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -725,6 +739,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    x.set_rating
 
     file = open(gifts[i])
     indiv_file = gifts[i].split("gifts/")[-1]
@@ -759,7 +775,7 @@ while i < 6
         Review.create!(
             title: Faker::Lorem.words(number: 3).join(" "),
             body: Faker::TvShows::Simpsons.quote,
-            rating: rand(1..6),
+            rating: rand(1...6),
             item_id: x.id,
             author_id: users[rand(7)].id,
         )
@@ -775,10 +791,16 @@ while i < 6
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
 
+    x.set_rating
+
     file = open(toysandentertainment[i])
     indiv_file = toysandentertainment[i].split("toysandentertainment/")[-1]
     x.photo.attach(io: file, filename: indiv_file)
     i += 1
 end
-# Orders ------------------------------------------------------------------
 
+# Shops ------------------------------------------------------------------
+
+shops.each do |shop|
+    shop.set_rating
+end
