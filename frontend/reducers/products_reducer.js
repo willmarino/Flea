@@ -6,7 +6,8 @@ import {
   RECEIVE_CATEGORIES,
   RECEIVE_INDEX,
   RECEIVE_SHOP_REVIEW_PRODUCTS,
-  RECEIVE_PRODUCTS_BY_SHOP
+  RECEIVE_PRODUCTS_BY_SHOP,
+  RECEIVE_ASSOCIATED_PRODUCTS
 } from '../actions/product_actions';
 
 import { HAPPY_PRODUCTS } from '../actions/review_actions';
@@ -16,6 +17,8 @@ import { RECENTLY_VIEWED_PRODUCTS } from '../actions/users_actions';
 const ProductsReducer = (state={}, action) => {
   Object.freeze(state);
   switch(action.type){
+    case RECEIVE_ASSOCIATED_PRODUCTS:
+      return Object.assign({}, state, { associated : action.products })
     case RECEIVE_PRODUCTS_BY_SHOP:
       return Object.assign({}, state, { shopProducts : action.products })
     case RECEIVE_SHOP_REVIEW_PRODUCTS:

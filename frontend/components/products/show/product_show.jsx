@@ -3,8 +3,7 @@ import Review from '../../reviews/review';
 import { Link } from 'react-router-dom';
 import AddToCartFormContainer from './add_to_cart_form_container';
 import ShopPreviewContainer from './shop_preview_container';
-
-
+import ShowRecommendContainer from './show_recommend_container';
 
 class ProductShow extends React.Component{
     constructor(props){
@@ -38,10 +37,12 @@ class ProductShow extends React.Component{
 
     switchTabToProduct(){
         this.setState({tab: 'product', limit: 4, limitMessage: '+ More'});
+        this.limitChanged = true;
     }
 
     switchTabToShop(){
         this.setState({tab: 'shop', limit: 4, limitMessage: '+ More'});
+        this.limitChanged = true;
     }
 
     switchReviewDisplay(){
@@ -62,30 +63,22 @@ class ProductShow extends React.Component{
 
     compileReviews(){
         let productReviews = [];
-        // let productAvg = 0;
         let productReviewCount = this.props.productReviews.length;
         for(let i = 0; i < ( (this.state.limit === ('all') || this.props.productReviews.length < this.state.limit) ? this.props.productReviews.length : this.state.limit); i++){
             let r = this.props.productReviews[i];
-            // while(i < this.state.limit){
             productReviews.push(
                 <Review review={r} author={this.props.productReviewAuthors[i]} product={this.props.product} key={r.id}/>
             );
-            // }
-            // productAvg += r.rating;
         }
-        // productAvg = Math.round(productAvg / productReviewCount);
 
         let shopReviews = [];
-        // let shopAvg = 0;
         let shopReviewCount = this.props.shopReviews.length;
         for(let i = 0; i < ( (this.state.limit === ('all') || this.props.shopReviews.length < this.state.limit) ? this.props.shopReviews.length : this.state.limit); i++){
             let r = this.props.shopReviews[i];
             shopReviews.push(
                 <Review review={r} author={this.props.shopReviewAuthors[i]} product={this.props.shopReviewProducts[i]} key={r.id}/>
             );
-            // shopAvg += r.rating;
         }
-        // shopAvg = Math.round(shopAvg / shopReviewCount);
 
         return { 
             product: { reviews: productReviews, count: productReviewCount }, 
@@ -196,6 +189,7 @@ class ProductShow extends React.Component{
                     </div>
                 </div>
                 <ShopPreviewContainer shop={this.props.shop} shopReviewCount={this.sCount} shopStarRating={this.shopAvg}/>
+                <ShowRecommendContainer shop={this.props.shop} loggedIn={this.props.loggedIn} product={this.props.product}/>
             </div>
         );
     }

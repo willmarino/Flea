@@ -20,7 +20,7 @@ class ShopPreview extends React.Component{
     for(let i = 0; i < products.length; i++){
       let p = products[i];
       pArr.push(
-        <IndexItem product={p} loggedIn={this.props.loggedIn} type={'complex'} key={p.id}/>
+        <IndexItem product={p} loggedIn={this.props.loggedIn} type={'mid'} key={p.id}/>
       )
     }
     return pArr;
@@ -52,7 +52,6 @@ class ShopPreview extends React.Component{
       return <p></p>;
     }
     let products = this.compileProducts(this.props.shopProducts);
-    debugger;
     return(
       // high level container
       <div className='shop-preview-container'>
@@ -61,12 +60,12 @@ class ShopPreview extends React.Component{
             <div className='fake-shop-preview-photo'>
             </div>
             <div className='shop-preview-info'>
-              <div className='shop-preview-info-section'>
+              <div className='shop-preview-info-upper'>
                 <p>{this.props.shop.name}</p>
                 <p>{this.props.shopStarRating}</p>
-                {this.props.shopReviewCount}
+                <p>{this.props.shopReviewCount}</p>
               </div>
-              <div className='shop-preview-info-section'>
+              <div className='shop-preview-info-lower'>
                 <p>location placeholder</p>
                 <p>num sales</p>
                 <p> On Etsy since {this.configureDate(this.props.shop.created_at)}</p>
@@ -77,7 +76,7 @@ class ShopPreview extends React.Component{
             <Link to='/'><button> View all {this.props.shopReviewCount} items</button></Link>
           </div>
         </div>
-        <ul className='shop-products-container'>
+        <ul className='shop-preview-products-container'>
           {products}
         </ul>
       </div>

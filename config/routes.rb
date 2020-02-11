@@ -42,6 +42,7 @@ Rails.application.routes.draw do
         get 'product_reviews'
         get 'shop_by_product'
         get 'product_show'
+        get 'associated'
       end
     end
       

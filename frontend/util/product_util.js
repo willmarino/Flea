@@ -80,11 +80,21 @@ export const fetchProductShow = (prodId) => (
 )
 
 export const fetchProductsByShop = (shopId) => {
-  // debugger;
   return(
     $.ajax({
       method: "GET",
       url: `/api/shops/${shopId}/products`
+    })
+  )
+}
+
+export const fetchAssociatedProducts = (prodId, shopProducts) => {
+  debugger;
+  return(
+    $.ajax({
+      method: "GET",
+      url: `/api/products/${prodId}/associated`,
+      data: {shopProducts}
     })
   )
 }

@@ -38,7 +38,7 @@ class HappyReview extends React.Component{
   render(){
     let {user, review, product} = this.props;
     return(
-      <li className='happy-review' key={this.props.id}>
+      <li className='happy-review' key={review.id}>
         <div className='hr-container-one'>
           <img src={user.photoURL} alt="" className='avatar'/>
           <p>{user.username} wrote on {this.configureDate((review.created_at).slice(0,10))}</p>

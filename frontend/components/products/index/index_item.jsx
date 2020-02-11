@@ -27,7 +27,6 @@ class IndexItem extends React.Component{
           </Link>
           <div className="item-labels-simple">
             <div className="item-price">
-              {/* <i className="fas fa-dollar-sign"></i> */}
               <i className="fa fa-euro-sign"></i>
               <p>${this.props.product.price}</p>
             </div>
@@ -35,7 +34,7 @@ class IndexItem extends React.Component{
           </div>
         </li>
       )
-    }else if(this.props.type === "complex"){
+    }else if(this.props.type === "mid"){
       item = (
         <li className="complex">
           <Link to={path}>
@@ -43,10 +42,26 @@ class IndexItem extends React.Component{
           </Link>
           <div className="item-labels">
             <div id="item-label-top">
-              <p>${this.props.product.price}</p>
               <p>{this.props.product.name}</p>
+              <p>${this.props.product.price}</p>
             </div>
-            {/* <p>{this.props.shop.name}</p> */}
+              {/* <p>{this.props.shop.name}</p> */}
+            {/* <p>{this.props.product.rating}</p> */}
+          </div>
+        </li>
+      )
+    }else if(this.props.type === 'complex'){
+      item = (
+        <li className="complex">
+          <Link to={path}>
+            <img src={this.props.product.photoURL} alt="" className="index-fake-image" />
+          </Link>
+          <div className="item-labels">
+            <div id="item-label-top">
+              <p>{this.props.product.name}</p>
+              <p>{this.props.shop.name}</p>
+              <p>${this.props.product.price}</p>
+            </div>
             {/* <p>{this.props.product.rating}</p> */}
           </div>
         </li>

@@ -97,6 +97,20 @@ class Api::ProductsController < ApplicationController
     render 'api/shops/show'
   end
 
+  def associated
+    product = Product.find(params[:id])
+    shopProducts = shopProducts_params.values
+    @products = []
+    associated = product.associated_products
+    associated.each do |p|
+      if !(@products.include?(p) || shopProducts.include?(p))
+        @products << p
+      end
+      break if @products.length == 5;
+    end
+    render :associated
+  end
+
   def product_show
     @product = Product.find(params[:id])
     @shop = @product.shop
@@ -121,4 +135,7 @@ class Api::ProductsController < ApplicationController
       :price, :stock_amt)
   end
 
+  def shopProducts_params
+    params.require(:shopProducts).permit!
+  end
 end

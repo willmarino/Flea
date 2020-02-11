@@ -5,15 +5,28 @@
 
 
 // shop products
-.shop-products-container{
+.shop-preview-products-container{
   display: flex;
+  justify-content: space-between;
 }
 
 // fake shop avatar 
 .fake-shop-preview-photo{
-  height: 75px;
-  width: 75px;
+  height: 70px;
+  width: 70px;
   background: black;
+}
+
+.shop-preview-info-and-link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.shop-preview-info-and-name{
+  display: flex;
+  align-items: center;
 }
 
 // both rows of shop info
@@ -22,6 +35,21 @@
   flex-direction: column;
 }
 
-.shop-preview-info-section{
+// bar of info
+.shop-preview-info-upper{
   display: flex;
+}
+
+.shop-preview-info-upper p{
+  margin-left: 5px;
+}
+
+// bar of info
+.shop-preview-info-lower{
+  display: flex;
+}
+
+.shop-preview-info-lower p{
+  margin-left: 5px;
+  margin-right: 5px;
 }

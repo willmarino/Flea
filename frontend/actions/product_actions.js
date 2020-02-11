@@ -5,6 +5,7 @@ import { receiveShopReviewAuthors, receiveProductReviewAuthors } from '../action
 
 export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
+export const RECEIVE_ASSOCIATED_PRODUCTS = "RECEIVE_ASSOCIATED_PRODUCTS";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 
 export const RECEIVE_CATEGORY = "RECEIVE_CATEGORY";
@@ -77,6 +78,10 @@ const receiveProductsByShop = (products) => ({
   products
 })
 
+const receiveAssociatedProducts = (products) => ({
+  type: RECEIVE_ASSOCIATED_PRODUCTS,
+  products
+})
 
 export const fetchProduct = (productId) => dispatch => (
   ProductUtil.fetchProduct(productId)
@@ -146,4 +151,9 @@ export const fetchProductShow = (prodId) => dispatch => (
 export const fetchProductsByShop = (shopId) => dispatch => (
   ProductUtil.fetchProductsByShop(shopId)
     .then(products => dispatch(receiveProductsByShop(products)))
-) 
+)
+
+export const fetchAssociatedProducts = (prodId, shopProducts) => dispatch => (
+  ProductUtil.fetchAssociatedProducts(prodId, shopProducts)
+    .then(products => dispatch(receiveAssociatedProducts(products)))
+)

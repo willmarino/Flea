@@ -15,8 +15,9 @@ class ReviewsSegment extends React.Component{
   compileReviews(){
     let {users, reviews, products} = this.props;
     let reviewsObj = [];
+    debugger;
     for(let i = 0; i < 3; i++){
-      reviewsObj.push(<HappyReview product={products[i]} review={reviews[i]} user={users[i]} id={reviews[i].id}/>)
+      reviewsObj.push(<HappyReview product={products[i]} review={reviews[i]} user={users[i]} id={reviews[i].id} key={reviews[i].id}/>)
     }
     return reviewsObj;
   }
@@ -27,7 +28,7 @@ class ReviewsSegment extends React.Component{
   }
 
   render(){
-    if(!this.allPresent) return <p></p>;
+    if(!this.allPresent()) return <p></p>;
     let {users, reviews, products} = this.props;
 
     return(

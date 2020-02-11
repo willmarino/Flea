@@ -15,7 +15,6 @@ class AddToCartForm extends React.Component{
       options,
       modalStatus
     }
-    debugger;
     this.topLevelDoc = this.props.topLevelDoc;
     this.generateModals = this.generateModals.bind(this);
     this.setOptionValue = this.setOptionValue.bind(this);
@@ -61,7 +60,6 @@ class AddToCartForm extends React.Component{
       let options = this.state.options;
       options[option] = val;
       this.setState({options : options});
-      debugger;
       let modalStatus = this.state.modalStatus;
       modalStatus[option] = false;
       this.setState({modalStatus : modalStatus});
@@ -85,25 +83,20 @@ class AddToCartForm extends React.Component{
     //   let curKey = Object.keys(this.state.modalStatus)[i];
     //   modalState[curKey] = false;
     // }
-    debugger;
     this.clearModals();
     modalState[e.currentTarget.dataset.option] = true;
     this.setState({modalStatus : modalState});
-    debugger;
     // this.addEventListener('mousedown', this.clearModals);
-    // debugger;
   }
 
   clearModals(){
     let modalState = this.state.modalStatus;
-    debugger;
     for(let i = 0; i < Object.keys(this.state.modalStatus).length; i++){
       let curKey = Object.keys(this.state.modalStatus)[i];
       modalState[curKey] = false;
     }
     this.setState({modalStatus : modalState});
     // this.removeEventListener('mousedown', this.clearModals);
-    debugger;
   }
 
   closeModal(e){
