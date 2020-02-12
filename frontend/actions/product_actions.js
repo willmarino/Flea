@@ -148,8 +148,8 @@ export const fetchProductShow = (prodId) => dispatch => (
     })
 )
 
-export const fetchProductsByShop = (shopId, prodId) => dispatch => (
-  ProductUtil.fetchProductsByShop(shopId, prodId)
+export const fetchProductsByShop = (shopId, prodId=9999999, num=5) => dispatch => (
+  ProductUtil.fetchProductsByShop(shopId, prodId, num)
     .then(products => dispatch(receiveProductsByShop(products)))
 )
 

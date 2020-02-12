@@ -30,11 +30,17 @@ class Api::ShopsController < ApplicationController
 
   def products
     shop = Shop.find(params[:id])
-    prod_id = params[:prodId]
+    if params[:prodId]
+      prod_id = params[:prodId]
+    end
     @products = []
     shop.products.each do |p|
-      @products << p if (p.id.to_s != prod_id)
-      break if (@products.length == 5)
+      if prod_id
+        @products << p if (p.id.to_s != prod_id)
+      else
+        @products << p
+      end
+      break if (@products.length == params[:num].to_i)
     end
     render :products
   end

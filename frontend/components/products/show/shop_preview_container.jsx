@@ -14,7 +14,7 @@ const msp = (state, ownProps) => ({
 });
 
 const mdp = (dispatch) => ({
-  fetchProductsByShop : (shopId, prodId) => dispatch(fetchProductsByShop(shopId, prodId))
+  fetchProductsByShop : (shopId, prodId=9999999, num=5) => dispatch(fetchProductsByShop(shopId, prodId, num))
 });
 
 export default connect(msp, mdp)(ShopPreview);
