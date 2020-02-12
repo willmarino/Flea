@@ -1,5 +1,5 @@
 import * as ProductUtil from '../util/product_util';
-import { receiveShopByProduct, receiveProductShowShop } from '../actions/shop_actions';
+import { receiveShopByProduct, receiveProductShowShop, receiveShopsByAssociatedProducts } from '../actions/shop_actions';
 import { receiveShopReviewAuthors, receiveProductReviewAuthors } from '../actions/users_actions';
 
 
@@ -148,12 +148,16 @@ export const fetchProductShow = (prodId) => dispatch => (
     })
 )
 
-export const fetchProductsByShop = (shopId) => dispatch => (
-  ProductUtil.fetchProductsByShop(shopId)
+export const fetchProductsByShop = (shopId, prodId) => dispatch => (
+  ProductUtil.fetchProductsByShop(shopId, prodId)
     .then(products => dispatch(receiveProductsByShop(products)))
 )
 
 export const fetchAssociatedProducts = (prodId, shopProducts) => dispatch => (
   ProductUtil.fetchAssociatedProducts(prodId, shopProducts)
-    .then(products => dispatch(receiveAssociatedProducts(products)))
+    .then(ap => {
+      debugger;
+      dispatch(receiveAssociatedProducts(ap.associated_products.products));
+      dispatch(receiveShopsByAssociatedProducts(ap.associated_products.shops));
+    })
 )

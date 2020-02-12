@@ -3,6 +3,7 @@ import {
     RECEIVE_SHOPS,
     REMOVE_SHOP,
     RECEIVE_SHOP_BY_PRODUCT,
+    RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS,
     RECEIVE_PRODUCT_SHOW_SHOP
 } from '../actions/shop_actions';
 
@@ -14,6 +15,8 @@ const ShopsReducer = (state={}, action) => {
             return Object.assign({}, state, {[action.shop.id] : action.shop});
         case RECEIVE_SHOP_BY_PRODUCT:
             return Object.assign({}, state, { byProduct : action.shop})
+        case RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS:
+            return Object.assign({}, state, { shopsByAssociatedProducts  : action.shops })
         case RECEIVE_PRODUCT_SHOW_SHOP:
             return Object.assign({}, state, { byProduct : action.shop })
         case RECEIVE_SHOPS:

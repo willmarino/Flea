@@ -7,12 +7,24 @@ class ShopPreview extends React.Component{
   constructor(props){
     super(props);
 
+    this.fetched = false;
+
     this.compileProducts = this.compileProducts.bind(this);
     this.configureDate = this.configureDate.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchProductsByShop(this.props.shop.id);
+    this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId);
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.curProdId !== this.props.curProdId){
+      this.fetched = false;
+    }
+    if(!this.fetched){
+      this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId);
+      this.fetched = true;
+    }
   }
 
   compileProducts(products){

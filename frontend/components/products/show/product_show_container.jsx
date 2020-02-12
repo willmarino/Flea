@@ -1,7 +1,4 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import {fetchProduct} from '../../../actions/product_actions';
-import {createReview} from '../../../actions/review_actions';
 import { fetchProductShow } from '../../../actions/product_actions';
 import ProductShow from './product_show';
 // we need product, the shop that sells it, the reviews for the product, and the reviews for the shop

@@ -8,11 +8,13 @@ const msp = (state, ownProps) => ({
   shopProducts : state.entities.products.shopProducts,
   shop : ownProps.shop,
   shopReviewCount: ownProps.shopReviewCount,
-  shopStarRating: ownProps.shopStarRating
+  shopStarRating: ownProps.shopStarRating,
+  curProdId : ownProps.curProdId,
+  product : ownProps.product
 });
 
 const mdp = (dispatch) => ({
-  fetchProductsByShop : (shopId) => dispatch(fetchProductsByShop(shopId))
+  fetchProductsByShop : (shopId, prodId) => dispatch(fetchProductsByShop(shopId, prodId))
 });
 
 export default connect(msp, mdp)(ShopPreview);

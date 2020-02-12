@@ -5,17 +5,22 @@ class ShowRecommend extends React.Component{
   constructor(props){
     super(props);
 
+    this.fetched = false;
+
     this.compileProducts = this.compileProducts.bind(this);
   }
 
-  // componentDidMount(){
-  //   debugger;
-  //   if(this.props.shopProducts) this.props.fetchAssociatedProducts(this.props.product.id, this.props.shopProducts);
-  // }
 
-  componentWillReceiveProps(nextProps){
-    debugger;
-    if(nextProps.shopProducts && !this.props.shopProducts) this.props.fetchAssociatedProducts(this.props.product.id, nextProps.shopProducts);
+  componentDidUpdate(prevProps){
+    if(!prevProps.shopProducts && this.props.shopProducts){
+      this.fetched = false;
+    }else if(prevProps.curProdId !== this.props.curProdId){
+      this.fetched = false;
+    }
+    if(!this.fetched){
+      this.props.fetchAssociatedProducts(this.props.product.id, this.props.shopProducts);
+      this.fetched = true;
+    }
   }
 
   compileProducts(){
@@ -23,21 +28,24 @@ class ShowRecommend extends React.Component{
     for(let i = 0; i < this.props.associatedProducts.length; i++){
       let p = this.props.associatedProducts[i];
       products.push(
-        <IndexItem loggedIn={this.props.loggedIn} type='complex' key={p.id} shop={this.props.shop} product={p}/>
+        <IndexItem loggedIn={this.props.loggedIn} type='complex' key={p.id} shop={this.props.shops[i]} product={p}/>
       )
     }
     return products
   }
 
   render(){
-    if(!this.props.associatedProducts){
+    if(!this.props.associatedProducts || !this.props.shops){
       return <p></p>;
     }
     let products = this.compileProducts();
     return(
-      <ul className='product-show-associated-list'>
-        {products}
-      </ul>
+      <>
+        <h2>You may also like</h2>
+        <ul className='product-show-associated-list'>
+          {products}
+        </ul>
+      </>
     )
   }
 }

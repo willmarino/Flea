@@ -16,6 +16,8 @@ class ProductShow extends React.Component{
         };
         this.limitChanged = false;
         this.allReviewInfo = null;
+        this.updated = false;
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.switchReviewDisplay = this.switchReviewDisplay.bind(this);
         this.starsify = this.starsify.bind(this);
@@ -27,6 +29,16 @@ class ProductShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchProductShow(this.props.curProdId);
+    }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.curProdId !== this.props.curProdId){
+            this.updated = false;
+        }
+        if(!this.updated){
+            this.props.fetchProductShow(this.props.curProdId);
+            this.updated = true;
+        }
     }
 
 
@@ -188,8 +200,17 @@ class ProductShow extends React.Component{
                         </div>
                     </div>
                 </div>
-                <ShopPreviewContainer shop={this.props.shop} shopReviewCount={this.sCount} shopStarRating={this.shopAvg}/>
-                <ShowRecommendContainer shop={this.props.shop} loggedIn={this.props.loggedIn} product={this.props.product}/>
+                <ShopPreviewContainer
+                    shop={this.props.shop}
+                    shopReviewCount={this.sCount}
+                    shopStarRating={this.shopAvg}
+                    curProdId={this.props.curProdId}
+                    product={this.props.product}/>
+                <ShowRecommendContainer
+                    shop={this.props.shop}
+                    loggedIn={this.props.loggedIn}
+                    product={this.props.product}
+                    curProdId={this.props.curProdId}/>
             </div>
         );
     }

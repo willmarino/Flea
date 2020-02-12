@@ -4,7 +4,6 @@ import { fetchIndex } from '../../../actions/product_actions';
 import { fetchUserCart } from '../../../actions/users_actions';
 
 const msp = (state, ownProps) => {
-  debugger;
   return({
     products : state.entities.products,
     index : state.entities.products.index,

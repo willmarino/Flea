@@ -98,19 +98,49 @@ class Api::ProductsController < ApplicationController
   end
 
   def associated
+    # grab product from db according to id in params
     product = Product.find(params[:id])
-    shopProducts = shopProducts_params.values
+
+    # we have shopProducts in params, and we dont want to grab the same products for associated as those we grabbed for the shop preview,
+    # so we have to have a list of the shopProducts we can compare newly aquired associated products too
+    # So, we use the data in params to grab all of the products we need from the db
+    shopProducts = []
+    shopProducts_params.values.each do |obj|
+      shopProducts << Product.find(obj["id"])
+    end
+
+    # Next, were going to grab a large amount of products with the associayted products association, and filter it down
+    # based on which products we are already displaying on the site
     @products = []
+    used = shopProducts
+    used << product
     associated = product.associated_products
     associated.each do |p|
-      if !(@products.include?(p) || shopProducts.include?(p))
+      already_seen = false
+      used.each do |asp|
+        if p.id == asp.id
+          already_seen = true
+          break
+        end
+      end
+      if !already_seen
         @products << p
+        used << p
       end
       break if @products.length == 5;
     end
+    
+    # finally, we need the associated shop for each of the products we send back, so we need to send an array of those back too
+    @shops = []
+    @products.each do |p|
+      @shops << p.shop
+    end
     render :associated
   end
-
+  
+  # if !(@products.include?(p) || shopProducts.include?(p))
+  #   @products << p
+  # end
   def product_show
     @product = Product.find(params[:id])
     @shop = @product.shop
@@ -138,4 +168,5 @@ class Api::ProductsController < ApplicationController
   def shopProducts_params
     params.require(:shopProducts).permit!
   end
+
 end
