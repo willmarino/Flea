@@ -68,7 +68,7 @@ const receiveShopReviews = (reviews) => ({
 // --------------------------------------------------
 
 
-const receiveShopReviewProducts = (products) => ({
+export const receiveShopReviewProducts = (products) => ({
   type: RECEIVE_SHOP_REVIEW_PRODUCTS,
   products
 })

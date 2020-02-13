@@ -10,7 +10,10 @@ export const RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS = "RECEIVE_SHOPS_BY_ASSOCIATED
 export const RECEIVE_PRODUCT_SHOW_SHOP = "RECEIVE_PRODUCT_SHOW_SHOP";
 
 import { receiveShopOwner } from '../actions/users_actions';
-import { receiveProductsByShop } from '../actions/product_actions';
+import { receiveProductsByShop, receiveShopReviewProducts } from '../actions/product_actions';
+import { receiveShopReviews} from '../actions/review_actions';
+import { receiveShopReviewAuthors } from '../actions/users_actions';
+import { receiveTagsForShopReviews } from '../actions/tag_actions';
 
 const receiveShop = (shop) => ({
     type: RECEIVE_SHOP,
@@ -83,8 +86,12 @@ export const deleteShop = shopId => dispatch => (
 export const fetchShopShow = (shopId) => dispatch => (
     ShopApiUtil.fetchShopShow(shopId)
         .then(ss => {
-            dispatch(receiveShop(ss.shop_show.shop))
-            dispatch(receiveShopOwner(ss.shop_show.owner))
-            dispatch(receiveProductsByShop(ss.shop_show.products))
+            dispatch(receiveShop(ss.shop_show.shop));
+            dispatch(receiveShopOwner(ss.shop_show.owner));
+            dispatch(receiveProductsByShop(ss.shop_show.products));
+            dispatch(receiveShopReviews(ss.shop_show.reviews));
+            dispatch(receiveShopReviewAuthors(ss.shop_show.authors));
+            dispatch(receiveShopReviewProducts(ss.shop_show.review_products));
+            dispatch(receiveTagsForShopReviews(ss.shop_show.review_product_tags));
         })
-)
+);

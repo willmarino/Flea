@@ -8,7 +8,11 @@ const msp = (state, ownProps) => {
     curShopId : curShopId,
     shop: state.entities.shops[curShopId],
     products: state.entities.products.shopProducts,
-    shopOwner : state.entities.users.shopOwner
+    shopOwner : state.entities.users.shopOwner,
+    reviews : state.entities.reviews.byShop,
+    reviewAuthors : state.entities.users.shopReviewAuthors,
+    reviewProducts : state.entities.products.shopReviewProducts,
+    reviewTags : state.entities.tags.shopReviewTags
   })
 }
 

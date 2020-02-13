@@ -25,12 +25,12 @@ const recieveHappyReviews = reviews => ({
   reviews
 })
 
-const receiveProductReviews = (reviews) => ({
+export const receiveProductReviews = (reviews) => ({
   type: RECEIVE_PRODUCT_REVIEWS,
   reviews
 })
 
-const receiveShopReviews = (reviews) => ({
+export const receiveShopReviews = (reviews) => ({
   type: RECEIVE_SHOP_REVIEWS,
   reviews
 })

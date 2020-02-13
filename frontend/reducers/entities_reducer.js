@@ -6,6 +6,7 @@ import ReviewsReducer from './reviews_reducer';
 import CartsReducer from './carts_reducer';
 import OrdersReducer from './orders_reducer';
 import CartItemsReducer from './cart_item_reducer';
+import TagsReducer from './tags_reducer';
 
 const EntitiesReducer = combineReducers({
   users: UsersReducer,
@@ -14,7 +15,8 @@ const EntitiesReducer = combineReducers({
   reviews: ReviewsReducer,
   carts: CartsReducer,
   orders: OrdersReducer,
-  cartItems: CartItemsReducer
+  cartItems: CartItemsReducer,
+  tags: TagsReducer
 });
 
 export default EntitiesReducer;

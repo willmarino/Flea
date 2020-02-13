@@ -1,6 +1,7 @@
 import React from 'react';
 import ShopTopBanner from './shop_top_banner';
 import ShopProductsContainer from './shop_products_container';
+import ShopReviews from './shop_reviews'
 
 class ShopShow extends React.Component{
   constructor(props){
@@ -16,7 +17,11 @@ class ShopShow extends React.Component{
   allPresent(){
     if(this.props.shop &&
         this.props.shopOwner &&
-        this.props.products){
+        this.props.products &&
+        this.props.reviews &&
+        this.props.reviewAuthors &&
+        this.props.reviewProducts &&
+        this.props.reviewTags){
           return true;
         }else{
           return false;
@@ -29,8 +34,20 @@ class ShopShow extends React.Component{
     }
     return(
       <div>
-        <ShopTopBanner shop={this.props.shop} curShopId={this.props.curShopId} shopOwner={this.props.shopOwner}/>
-        <ShopProductsContainer shop={this.props.shop} curShopId={this.props.curShopId} products={this.props.products}/>
+        <ShopTopBanner
+          shop={this.props.shop}
+          curShopId={this.props.curShopId}
+          shopOwner={this.props.shopOwner}/>
+        <ShopProductsContainer
+          shop={this.props.shop}
+          curShopId={this.props.curShopId}
+          products={this.props.products}/>
+        <ShopReviews
+          reviews={this.props.reviews}
+          shop={this.props.shop}
+          authors={this.props.reviewAuthors}
+          reviewProducts={this.props.reviewProducts}
+          reviewTags={this.props.reviewTags}/>
       </div>
     ) 
   }

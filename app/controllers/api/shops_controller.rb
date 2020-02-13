@@ -32,6 +32,15 @@ class Api::ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @owner = @shop.creator
     @products = @shop.products
+    @reviews = @shop.reviews
+    @authors = []
+    @review_products = {}
+    @review_product_tags = {}
+    @reviews.each do |r|
+      @authors.push(r.user)
+      @review_products[r.id] = r.product
+      @review_product_tags[r.id] = r.product.tags
+    end
     render :shop_show
   end
 

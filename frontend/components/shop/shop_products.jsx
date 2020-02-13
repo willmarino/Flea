@@ -20,7 +20,6 @@ class ShopProducts extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.filterProductsByCategory = this.filterProductsByCategory.bind(this);
-    debugger;
   }
 
   
@@ -41,13 +40,11 @@ class ShopProducts extends React.Component{
       }
       res['all'].push(p);
     }
-    debugger;
     return res;
   }
 
   grabCats(){
     let res = [];
-    debugger;
     let productKeys = Object.keys(this.products);
     for(let i = 0; i < productKeys.length; i++){
       let key = productKeys[i];
@@ -55,7 +52,6 @@ class ShopProducts extends React.Component{
         <li key={key} data-value={key} onClick={(e) => this.filterProductsByCategory(e)}>{key}</li>
       );
     }
-    debugger;
     return res;
   }
 
@@ -81,7 +77,6 @@ class ShopProducts extends React.Component{
 
   // change the products which are being displayed
   filterProductsByCategory(e){
-    debugger;
     this.setState({products : this.products[e.currentTarget.dataset.value]});
     this.setState({search : ''});
   }
