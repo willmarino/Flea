@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class AddToCartForm extends React.Component{
   constructor(props){
@@ -121,11 +122,16 @@ class AddToCartForm extends React.Component{
         </li>
       )
     }
-
+    let showPath;
+    if(this.props.loggedIn){
+      showPath = `/shops/${this.props.shop.id}`;
+    }else{
+      showPath = `/anon/shops/${this.props.shop.id}`;
+    }
     return(
       <div className="buy-product">
         <div className="top-bar">
-          <div className="gray-text">{this.props.shop.name}</div>
+          <Link to={showPath}><div className="gray-text">{this.props.shop.name}</div></Link>
           <div className="stars">{this.props.productAvg}</div>
           <div className="review_count">({this.props.pCount})</div>
         </div>

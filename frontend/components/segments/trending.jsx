@@ -7,8 +7,8 @@ class Trending extends React.Component{
   }
 
   componentDidMount() {
-    this.props.fetchReviews();
-    this.props.fetchShops();
+    // this.props.fetchReviews();
+    // this.props.fetchShops();
   }
 
 

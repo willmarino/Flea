@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       member do
         get 'shop_reviews'
         get 'products'
+        get 'shop_show'
       end
       resources :products, only: [:create]
     end

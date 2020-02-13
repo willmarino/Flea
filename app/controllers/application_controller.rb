@@ -20,13 +20,5 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
-  # def all_products
-  #   return Product.all
-  # end
-
-  # def all_shops
-  #   return Shop.all
-  # end
-
 
 end

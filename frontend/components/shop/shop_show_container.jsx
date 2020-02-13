@@ -1,14 +1,19 @@
 import { connect } from 'react-redux';
 import ShopShow from './shop_show';
-import { fetchShop } from '../../actions/shop_actions';
+import { fetchShopShow } from '../../actions/shop_actions';
 
-const msp = (state, ownProps) => ({
-  curShopId : ownProps.match.params.shopId,
-  shop: state.entities.shops.curShop
-})
+const msp = (state, ownProps) => {
+  let curShopId = ownProps.match.params.shopId;
+  return({
+    curShopId : curShopId,
+    shop: state.entities.shops[curShopId],
+    products: state.entities.products.shopProducts,
+    shopOwner : state.entities.users.shopOwner
+  })
+}
 
 const mdp = (dispatch) => ({
-  fetchShop : (id) => dispatch(fetchShop(id))
+  fetchShopShow : (shopId) => dispatch(fetchShopShow(shopId))
 })
 
 export default connect(msp, mdp)(ShopShow);

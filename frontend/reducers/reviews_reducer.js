@@ -4,7 +4,7 @@ import { RECEIVE_PRODUCT_REVIEWS } from '../actions/product_actions';
 import { RECEIVE_HAPPY_REVIEWS, RECEIVE_SHOP_REVIEWS } from '../actions/review_actions';
 
 const ReviewsReducer = (state={}, action) => {
-  if(action.type === RECEIVE_PRODUCT_REVIEWS){
+  if(action.type === RECEIVE_REVIEWS){
   }
   Object.freeze(state);
   switch(action.type){

@@ -28,6 +28,13 @@ class Api::ShopsController < ApplicationController
     end
   end
 
+  def shop_show
+    @shop = Shop.find(params[:id])
+    @owner = @shop.creator
+    @products = @shop.products
+    render :shop_show
+  end
+
   def products
     shop = Shop.find(params[:id])
     if params[:prodId]

@@ -80,7 +80,6 @@ export const fetchProductShow = (prodId) => (
 )
 
 export const fetchProductsByShop = (shopId, prodId, num) => {
-  debugger
   return(
     $.ajax({
       method: "GET",

@@ -9,10 +9,6 @@
 import { connect } from 'react-redux';
 import UserHeader from './user_header';
 import {logoutUser} from '../../actions/session_actions';
-import {fetchProducts} from '../../actions/product_actions';
-import {fetchShops} from '../../actions/shop_actions';
-import {fetchUsers} from '../../actions/users_actions';
-import { fetchReviews } from '../../actions/review_actions';
 
 // ---
 
@@ -21,16 +17,11 @@ import { fetchRecentlyViewed } from '../../actions/users_actions';
 import { productCategories } from '../../actions/product_actions';
 
 const msp = state => ({
-    // currentUser: state.entities.users[state.session.currentUser]
     currentUser: state.session.currentUser
 });
 
 const mdp = dispatch => ({
     signoutUser: () => dispatch(logoutUser()),
-    fetchProducts: () => dispatch(fetchProducts()),
-    fetchShops: () => dispatch(fetchShops()),
-    fetchReviews: () => dispatch(fetchReviews()),
-    fetchUsers: () => dispatch(fetchUsers()),
     fetchRecentlyViewed: (id) => dispatch(fetchRecentlyViewed(id)),
     productCategories: () => dispatch(productCategories())
 });

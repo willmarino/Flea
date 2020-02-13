@@ -43,3 +43,10 @@ export const fetchShopReviews = (shopId) => (
         url: `/api/shops/${shopId}/shop_reviews`
     })
 )
+
+export const fetchShopShow = (shopId) => (
+    $.ajax({
+        method: "GET",
+        url: `/api/shops/${shopId}/shop_show`
+    })
+)

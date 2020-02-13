@@ -1,0 +1,37 @@
+// conatiner for whole top banner component
+.shop-show-banner-container{
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  max-width: 1260px;
+  width: 90%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+// shop info and image
+.shop-show-banner-shop{
+  display: flex;
+}
+
+// shop owner avatar photo
+.shop-owner-avatar{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
+
+
+// fake image/placeholder
+.top-banner-fake-image{
+  width: 140px;
+  height: 140px;
+  background: black;
+}

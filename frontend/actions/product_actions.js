@@ -73,7 +73,7 @@ const receiveShopReviewProducts = (products) => ({
   products
 })
 
-const receiveProductsByShop = (products) => ({
+export const receiveProductsByShop = (products) => ({
   type: RECEIVE_PRODUCTS_BY_SHOP,
   products
 })
@@ -156,7 +156,6 @@ export const fetchProductsByShop = (shopId, prodId=9999999, num=5) => dispatch =
 export const fetchAssociatedProducts = (prodId, shopProducts) => dispatch => (
   ProductUtil.fetchAssociatedProducts(prodId, shopProducts)
     .then(ap => {
-      debugger;
       dispatch(receiveAssociatedProducts(ap.associated_products.products));
       dispatch(receiveShopsByAssociatedProducts(ap.associated_products.shops));
     })
