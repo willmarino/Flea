@@ -1,7 +1,9 @@
 class Api::CartItemsController < ApplicationController
 
   def index
-    @cart_items = CartItem.all
+    # @cart_items = CartItem.all
+    cart = current_user
+    @cart_items = cart.items
     render :index
   end
 

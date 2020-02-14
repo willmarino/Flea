@@ -1,9 +1,9 @@
 
 
-export const fetchCart = (cartId) => (
+export const fetchCart = () => (
   $.ajax({
     method: "GET",
-    url: `/api/carts/${cartId}`
+    url: `/api/carts/fetch`
   })
 );
 
@@ -30,3 +30,10 @@ export const deleteCart = (cartId) => (
     url: `/api/carts/${cartId}`
   })
 );
+
+export const fetchCartShow = () => (
+  $.ajax({
+    method: "GET",
+    url: "api/carts/cart_show"
+  })
+)

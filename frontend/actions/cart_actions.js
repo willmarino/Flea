@@ -1,5 +1,9 @@
 import * as CartApiUtil from '../util/cart_util';
 
+import { receiveShopsByProducts } from '../actions/shop_actions';
+import { receiveProductsByShop } from '../actions/product_actions';
+import { receiveCartItems } from '../actions/cart_item_actions';
+
 export const RECEIVE_CART = "RECEIVE_CART";
 export const REMOVE_CART = "REMOVE_CART";
 export const RECEIVE_CART_ITEM = "RECEIVE_CART_ITEM";
@@ -19,8 +23,8 @@ const receiveCartItem = (item) => ({
   item
 })
 
-export const fetchCart = (cartId) => dispatch => (
-  CartApiUtil.fetchCart(cartId)
+export const fetchCart = () => dispatch => (
+  CartApiUtil.fetchCart()
     .then(cart => dispatch(receiveCart(cart)))
 );
 
@@ -34,7 +38,17 @@ export const createCart = (cart) => dispatch => (
     .then(cart => dispatch(receiveCart(cart)))
 );
 
-export const deleteCart = (cartId) => dispatch => (
-  CartApiUtil.deleteCart(cart)
-    .then((cart) => dispatch(removeCart(cart.id)))
-);
+// export const deleteCart = (cartId) => dispatch => (
+//   CartApiUtil.deleteCart(cartId)
+//     .then((cart) => dispatch(removeCart(cart.id)))
+// );
+
+export const fetchCartShow = () => dispatch => (
+  CartApiUtil.fetchCartShow()
+    .then(cso => {
+      dispatch(receiveCart(cso.cart_show.cart));
+      dispatch(receiveCartItems(cso.cart_show.cart_items));
+      dispatch(receiveShopsByProducts(cso.cart_show.shops));
+      dispatch(receiveProductsByShop(cso.cart_show.shop_products));
+    })
+)

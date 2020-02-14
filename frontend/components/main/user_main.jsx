@@ -6,6 +6,7 @@ import ProductShowContainer from '../products/show/product_show_container';
 import UserSubheaderContainer from '../headers/user_subheader_container';
 import UserIndexContainer from '../products/index/user_index_container';
 import ShopShowContainer from '../shop/shop_show_container';
+import CartShowContainer from '../cart/cart_show_container';
 
 class UserMain extends React.Component{
     constructor(props){
@@ -14,18 +15,13 @@ class UserMain extends React.Component{
     }
 
     componentDidMount(){
-        // this.props.fetchHappyReviews();
-        // this.props.fetchIndex();
-        // this.props.fetchUserCart(this.props.user.id);
     }
 
 
     render(){
-        // if(!this.props.products.index){
-        //     return <p></p>
-        // }
         let showPath = "/products/:prodId";
         let shopShowPath = "/shops/:shopId";
+        let cartPath = "/cart";
         return(
             <div>
                 <div className="user-main-top">
@@ -45,6 +41,7 @@ class UserMain extends React.Component{
                     <Route exact path="/" component={UserIndexContainer}/>
                     <Route path={showPath} component={ProductShowContainer}/>
                     <Route path={shopShowPath} component={ShopShowContainer}/>
+                    <Route exact path={cartPath} component={CartShowContainer}/>
                 </div>
             </div>
         );

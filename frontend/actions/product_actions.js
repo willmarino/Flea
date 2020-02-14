@@ -78,7 +78,7 @@ export const receiveProductsByShop = (products) => ({
   products
 })
 
-const receiveAssociatedProducts = (products) => ({
+export const receiveAssociatedProducts = (products) => ({
   type: RECEIVE_ASSOCIATED_PRODUCTS,
   products
 })

@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     end
     resources :carts, only: [:show, :create, :delete] do
       member do
+        get 'fetch'
         post 'add_item'
+      end
+      collection do
+        get 'cart_show'
       end
     end
     resources :cart_items, only: [:index, :create, :delete]

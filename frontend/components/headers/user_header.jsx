@@ -22,7 +22,7 @@ class UserHeader extends React.Component{
   }
 
   render(){
-
+    let cartPath = "/cart";
     return(
       <div className="header">
         <Link to="/"><div className="logo" id="first">Flea</div></Link>
@@ -77,7 +77,7 @@ class UserHeader extends React.Component{
           </button>
 
 
-          <div id="header-item-five"><i className="fa fa-shopping-cart"></i></div>
+          <Link to={cartPath}><button className="cart"><i className="fa fa-shopping-cart"></i></button></Link>
         </div>
       </div>
     )

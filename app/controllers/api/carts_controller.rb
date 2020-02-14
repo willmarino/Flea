@@ -5,6 +5,28 @@ class Api::CartsController < ApplicationController
     render :show
   end
 
+  def fetch
+    @cart = current_user.cart
+    render :show
+  end
+
+  def cart_show
+    debugger;
+    @cart = current_user.cart
+    @cart_items = @cart.items
+
+    @shops = []
+    @cart_items.each do |i|
+      @shops << i.shop
+    end
+    # based on shop of most recently added cart item (thats the way Etsy does it)
+    @shop_products = @shops[-1].products
+    if @shop_products.length > 15
+      @shop_products = @shop_products[0...15]
+    end
+
+  end
+
   def add_item
     @cart = Cart.find(params[:id])
     old_products = @cart.products

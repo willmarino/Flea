@@ -6,6 +6,7 @@ export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const REMOVE_SHOP = "REMOVE_SHOP";
 export const RECEIVE_SHOP_BY_PRODUCT = "RECEIVE_SHOP_BY_PRODUCT";
+export const RECEIVE_SHOPS_BY_PRODUCTS = "RECEIVE_SHOPS_BY_PRODUCT";
 export const RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS = "RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS";
 export const RECEIVE_PRODUCT_SHOW_SHOP = "RECEIVE_PRODUCT_SHOW_SHOP";
 
@@ -20,7 +21,7 @@ const receiveShop = (shop) => ({
     shop
 });
 
-const receiveShops = (shops) => ({
+export const receiveShops = (shops) => ({
     type: RECEIVE_SHOPS,
     shops
 });
@@ -43,6 +44,11 @@ export const receiveShopsByAssociatedProducts = (shops) => ({
 export const receiveShopByProduct = (shop) => ({
     type: RECEIVE_SHOP_BY_PRODUCT,
     shop
+})
+
+export const receiveShopsByProducts = (shops) => ({
+    type: RECEIVE_SHOPS_BY_PRODUCTS,
+    shops
 })
 
 export const receiveProductShowShop = (shop) => ({
