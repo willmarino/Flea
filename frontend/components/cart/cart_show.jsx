@@ -11,9 +11,7 @@ class CartShow extends React.Component{
   }
 
   componentDidMount(){
-    debugger;
     this.props.fetchCartShow();
-    debugger;
   }
 
   allPresent(){
@@ -30,11 +28,9 @@ class CartShow extends React.Component{
   }
 
   render(){
-    debugger;
     if(!this.allPresent()){
       return <p></p>;
     }
-    debugger;
     return(
       <div className="cart-show-container">
         <CartShowProducts

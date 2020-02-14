@@ -11,13 +11,16 @@ class Api::CartsController < ApplicationController
   end
 
   def cart_show
-    debugger;
     @cart = current_user.cart
-    @cart_items = @cart.items
+    # @cart_items = @cart.items
+    @cart_items = []
+    @cart.cart_items.each do |ci|
+      @cart_items << { 'product' => ci.product, 'chosen_options' => ci.chosen_options }
+    end
 
     @shops = []
     @cart_items.each do |i|
-      @shops << i.shop
+      @shops << i['product'].shop
     end
     # based on shop of most recently added cart item (thats the way Etsy does it)
     @shop_products = @shops[-1].products

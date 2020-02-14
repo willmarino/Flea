@@ -6,6 +6,15 @@ class CartShowProducts extends React.Component{
   }
 
   render(){
+
+    if(this.props.cartItems.length === 0){
+      return(
+        <div>
+          <p>Your cart is empty</p>
+        </div>
+      )
+    }
+
     return(
       <p>Cart Show Products</p>
     )

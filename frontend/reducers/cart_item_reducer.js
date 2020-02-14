@@ -17,7 +17,7 @@ const CartItemsReducer = (state=[], action) => {
       newState = Object.assign({}, state);
       for(let i = 0; i < action.cartItems.length; i++){
         let item = action.cartItems[i];
-        newState[item.id] = item;
+        newState[item.product.id] = item;
       }
       return newState;
     case REMOVE_CART_ITEM:
