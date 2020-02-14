@@ -34,11 +34,12 @@ class Api::ShopsController < ApplicationController
     @products = @shop.products
     @reviews = @shop.reviews
     @authors = []
-    @review_products = {}
+    @review_products = []
     @review_product_tags = {}
     @reviews.each do |r|
       @authors.push(r.user)
-      @review_products[r.id] = r.product
+      # @review_products[r.id] = r.product
+      @review_products << r.product
       @review_product_tags[r.id] = r.product.tags
     end
     render :shop_show

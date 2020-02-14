@@ -1,5 +1,31 @@
-.shop-products-container{
+.shop-show-products-container{
   max-width: 1260px;
   width: 90%;
   margin: 0 auto;
+
+  padding-bottom: 30px;
+  border-bottom: 1px solid gray;
 }
+
+.shop-show-products-top-bar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters-and-products{
+  display: flex;
+}
+
+.shop-show-products{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shop-show-filters{
+  width: 20%;
+}
+
+// .shop-show-filter-categories{
+
+// }

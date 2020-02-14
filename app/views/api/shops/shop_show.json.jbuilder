@@ -10,6 +10,8 @@ json.shop_show do
   json.authors do
     json.array! @authors
   end
-  json.review_products @review_products
+  json.review_products do
+    json.array! @review_products
+  end
   json.review_product_tags @review_product_tags
 end

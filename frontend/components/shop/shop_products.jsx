@@ -63,8 +63,13 @@ class ShopProducts extends React.Component{
     let products = [];
     for(let i = 0; i < this.productsArr.length; i++){
       let p = this.productsArr[i];
-      if(p.name.split(" ").includes(searchTerm)){
-        products.push(p);
+      let searchTermArr = searchTerm.split(" ")
+      for(let j = 0; j < searchTermArr.length; j++){
+        let curTerm = searchTermArr[j];
+        if(p.name.split(" ").includes(curTerm)){
+          products.push(p);
+          break;
+        }
       }
     }
     this.setState({products : products});
@@ -91,19 +96,31 @@ class ShopProducts extends React.Component{
     }
 
     return(
-      <div className="shop-products-container">
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.search} onChange={this.update}/>
-            <input type="submit" value='submit'/>
-          </form>
-          <ul>
-            {this.cats}
+      <div className="shop-show-products-container">
+        {/* <div> */}
+        <div className="shop-show-products-top-bar">
+          <p>Items</p>
+          <button value="Sort: Custom"></button>
+        </div>
+        <div className="filters-and-products">
+          <div className="shop-show-filters">
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" value={this.state.search} onChange={this.update}/>
+              <input type="submit" value='submit'/>
+            </form>
+            <ul className='shop-show-filter-categories'>
+              {this.cats}
+            </ul>
+            <div>
+              <p>Sales</p>
+              <p>Admirers</p>
+            </div>
+          </div>
+          <ul className="shop-show-products">
+            {productsList}
           </ul>
         </div>
-        <ul>
-          {productsList}
-        </ul>
+        {/* </div> */}
       </div>
     )
   }

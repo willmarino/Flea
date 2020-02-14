@@ -1,4 +1,5 @@
 import React from 'react';
+import IndexItem from '../products/index/index_item';
 
 class ShopShowReview extends React.Component{
   constructor(props){
@@ -28,30 +29,30 @@ class ShopShowReview extends React.Component{
   }
 
   render(){
-    let tagsList = [];
-    for(let i = 0; i < this.props.tags.length; i++){
-      let tag = this.props.tags[i]
-      tagsList.push(
-        <li key={Math.round(Math.random() * 1000)}>{tag.tag_name}</li>
-      )
-    }
+    // let tagsList = [];
+    // for(let i = 0; i < this.props.tags.length; i++){
+    //   let tag = this.props.tags[i]
+    //   tagsList.push(
+    //     <li key={Math.round(Math.random() * 1000)}>{tag.tag_name}</li>
+    //   )
+    // }
 
     return(
-      <div className='shop-show-review-container'>
+      <li className='shop-show-review-container' key={this.props.review.id}>
         <div className='left-bar-user-avatar'>
           <img src={this.props.author.photoURL} alt=""/>
         </div>
         <div>
-          <p>{this.props.author.username} on {this.configureDate(this.props.review.created_at)}</p>
+          <p className="shop-show-review-timestamp">{this.props.author.username} on {this.configureDate(this.props.review.created_at)}</p>
           <div>{this.props.starRating}</div>
           <p>{this.props.review.body}</p>
-          <div>
-            <img src={this.props.product.photoURL} alt=""/>
-            <ul>{tagsList}</ul>
+          <div className='shop-show-review-product-info'>
+            <IndexItem type="review" product={this.props.product}/>
+            <p>{this.props.product.name}</p>
           </div>
         </div>
 
-      </div>
+      </li>
     )
   }
 }

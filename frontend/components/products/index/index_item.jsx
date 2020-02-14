@@ -66,6 +66,14 @@ class IndexItem extends React.Component{
           </div>
         </li>
       )
+    }else if(this.props.type === 'review'){
+      item = (
+        <li className="review-product-photo-and-link" key={this.props.product.photoURL}>
+          <Link to={path} className="link-container" >
+            <img src={this.props.product.photoURL} alt="" className="review-product-photo" />
+          </Link>
+        </li>
+      )
     }
 
     return (
