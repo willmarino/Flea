@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import ProductShowContainer from '../products/show/product_show_container';
 import UserSubheaderContainer from '../headers/user_subheader_container';
 import UserIndexContainer from '../products/index/user_index_container';
+import ShopShowContainer from '../shop/shop_show_container';
 
 class UserMain extends React.Component{
     constructor(props){
@@ -24,6 +25,7 @@ class UserMain extends React.Component{
         //     return <p></p>
         // }
         let showPath = "/products/:prodId";
+        let shopShowPath = "/shops/:shopId";
         return(
             <div>
                 <div className="user-main-top">
@@ -42,6 +44,7 @@ class UserMain extends React.Component{
                     <Route exact path="/" component={Footer} /> */}
                     <Route exact path="/" component={UserIndexContainer}/>
                     <Route path={showPath} component={ProductShowContainer}/>
+                    <Route path={shopShowPath} component={ShopShowContainer}/>
                 </div>
             </div>
         );

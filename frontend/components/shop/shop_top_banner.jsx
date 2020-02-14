@@ -44,8 +44,9 @@ class ShopTopBanner extends React.Component{
     return(
       <div className="shop-show-banner-container">
         <div className="shop-show-banner-shop">
-          <div className="top-banner-fake-image">
-          </div>
+          {/* <div className="top-banner-fake-image">
+          </div> */}
+          <img src={shop.photoURL} alt="" className="shop-show-shop-photo"/>
           <div className="banner-shop-info">
             <p>{shop.name}</p>
             <p>{shop.description}</p>

@@ -1,4 +1,4 @@
-import {RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS} from '../actions/cart_item_actions';
+import { RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS } from '../actions/cart_item_actions';
 
 const CartItemsReducer = (state={}, action) => {
   Object.freeze(state);

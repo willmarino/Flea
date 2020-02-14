@@ -7,10 +7,13 @@ class Cart < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
-  has_many :items,
+  has_many :cart_items,
     class_name: "CartItem",
     primary_key: :id,
-    foreign_key: :item_id
+    foreign_key: :cart_id
 
+  has_many :items,
+    through: :cart_items,
+    source: :product
 
 end

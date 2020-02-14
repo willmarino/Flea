@@ -8,7 +8,7 @@ const receiveCartItem = (cartItem) => ({
   cartItem
 });
 
-const receiveCartItems = (cartItems) => ({
+export const receiveCartItems = (cartItems) => ({
   type: RECEIVE_CART_ITEMS,
   cartItems
 });

@@ -1,8 +1,14 @@
 class Shop < ApplicationRecord
-
+  include Rails.application.routes.url_helpers
   validates :name, :creator_id, :description, presence: true
   validates :name, uniqueness: true
+  after_initialize :set_photourl
 
+  def set_photourl
+    if self.photo.attached?
+      self.photoURL = rails_blob_path(self.photo, only_path: true)
+    end
+  end
 
   def set_rating
     total = 0
@@ -29,5 +35,7 @@ class Shop < ApplicationRecord
   has_many :reviews,
     through: :products,
     source: :reviews
+
+  has_one_attached :photo
 
 end

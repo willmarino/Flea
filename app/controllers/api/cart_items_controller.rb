@@ -20,6 +20,7 @@ class Api::CartItemsController < ApplicationController
     render :show
   end
 
+
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :cart_id)
   end

@@ -254,6 +254,16 @@ weddingandparty_names = [
     "more balloons"
 ]
 
+shop_photos = [
+    "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/shop_photos/assento-banco-bebida-alcoolica-casa-880468_tn.jpg",
+    "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/shop_photos/brown-wooden-framed-gold-open-printed-decorative-signage-1115600_tn.jpg",
+    "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/shop_photos/brown-wooden-table-and-chairs-2079443_tn.jpg",
+    "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/shop_photos/group-of-people-standing-in-store-1020370_tn.jpg",
+    "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/shop_photos/lighted-pendant-lights-inside-bar-2079438_tn.jpg",
+    "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/shop_photos/photo-of-woman-near-clothes-374677_tn.jpg",
+    "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/shop_photos/shallow-focus-photography-of-clothes-994517_tn.jpg"
+]
+
 
 
 user_avatars = [
@@ -310,13 +320,15 @@ c7 = Cart.create!(user_id: u7.id, products: [])
 c8 = Cart.create!(user_id: u8.id, products: [])
 c9 = Cart.create!(user_id: u9.id, products: [])
 
+carts = [c1, c2, c3, c4, c5, c6, c7, c8, c9]
+
+
 users = [u1, u2, u3, u4, u5, u6, u7, u8, u9]
 
 users.each_with_index do |user, i|
     file = open(user_avatars[i])
     indiv_file = user_avatars[i].split("avatar-photos/")[-1]
     user.photo.attach(io: file, filename: indiv_file)
-    # user.photoURL = user.photo.service_url
 end
 
 
@@ -330,6 +342,12 @@ s6 = Shop.create!(name: "#{u6.username}'s shop", creator_id: u6.id, description:
 s7 = Shop.create!(name: "#{u7.username}'s not so nice shop", creator_id: u7.id, description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
 
 shops = [s1, s2, s3, s4, s5, s6, s7]
+
+shops.each_with_index do |shop, i|
+    file = open(shop_photos[i])
+    indiv_file = shop_photos[i].split("shop_photos/")[-1]
+    shop.photo.attach(io: file, filename: indiv_file)
+end
 
 
 # clothing and shoes
@@ -366,6 +384,7 @@ while i < 6
         )
         j += 1
     end
+
     used_numbers = []
     5.times do
         random_number = rand(17)
@@ -375,6 +394,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
 
     x.set_rating
 
@@ -427,6 +448,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
 
     x.set_rating
 
@@ -481,6 +504,8 @@ while i < 6
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
 
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+
     x.set_rating
 
     file = open(homeandliving[i])
@@ -532,6 +557,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
 
     x.set_rating
 
@@ -586,6 +613,8 @@ while i < 6
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
 
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+
     x.set_rating
 
     file = open(artsandcollect[i])
@@ -638,6 +667,8 @@ while i < 6
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
 
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+
     x.set_rating
 
     file = open(weddingandparty[i])
@@ -688,6 +719,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
 
     x.set_rating
 
@@ -740,6 +773,8 @@ while i < 6
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
 
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+
     x.set_rating
 
     file = open(gifts[i])
@@ -790,6 +825,8 @@ while i < 6
         used_numbers << random_number
         Tagging.create!(product_id: x.id, tag_id: all_tags[random_number].id)
     end
+
+    CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
 
     x.set_rating
 

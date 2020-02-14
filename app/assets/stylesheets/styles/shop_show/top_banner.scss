@@ -30,8 +30,9 @@
 
 
 // fake image/placeholder
-.top-banner-fake-image{
-  width: 140px;
-  height: 140px;
-  background: black;
+.shop-show-shop-photo{
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  object-fit: cover;
 }

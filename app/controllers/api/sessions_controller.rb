@@ -13,6 +13,10 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       login(@user)
+
+      @cart = @user.cart
+      @cart_items = @cart.items
+
       render :show
     else
       render json: ["Wrong password"], status: 422
