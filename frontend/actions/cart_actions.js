@@ -1,7 +1,7 @@
 import * as CartApiUtil from '../util/cart_util';
 
 import { receiveShopsByProducts } from '../actions/shop_actions';
-import { receiveProductsByShop } from '../actions/product_actions';
+import { receiveProductsByShop, receiveCartProducts } from '../actions/product_actions';
 import { receiveCartItems } from '../actions/cart_item_actions';
 
 export const RECEIVE_CART = "RECEIVE_CART";
@@ -48,6 +48,7 @@ export const fetchCartShow = () => dispatch => (
     .then(cso => {
       dispatch(receiveCart(cso.cart_show.cart));
       dispatch(receiveCartItems(cso.cart_show.cart_items));
+      dispatch(receiveCartProducts(cso.cart_show.cart_products));
       dispatch(receiveShopsByProducts(cso.cart_show.shops));
       dispatch(receiveProductsByShop(cso.cart_show.shop_products));
     })

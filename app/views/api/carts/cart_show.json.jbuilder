@@ -3,6 +3,9 @@ json.cart_show do
   json.cart_items do
     json.array! @cart_items
   end
+  json.cart_products do
+    json.array! @cart_products
+  end
   json.shops do
     json.array! @shops
   end

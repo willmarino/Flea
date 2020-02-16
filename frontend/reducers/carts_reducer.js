@@ -5,7 +5,7 @@ const CartsReducer = (state={}, action) => {
   let newState;
   switch(action.type){
     case RECEIVE_CART:
-      return {'currentCart' : action.cart};
+      return action.cart.id;
     case REMOVE_CART:
       newState = Object.assign({}, state);
       delete newState[action.cartId];

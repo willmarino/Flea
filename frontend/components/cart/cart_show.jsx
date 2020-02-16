@@ -16,10 +16,11 @@ class CartShow extends React.Component{
 
   allPresent(){
     if(
-      this.props.cart &&
+      this.props.cartId &&
       this.props.cartItems &&
       this.props.shops &&
-      this.props.products
+      this.props.products &&
+      (Object.values(this.props.cartProducts).length === this.props.cartItems.length)
     ){
       return true;
     }else{
@@ -28,17 +29,24 @@ class CartShow extends React.Component{
   }
 
   render(){
+    debugger;
     if(!this.allPresent()){
       return <p></p>;
     }
+    debugger;
     return(
       <div className="cart-show-container">
         <CartShowProducts
           cartItems={this.props.cartItems}
+          cartProducts={this.props.cartProducts}
           shops={this.props.shops}
-          deleteCartItem={this.props.deleteCartItem}/>
+          deleteCartItem={this.props.deleteCartItem}
+          loggedIn={this.props.loggedIn}/>
         <CartShowRecommended
-          products={this.props.products}/>
+          products={this.props.products}
+          shop={this.props.shops[this.props.products[0].shop_id]}
+          createCartItem={this.props.createCartItem}
+          cartId={this.props.cartId}/>
         <CartShowFooter/>
       </div>
     )

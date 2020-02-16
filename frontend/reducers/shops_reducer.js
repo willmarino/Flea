@@ -17,7 +17,12 @@ const ShopsReducer = (state={}, action) => {
         case RECEIVE_SHOP_BY_PRODUCT:
             return Object.assign({}, state, { byProduct : action.shop });
         case RECEIVE_SHOPS_BY_PRODUCTS:
-            return Object.assign({}, state, { byProducts : action.shops });
+            let byProducts = {};
+            for(let i = 0; i < action.shops.length; i++){
+                let curShop = action.shops[i];
+                byProducts[curShop.id] = curShop;
+            }
+            return Object.assign({}, state, { byProducts : byProducts});
         case RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS:
             return Object.assign({}, state, { shopsByAssociatedProducts  : action.shops })
         case RECEIVE_PRODUCT_SHOW_SHOP:

@@ -14,19 +14,22 @@ class Api::CartsController < ApplicationController
     @cart = current_user.cart
     # @cart_items = @cart.items
     @cart_items = []
+    @cart_products = []
     @cart.cart_items.each do |ci|
-      @cart_items << { 'product' => ci.product, 'chosen_options' => ci.chosen_options }
+      @cart_items << { 'item_id' => ci.product.id, 'chosen_options' => ci.chosen_options, 'id' => ci.id }
+      @cart_products << ci.product
     end
 
     @shops = []
-    @cart_items.each do |i|
-      @shops << i['product'].shop
+    @cart_products.each do |el|
+      @shops << el.shop
     end
     # based on shop of most recently added cart item (thats the way Etsy does it)
     @shop_products = @shops[-1].products
     if @shop_products.length > 15
       @shop_products = @shop_products[0...15]
     end
+
 
   end
 

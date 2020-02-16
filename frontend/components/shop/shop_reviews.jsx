@@ -68,7 +68,6 @@ class ShopReviews extends React.Component{
     for(let i = 0; i < this.props.reviews.length; i++){
       let r = this.props.reviews[i];
       let a = this.props.authors[i];
-      // let p = this.props.reviewProducts[r.id];
       let p = this.props.reviewProducts[i];
       let t = this.props.reviewTags[r.id];
       for(let j = 0; j < this.filterWords.length; j++){
@@ -162,7 +161,6 @@ class ShopReviews extends React.Component{
         let a = this.reviews[this.state.page][i]['author'];
         let p = this.reviews[this.state.page][i]['product'];
         let ts = this.reviews[this.state.page][i]['tags'];
-        debugger;
         reviewsList.push(
           <ShopShowReview
             review={r}

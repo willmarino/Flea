@@ -8,8 +8,10 @@ class Api::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = CartItem.new(cart_item_params)
-    if @cart_item.save
+    cart_item = CartItem.new(cart_item_params)
+    if cart_item.save
+      @cart_item = { 'item_id' => cart_item.product.id, 'chosen_options' => cart_item.chosen_options, 'id' => cart_item.id }
+      @cart_product = cart_item.product
       render :show
     else
       render json: @cart_item.errors.full_messages, status: 422
@@ -19,7 +21,7 @@ class Api::CartItemsController < ApplicationController
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    render :show
+    render :for_delete
   end
 
 

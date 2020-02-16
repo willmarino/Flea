@@ -74,6 +74,28 @@ class IndexItem extends React.Component{
           </Link>
         </li>
       )
+    }else if(this.props.type === 'cart'){
+      item = (
+        <li className="cart-product-photo-and-link" key={this.props.product.photoURL}>
+          <Link to={path} className="link-container" >
+            <img src={this.props.product.photoURL} alt="" className="cart-show-product-image" />
+          </Link>
+        </li>
+      )
+    }else if(this.props.type === 'cart-recommended'){
+      item = (
+        <li className="cart-show-recommended-product-link" key={this.props.product.photoURL}>
+          <Link to={path} className="link-container" >
+            <img src={this.props.product.photoURL} alt="" className="cart-show-recommended-product-image" />
+          </Link>
+          <p>{this.props.product.name}</p>
+          <p>{this.props.shop.name}</p>
+          <p>{this.props.product.price}</p>
+          {/* <div>
+            <p>Add to Cart</p>
+          </div> */}
+        </li>
+      )
     }
 
     return (

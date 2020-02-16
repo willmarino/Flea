@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         get 'cart_show'
       end
     end
-    resources :cart_items, only: [:index, :create, :delete]
+    resources :cart_items, only: [:index, :create, :destroy]
     resources :orders, only: [:show, :index, :create]
     resource :session, only: [:create, :destroy]
 

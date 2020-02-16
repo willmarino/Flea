@@ -1,8 +1,11 @@
 import * as CartItemApiUtil from '../util/cart_items_util';
 
+import {receiveCartProduct, removeCartProduct} from './product_actions';
+
 export const RECEIVE_CART_ITEM = "RECEIVE_CART_ITEM";
 export const RECEIVE_CART_ITEMS = "RECEIVE_CART_ITEMS";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const RECEIVE_CART_PRODUCT = "RECEIVE_CART_PRODUCT";
 
 const receiveCartItem = (cartItem) => ({
   type: RECEIVE_CART_ITEM,
@@ -26,10 +29,20 @@ export const fetchCartItems = () => dispatch => (
 
 export const createCartItem = (cartItem) => dispatch => (
   CartItemApiUtil.createCartItem(cartItem)
-    .then(cartItem => dispatch(receiveCartItem(cartItem)))
+    .then(ci => {
+      debugger;
+      dispatch(receiveCartItem(ci.cart_item_show.cart_item));
+      debugger;
+      dispatch(receiveCartProduct(ci.cart_item_show.cart_product));
+      debugger;
+    })
 );
 
 export const deleteCartItem = (cartItemId) => dispatch => (
   CartItemApiUtil.deleteCartItem(cartItemId)
-    .then(cartItem => dispatch(removeCartItem(cartItem.id)))
+    .then(ci => {
+      debugger;
+      dispatch(removeCartItem(ci.cart_item_show.cart_item.id));
+      dispatch(removeCartProduct(ci.cart_item_show.cart_item.item_id));
+    })
 );
