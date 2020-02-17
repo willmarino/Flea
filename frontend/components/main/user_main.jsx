@@ -14,9 +14,6 @@ class UserMain extends React.Component{
 
     }
 
-    componentDidMount(){
-    }
-
 
     render(){
         let showPath = "/products/:prodId";

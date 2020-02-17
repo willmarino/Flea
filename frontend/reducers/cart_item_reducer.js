@@ -3,9 +3,6 @@ import { RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM } from '../acti
 const CartItemsReducer = (state=[], action) => {
   Object.freeze(state);
   let newState;
-  if(action.type === RECEIVE_CART_ITEM){
-    debugger;
-  }
   switch(action.type){
     case RECEIVE_CART_ITEM:
       return Object.assign([], state, {[action.cartItem.id] : action.cartItem});

@@ -1,6 +1,6 @@
 import * as ShopApiUtil from '../util/shop_util';
 
-import { RECEIVE_REVIEWS } from '../actions/review_actions';
+// import { RECEIVE_REVIEWS } from '../actions/review_actions';
 
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
@@ -10,11 +10,19 @@ export const RECEIVE_SHOPS_BY_PRODUCTS = "RECEIVE_SHOPS_BY_PRODUCT";
 export const RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS = "RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS";
 export const RECEIVE_PRODUCT_SHOW_SHOP = "RECEIVE_PRODUCT_SHOW_SHOP";
 
-import { receiveShopOwner } from '../actions/users_actions';
-import { receiveProductsByShop, receiveShopReviewProducts } from '../actions/product_actions';
-import { receiveShopReviews} from '../actions/review_actions';
-import { receiveShopReviewAuthors } from '../actions/users_actions';
+import { receiveShopReviews} from '../actions/reviews/reviews_by_shop_actions';
 import { receiveTagsForShopReviews } from '../actions/tag_actions';
+
+import { receiveShopReviewProducts } from '../actions/products/products_by_reviews_actions';
+
+// products by shop
+import { receiveProductsByShop } from './products/products_by_shop_actions';
+
+// reviews by user
+import { receiveShopReviewAuthors } from '../actions/reviews/reviews_by_user_actions';
+
+// user by shop
+import { receiveShopOwner } from '../actions/users/users_by_shop_actions';
 
 const receiveShop = (shop) => ({
     type: RECEIVE_SHOP,
@@ -94,7 +102,7 @@ export const fetchShopShow = (shopId) => dispatch => (
         .then(ss => {
             dispatch(receiveShop(ss.shop_show.shop));
             dispatch(receiveShopOwner(ss.shop_show.owner));
-            dispatch(receiveProductsByShop(ss.shop_show.products));
+            dispatch(receiveProductsByShop(ss.shop_show.products)); 
             dispatch(receiveShopReviews(ss.shop_show.reviews));
             dispatch(receiveShopReviewAuthors(ss.shop_show.authors));
             dispatch(receiveShopReviewProducts(ss.shop_show.review_products));

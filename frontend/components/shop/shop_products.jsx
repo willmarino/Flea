@@ -22,6 +22,13 @@ class ShopProducts extends React.Component{
     this.filterProductsByCategory = this.filterProductsByCategory.bind(this);
   }
 
+  // componentDidUpdate(prevProps){
+  //   if(prevProps.products !== this.props.products){
+  //     this.productsArr = this.props.products;
+  //     this.products = this.structureProducts();
+  //     this.cats = this.grabCats();
+  //   }
+  // }
   
   // returns an object of products grouped underneath keys corresponding to their categories,
   // which means switching filters and displaying new products will take O(1) time, not O(n),
@@ -87,6 +94,7 @@ class ShopProducts extends React.Component{
   }
 
   render(){
+
     let productsList = [];
     for(let i = 0; i < this.state.products.length; i++){
       let p = this.state.products[i];

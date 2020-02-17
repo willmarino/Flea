@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 import ReviewSegment from './reviews_segment';
-import { fetchHappyReviews } from '../../actions/review_actions';
+import { fetchHappyReviews } from '../../actions/positive_reviews_actions';
 
 const msp = (state) => ({
-  products: state.entities.products.happyProducts,
-  reviews: state.entities.reviews.happyReviews,
-  users: state.entities.users.happyUsers,
+  // products: state.entities.products.happyProducts,
+  products : state.entities.positiveReviews.products,
+  // reviews: state.entities.reviews.happyReviews,
+  reviews : state.entities.positiveReviews.reviews,
+  // users: state.entities.users.happyUsers,
+  users : state.entities.positiveReviews.users,
   shops: state.entities.shops,
   loggedIn: Boolean(state.session.currentUser),
 });

@@ -7,10 +7,6 @@ class IndexRow extends React.Component{
 
     }
 
-    componentDidMount(){
-        
-    }
-
     render(){
         if(!this.props.products){
             return <p></p>;

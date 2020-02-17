@@ -19,7 +19,9 @@ class CartShowRecommended extends React.Component{
 
   handleCreate(e){
     e.preventDefault();
-    this.props.createCartItem({cart_id : this.props.cartId, item_id : e.currentTarget.dataset['itemid']});
+    if(!this.props.cartProducts[e.currentTarget.dataset['itemid']]){
+      this.props.createCartItem({cart_id : this.props.cartId, item_id : e.currentTarget.dataset['itemid']});
+    }
   }
 
 

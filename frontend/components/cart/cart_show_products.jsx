@@ -10,6 +10,7 @@ class CartShowProducts extends React.Component{
   }
 
   compileItems(){
+    debugger;
     let { cartItems, cartProducts } = this.props;
     let organizedItems = {};
     for(let i = 0; i < cartItems.length; i++){

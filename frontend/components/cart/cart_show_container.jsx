@@ -7,11 +7,11 @@ import { deleteCartItem, createCartItem } from '../../actions/cart_item_actions'
 const msp = (state, ownProps) => {
   return({
     cartItems : Object.values(state.entities.cartItems),
-    shops : state.entities.shops.byProducts,
-    products : state.entities.products.shopProducts,
+    shops : state.entities.shops.byProducts.byProducts,
+    products : state.entities.products.byShop,
     loggedIn : Boolean(state.session.currentUser),
     cartId : state.entities.carts,
-    cartProducts : state.entities.products.byCart
+    cartProducts : state.entities.products.inCart
   })
 };
 

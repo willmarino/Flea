@@ -21,17 +21,19 @@ class UserIndex extends React.Component{
   }
 
   allPresent(){
-    if(this.props.index &&
+    debugger;
+    if(Object.values(this.props.products).length !== 0 &&
       this.props.categories &&
-      this.props.cart
+      this.props.cartId
       ){
+        debugger;
         return true;
       }
     return false;
   }
 
   render(){
-    if(!this.props.products.index){
+    if(!this.props.products){
       return <p></p>;
     }
     return(
@@ -50,7 +52,6 @@ class UserIndex extends React.Component{
           <CategoryRowContainer/>
         </ul>
         <Info/>
-        {/* <ReviewSegmentContainer/> */}
         <Footer/>
       </div>
     )

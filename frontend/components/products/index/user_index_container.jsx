@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 import UserIndex from './user_index';
-import { fetchIndex } from '../../../actions/product_actions';
+
+import { fetchIndex } from '../../../actions/products/products_by_index_actions';
 import { fetchUserCart } from '../../../actions/users_actions';
 
 const msp = (state, ownProps) => {
   return({
-    products : state.entities.products,
-    index : state.entities.products.index,
+    products : state.entities.products.forIndex,
     categories : state.entities.products.categories,
-    happyProducts : state.entities.products.happyProducts,
-    cart : state.entities.carts['currentCart'],
+    cartId : state.entities.carts,
     user : state.session.currentUser
   })
 }

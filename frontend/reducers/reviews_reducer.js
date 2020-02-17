@@ -1,7 +1,13 @@
 import {RECEIVE_REVIEW, RECEIVE_REVIEWS} from '../actions/review_actions';
 
-import { RECEIVE_PRODUCT_REVIEWS } from '../actions/product_actions';
-import { RECEIVE_HAPPY_REVIEWS, RECEIVE_SHOP_REVIEWS } from '../actions/review_actions';
+// import { RECEIVE_PRODUCT_REVIEWS } from '../actions/product_actions';
+// import { RECEIVE_SHOP_REVIEWS } from '../actions/review_actions';
+// import { RECEIVE_HAPPY_REVIEWS } from '../actions/positive_reviews_actions';
+
+// 
+
+import { RECEIVE_PRODUCT_REVIEWS } from '../actions/reviews/reviews_by_product_actions';
+import { RECEIVE_SHOP_REVIEWS } from '../actions/reviews/reviews_by_shop_actions';
 
 const ReviewsReducer = (state={}, action) => {
   if(action.type === RECEIVE_REVIEWS){
@@ -16,8 +22,8 @@ const ReviewsReducer = (state={}, action) => {
       return Object.assign({}, state, { byProduct : action.reviews});
     case RECEIVE_SHOP_REVIEWS:
       return Object.assign({}, state, { byShop : action.reviews});
-    case RECEIVE_HAPPY_REVIEWS:
-      return Object.assign({}, state, { happyReviews : action.reviews})
+    // case RECEIVE_HAPPY_REVIEWS:
+    //   return Object.assign({}, state, { happyReviews : action.reviews})
     default:
       return state;
   }

@@ -12,10 +12,10 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const RECENTLY_VIEWED_PRODUCTS = "RECENTLY_VIEWED_PRODUCTS";
 export const RECEIVE_AUTHORS = "RECEIVE_AUTHORS";
 
-export const RECEIVE_PRODUCT_REVIEW_AUTHORS = "RECEIVE_PRODUCT_REVIEW_AUTHORS";
-export const RECEIVE_SHOP_REVIEW_AUTHORS = "RECEIVE_SHOP_REVIEW_AUTHORS";
+// export const RECEIVE_PRODUCT_REVIEW_AUTHORS = "RECEIVE_PRODUCT_REVIEW_AUTHORS";
+// export const RECEIVE_SHOP_REVIEW_AUTHORS = "RECEIVE_SHOP_REVIEW_AUTHORS";
 
-export const RECEIVE_SHOP_OWNER = "RECEIVE_SHOP_OWNER";
+// export const RECEIVE_SHOP_OWNER = "RECEIVE_SHOP_OWNER";
 
 
 export const receiveUser = (user) => ({
@@ -43,20 +43,20 @@ export const receiveAuthors = (users) => ({
   users
 })
 
-export const receiveProductReviewAuthors = (users) => ({
-  type: RECEIVE_PRODUCT_REVIEW_AUTHORS,
-  users
-})
+// export const receiveProductReviewAuthors = (users) => ({
+//   type: RECEIVE_PRODUCT_REVIEW_AUTHORS,
+//   users
+// })
 
-export const receiveShopReviewAuthors = (users) => ({
-  type: RECEIVE_SHOP_REVIEW_AUTHORS,
-  users
-})
+// export const receiveShopReviewAuthors = (users) => ({
+//   type: RECEIVE_SHOP_REVIEW_AUTHORS,
+//   users
+// })
 
-export const receiveShopOwner = (user) => ({
-  type: RECEIVE_SHOP_OWNER,
-  user
-})
+// export const receiveShopOwner = (user) => ({
+//   type: RECEIVE_SHOP_OWNER,
+//   user
+// })
 
 export const signupUser = (user) => dispatch => (
   UserApi.createUser(user)

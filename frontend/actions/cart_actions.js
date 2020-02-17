@@ -1,8 +1,11 @@
 import * as CartApiUtil from '../util/cart_util';
 
 import { receiveShopsByProducts } from '../actions/shop_actions';
-import { receiveProductsByShop, receiveCartProducts } from '../actions/product_actions';
+import {  receiveCartProducts } from '../actions/products/products_in_cart_actions';
 import { receiveCartItems } from '../actions/cart_item_actions';
+
+// products by shop
+import { receiveProductsByShop } from './products/products_by_shop_actions';
 
 export const RECEIVE_CART = "RECEIVE_CART";
 export const REMOVE_CART = "REMOVE_CART";

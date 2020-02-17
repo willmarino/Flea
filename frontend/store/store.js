@@ -1,13 +1,10 @@
 import RootReducer from '../reducers/root_reducer';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-
-// const pls = {
-//   u1: { username: "will", password: "whereisthis", email: "@mail.com", description: "this is me", location: "nyc" }
-// };
+import logger from 'redux-logger';
 
 const configureStore = (preloadedState={}) => (
-  createStore(RootReducer, preloadedState, applyMiddleware(thunk))
+  createStore(RootReducer, preloadedState, applyMiddleware(thunk, logger))
 );
 
 export default configureStore;

@@ -12,29 +12,32 @@ import {
 const ShopsReducer = (state={}, action) => {
     Object.freeze(state);
     switch(action.type){
-        case RECEIVE_SHOP:
-            return Object.assign({}, state, {[action.shop.id] : action.shop});
-        case RECEIVE_SHOP_BY_PRODUCT:
-            return Object.assign({}, state, { byProduct : action.shop });
-        case RECEIVE_SHOPS_BY_PRODUCTS:
-            let byProducts = {};
-            for(let i = 0; i < action.shops.length; i++){
-                let curShop = action.shops[i];
-                byProducts[curShop.id] = curShop;
-            }
-            return Object.assign({}, state, { byProducts : byProducts});
-        case RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS:
-            return Object.assign({}, state, { shopsByAssociatedProducts  : action.shops })
-        case RECEIVE_PRODUCT_SHOW_SHOP:
-            return Object.assign({}, state, { byProduct : action.shop })
-        case RECEIVE_SHOPS:
-            return Object.assign({}, state, action.shops);
-        case REMOVE_SHOP:
-            let newState = Object.assign({}, state);
-            delete newState[action.shopId];
-            return newState;
-        default:
-            return state;
+        // case RECEIVE_SHOP:
+        //     return Object.assign({}, state, {[action.shop.id] : action.shop});
+        // case RECEIVE_SHOP_BY_PRODUCT:
+        //     return Object.assign({}, state, { byProduct : action.shop });
+        // case RECEIVE_SHOPS_BY_PRODUCTS:
+        //     let byProducts = {};
+        //     for(let i = 0; i < action.shops.length; i++){
+        //         let curShop = action.shops[i];
+        //         byProducts[curShop.id] = curShop;
+        //     }
+        //     return Object.assign({}, state, { byProducts : byProducts});
+        // case RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS:
+        //     return Object.assign({}, state, { shopsByAssociatedProducts  : action.shops })
+        // case RECEIVE_PRODUCT_SHOW_SHOP:
+        //     return Object.assign({}, state, { byProduct : action.shop })
+
+        // do i need this at all?
+        // case RECEIVE_SHOPS:
+        //     return Object.assign({}, state, action.shops);
+
+        // case REMOVE_SHOP:
+        //     let newState = Object.assign({}, state);
+        //     delete newState[action.shopId];
+        //     return newState;
+        // default:
+        //     return state;
     }
 };
 

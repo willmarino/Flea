@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { fetchProductShow } from '../../../actions/product_actions';
 import ProductShow from './product_show';
-// we need product, the shop that sells it, the reviews for the product, and the reviews for the shop
+
 const msp = (state, ownProps) => {
     let curProdId = ownProps.match.params.prodId;
     return({
-        shopReviewProducts: state.entities.products.shopReviewProducts,
-        product: state.entities.products[curProdId],
-        shop: state.entities.shops.byProduct,
+        shopReviewProducts : state.entities.products.byReviews,
+        product: state.entities.products.main[curProdId],
+        shop: state.entities.shops.byProducts.productShow,
         productReviews: state.entities.reviews.byProduct,
         productReviewAuthors : state.entities.users.productReviewAuthors,
         shopReviewAuthors : state.entities.users.shopReviewAuthors,
@@ -20,7 +20,6 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     fetchProductShow: (id) => dispatch(fetchProductShow(id))
-    // createReview: (review) => dispatch(createReview(review))
 });
 
 

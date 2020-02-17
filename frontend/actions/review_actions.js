@@ -3,12 +3,12 @@ import * as ReviewApiUtil from '../util/review_util';
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 
-export const RECEIVE_HAPPY_REVIEWS = "RECEIVE_HAPPY_REVIEWS";
-export const HAPPY_PRODUCTS = "HAPPY_PRODUCTS";
-export const HAPPY_USERS = "HAPPY_USERS";
+// export const RECEIVE_HAPPY_REVIEWS = "RECEIVE_HAPPY_REVIEWS";
+// export const HAPPY_PRODUCTS = "HAPPY_PRODUCTS";
+// export const HAPPY_USERS = "HAPPY_USERS";
 
-export const RECEIVE_PRODUCT_REVIEWS = "RECEIVE_PRODUCT_REVIEWS";
-export const RECEIVE_SHOP_REVIEWS = "RECEIVE_SHOP_REVIEWS";
+// export const RECEIVE_PRODUCT_REVIEWS = "RECEIVE_PRODUCT_REVIEWS";
+// export const RECEIVE_SHOP_REVIEWS = "RECEIVE_SHOP_REVIEWS";
 
 const receiveReview = (review) => ({
   type: RECEIVE_REVIEW,
@@ -20,30 +20,30 @@ const receiveReviews = (reviews) => ({
   reviews
 });
 
-const recieveHappyReviews = reviews => ({
-  type: RECEIVE_HAPPY_REVIEWS,
-  reviews
-})
+// const recieveHappyReviews = reviews => ({
+//   type: RECEIVE_HAPPY_REVIEWS,
+//   reviews
+// })
 
-export const receiveProductReviews = (reviews) => ({
-  type: RECEIVE_PRODUCT_REVIEWS,
-  reviews
-})
+// export const receiveProductReviews = (reviews) => ({
+//   type: RECEIVE_PRODUCT_REVIEWS,
+//   reviews
+// })
 
-export const receiveShopReviews = (reviews) => ({
-  type: RECEIVE_SHOP_REVIEWS,
-  reviews
-})
+// export const receiveShopReviews = (reviews) => ({
+//   type: RECEIVE_SHOP_REVIEWS,
+//   reviews
+// })
 
-const happyReviewProducts = products => ({
-  type: HAPPY_PRODUCTS,
-  products
-})
+// const happyReviewProducts = products => ({
+//   type: HAPPY_PRODUCTS,
+//   products
+// })
 
-const happyReviewUsers = users => ({
-  type: HAPPY_USERS,
-  users
-})
+// const happyReviewUsers = users => ({
+//   type: HAPPY_USERS,
+//   users
+// })
 
 export const createReview = (review) => dispatch => (
   ReviewApiUtil.createReview(review)
@@ -65,11 +65,11 @@ export const fetchReviewsByShop = (id) => dispatch => (
     .then(reviews => dispatch(receiveShopReviews(reviews)))
 )
 
-export const fetchHappyReviews = () => dispatch => (
-  ReviewApiUtil.fetchHappyReviews()
-    .then((hrs) => {
-      dispatch(recieveHappyReviews(hrs.happy_reviews.reviews));
-      dispatch(happyReviewProducts(hrs.happy_reviews.products));
-      dispatch(happyReviewUsers(hrs.happy_reviews.users));
-    })
-);
+// export const fetchHappyReviews = () => dispatch => (
+//   ReviewApiUtil.fetchHappyReviews()
+//     .then((hrs) => {
+//       dispatch(recieveHappyReviews(hrs.happy_reviews.reviews));
+//       dispatch(happyReviewProducts(hrs.happy_reviews.products));
+//       dispatch(happyReviewUsers(hrs.happy_reviews.users));
+//     })
+// );

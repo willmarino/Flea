@@ -5,7 +5,6 @@ import Advert from '../../segments/advert';
 import Info from '../../segments/info';
 import ReviewSegmentContainer from '../../segments/reviews_segment_container';
 import Footer from '../../segments/footer';
-// import {Route} from 'react-router-dom';
 
 class AnonIndex extends React.Component{
   constructor(props){
@@ -17,20 +16,19 @@ class AnonIndex extends React.Component{
   componentDidMount(){
     if(!this.allPresent()){
       this.props.fetchIndex();
+      this.props.fetchProductCategories();
     }
   }
 
   allPresent(){
-    if(this.props.index &&
-      this.props.categories
-      ){
-        return true;
-      }
+    if((Object.keys(this.props.products).length !== 0) && (Object.keys(this.props.categories).length !== 0)){
+      return true;
+    }
     return false;
   }
 
   render(){
-    if(!this.props.products.index){
+    if(!this.allPresent()){
       return <p></p>;
     }
     return(

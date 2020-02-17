@@ -6,7 +6,7 @@ const msp = (state, ownProps) => {
   let curShopId = ownProps.curShopId;
   return({
     curShopId : curShopId,
-    shop: state.entities.shops.curShopId,
+    shop: state.entities.shops.main,
     products : ownProps.products,
     loggedIn : Boolean(state.session.currentUser)
   })
