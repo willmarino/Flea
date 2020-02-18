@@ -9,7 +9,12 @@ const ShopsByProductsReducer = (state={}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_SHOPS_BY_PRODUCTS:
-      return Object.assign({}, state, { byProducts : action.shops });
+      let newState = {};
+      for(let i = 0; i < action.shops.length; i++){
+        let s = action.shops[i];
+        newState[s.id] = s;
+      }
+      return newState;
     case RECEIVE_SHOP_BY_PRODUCT:
       return Object.assign({}, state, { byProduct : action.shop });
       case RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS:

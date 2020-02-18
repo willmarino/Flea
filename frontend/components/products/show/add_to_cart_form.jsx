@@ -20,17 +20,12 @@ class AddToCartForm extends React.Component{
     this.generateModals = this.generateModals.bind(this);
     this.setOptionValue = this.setOptionValue.bind(this);
     this.generateModals();
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.switchModal = this.switchModal.bind(this);
     this.modalCloser = null;
     this.targets = [];
-  }
-
-  handleSubmit(e){
-    e.preventDefault();
-    if(this.props.loggedIn) this.props.addItemToCart(this.props.product, this.props.cart.id);
+    this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
   generateModals(){
@@ -97,7 +92,6 @@ class AddToCartForm extends React.Component{
       modalState[curKey] = false;
     }
     this.setState({modalStatus : modalState});
-    // this.removeEventListener('mousedown', this.clearModals);
   }
 
   closeModal(e){
@@ -105,6 +99,32 @@ class AddToCartForm extends React.Component{
     let modalState = this.state.modalStatus;
     modalState[e.currentTarget.dataset.option] = false;
     this.setState({modalStatus : modalState});
+  }
+
+  handleAddToCart(){
+    let item_id = this.props.product.id;
+    debugger;
+    if(this.props.loggedIn){
+      debugger;
+      if(!this.props.cartItems[item_id]){
+        debugger;
+        this.setState({ errors : null });
+        let chosenOps = [];
+        let options = Object.values(this.state.options);
+        for(let i = 0; i < options.length; i++){
+          if(options[i] === null){
+            chosenOps.push('none');
+          }else{
+            chosenOps.push(options[i]);
+          }
+        }
+        debugger;
+        this.props.createCartItem({item_id : item_id, chosen_options : chosenOps})
+      }else{
+        this.setState({ errors : 'you already have this item in your cart'})
+      }
+      this.setState({errors : 'You must be logged in'})
+    }
   }
   
   render(){
@@ -141,10 +161,10 @@ class AddToCartForm extends React.Component{
         <ul>
           {optionsMenu}
         </ul>
-        <form onSubmit={this.handleSubmit}>
-          <input type="submit" value='Add To Cart'></input>
+        <div>
+          <p onClick={this.handleAddToCart}>Add to Cart</p>
           <p>{this.state.errors}</p>
-        </form>
+        </div>
       </div>
     )
   }

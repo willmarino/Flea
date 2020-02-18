@@ -24,6 +24,13 @@ export const createCart = (cart) => (
   })
 );
 
+export const clearCart = () => (
+  $.ajax({
+    method: "POST",
+    url : '/api/carts/clear'
+  })
+)
+
 export const deleteCart = (cartId) => (
   $.ajax({
     method: "DELETE",

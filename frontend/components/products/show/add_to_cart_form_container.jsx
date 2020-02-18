@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 
 import AddToCartForm from './add_to_cart_form';
-
-import { addItemToCart } from '../../../actions/cart_actions';
+import { createCartItem } from '../../../actions/cart_item_actions';
 
 const msp = (state, ownProps) => ({
   cart: state.entities.carts['currentCart'],
@@ -11,11 +10,11 @@ const msp = (state, ownProps) => ({
   productAvg: ownProps.productAvg,
   pCount: ownProps.pCount,
   loggedIn: Boolean(state.session.currentUser),
-  topLevelDoc: ownProps.topLevelDoc
+  cartItems : state.entities.cartItems
 });
 
 const mdp = (dispatch) => ({
-  addItemToCart : (item, cartId) => dispatch(addItemToCart(item, cartId))
+  createCartItem : (cartItem) => dispatch(createCartItem(cartItem))
 });
 
 export default connect(msp, mdp)(AddToCartForm);

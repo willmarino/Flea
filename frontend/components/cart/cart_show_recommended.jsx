@@ -34,10 +34,10 @@ class CartShowRecommended extends React.Component{
     for(let i = 0; i < products.length; i++){
       let p = products[i];
       subArr.push(
-        <li key={p.id}>
+        <ul key={p.id}>
           <IndexItem type={'cart-recommended'} product={p} shop={this.props.shop}/>
-          <p onClick={(e) => this.handleCreate(e)} data-itemid={p.id}>Add to cart</p>
-        </li>
+          <li onClick={(e) => this.handleCreate(e)} data-itemid={p.id}>Add to cart</li>
+        </ul>
       );
       if(subArr.length === 5){
         res[page] = subArr;
@@ -75,9 +75,9 @@ class CartShowRecommended extends React.Component{
             <div onClick={this.incrementPage}>up</div>
           </div>
         </div>
-        <ul className="cart-show-recommended-products">
+        <div className="cart-show-recommended-products">
           {products}
-        </ul>
+        </div>
       </div>
     )
   }

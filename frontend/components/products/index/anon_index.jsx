@@ -28,7 +28,7 @@ class AnonIndex extends React.Component{
   }
 
   render(){
-    if(!this.allPresent()){
+    if(Object.values(this.props.products).length === 0){
       return <p></p>;
     }
     return(

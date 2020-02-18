@@ -16,24 +16,22 @@ class UserIndex extends React.Component{
   componentDidMount(){
     if(!this.allPresent()){
       this.props.fetchIndex();
-      this.props.fetchUserCart(this.props.user.id);
+      // this.props.fetchUserCart(this.props.user.id);
     }
   }
 
   allPresent(){
-    debugger;
     if(Object.values(this.props.products).length !== 0 &&
-      this.props.categories &&
-      this.props.cartId
+      this.props.categories
+      // this.props.cartId
       ){
-        debugger;
         return true;
       }
     return false;
   }
 
   render(){
-    if(!this.props.products){
+    if(Object.values(this.props.products).length === 0){
       return <p></p>;
     }
     return(

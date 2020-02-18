@@ -20,7 +20,7 @@ export const receiveCartItems = (cartItems) => ({
 const removeCartItem = (id) => ({
   type: REMOVE_CART_ITEM,
   id
-})
+});
 
 export const fetchCartItems = () => dispatch => (
   CartItemApiUtil.fetchCartItems()

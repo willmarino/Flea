@@ -16,11 +16,8 @@ class CartShow extends React.Component{
 
   allPresent(){
     if(
-      this.props.cartId &&
-      this.props.cartItems &&
-      this.props.shops &&
-      (Object.values(this.props.products).length !== 0) &&
-      (Object.values(this.props.cartProducts).length === this.props.cartItems.length)
+      (Number.isInteger(this.props.cartId)) &&
+      (Object.values(this.props.cartProducts).length === Object.values(this.props.cartItems).length)
     ){
       return true;
     }else{
@@ -29,8 +26,28 @@ class CartShow extends React.Component{
   }
 
   render(){
+    // if there are pieces of info missing
     if(!this.allPresent()){
+      debugger;
       return <p></p>;
+    // if all info is there but cart is empty
+    }else if(Object.values(this.props.cartItems).length === 0){
+      debugger;
+      return (
+        <div className="cart-show-container">
+          <div className="empty-cart-background-top">
+            <div className="empty-cart-message-container">
+              <p>you dont got none items in that there cart!</p>
+            </div>
+          </div>
+          <div className="empty-cart-background-mid">
+
+          </div>
+          <div className="empty-cart-background-bottom">
+
+          </div>
+        </div>
+      )
     }
     debugger;
     return(

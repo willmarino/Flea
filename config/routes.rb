@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         post 'add_item'
       end
       collection do
+        post 'clear'
         get 'cart_show'
       end
     end

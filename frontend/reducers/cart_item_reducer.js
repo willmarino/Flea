@@ -1,13 +1,13 @@
 import { RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM } from '../actions/cart_item_actions';
 
-const CartItemsReducer = (state=[], action) => {
+const CartItemsReducer = (state={}, action) => {
   Object.freeze(state);
-  let newState;
+  let newState = {};
   switch(action.type){
     case RECEIVE_CART_ITEM:
-      return Object.assign([], state, {[action.cartItem.id] : action.cartItem});
+      return Object.assign({}, state, {[action.cartItem.id] : action.cartItem});
     case RECEIVE_CART_ITEMS:
-      newState = Object.assign({}, state);
+      newState = {};
       for(let i = 0; i < action.cartItems.length; i++){
         let item = action.cartItems[i];
         newState[item.id] = item;

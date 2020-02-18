@@ -24,7 +24,7 @@ class Api::OrdersController < ApplicationController
   end
 
   def order_params
-    params.require[:order].permit[:user_id, :cart_id, :delivered]
+    params.require(:order).permit(:user_id, product_ids: [])
   end
 
 end

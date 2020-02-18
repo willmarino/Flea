@@ -14,10 +14,12 @@ export const fetchOrder = (orderId) => (
   })
 );
 
-export const createOrder = (order) => (
-  $.ajax({
-    method: "POST",
-    url: "/api/orders",
-    data: { order }
-  })
-);
+export const createOrder = (order) => {
+  return(
+    $.ajax({
+      method: "POST",
+      url: "/api/orders",
+      data: { order }
+    })
+  )
+};

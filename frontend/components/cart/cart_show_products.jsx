@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartProduct from './cart_product';
+import CartShowOrderContainer from './cart_show_order_container';
 
 class CartShowProducts extends React.Component{
   constructor(props){
@@ -10,12 +11,10 @@ class CartShowProducts extends React.Component{
   }
 
   compileItems(){
-    debugger;
     let { cartItems, cartProducts } = this.props;
     let organizedItems = {};
-    for(let i = 0; i < cartItems.length; i++){
-      let ci = cartItems[i];
-      debugger;
+    for(let i = 0; i < Object.values(cartItems).length; i++){
+      let ci = Object.values(cartItems)[i];
       let shopId = cartProducts[ci.item_id].shop_id;
       let newCartProd = (
         <CartProduct
@@ -79,7 +78,7 @@ class CartShowProducts extends React.Component{
             {this.items}
           </div>
           <div className="cart-products-checkout">
-            <button>Proceed to checkout</button>
+            <CartShowOrderContainer/>
           </div>
         </div>
       </div>
