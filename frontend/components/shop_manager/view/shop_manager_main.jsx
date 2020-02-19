@@ -5,12 +5,11 @@ import ShopManagerDashContainer from './dash/shop_manager_dash_container';
 class ShopManagerMain extends React.Component{
   constructor(props){
     super(props);
-
   }
 
   render(){
     return(
-      <div>
+      <div className="shop-manager-main-container">
         <ShopManagerSideBar/>
         <ShopManagerDashContainer/>
       </div>

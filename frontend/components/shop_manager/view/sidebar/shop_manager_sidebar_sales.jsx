@@ -18,7 +18,7 @@ class ShopManagerSidebarSales extends React.Component{
     for(let i = 0; i < Object.values(ownedShops).length; i++){
       let curShop = Object.values(ownedShops)[i];
       shopTabs.push(
-        <li onClick={this.handleUIChange} data-component={curShop.name} key={curShop.name}>
+        <li onClick={this.handleUIChange} data-component={curShop.name} key={curShop.name} className="SMS-sales-item">
           <p>icon</p>
           <p>{curShop.name}</p>
         </li>
@@ -29,9 +29,9 @@ class ShopManagerSidebarSales extends React.Component{
 
   render(){
     return(
-      <div>
-        <p>Sales Channel</p>
-        <ul>
+      <div className="SMS-sales-container">
+        <p className="SMS-sales-item" id="SMS-sales-header">Sales Channel</p>
+        <ul className="SMS-sales-list">
           {this.list}
         </ul>
       </div>

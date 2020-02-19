@@ -30,7 +30,7 @@ class ShopManagerSidebarMain extends React.Component{
     let compiledTabs = []
     // top item is different than others, has a dropdown with a link back to etsy main
     compiledTabs.push(
-      <li key='searchbar'>
+      <li key='searchbar' className="SMS-main-item">
           <div>
             <p>icon</p>
             <p>Shop Manager</p>
@@ -41,10 +41,10 @@ class ShopManagerSidebarMain extends React.Component{
     for(let i = 0; i < tabTypes.length; i++){
       let curTab = tabTypes[i];
       compiledTabs.push(
-        <li onClick={this.handleUIChange} data-component={curTab} key={curTab}>
+        <li onClick={this.handleUIChange} data-component={curTab} key={curTab} className="SMS-main-item">
           <div>
-            <p>icon</p>
-            <p>{curTab}</p>
+            <p className="SMS-item-one">icon</p>
+            <p className="SMS-item-two">{curTab}</p>
           </div>
         </li>
       )
@@ -54,7 +54,7 @@ class ShopManagerSidebarMain extends React.Component{
 
   render(){
     return(
-      <ul>
+      <ul className="SMS-main-list">
         {this.list}
       </ul>
     )

@@ -1,0 +1,18 @@
+.SMS-main-list{
+  display: flex;
+  flex-direction: column;
+
+  height: 55%;
+}
+
+.SMS-main-item{
+  height: 40px;
+}
+
+.SMS-main-item div{
+  display: flex;
+}
+
+.SMS-main-item div p{
+  padding: 5px;
+}

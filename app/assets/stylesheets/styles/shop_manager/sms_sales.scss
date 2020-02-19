@@ -1,0 +1,17 @@
+.SMS-sales-container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  height: 40%;
+}
+
+.SMS-sales-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.SMS-sales-item{
+  display: flex;
+  height: 40px;
+}

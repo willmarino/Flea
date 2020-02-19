@@ -1,0 +1,12 @@
+.shop-manager-main-container{
+  display: flex;
+
+  max-height: 100%;
+  width: 100%;
+  height : 100vh;
+}
+
+.shop-manager-main-container li:hover{
+  background: gray;
+  cursor: pointer;
+}

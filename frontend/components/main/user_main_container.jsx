@@ -4,10 +4,12 @@ import UserMain from './user_main';
 // import { fetchIndex } from '../../actions/product_actions';
 // import { fetchUserCart } from '../../actions/users_actions';
 
-const msp = (state) => ({
-  // products: state.entities.products.forIndex,
-  // user: state.session.currentUser
-})
+const msp = (state, ownProps) => {
+  debugger;
+  return({
+    curPath : ownProps.match.path
+  })
+}
 
 const mdp = (dispatch) => ({
   // fetchIndex: () => dispatch(fetchIndex()),
