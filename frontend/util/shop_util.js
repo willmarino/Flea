@@ -50,3 +50,10 @@ export const fetchShopShow = (shopId) => (
         url: `/api/shops/${shopId}/shop_show`
     })
 )
+
+export const fetchOwnedShops = () => (
+    $.ajax({
+        method : "GET",
+        url: "/api/shops/owned"
+    })
+)

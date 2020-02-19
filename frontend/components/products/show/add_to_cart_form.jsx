@@ -103,11 +103,8 @@ class AddToCartForm extends React.Component{
 
   handleAddToCart(){
     let item_id = this.props.product.id;
-    debugger;
     if(this.props.loggedIn){
-      debugger;
       if(!this.props.cartItems[item_id]){
-        debugger;
         this.setState({ errors : null });
         let chosenOps = [];
         let options = Object.values(this.state.options);
@@ -118,7 +115,6 @@ class AddToCartForm extends React.Component{
             chosenOps.push(options[i]);
           }
         }
-        debugger;
         this.props.createCartItem({item_id : item_id, chosen_options : chosenOps})
       }else{
         this.setState({ errors : 'you already have this item in your cart'})

@@ -28,11 +28,9 @@ class CartShow extends React.Component{
   render(){
     // if there are pieces of info missing
     if(!this.allPresent()){
-      debugger;
       return <p></p>;
     // if all info is there but cart is empty
     }else if(Object.values(this.props.cartItems).length === 0){
-      debugger;
       return (
         <div className="cart-show-container">
           <div className="empty-cart-background-top">
@@ -49,7 +47,6 @@ class CartShow extends React.Component{
         </div>
       )
     }
-    debugger;
     return(
       <div className="cart-show-container">
         <CartShowProducts

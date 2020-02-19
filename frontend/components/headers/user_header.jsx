@@ -3,8 +3,8 @@
 // when the signout button is clicked we need to redirect to the Anon page
 // should I do this with a link or a componentdidmount?
 
-import {Link} from 'react-router-dom';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class UserHeader extends React.Component{
   constructor(props){
@@ -23,6 +23,7 @@ class UserHeader extends React.Component{
 
   render(){
     let cartPath = "/cart";
+    let shopManagerPath = "/shops-manager";
     return(
       <div className="header">
         <Link to="/"><div className="logo" id="first">Flea</div></Link>
@@ -40,7 +41,11 @@ class UserHeader extends React.Component{
             <i className="fa fa-bell"></i>
             <p>Notifications</p>
           </div>
-
+          <Link to={shopManagerPath}>
+            <div>
+              <p>shops</p>
+            </div>
+          </Link>
           <button id="header-item-four" className="dropdown">
             <i className="fa fa-user"></i>
             <p>You(Sign Out)</p>

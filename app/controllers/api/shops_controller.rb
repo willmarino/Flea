@@ -28,6 +28,11 @@ class Api::ShopsController < ApplicationController
     end
   end
 
+  def owned
+    @shops = current_user.shops
+    render :owned_shops
+  end
+
   def shop_show
     @shop = Shop.find(params[:id])
     @owner = @shop.creator

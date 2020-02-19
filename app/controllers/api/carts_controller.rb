@@ -45,9 +45,6 @@ class Api::CartsController < ApplicationController
   def clear
     cart = Cart.find_by( user_id: current_user.id)
     cart.cart_items.destroy_all
-    debugger
-    # render :show 
-    # is the render necessary?
   end
 
   def add_item

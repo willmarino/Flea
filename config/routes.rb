@@ -34,6 +34,9 @@ Rails.application.routes.draw do
         get 'products'
         get 'shop_show'
       end
+      collection do
+        get 'owned'
+      end
       resources :products, only: [:create]
     end
 
