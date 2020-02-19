@@ -87,6 +87,11 @@ class Product < ApplicationRecord
   has_many :tags,
     through: :taggings,
     source: :tag
+  
+  has_many :views,
+    class_name: "View",
+    primary_key: :id,
+    foreign_key: :product_id
 
   has_many :associated_products,
     through: :tags,

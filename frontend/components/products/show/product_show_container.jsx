@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchProductShow } from '../../../actions/product_actions';
 import ProductShow from './product_show';
+import { addView } from '../../../actions/view_actions';
 
 const msp = (state, ownProps) => {
     let curProdId = ownProps.match.params.prodId;
@@ -19,7 +20,8 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => ({
-    fetchProductShow: (id) => dispatch(fetchProductShow(id))
+    fetchProductShow: (id) => dispatch(fetchProductShow(id)),
+    addView : (id) => dispatch(addView(id))
 });
 
 

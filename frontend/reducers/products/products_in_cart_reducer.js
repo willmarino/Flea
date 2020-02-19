@@ -3,6 +3,9 @@ import {
   REMOVE_CART_PRODUCT,
   RECEIVE_CART_PRODUCTS
 } from '../../actions/products/products_in_cart_actions';
+import {
+  CLEAR_CART
+} from '../../actions/cart_actions';
 
 const ProductsInCartReducer = (state={}, action) => {
   Object.freeze(state);
@@ -20,6 +23,8 @@ const ProductsInCartReducer = (state={}, action) => {
       newState = Object.assign({}, state);
       delete newState[action.id];
       return newState;
+    case CLEAR_CART:
+      return {};
     default:
       return state;
   }

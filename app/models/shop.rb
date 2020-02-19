@@ -26,6 +26,10 @@ class Shop < ApplicationRecord
     primary_key: :id,
     foreign_key: :shop_id
 
+  has_many :shop_views,
+    class_name: "ShopView",
+    primary_key: :id,
+    foreign_key: :shop_id
 
   belongs_to :creator,
     class_name: "User",

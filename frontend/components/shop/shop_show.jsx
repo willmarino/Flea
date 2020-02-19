@@ -12,6 +12,7 @@ class ShopShow extends React.Component{
 
   componentDidMount(){
     this.props.fetchShopShow(this.props.curShopId);
+    this.props.addShopView(this.props.curShopId);
   }
 
   allPresent(){

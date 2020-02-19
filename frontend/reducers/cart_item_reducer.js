@@ -1,4 +1,5 @@
 import { RECEIVE_CART_ITEM, RECEIVE_CART_ITEMS, REMOVE_CART_ITEM } from '../actions/cart_item_actions';
+import { CLEAR_CART } from '../actions/cart_actions';
 
 const CartItemsReducer = (state={}, action) => {
   Object.freeze(state);
@@ -17,6 +18,8 @@ const CartItemsReducer = (state={}, action) => {
       newState = Object.assign({}, state);
       delete newState[action.id];
       return newState;
+    case CLEAR_CART:
+      return {};
     default:
       return state;
   }

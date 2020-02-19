@@ -13,6 +13,8 @@ import PositiveReviewsReducer from './positive_reviews_reducer';
 import NewReviewsReducer from './reviews/new_reviews_reducer';
 import NewShopsReducer from './shops/new_shops_reducer';
 
+import ViewsReducer from './views_reducer';
+
 const EntitiesReducer = combineReducers({
   users: UsersReducer,
   // products: ProductsReducer,
@@ -25,7 +27,8 @@ const EntitiesReducer = combineReducers({
   carts: CartsReducer,
   orders: OrdersReducer,
   cartItems: CartItemsReducer,
-  tags: TagsReducer
+  tags: TagsReducer,
+  views: ViewsReducer
 });
 
 export default EntitiesReducer;

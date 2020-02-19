@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_224548) do
+ActiveRecord::Schema.define(version: 2020_02_19_171917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,15 @@ ActiveRecord::Schema.define(version: 2020_02_17_224548) do
     t.index ["item_id"], name: "index_reviews_on_item_id"
   end
 
+  create_table "shop_views", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_shop_views_on_shop_id"
+    t.index ["user_id"], name: "index_shop_views_on_user_id"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "name", null: false
     t.string "image_url"
@@ -143,6 +152,15 @@ ActiveRecord::Schema.define(version: 2020_02_17_224548) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "views", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_views_on_product_id"
+    t.index ["user_id"], name: "index_views_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

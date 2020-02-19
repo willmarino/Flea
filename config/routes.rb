@@ -61,6 +61,21 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :views, only: [:index] do
+      collection do
+        get 'user_views'
+        get 'product_views'
+        post 'add'
+      end
+    end
+
+    resources :shop_views, only: [:index] do
+      collection do
+        get 'views'
+        post 'add'
+      end
+    end
+
 
   end
 

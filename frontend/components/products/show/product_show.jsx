@@ -29,6 +29,7 @@ class ProductShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchProductShow(this.props.curProdId);
+        this.props.addView(this.props.curProdId);
     }
 
     componentDidUpdate(prevProps){

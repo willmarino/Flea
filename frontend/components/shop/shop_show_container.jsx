@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ShopShow from './shop_show';
 import { fetchShopShow } from '../../actions/shop_actions';
+import { addShopView } from '../../actions/shop_view_actions';
 
 const msp = (state, ownProps) => {
   let curShopId = ownProps.match.params.shopId;
@@ -17,7 +18,8 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = (dispatch) => ({
-  fetchShopShow : (shopId) => dispatch(fetchShopShow(shopId))
+  fetchShopShow : (shopId) => dispatch(fetchShopShow(shopId)),
+  addShopView : (shopId) => dispatch(addShopView(shopId))
 })
 
 export default connect(msp, mdp)(ShopShow);
