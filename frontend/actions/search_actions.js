@@ -12,8 +12,7 @@ export const RECEIVE_FILTERS = "RECEIVE_FILTERS";
 const receiveUsedTerm = (term) => ({
   type: RECEIVE_USED_TERM,
   term
-})
-
+});
 const receivePopularTerms = (terms) => ({
   type: RECEIVE_POPULAR_TERMS,
   terms
@@ -46,7 +45,16 @@ const receiveFilters = (filters) => ({
 export const createSearch = (query) => dispatch => (
   SearchUtil.createSearch(query)
     .then(obj => {
-      debugger;
       dispatch(receiveUsedTerm(obj.search))
     })
+)
+
+export const fetchPopularTerms = () => (dispatch) => (
+  SearchUtil.fetchPopularTerms()
+    .then(terms => dispatch(receivePopularTerms(terms)))
+)
+
+export const fetchSuggestedTerms = (queryStr) => dispatch => (
+  SearchUtil.fetchSuggestedTerms(queryStr)
+    .then(terms => dispatch(receiveSuggestedTerms(terms.terms)))
 )

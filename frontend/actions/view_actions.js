@@ -38,7 +38,6 @@ export const fetchProductViews = (id) => dispatch => (
 export const addView = (id) => dispatch => (
   ViewUtil.addView(id)
     .then(views => {
-      debugger;
       dispatch(receiveProductViews(views))
     })
 )

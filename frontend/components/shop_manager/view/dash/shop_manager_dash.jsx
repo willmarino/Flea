@@ -30,7 +30,6 @@ class ShopManagerDash extends React.Component{
     }
   }
   render(){
-    debugger;
     return(
       this.componentMap[this.props.tab]
     )

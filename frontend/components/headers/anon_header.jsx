@@ -15,10 +15,6 @@ class AnonHeader extends React.Component{
     return(
       <div className="header">
         <Link to="/anon"><div className="logo" >Flea</div></Link>
-        {/* <div className="search-and-icon" id="second">
-          <input type="text" className="search" />
-          <i className="fa fa-search" id="user-search-icon"></i> 
-        </div> */}
         <MainSearchbarContainer/>
         <div className="header-items anon-header-items" id="third">  
           <button onClick={() => this.props.openModal('login')}>Sign In</button>

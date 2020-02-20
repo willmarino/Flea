@@ -11,6 +11,10 @@ class UserHeader extends React.Component{
   constructor(props){
     super(props);
 
+    this.state = {
+      fetched : false
+    }
+
     this.handleSignOut = this.handleSignOut.bind(this);
   }
 
@@ -19,19 +23,12 @@ class UserHeader extends React.Component{
     this.props.signoutUser();
   }
 
-  componentDidMount(){
-  }
-
   render(){
     let cartPath = "/cart";
     let shopManagerPath = "/shops-manager";
     return(
       <div className="header">
         <Link to="/"><div className="logo" id="first">Flea</div></Link>
-        {/* <div className="search-and-icon" id="second">
-          <input type="text" className="search" id="user-search"/>
-          <i className="fa fa-search" id="user-search-icon"></i>  
-        </div> */}
         <MainSearchbarContainer/>
         <div className="header-items" id="user-header-items">
           <div id="header-item-one">Sell on Flea</div>

@@ -7,14 +7,11 @@
 // we will import this from the session actions file and map it to props with dispatch
 
 import { connect } from 'react-redux';
+
 import UserHeader from './user_header';
+
 import {logoutUser} from '../../actions/session_actions';
-
-// ---
-
-// import { fetchRecentlyViewed } from '../../actions/users_actions';
-import { productCategories } from '../../actions/product_actions';
-
+import { fetchPopularTerms } from '../../actions/search_actions';
 
 const msp = state => ({
     currentUser: state.session.currentUser
@@ -22,8 +19,8 @@ const msp = state => ({
 
 const mdp = dispatch => ({
     signoutUser: () => dispatch(logoutUser()),
-    // fetchRecentlyViewed: (id) => dispatch(fetchRecentlyViewed(id)),
-    productCategories: () => dispatch(productCategories())
+    fetchPopularTerms: () => dispatch(fetchPopularTerms())
+
 });
 
 

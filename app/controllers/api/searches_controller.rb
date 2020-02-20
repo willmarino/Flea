@@ -13,10 +13,14 @@ class Api::SearchesController < ApplicationController
   end
 
   def popular
-    # @searches = Search.order(:quantity)
+    @searches = Search.order(created_at: :desc)[0..9]
+    render :searches_array
   end
 
   def suggested
+    query = params[:queryStr]
+    @terms = Tag.all.select{ |tag| tag.tag_name.start_with?(query)}[0..9]
+    render :terms_array
 
   end
 

@@ -17,9 +17,7 @@ class UserMain extends React.Component{
 
     render(){
         let shopManagerPath= "/shops-manager";
-        debugger;
         if(this.props.location.pathname === shopManagerPath){
-            debugger;
             return <ShopManagerLandingContainer/>;
         }
         let showPath = "/products/:prodId";
@@ -41,7 +39,8 @@ class UserMain extends React.Component{
                     <Route exact path="/" component={ReviewSegmentContainer} />
                     <Route exact path="/" component={Info} />
                     <Route exact path="/" component={Footer} /> */}
-                    <Route exact path="/" component={UserIndexContainer}/>
+                    
+                    {/* <Route exact path="/" component={UserIndexContainer}/> */}
                     <Route path={showPath} component={ProductShowContainer}/>
                     <Route path={shopShowPath} component={ShopShowContainer}/>
                     <Route exact path={cartPath} component={CartShowContainer}/>

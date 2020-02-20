@@ -31,7 +31,6 @@ export const createOrder = (order) => dispatch => {
         dispatch(receiveOrder(order.order))
       })
       .then(() => {
-        debugger;
         dispatch(sendClearCart())
       })
   )
