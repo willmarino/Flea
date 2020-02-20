@@ -41,6 +41,11 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
+  has_many :shop_views,
+    class_name: "ShopView",
+    primary_key: :id,
+    foreign_key: :user_id
+
   has_many :past_items,
     through: :orders,
     source: :items

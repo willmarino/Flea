@@ -1,7 +1,7 @@
 import React from 'react';
 import DemoUserContainer from '../users/demo_user_container';
-import { fetchUsers } from '../../actions/users_actions';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import MainSearchbarContainer from './main_searchbar_container';
 
 class AnonHeader extends React.Component{
   constructor(props){
@@ -15,10 +15,11 @@ class AnonHeader extends React.Component{
     return(
       <div className="header">
         <Link to="/anon"><div className="logo" >Flea</div></Link>
-        <div className="search-and-icon" id="second">
+        {/* <div className="search-and-icon" id="second">
           <input type="text" className="search" />
           <i className="fa fa-search" id="user-search-icon"></i> 
-        </div>
+        </div> */}
+        <MainSearchbarContainer/>
         <div className="header-items anon-header-items" id="third">  
           <button onClick={() => this.props.openModal('login')}>Sign In</button>
           {/* <i class="fa fa-search" id="search-icon"></i> */}

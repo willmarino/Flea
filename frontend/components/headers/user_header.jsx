@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MainSearchbarContainer from './main_searchbar_container';
 
 class UserHeader extends React.Component{
   constructor(props){
@@ -27,10 +28,11 @@ class UserHeader extends React.Component{
     return(
       <div className="header">
         <Link to="/"><div className="logo" id="first">Flea</div></Link>
-        <div className="search-and-icon" id="second">
+        {/* <div className="search-and-icon" id="second">
           <input type="text" className="search" id="user-search"/>
           <i className="fa fa-search" id="user-search-icon"></i>  
-        </div>
+        </div> */}
+        <MainSearchbarContainer/>
         <div className="header-items" id="user-header-items">
           <div id="header-item-one">Sell on Flea</div>
           <div id="header-item-two">

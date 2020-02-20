@@ -76,6 +76,14 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :searches, only: [:create] do
+      collection do
+        get 'popular'
+        get 'suggested'
+        get 'recent'
+      end
+    end
+
 
   end
 

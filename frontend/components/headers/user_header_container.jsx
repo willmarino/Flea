@@ -12,9 +12,9 @@ import {logoutUser} from '../../actions/session_actions';
 
 // ---
 
-import { fetchRecentlyViewed } from '../../actions/users_actions';
-
+// import { fetchRecentlyViewed } from '../../actions/users_actions';
 import { productCategories } from '../../actions/product_actions';
+
 
 const msp = state => ({
     currentUser: state.session.currentUser
@@ -22,7 +22,7 @@ const msp = state => ({
 
 const mdp = dispatch => ({
     signoutUser: () => dispatch(logoutUser()),
-    fetchRecentlyViewed: (id) => dispatch(fetchRecentlyViewed(id)),
+    // fetchRecentlyViewed: (id) => dispatch(fetchRecentlyViewed(id)),
     productCategories: () => dispatch(productCategories())
 });
 
