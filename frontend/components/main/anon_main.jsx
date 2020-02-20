@@ -11,8 +11,14 @@ class AnonMain extends React.Component{
     constructor(props){
         super(props);
     }
+    componentDidMount(){
+        this.props.fetchAllCategories();
+    }
 
     render(){
+        if(Object.keys(this.props.categories).length === 0){
+            return <p></p>;
+        }
         let showPath = "/anon/products/:prodId";
         let shopShowPath = "/anon/shops/:shopId";
         return(

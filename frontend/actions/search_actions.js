@@ -5,7 +5,7 @@ export const RECEIVE_POPULAR_TERMS = "RECEIVE_POPULAR_TERMS";
 export const RECEIVE_SUGGESTED_TERMS = "RECEIVE_SUGGESTED_TERMS";
 export const RECEIVE_SEARCH_PRODUCTS = "RECEIVE_SEARCH_PRODUCTS";
 export const RECEIVE_RECENTLY_VIEWED = "RECEIVE_RECENTLY_VIEWED";
-export const RECEIVE_ASSOCIATED_WITH_RECENTLY_VIEWED = "RECEIVE_ASSOCIATED_WITH_RECENTLY_VIEWED";
+export const RECEIVE_ASSOCIATED_RV = "RECEIVE_ASSOCIATED_RV";
 export const RECEIVE_RECOMMENDED_TAGS = "RECEIVE_RECOMMENDED_TAGS";
 export const RECEIVE_FILTERS = "RECEIVE_FILTERS";
 
@@ -29,8 +29,8 @@ const receiveRecentlyViewed = (products) => ({
   type: RECEIVE_RECENTLY_VIEWED,
   products
 });
-const receiveAssociatedWithRecentlyViewed = (products) => ({
-  type: RECEIVE_ASSOCIATED_WITH_RECENTLY_VIEWED,
+const receiveAssociatedRV = (products) => ({
+  type: RECEIVE_ASSOCIATED_RV,
   products
 });
 const receiveRecommendedTags = (tags) => ({
@@ -57,4 +57,15 @@ export const fetchPopularTerms = () => (dispatch) => (
 export const fetchSuggestedTerms = (queryStr) => dispatch => (
   SearchUtil.fetchSuggestedTerms(queryStr)
     .then(terms => dispatch(receiveSuggestedTerms(terms.terms)))
+)
+
+export const fetchSearchMain = (queryStr) => dispatch => (
+  SearchUtil.fetchSearchMain(queryStr)
+    .then(searchObj => {
+      dispatch(receiveSearchProducts(searchObj.products));
+      dispatch(receiveRecentlyViewed(searchObj.recentProducts));
+      dispatch(receiveAssociatedRV(searchObj.associatedProducts));
+      dispatch(receiveRecommendedTags(searchObj.tags));
+      dispatch(receiveFilters(searchObj.filters));//must include categories of products
+    })
 )

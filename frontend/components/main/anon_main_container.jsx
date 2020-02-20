@@ -1,17 +1,14 @@
 import { connect } from 'react-redux';
 import AnonMain from './anon_main';
-
-
-import { fetchIndex } from '../../actions/product_actions';
-// import { fetchHappyReviews } from '../../actions/review_actions';
+import { fetchAllCategories } from '../../actions/category_actions';
 
 const msp = (state) => ({
-  products: state.entities.products.forIndex
+  products: state.entities.products.forIndex,
+  categories: state.newcategories
 })
 
 const mdp = (dispatch) => ({
-  // fetchHappyReviews: () => dispatch(fetchHappyReviews()),
-  // fetchIndex: () => dispatch(fetchIndex())
+  fetchAllCategories : () => dispatch(fetchAllCategories())
 })
 
 export default connect(msp, mdp)(AnonMain);

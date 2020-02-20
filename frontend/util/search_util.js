@@ -1,5 +1,4 @@
 
-
 export const createSearch = (query) => (
   $.ajax({
     method: "POST",
@@ -18,12 +17,21 @@ export const fetchPopularTerms = () => {
 }
 
 export const fetchSuggestedTerms = (queryStr) => {
-  debugger;
   return(
     $.ajax({
       method: "GET",
       url: "/api/searches/suggested",
       data : { queryStr }
+    })
+  )
+}
+
+export const fetchSearchMain = (queryStr) => {
+  return(
+    $.ajax({
+      method: "GET",
+      url: "/api/searches/search_main",
+      data: { queryStr }
     })
   )
 }

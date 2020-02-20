@@ -3,7 +3,7 @@ import EntitiesReducer from './entities_reducer';
 import SessionReducer from './session_reducer';
 import UIReducer from './ui_reducer';
 import ErrorsReducer from './errors_reducer';
-import CategoriesReducer from './categories_reducer';
+import NewCategoriesReducer from './new_categories_reducer';
 import SearchReducer from './search_reducer';
 
 const RootReducer = combineReducers({
@@ -12,7 +12,7 @@ const RootReducer = combineReducers({
   session: SessionReducer,
   ui: UIReducer,
   errors: ErrorsReducer,
-  categories: CategoriesReducer
+  newcategories: NewCategoriesReducer
 });
 
 export default RootReducer;

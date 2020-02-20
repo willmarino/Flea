@@ -15,7 +15,14 @@ class UserMain extends React.Component{
 
     }
 
+    componentDidMount(){
+        this.props.fetchAllCategories();
+    }
+
     render(){
+        if(Object.keys(this.props.categories).length === 0){
+            return <p></p>;
+        }
         let shopManagerPath= "/shops-manager";
         if(this.props.location.pathname === shopManagerPath){
             return <ShopManagerLandingContainer/>;
@@ -31,16 +38,7 @@ class UserMain extends React.Component{
                 </div>
                 <div className="user-main-mid">
                     {/* <Route exact path="/" component={UserSubheaderContainer}/> */}
-{/*                     
-                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="simple" rowId={0} /></ul>}/>
-                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="simple" rowId={1} /></ul>}/>
-                    <Route exact path="/" render={() => <ul className="primary-index"><IndexRowContainer type="simple" rowId={2} /></ul>}/>
-                    <Route exact path="/" render={() => <ul className="primary-index" id="cat-row"><CategoryRowContainer/></ul>}/>
-                    <Route exact path="/" component={ReviewSegmentContainer} />
-                    <Route exact path="/" component={Info} />
-                    <Route exact path="/" component={Footer} /> */}
-                    
-                    {/* <Route exact path="/" component={UserIndexContainer}/> */}
+                    <Route exact path="/" component={UserIndexContainer}/>
                     <Route path={showPath} component={ProductShowContainer}/>
                     <Route path={shopShowPath} component={ShopShowContainer}/>
                     <Route exact path={cartPath} component={CartShowContainer}/>

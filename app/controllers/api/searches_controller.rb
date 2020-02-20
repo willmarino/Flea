@@ -24,8 +24,8 @@ class Api::SearchesController < ApplicationController
 
   end
 
-  def recent
-
+  def search_main
+    
   end
 
 

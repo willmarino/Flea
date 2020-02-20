@@ -19,7 +19,10 @@ CartItem.destroy_all
 Image.destroy_all
 Tag.destroy_all
 Tagging.destroy_all
-
+View.destroy_all
+ShopView.destroy_all
+Search.destroy_all
+Category.destroy_all
 
 
 artsandcollect = [
@@ -278,6 +281,16 @@ user_avatars = [
     "https://flea-seeds-four.s3.amazonaws.com/thumbnails_v2/avatarphotos/photography-of-a-guy-wearing-green-shirt-1222271_tn.jpg"
 ]
 
+cat1 = Category.create!(name: "Clothing & Shoes")
+cat2 = Category.create!(name: "Jewelry & Accessories")
+cat3 = Category.create!(name: "Home & Living")
+cat4 = Category.create!(name: "Craft & Supplies")
+cat5 = Category.create!(name: "Art & Collectibles")
+cat6 = Category.create!(name: "Wedding & Party")
+cat7 = Category.create!(name: "Vintage")
+cat8 = Category.create!(name: "Gifts")
+cat9 = Category.create!(name: "Toys & Entertainment")
+
 
 t1 = Tag.create!( tag_name: 'clothing' )
 t2 = Tag.create!( tag_name: 'flowers' )
@@ -366,7 +379,8 @@ while i < 6
     x = Product.create!(
         name: clothingandshoes_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Clothing & Shoes",
+        # high_level_category: "Clothing & Shoes",
+        high_level_category: cat1.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -422,7 +436,8 @@ while i < 6
     x = Product.create!(
         name: jewelrynames[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Jewelry & Accessories",
+        # high_level_category: "Jewelry & Accessories",
+        high_level_category: cat2.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -476,7 +491,8 @@ while i < 6
     x = Product.create!(
         name: homeandliving_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Home & Living",
+        # high_level_category: "Home & Living",
+        high_level_category: cat3.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -530,7 +546,8 @@ while i < 6
     x = Product.create!(
         name: artsandcrafts_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Craft & Supplies",
+        # high_level_category: "Craft & Supplies",
+        high_level_category: cat4.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -585,7 +602,8 @@ while i < 6
     x = Product.create!(
         name: artsandcollect_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Art & Collectibles",
+        # high_level_category: "Art & Collectibles",
+        high_level_category: cat5.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -639,7 +657,8 @@ while i < 6
     x = Product.create!(
         name: weddingandparty_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Wedding & Party",
+        # high_level_category: "Wedding & Party",
+        high_level_category: cat6.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -692,7 +711,8 @@ while i < 6
     x = Product.create!(
         name: vintage_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Vintage",
+        # high_level_category: "Vintage",
+        high_level_category: cat7.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -745,7 +765,8 @@ while i < 6
     x = Product.create!(
         name: gift_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Gifts",
+        # high_level_category: "Gifts",
+        high_level_category: cat8.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,
@@ -798,7 +819,8 @@ while i < 6
     x = Product.create!(
         name: tande_names[i],
         shop_id: shops[i % shops.length].id,
-        high_level_category: "Toys & Entertainment",
+        # high_level_category: "Toys & Entertainment",
+        high_level_category: cat9.id,
         price: (rand() * 200).round(2),
         stock_amt: rand(50),
         options: options,

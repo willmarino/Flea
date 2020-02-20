@@ -80,9 +80,11 @@ Rails.application.routes.draw do
       collection do
         get 'popular'
         get 'suggested'
-        get 'recent'
+        get 'search_main'
       end
     end
+
+    resources :categories, only: [:index]
 
 
   end

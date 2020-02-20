@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
+
+  # ----------------------------------------------------------------------------------------------------------------
+  # auth helper methods
   def current_user
     @current_user || User.find_by(session_token: session[:session_token])
   end
@@ -19,6 +22,13 @@ class ApplicationController < ActionController::Base
     @current_user = nil
     session[:session_token] = nil
   end
+
+  # ----------------------------------------------------------------------------------------------------------------
+  # search helper methods
+
+  # def prods_mapped_by_category
+
+  # end
 
 
 end

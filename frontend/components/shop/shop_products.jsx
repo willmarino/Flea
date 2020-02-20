@@ -39,7 +39,7 @@ class ShopProducts extends React.Component{
     res['all'] = [];
     for(let i = 0; i < products.length; i++){
       let p = products[i];
-      let cat = p.high_level_category;
+      let cat = this.props.categories[p.high_level_category].name;
       if(Object.keys(res).includes(cat)){
         res[cat].push(p);
       }else{

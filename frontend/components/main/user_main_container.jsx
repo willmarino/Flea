@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
 import UserMain from './user_main';
+import { fetchAllCategories } from '../../actions/category_actions';
 
 const msp = (state, ownProps) => {
   return({
-    curPath : ownProps.match.path
+    curPath : ownProps.match.path,
+    categories : state.newcategories
   })
 }
 
-export default connect(msp, null)(UserMain);
+const mdp = (dispatch) => ({
+  fetchAllCategories : () => dispatch(fetchAllCategories())
+})
+
+export default connect(msp, mdp)(UserMain);

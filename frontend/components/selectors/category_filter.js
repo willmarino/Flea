@@ -27,18 +27,18 @@
 // };
 
 
-export const grabRow = (products, cat) => {
-    let pArr = Object.values(products);
-    let res = [];
-    let i = 0;
-    while(res.length < 6){
-        if(pArr[i].high_level_category === cat){
-            res.push(pArr[i]);
-        }
-        i += 1;
-    }
-    return res;
-}
+// export const grabRow = (products, cat) => {
+//     let pArr = Object.values(products);
+//     let res = [];
+//     let i = 0;
+//     while(res.length < 6){
+//         if(pArr[i].high_level_category === cat){
+//             res.push(pArr[i]);
+//         }
+//         i += 1;
+//     }
+//     return res;
+// }
 
 
 // export const randomFilter = (obj) => {

@@ -8,7 +8,8 @@ const msp = (state, ownProps) => {
     curShopId : curShopId,
     shop: state.entities.shops.main,
     products : ownProps.products,
-    loggedIn : Boolean(state.session.currentUser)
+    loggedIn : Boolean(state.session.currentUser),
+    categories : state.newcategories
   })
 };
 

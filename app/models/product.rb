@@ -43,7 +43,8 @@ class Product < ApplicationRecord
   def self.by_category(category)
     products = []
     Product.all.each do |p|
-      if p.high_level_category === category
+      # if p.high_level_category === category
+      if p.category.name === category
         products << p
       end
     end
@@ -64,9 +65,10 @@ class Product < ApplicationRecord
     ]
     products = []
     categories.each do |category|
-      products << Product.find_by(high_level_category: category)
+      # products << Product.find_by(high_level_category: category)
+      products << Category.find_by(name: category).products
     end
-    return products[0..5]
+    return products.flatten[0..5]
   end
 
   belongs_to :shop,
@@ -93,9 +95,16 @@ class Product < ApplicationRecord
     primary_key: :id,
     foreign_key: :product_id
 
+  belongs_to :category,
+    class_name: "Category",
+    primary_key: :id,
+    foreign_key: :high_level_category
+
   has_many :associated_products,
     through: :tags,
     source: :tagged_products
+
+
 
   has_one_attached :photo
 

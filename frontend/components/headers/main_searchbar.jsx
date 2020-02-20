@@ -30,7 +30,10 @@ class MainSearchbar extends React.Component{
   }
 
   executeSearch(){
+    // keeping these separate for now, may want to combine them into one request
     this.props.createSearch(this.state.query);
+    this.props.fetchSearchMain(this.state.query);
+    window.location.hash = '#/search_result';
   }
 
   grabSuggestedSearches(e){
@@ -59,7 +62,6 @@ class MainSearchbar extends React.Component{
       }
     }
     let modal = <ul className='search-suggested-modal'>{res}</ul>
-    debugger;
     this.setState({ modal : modal });
   }
 

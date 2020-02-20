@@ -4,7 +4,7 @@ import {
   RECEIVE_SUGGESTED_TERMS,
   RECEIVE_SEARCH_PRODUCTS,
   RECEIVE_RECENTLY_VIEWED,
-  RECEIVE_ASSOCIATED_WITH_RECENTLY_VIEWED,
+  RECEIVE_ASSOCIATED_RV,
   RECEIVE_RECOMMENDED_TAGS,
   RECEIVE_FILTERS
 } from '../actions/search_actions';
@@ -30,7 +30,7 @@ const SearchReducer = (state={}, action) => {
       return Object.assign({}, state, { searchProducts : action.products });
     case RECEIVE_RECENTLY_VIEWED:
       return Object.assign({}, state, { recentlyViewedProducts : action.products });
-    case RECEIVE_ASSOCIATED_WITH_RECENTLY_VIEWED:
+    case RECEIVE_ASSOCIATED_RV:
       return Object.assign({}, state, { associatedWithRecentProducts : action.products });
     case RECEIVE_RECOMMENDED_TAGS:
       return Object.assign({}, state, { recommendedTags : action.tags });

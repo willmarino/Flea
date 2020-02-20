@@ -6,7 +6,8 @@ const msp = (state, ownProps) => {
     products: state.entities.products.forIndex[ownProps.rowId],
     shops: state.entities.shops,
     type: ownProps.type,
-    loggedIn: Boolean(state.session.currentUser)
+    loggedIn: Boolean(state.session.currentUser),
+    categories: state.newcategories
   });
 };
 
