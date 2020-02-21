@@ -8,6 +8,7 @@ export const RECEIVE_RECENTLY_VIEWED = "RECEIVE_RECENTLY_VIEWED";
 export const RECEIVE_ASSOCIATED_RV = "RECEIVE_ASSOCIATED_RV";
 export const RECEIVE_RECOMMENDED_TAGS = "RECEIVE_RECOMMENDED_TAGS";
 export const RECEIVE_FILTERS = "RECEIVE_FILTERS";
+export const RECEIVE_SEARCH_CATEGORIES = "RECEIVE_SEARCH_CATEGORIES";
 
 const receiveUsedTerm = (term) => ({
   type: RECEIVE_USED_TERM,
@@ -38,9 +39,13 @@ const receiveRecommendedTags = (tags) => ({
   tags
 });
 const receiveFilters = (filters) => ({
-  typ: RECEIVE_FILTERS,
+  type: RECEIVE_FILTERS,
   filters
 });
+const receiveSearchCategories = (categories) => ({
+  type: RECEIVE_SEARCH_CATEGORIES,
+  categories
+})
 
 export const createSearch = (query) => dispatch => (
   SearchUtil.createSearch(query)
@@ -62,10 +67,12 @@ export const fetchSuggestedTerms = (queryStr) => dispatch => (
 export const fetchSearchMain = (queryStr) => dispatch => (
   SearchUtil.fetchSearchMain(queryStr)
     .then(searchObj => {
+      debugger;
       dispatch(receiveSearchProducts(searchObj.products));
       dispatch(receiveRecentlyViewed(searchObj.recentProducts));
       dispatch(receiveAssociatedRV(searchObj.associatedProducts));
       dispatch(receiveRecommendedTags(searchObj.tags));
-      dispatch(receiveFilters(searchObj.filters));//must include categories of products
+      dispatch(receiveFilters(searchObj.filters));
+      dispatch(receiveSearchCategories(searchObj.categories))
     })
 )

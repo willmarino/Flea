@@ -15,14 +15,7 @@ class UserMain extends React.Component{
 
     }
 
-    componentDidMount(){
-        this.props.fetchAllCategories();
-    }
-
     render(){
-        if(Object.keys(this.props.categories).length === 0){
-            return <p></p>;
-        }
         let shopManagerPath= "/shops-manager";
         if(this.props.location.pathname === shopManagerPath){
             return <ShopManagerLandingContainer/>;

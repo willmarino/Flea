@@ -28,9 +28,12 @@ class AnonIndex extends React.Component{
   }
 
   render(){
-    if(Object.values(this.props.products).length === 0){
+    if(Object.values(this.props.products).length === 0 ||
+      !this.props.indexCategories ||
+      !this.props.catRowCategories){
       return <p></p>;
     }
+    debugger;
     return(
       <div>
         <Advert/>
@@ -44,7 +47,7 @@ class AnonIndex extends React.Component{
           <IndexRowContainer type='simple' rowId={2}/>
         </ul>
         <ul className='primary-index' id='cat-row'>
-          <CategoryRowContainer/>
+          <CategoryRowContainer categories={this.props.catRowCategories}/>
         </ul>
         <Info/>
         <ReviewSegmentContainer/>

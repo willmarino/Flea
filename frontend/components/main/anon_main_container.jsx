@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import AnonMain from './anon_main';
-import { fetchAllCategories } from '../../actions/category_actions';
+// import { fetchAllCategories } from '../../actions/category_actions';
 
 const msp = (state) => ({
   products: state.entities.products.forIndex,
-  categories: state.newcategories
+  // categories: state.newcategories
 })
 
 const mdp = (dispatch) => ({
-  fetchAllCategories : () => dispatch(fetchAllCategories())
+  // fetchAllCategories : () => dispatch(fetchAllCategories())
 })
 
 export default connect(msp, mdp)(AnonMain);

@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
     shop: state.entities.shops.main,
     products : ownProps.products,
     loggedIn : Boolean(state.session.currentUser),
-    categories : state.newcategories
+    categories : state.newcategories.shopShow
   })
 };
 

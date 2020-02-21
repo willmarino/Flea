@@ -62,11 +62,13 @@ class Api::ProductsController < ApplicationController
       "Vintage"
     ]
     @res = []
+    @categories = []
     cats = []
     while cats.length < 3
       c = categories[rand(9)]
       if(!cats.include?(c))
         cats.push(c)
+        @categories.push(Category.find_by(name: c))
       end
     end
     cats.each do |cat|
@@ -88,6 +90,7 @@ class Api::ProductsController < ApplicationController
 
   def categories
     @products = Product.product_categories
+    @categories = @products.map{|p| p.category}
     render :categories
   end
 

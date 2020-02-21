@@ -14,4 +14,7 @@ json.shop_show do
     json.array! @review_products
   end
   json.review_product_tags @review_product_tags
+  json.categories do
+    json.array! @categories
+  end
 end

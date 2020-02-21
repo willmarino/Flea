@@ -39,21 +39,24 @@ document.addEventListener("DOMContentLoaded", () => {
       ui:{
         modal: null
       },
-      categories: {
-        allCategories: [
-          "Gifts",
-          "Jewelry & Accessories",
-          "Clothing & Shoes",
-          "Home & Living",
-          "Wedding & Party",
-          "Toys & Entertainment",
-          "Art & Collectibles",
-          "Craft & Supplies",
-          "Vintage"
-        ],
-        currentCategories: [
+      // categories: {
+      //   allCategories: [
+      //     "Gifts",
+      //     "Jewelry & Accessories",
+      //     "Clothing & Shoes",
+      //     "Home & Living",
+      //     "Wedding & Party",
+      //     "Toys & Entertainment",
+      //     "Art & Collectibles",
+      //     "Craft & Supplies",
+      //     "Vintage"
+      //   ],
+      //   currentCategories: [
 
-        ]
+      //   ]
+      // }
+      newcategories: {
+        
       }
     };
     store = configureStore(pls);

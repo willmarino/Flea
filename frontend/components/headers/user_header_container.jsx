@@ -19,8 +19,7 @@ const msp = state => ({
 
 const mdp = dispatch => ({
     signoutUser: () => dispatch(logoutUser()),
-    fetchPopularTerms: () => dispatch(fetchPopularTerms())
-
+    fetchPopularTerms: () => dispatch(fetchPopularTerms()),
 });
 
 

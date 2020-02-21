@@ -42,7 +42,6 @@ Rails.application.routes.draw do
 
     resources :products, only: [:index, :show, :destroy, :update] do
       collection do
-        # get 'grab_by_ids'
         get 'grab_index'
         get 'grab_by_category'
         get 'categories'

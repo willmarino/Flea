@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { openModal } from '../../actions/modal_actions';
 import AnonHeader from './anon_header';
+import { openModal } from '../../actions/modal_actions';
 
 
 const mdp = dispatch => ({

@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import MainSearchBar from './main_searchbar';
 import { createSearch } from '../../actions/search_actions';
 import { fetchPopularTerms } from '../../actions/search_actions';
 import { fetchSuggestedTerms } from '../../actions/search_actions';
 import { fetchSearchMain } from '../../actions/search_actions';
+
 
 const msp = (state) => ({
   popularTerms : state.search.popularTerms,
@@ -17,4 +19,4 @@ const mdp = dispatch => ({
   fetchSearchMain : (queryStr) => dispatch(fetchSearchMain(queryStr))
 });
 
-export default connect(msp, mdp)(MainSearchBar);
+export default withRouter(connect(msp, mdp)(MainSearchBar));

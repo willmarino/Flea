@@ -32,8 +32,9 @@ class MainSearchbar extends React.Component{
   executeSearch(){
     // keeping these separate for now, may want to combine them into one request
     this.props.createSearch(this.state.query);
+    debugger;
     this.props.fetchSearchMain(this.state.query);
-    window.location.hash = '#/search_result';
+    this.props.history.push('/search_result');
   }
 
   grabSuggestedSearches(e){

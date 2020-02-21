@@ -18,6 +18,7 @@ class UserHeader extends React.Component{
     this.handleSignOut = this.handleSignOut.bind(this);
   }
 
+
   handleSignOut(e){
     e.preventDefault();
     this.props.signoutUser();

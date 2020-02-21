@@ -22,7 +22,8 @@ class ShopShow extends React.Component{
         this.props.reviews &&
         this.props.reviewAuthors &&
         this.props.reviewProducts &&
-        this.props.reviewTags){
+        this.props.reviewTags &&
+        this.props.categories){
           return true;
         }else{
           return false;

@@ -13,7 +13,8 @@ const msp = (state, ownProps) => {
     reviews : state.entities.reviews.byShop,
     reviewAuthors : state.entities.users.shopReviewAuthors,
     reviewProducts : state.entities.products.byReviews,
-    reviewTags : state.entities.tags.shopReviewTags
+    reviewTags : state.entities.tags.shopReviewTags,
+    categories : state.newcategories.shopShow
   })
 }
 

@@ -8,30 +8,17 @@ import { receiveShopReviewProducts } from './products/products_by_reviews_action
 
 //products by shop actions
 import { receiveProductsByShop } from './products/products_by_shop_actions';
-
 import { receiveProductReviews } from './reviews/reviews_by_product_actions';
-
 import { receiveShopReviews } from './reviews/reviews_by_shop_actions';
 
-export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
-// export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
-// export const RECEIVE_ASSOCIATED_PRODUCTS = "RECEIVE_ASSOCIATED_PRODUCTS";
-export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
+// categories needed for product index
+import { receiveCategoriesForIndex, receiveCategoriesForCatRow } from './category_actions';
 
-// export const RECEIVE_CATEGORY = "RECEIVE_CATEGORY";
-// export const RECEIVE_PRODUCT_REVIEWS = "RECEIVE_PRODUCT_REVIEWS";
+export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
+export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
 export const RECEIVE_INDEX = "RECEIVE_INDEX";
-
 export const RECEIVE_PRODUCT_SHOW_PRODUCT = "RECEIVE_PRODUCT_SHOW_PRODUCT";
-// export const RECEIVE_SHOP_REVIEWS = "RECEIVE_SHOP_REVIEWS";
-
-// export const RECEIVE_SHOP_REVIEW_PRODUCTS = 'RECEIVE_SHOP_REVIEW_PRODUCTS';
-// export const RECEIVE_PRODUCTS_BY_SHOP = "RECEIVE_PRODUCTS_BY_SHOP";
-
-// export const RECEIVE_CART_PRODUCTS = "RECEIVE_CART_PRODUCTS";
-// export const RECEIVE_CART_PRODUCT = "RECEIVE_CART_PRODUCT";
-// export const REMOVE_CART_PRODUCT = "REMOVE_CART_PRODUCT";
 
 const receiveProduct = (product) => ({
   type: RECEIVE_PRODUCT,
@@ -152,12 +139,19 @@ export const productReviews = (id) => dispatch => (
 // fetch for cat row
 export const productCategories = () => dispatch => (
   ProductUtil.fetchProductCategories()
-    .then(products => dispatch(receiveCategories(products)))
+    .then(productsObj => {
+      dispatch(receiveCategories(productsObj.products));
+      dispatch(receiveCategoriesForCatRow(productsObj.categories))
+    })
 );
 
 export const fetchIndex = () => dispatch => (
   ProductUtil.fetchIndex()
-    .then(products => dispatch(receiveIndex(products)))
+    .then(productsObj => {
+      debugger;
+      dispatch(receiveIndex(productsObj.products));
+      // dispatch(receiveCategoriesForIndex(productsObj.categories));
+    })
 )
 
 // export const fetchShopByProduct = (prodId) => dispatch => (

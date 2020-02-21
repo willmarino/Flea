@@ -16,6 +16,7 @@ class UserIndex extends React.Component{
   componentDidMount(){
     if(!this.allPresent()){
       this.props.fetchIndex();
+      this.props.fetchProductCategories();
       // this.props.fetchUserCart(this.props.user.id);
     }
   }
@@ -23,7 +24,6 @@ class UserIndex extends React.Component{
   allPresent(){
     if(Object.values(this.props.products).length !== 0 &&
       this.props.categories
-      // this.props.cartId
       ){
         return true;
       }
@@ -31,7 +31,9 @@ class UserIndex extends React.Component{
   }
 
   render(){
-    if(Object.values(this.props.products).length === 0){
+    if(Object.values(this.props.products).length === 0 ||
+      !this.props.catRowCategories ||
+      !this.props.indexCategories){
       return <p></p>;
     }
     return(

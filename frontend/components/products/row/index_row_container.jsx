@@ -7,7 +7,7 @@ const msp = (state, ownProps) => {
     shops: state.entities.shops,
     type: ownProps.type,
     loggedIn: Boolean(state.session.currentUser),
-    categories: state.newcategories
+    categories: state.newcategories.index
   });
 };
 

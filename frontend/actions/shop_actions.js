@@ -24,6 +24,8 @@ import { receiveShopReviewAuthors } from '../actions/reviews/reviews_by_user_act
 // user by shop
 import { receiveShopOwner } from '../actions/users/users_by_shop_actions';
 
+import { receiveShopShowCategories } from '../actions/category_actions';
+
 const receiveShop = (shop) => ({
     type: RECEIVE_SHOP,
     shop
@@ -107,5 +109,6 @@ export const fetchShopShow = (shopId) => dispatch => (
             dispatch(receiveShopReviewAuthors(ss.shop_show.authors));
             dispatch(receiveShopReviewProducts(ss.shop_show.review_products));
             dispatch(receiveTagsForShopReviews(ss.shop_show.review_product_tags));
+            dispatch(receiveShopShowCategories(ss.shop_show.categories))
         })
 );

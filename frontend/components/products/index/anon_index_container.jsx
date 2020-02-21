@@ -9,7 +9,9 @@ const msp = (state, ownProps) => ({
   products : state.entities.products.forIndex,
   categories : state.entities.products.categories,
   happyProducts : state.entities.products.happyProducts,
-  happyReviews : state.entities.reviews.happyReviews
+  happyReviews : state.entities.reviews.happyReviews,
+  catRowCategories : state.newcategories.catRow,
+  indexCategories : state.newcategories.index
 })
 
 const mdp = (dispatch) => ({

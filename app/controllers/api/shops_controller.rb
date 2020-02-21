@@ -47,6 +47,7 @@ class Api::ShopsController < ApplicationController
       @review_products << r.product
       @review_product_tags[r.id] = r.product.tags
     end
+    @categories = @products.map{|p| p.category}
     render :shop_show
   end
 

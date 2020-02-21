@@ -6,7 +6,8 @@ import {
   RECEIVE_RECENTLY_VIEWED,
   RECEIVE_ASSOCIATED_RV,
   RECEIVE_RECOMMENDED_TAGS,
-  RECEIVE_FILTERS
+  RECEIVE_FILTERS,
+  RECEIVE_SEARCH_CATEGORIES
 } from '../actions/search_actions';
 
 const SearchReducer = (state={}, action) => {
@@ -36,6 +37,8 @@ const SearchReducer = (state={}, action) => {
       return Object.assign({}, state, { recommendedTags : action.tags });
     case RECEIVE_FILTERS:
       return Object.assign({}, state, { filters : action.filters });
+    case RECEIVE_SEARCH_CATEGORIES:
+      return Object.assign({}, state, { productCategories : action.categories })
     default:
       return state;
   }
