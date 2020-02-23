@@ -1,6 +1,7 @@
 import {
   RECEIVE_USER_VIEWS,
-  RECEIVE_PRODUCT_VIEWS
+  RECEIVE_PRODUCT_VIEWS,
+  RECEIVE_RECENT_VIEWS
 } from '../actions/view_actions';
 
 import {
@@ -16,6 +17,8 @@ const ViewsReducer = (state={}, action) => {
       return Object.assign({}, state, { productViews : action.views });
     case RECEIVE_SHOP_VIEWS:
       return Object.assign({}, state, { shopViews : action.views });
+    case RECEIVE_RECENT_VIEWS:
+      return Object.assign({}, state, { recentViews : action.views })
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import {connect} from 'react-redux';
+import { connect }  from 'react-redux';
 import IndexRow from './index_row';
 
 const msp = (state, ownProps) => {
@@ -11,8 +11,4 @@ const msp = (state, ownProps) => {
   });
 };
 
-const mdp = (dispatch) => ({
-  
-});
-
-export default connect(msp, mdp)(IndexRow);
+export default connect(msp, null)(IndexRow);

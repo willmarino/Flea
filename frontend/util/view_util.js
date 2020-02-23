@@ -7,6 +7,13 @@ export const fetchUserViews = () => (
   })
 );
 
+export const fetchRecentViews = () => (
+  $.ajax({
+    methods : "GET",
+    url : "/api/views/recent"
+  })
+)
+
 export const fetchProductViews = (prod_id) => (
   $.ajax({
     method: "GET",

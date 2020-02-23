@@ -64,6 +64,7 @@ Rails.application.routes.draw do
       collection do
         get 'user_views'
         get 'product_views'
+        get 'recent'
         post 'add'
       end
     end
@@ -80,6 +81,7 @@ Rails.application.routes.draw do
         get 'popular'
         get 'suggested'
         get 'search_main'
+        get 'suggested_searches'
       end
     end
 

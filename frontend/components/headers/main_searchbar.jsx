@@ -32,7 +32,6 @@ class MainSearchbar extends React.Component{
   executeSearch(){
     // keeping these separate for now, may want to combine them into one request
     this.props.createSearch(this.state.query);
-    debugger;
     this.props.fetchSearchMain(this.state.query);
     this.props.history.push('/search_result');
   }
@@ -51,14 +50,17 @@ class MainSearchbar extends React.Component{
       for(let i = 0; i < suggestedTerms.length; i++){
         let term = suggestedTerms[i].tag_name;
         res.push(
-          <li key={term}>{term}</li>
+          <li key={term} className='suggested-search-term'>{term}</li>
         )
       }
     }else{
+      res.push(
+        <li key='poprightnow' className='suggested-search-header suggested-search-term'>Popular Right Now</li>
+      )
       for(let i = 0; i < popularTerms.length; i++){
         let term = popularTerms[i].query;
         res.push(
-          <li key={term}>{term}</li>
+          <li key={term} className='suggested-search-term'>{term}</li>
         );
       }
     }
@@ -89,7 +91,7 @@ class MainSearchbar extends React.Component{
           />
         <i className="fa fa-search" id="user-search-icon"></i>
         {modal}
-        <input type="submit" value=""/>
+        <input type="submit" value="" className='searchbar-submit'/>
       </form>
     )
   }

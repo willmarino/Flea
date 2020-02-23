@@ -30,7 +30,7 @@ class IndexItem extends React.Component{
               <i className="fa fa-euro-sign"></i>
               <p>${this.props.product.price}</p>
             </div>
-            {widgets[Math.round(Math.random())]}
+            {/* {widgets[Math.round(Math.random())]} */}
           </div>
         </li>
       )

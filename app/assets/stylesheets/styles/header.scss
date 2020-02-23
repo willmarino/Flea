@@ -19,7 +19,8 @@
   padding-bottom: 0px;
   height: 72px;
 
-  font-family: Optima, sans-serif;
+  // font-family: Optima, sans-serif;
+  font-family: 'Arimo';
 
 }
 
@@ -39,6 +40,16 @@
 .header-items{
   display: flex;
   align-items: center;
+  margin: 5px;
+  margin-left: 15px;
+}
+.header-items i{
+  color: gray;
+}
+
+.header-items div:hover{
+  color: black;
+  cursor: pointer;
 }
 
 #second{
@@ -50,13 +61,16 @@
 .logo{
   font-size: 38px;
   padding-right: 5px;
-  font-family: 'Times New Roman', Times, serif;
+  // font-family: 'Times New Roman', Times, serif;
+  font-family: 'Arimo';
   color: #F1641E;
 }
 
 .search-and-icon{
   position: relative;
-  // overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .search-and-icon i{
@@ -90,7 +104,7 @@
 
 #header-item-two{
   border-right: 1px solid lightgray;
-  border-left: 1px solid lightgray;
+  // border-left: 1px solid lightgray;
 }
 
 #header-item-two, #header-item-three, #header-item-four{
@@ -109,16 +123,22 @@
   align-items: center;
 }
 #header-item-two p, #header-item-three p, #header-item-four p{
-  font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  // font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+  font-family: 'Arimo';
   color: gray;
   font-size: 12px;
   padding: 5px;
 }
 
+#header-item-four{
+  position: relative;
+}
+
 #header-item-one{
   padding-left: 30px;
   padding-right: 8px;
-  font-family: Arial, Helvetica, sans-serif;
+  // font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arimo';
   font-weight: lighter;
 }
 
@@ -128,6 +148,7 @@
 }
 
 #user-search-icon{
+  display: inline-block;
   position: absolute;
   // right: 380px;
 }
@@ -188,3 +209,50 @@
 
 
 // -----------------------------------------------------------------------------
+
+
+.logo-link{
+  display: inline-block;
+}
+
+// -----------------------------------------------------------------------------
+
+.user-modal{
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+
+  top: 40px;
+  background: white;
+
+
+  width: 200px;
+  border: 1px solid gray;
+  box-shadow: 0px 0px 1px gray;
+  padding: 10px;
+}
+
+.user-modal > div{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.user-modal p{
+  color: black;
+}
+
+.usermodal-profile-block{
+  display: flex;
+}
+
+.uermodal-profile-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.store-icon{
+  color: gray;
+  width: 20px;
+  height: 20px;
+}

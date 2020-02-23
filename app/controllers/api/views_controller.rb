@@ -5,6 +5,21 @@ class Api::ViewsController < ApplicationController
     render :views_arr
   end
 
+  def recent
+    all_views = current_user.views.order(created_at: :desc)
+    views_obj = {}
+    all_views.each do |v|
+      if !views_obj[v.product_id]
+        views_obj[v.product_id] = v
+      end
+      break if views_obj.keys.length > 5
+    end    
+    @views = views_obj.values
+    prod_ids = views_obj.keys
+    @products = prod_ids.map{ |id| Product.find(id) }
+    render :recent
+  end
+
   def product_views
     product = Product.find(params[:prod_id])
     @views = product.views
@@ -12,6 +27,7 @@ class Api::ViewsController < ApplicationController
   end
 
   def add
+    debugger
     product = Product.find(params[:prod_id])
     View.create({ user_id: current_user.id, product_id: product.id })
     @views = product.views

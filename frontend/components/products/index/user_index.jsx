@@ -1,9 +1,9 @@
 import React from 'react';
+import SuggestedContainer from '../../suggested/suggested_container';
+import RecentlyViewedContainer from '../row/recently_viewed_container';
 import IndexRowContainer from '../row/index_row_container';
 import CategoryRowContainer from '../row/category_row_container';
-import Advert from '../../segments/advert';
 import Info from '../../segments/info';
-import ReviewSegmentContainer from '../../segments/reviews_segment_container';
 import Footer from '../../segments/footer';
 
 class UserIndex extends React.Component{
@@ -17,13 +17,16 @@ class UserIndex extends React.Component{
     if(!this.allPresent()){
       this.props.fetchIndex();
       this.props.fetchProductCategories();
-      // this.props.fetchUserCart(this.props.user.id);
+      this.props.fetchSuggestedSearches();
+      this.props.fetchRecentViews();
     }
   }
 
   allPresent(){
     if(Object.values(this.props.products).length !== 0 &&
-      this.props.categories
+      this.props.categories &&
+      this.props.suggestedSearches &&
+      this.props.recentlyViewedProducts
       ){
         return true;
       }
@@ -33,15 +36,21 @@ class UserIndex extends React.Component{
   render(){
     if(Object.values(this.props.products).length === 0 ||
       !this.props.catRowCategories ||
-      !this.props.indexCategories){
+      !this.props.indexCategories ||
+      !this.props.suggestedSearches ||
+      !this.props.recentlyViewedProducts){
       return <p></p>;
     }
+    debugger;
     return(
       <div>
-        <Advert/>
-        <ul className='primary-index'>
-          <IndexRowContainer type='simple' rowId={0}/>
+        <SuggestedContainer/>
+        <ul className="primary-index">
+          <RecentlyViewedContainer/>
         </ul>
+        {/* <ul className='primary-index'>
+          <IndexRowContainer type='simple' rowId={0}/>
+        </ul> */}
         <ul className='primary-index'>
           <IndexRowContainer type='simple' rowId={1}/>
         </ul>

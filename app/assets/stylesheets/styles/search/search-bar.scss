@@ -1,0 +1,29 @@
+
+.search-and-icon{
+  position: relative;
+}
+
+.search-suggested-modal{
+  position: absolute;
+  top: 55px;
+  border: 1px solid 	#DCDCDC;
+  box-shadow: 0px 0px 5px gray;
+  z-index: 5;
+  background: white;
+  width: 100%;
+  padding: 10px;
+}
+
+.searchbar-submit{
+  height: 0px;
+}
+
+.suggested-search-header{
+  font-weight: bold;
+}
+
+.suggested-search-term{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+}

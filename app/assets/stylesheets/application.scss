@@ -52,8 +52,11 @@
   @import './styles/shop_manager/shop_manager_sidebar.scss';
   @import './styles/shop_manager/shop_manager_sidebar_main.scss';
   @import './styles/shop_manager/sms_sales.scss';
-  @import './styles/search/search-modal.scss';
+  @import './styles/search/search-bar.scss';
   
  a{
    text-decoration: none;
  }
+* {
+  font-family: 'Arimo';
+}

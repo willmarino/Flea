@@ -148,7 +148,6 @@ export const productCategories = () => dispatch => (
 export const fetchIndex = () => dispatch => (
   ProductUtil.fetchIndex()
     .then(productsObj => {
-      debugger;
       dispatch(receiveIndex(productsObj.products));
       // dispatch(receiveCategoriesForIndex(productsObj.categories));
     })

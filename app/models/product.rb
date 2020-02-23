@@ -52,23 +52,31 @@ class Product < ApplicationRecord
   end
 
   def self.product_categories
-    categories = [
-    "Jewelry & Accessories",
-    "Clothing & Shoes",
-    "Home & Living",
-    "Wedding & Party",
-    "Toys & Entertainment",
-    "Art & Collectibles",
-    "Craft & Supplies",
-    "Vintage",
-    "Gifts"
-    ]
+    # categories = [
+    # "Jewelry & Accessories",
+    # "Clothing & Shoes",
+    # "Home & Living",
+    # "Wedding & Party",
+    # "Toys & Entertainment",
+    # "Art & Collectibles",
+    # "Craft & Supplies",
+    # "Vintage",
+    # "Gifts"
+    # ]
+    # products = []
+    # categories.each do |category|
+    #   # products << Product.find_by(high_level_category: category)
+    #   products << Category.find_by(name: category).products
+    # end
     products = []
-    categories.each do |category|
-      # products << Product.find_by(high_level_category: category)
-      products << Category.find_by(name: category).products
+    Category.all.each do |cat|
+      cur_products = cat.products
+      rand_num = rand(0...cur_products.length)
+      products << cur_products[rand_num]
+      break if products.length == 6
     end
-    return products.flatten[0..5]
+
+    return products
   end
 
   belongs_to :shop,

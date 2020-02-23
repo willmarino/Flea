@@ -1,4 +1,5 @@
 import * as SearchUtil from '../util/search_util';
+import { receiveSuggestedSearchTags } from '../actions/tag_actions';
 
 export const RECEIVE_USED_TERM = "RECEIVE_USED_TERM";
 export const RECEIVE_POPULAR_TERMS = "RECEIVE_POPULAR_TERMS";
@@ -45,7 +46,7 @@ const receiveFilters = (filters) => ({
 const receiveSearchCategories = (categories) => ({
   type: RECEIVE_SEARCH_CATEGORIES,
   categories
-})
+});
 
 export const createSearch = (query) => dispatch => (
   SearchUtil.createSearch(query)
@@ -64,10 +65,17 @@ export const fetchSuggestedTerms = (queryStr) => dispatch => (
     .then(terms => dispatch(receiveSuggestedTerms(terms.terms)))
 )
 
+export const fetchSuggestedSearches = () => dispatch => (
+  SearchUtil.fetchSuggestedSearches()
+    // .then(searches => dispatch(receiveSuggestedSearches(searches)))
+    .then(tags => {
+      dispatch(receiveSuggestedSearchTags(tags.tags));
+    })
+)
+
 export const fetchSearchMain = (queryStr) => dispatch => (
   SearchUtil.fetchSearchMain(queryStr)
     .then(searchObj => {
-      debugger;
       dispatch(receiveSearchProducts(searchObj.products));
       dispatch(receiveRecentlyViewed(searchObj.recentProducts));
       dispatch(receiveAssociatedRV(searchObj.associatedProducts));

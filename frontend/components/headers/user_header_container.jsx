@@ -7,6 +7,7 @@
 // we will import this from the session actions file and map it to props with dispatch
 
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import UserHeader from './user_header';
 
@@ -23,6 +24,6 @@ const mdp = dispatch => ({
 });
 
 
-export default connect(msp, mdp)(UserHeader);
+export default withRouter(connect(msp, mdp)(UserHeader));
 
 

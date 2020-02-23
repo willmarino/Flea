@@ -4,7 +4,6 @@ import {
   REMOVE_PRODUCT,
   // RECEIVE_CATEGORY,
   // RECEIVE_CATEGORIES,
-  RECEIVE_INDEX,
   // RECEIVE_SHOP_REVIEW_PRODUCTS,
   // RECEIVE_PRODUCTS_BY_SHOP,
   // RECEIVE_ASSOCIATED_PRODUCTS,
@@ -12,6 +11,10 @@ import {
   // RECEIVE_CART_PRODUCT,
   // REMOVE_CART_PRODUCT
 } from '../../actions/product_actions';
+
+import {
+  RECEIVE_RECENTLY_VIEWED_PRODUCTS
+} from '../../actions/view_actions';
 
 // import { RECEIVE_ASSOCIATED_PRODUCTS } from '../actions/products/products_by_association_actions';
 
@@ -61,6 +64,8 @@ const MainProductsReducer = (state={}, action) => {
     //   return Object.assign({}, state, action.products)
     // case RECEIVE_PRODUCTS:
     //   return Object.assign({}, state, action.products);
+    case RECEIVE_RECENTLY_VIEWED_PRODUCTS:
+      return Object.assign({}, state, { recentlyViewed : action.products })
     case RECEIVE_PRODUCT:
       return Object.assign({}, state, {[action.product.id]: action.product});
     // case RECEIVE_INDEX:
