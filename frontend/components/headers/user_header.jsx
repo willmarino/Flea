@@ -10,43 +10,10 @@ import MainSearchbarContainer from './main_searchbar_container';
 class UserHeader extends React.Component{
   constructor(props){
     super(props);
-
-    // this.newUserModal = <div className='user-modal'>
-    //   <div className='usermodal-profile-block'>
-    //     <div>
-    //       <i className="far fa-user-circle"></i>
-    //     </div>
-    //     <div className='usermodal-profile-info'>
-    //       <p>{this.props.currentUser.username}</p>
-    //       <p>View Profile</p>
-    //     </div>
-    //   </div>
-    //   <div>
-    //     <i></i>
-    //     <p>gift card balance : $0.00</p>
-    //   </div>
-    //   <div>
-    //     <i></i>
-    //     <p>Messages</p>
-    //   </div>
-    //   <div>
-    //     <p>Purchases and Reviews</p>
-    //   </div>
-    //   <div>
-    //     <p>Account Settings</p>
-    //   </div>
-    //   <div>
-    //     <p>Your Teams</p>
-    //   </div>
-    //   <div onClick={this.handleSignOut}>
-    //     <p>Sign Out</p>
-    //   </div>
-    // </div>
-
     this.state = {
       fetched : false,
       userModalStatus : false,
-      userModal : this.newUserModal
+      userModal : null
     }
     this.createUserModal = this.createUserModal.bind(this);
     this.setModalStatus = this.setModalStatus.bind(this);
@@ -57,37 +24,42 @@ class UserHeader extends React.Component{
   createUserModal(){
     return(
       <div className='user-modal'>
-      <div className='usermodal-profile-block'>
+        <div className='usermodal-profile-block'>
+          <div>
+            <i className="far fa-user-circle"></i>
+          </div>
+          <div className='usermodal-profile-info'>
+            <p>{this.props.currentUser.username}</p>
+            <p>View Profile</p>
+          </div>
+        </div>
         <div>
-          <i className="far fa-user-circle"></i>
+          <i></i>
+          <p>gift card balance : $0.00</p>
         </div>
-        <div className='usermodal-profile-info'>
-          <p>{this.props.currentUser.username}</p>
-          <p>View Profile</p>
+        <div>
+          <i></i>
+          <p>Messages</p>
+        </div>
+        <div>
+          <p>Purchases and Reviews</p>
+        </div>
+        <div>
+          <p>Account Settings</p>
+        </div>
+        <div>
+          <p>Your Teams</p>
+        </div>
+        <div onClick={this.handleSignOut}>
+          <p>Sign Out</p>
         </div>
       </div>
-      <div>
-        <i></i>
-        <p>gift card balance : $0.00</p>
-      </div>
-      <div>
-        <i></i>
-        <p>Messages</p>
-      </div>
-      <div>
-        <p>Purchases and Reviews</p>
-      </div>
-      <div>
-        <p>Account Settings</p>
-      </div>
-      <div>
-        <p>Your Teams</p>
-      </div>
-      <div onClick={this.handleSignOut}>
-        <p>Sign Out</p>
-      </div>
-    </div>
     )
+  }
+
+  componentDidMount(){
+    let modal = this.createUserModal();
+    this.setState({ userModal : modal });
   }
 
   setModalStatus(){
@@ -105,8 +77,6 @@ class UserHeader extends React.Component{
 
   render(){
     let cartPath = "/cart";
-    let shopManagerPath = "/shops-manager";
-    this.createUserModal();
     let userModal;
     if(this.state.userModalStatus){
       userModal = this.state.userModal;
