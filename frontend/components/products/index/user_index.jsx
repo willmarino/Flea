@@ -41,16 +41,12 @@ class UserIndex extends React.Component{
       !this.props.recentlyViewedProducts){
       return <p></p>;
     }
-    debugger;
     return(
       <div>
         <SuggestedContainer/>
         <ul className="primary-index">
           <RecentlyViewedContainer/>
         </ul>
-        {/* <ul className='primary-index'>
-          <IndexRowContainer type='simple' rowId={0}/>
-        </ul> */}
         <ul className='primary-index'>
           <IndexRowContainer type='simple' rowId={1}/>
         </ul>

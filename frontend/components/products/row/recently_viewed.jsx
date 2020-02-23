@@ -11,14 +11,12 @@ class RecentlyViewed extends React.Component{
   compileProducts(){
     let { recentlyViewedProducts } = this.props;
     let products = [];
-    debugger;
     for(let i = 0; i < recentlyViewedProducts.length; i++){
       let p = recentlyViewedProducts[i];
       products.push(
         <IndexItem loggedIn={this.props.loggedIn} product={p} type="simple" key={p.id}/>
       );
     }
-    debugger;
     this.productsList = <ul>{products}</ul>;
   }
 

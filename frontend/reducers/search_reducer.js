@@ -15,7 +15,6 @@ import {
 
 const SearchReducer = (state={}, action) => {
   Object.freeze(state);
-  if(action.type === RECEIVE_SUGGESTED_SEARCH_TAGS) debugger;
   let usedTerms;
   switch(action.type){
     case RECEIVE_USED_TERM:

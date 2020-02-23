@@ -13,7 +13,6 @@ class IndexRow extends React.Component{
         let products = this.props.products.map((p) => {
             return <IndexItem product={p} type={this.props.type} loggedIn={this.props.loggedIn} key={p.id}/> //shop={this.props.shops[p.shop_id]}
         });
-        debugger;
         let category = this.props.categories[this.props.products[0].high_level_category].name;
         return(
             <>

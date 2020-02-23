@@ -16,11 +16,12 @@ class Suggested extends React.Component{
   compileSearchesList(){
     let { suggestedSearches } = this.props;
     let searches = [];
-    // this.props.suggestedSearches
     for(let i = 0; i < suggestedSearches.length; i++){
       let curTerm = suggestedSearches[i].tag_name;
       searches.push(
-        <li onClick={this.handleSearch} data-val={curTerm}>{curTerm}</li>
+        <li onClick={this.handleSearch}
+          data-val={curTerm}
+          className="suggested-searches-list-item">{curTerm}</li>
       );
     }
     this.searchesList = <ul className="suggested-searches-list">{searches}</ul>;
@@ -30,15 +31,16 @@ class Suggested extends React.Component{
     this.compileSearchesList();
     return(
       <div className='suggested-searches-container'>
-        <p>Hello, {this.props.currentUser.username}</p>
-        <div>
-          <div>
-            <p>Suggested Searches</p>
-            <p>Based on recent activity</p>
+        <div className='suggested-searches-subcontainer'>
+          <p className='suggested-searches-header'>Welcome back, {this.props.currentUser.username}!</p>
+          <div className='suggested-searches-subheaders-and-list'>
+            <div className="suggested-searches-subheaders">
+              <p className="suggested-searches-subheader" id="ss-subheader-one">Suggested Searches</p>
+              <p className="suggested-searches-subheader" id="ss-subheader-two">Based on recent activity</p>
+            </div>
+            {this.searchesList}
           </div>
-          {this.searchesList}
         </div>
-
       </div>
     )
   }

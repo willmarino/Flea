@@ -33,7 +33,6 @@ class AnonIndex extends React.Component{
       !this.props.catRowCategories){
       return <p></p>;
     }
-    debugger;
     return(
       <div>
         <Advert/>

@@ -27,7 +27,6 @@ class Api::ViewsController < ApplicationController
   end
 
   def add
-    debugger
     product = Product.find(params[:prod_id])
     View.create({ user_id: current_user.id, product_id: product.id })
     @views = product.views
