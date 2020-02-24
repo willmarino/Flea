@@ -81,6 +81,7 @@ Rails.application.routes.draw do
         get 'popular'
         get 'suggested'
         get 'search_main'
+        get 'search_main_footer'
         get 'suggested_searches'
       end
     end

@@ -45,6 +45,13 @@ export const fetchSearchMain = (queryStr) => {
   )
 }
 
+export const fetchSearchMainFooter = () => (
+  $.ajax({
+    method: "GET",
+    url: "/api/searches/search_main_footer"
+  })
+)
+
 // suggested searches fetches search queries which should bring up content that the user is interested in,
 // based on previous product viewings.
 export const fetchSuggestedSearches = () => (

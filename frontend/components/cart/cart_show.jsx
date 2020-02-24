@@ -60,7 +60,8 @@ class CartShow extends React.Component{
           shop={this.props.shops[this.props.products[0].shop_id]}
           createCartItem={this.props.createCartItem}
           cartId={this.props.cartId}
-          cartProducts={this.props.cartProducts}/>
+          cartProducts={this.props.cartProducts}
+          loggedIn={this.props.loggedIn}/>
         <CartShowFooter/>
       </div>
     )

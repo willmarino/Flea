@@ -49,7 +49,8 @@ const removeShop = (shopId) => ({
 export const receiveShopsByAssociatedProducts = (shops) => ({
     type: RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS,
     shops
-})
+});
+
 
 export const receiveShopByProduct = (shop) => ({
     type: RECEIVE_SHOP_BY_PRODUCT,

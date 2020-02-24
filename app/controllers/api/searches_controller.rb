@@ -31,7 +31,7 @@ class Api::SearchesController < ApplicationController
   # should change this to include
   def suggested
     query = params[:queryStr]
-    @terms = Tag.all.select{ |tag| tag.tag_name.start_with?(query)}[0..9]
+    @terms = Tag.all.select{ |tag| tag.tag_name.downcase.start_with?(query)}[0..9]
     render :terms_array
   end
 
@@ -69,15 +69,15 @@ class Api::SearchesController < ApplicationController
   end
 
   def search_main
-    query = params[:queryStr]
+    query = params[:queryStr].downcase
     @products = []
     @tags = []
     @filters = {}
-    @associated = []
+    # @associated = []
     # products by query
     Product.all.each do |p|
       p.name.split(" ").each do |word|
-        if word.include?(query)
+        if word.downcase.include?(query)
           @products << p
           break
         end
@@ -85,7 +85,7 @@ class Api::SearchesController < ApplicationController
     end
     # tagged products by query
     Tag.all.each do |t|
-      if t.tag_name.start_with?(query)
+      if t.tag_name.downcase.start_with?(query)
         t.tagged_products.each do |p|
           @products << p if !@products.include?(p)
         end
@@ -94,7 +94,7 @@ class Api::SearchesController < ApplicationController
     # products by query match with category
     Category.all.each do |c|
       c.name.split(" ").each do |word|
-        if word.include?(query)
+        if word.downcase.include?(query)
           c.products.each do |p|
             @products << p if !@products.include?(p)
           end
@@ -108,9 +108,11 @@ class Api::SearchesController < ApplicationController
         option = p.options[i]
         if !@filters[option]
           @filters[option] = p.options_details[i]
-        elsif @filters[option] != p.options_details
+        elsif @filters[option] != p.options_details[i]
           # messy, will redo once broad structure is working
-          @filters[option] = @filters[option].concat(p.options_details).uniq
+          p.options_details[i].each do |opdet|
+            @filters[option] << opdet if !@filters[option].include?(opdet)
+          end
         end
       end
       # tags
@@ -118,19 +120,30 @@ class Api::SearchesController < ApplicationController
         @tags << tag if !@tags.include?(tag)
       end
     end
-    @recents = View.all.order(created_at: :desc)[0...20].map{|view| view.product}
-    @recents.each do |rp|
-      @associated << rp.associated_products
-      @associated.flatten!.uniq!
-      break if @associated.length >= 10
-    end
-    @associated = @associated[0..10]
     @categories = @products.map{ |p| p.category }
-
-
+    @shops = @products.map{ |p| p.shop}
 
     render :search_main
 
+  end
+
+  def search_main_footer
+    @associated = []
+    @recents = []
+    current_user.views.order(created_at: :desc).each do |v|
+      @recents << v.product if !@recents.include?(v.product)
+      break if @recents.length >= 20
+    end
+    @recents.each do |rp|
+      rp.associated_products.each do |ap|
+        @associated << ap if !@associated.include?(ap)
+        break if @associated.length >= 10
+      end
+      break if @associated.length >= 10
+    end
+    @associated = @associated[0..10]
+    @shops = @recents.map{ |p| p.shop }.concat(@associated.map{ |p| p.shop })
+    render :search_main_footer
   end
 
 

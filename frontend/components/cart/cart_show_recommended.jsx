@@ -35,7 +35,7 @@ class CartShowRecommended extends React.Component{
       let p = products[i];
       subArr.push(
         <ul key={p.id}>
-          <IndexItem type={'cart-recommended'} product={p} shop={this.props.shop}/>
+          <IndexItem type={'cart-recommended'} product={p} shop={this.props.shop} loggedIn={this.props.loggedIn}/>
           <li onClick={(e) => this.handleCreate(e)} data-itemid={p.id}>Add to cart</li>
         </ul>
       );

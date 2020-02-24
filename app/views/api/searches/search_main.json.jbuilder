@@ -4,3 +4,4 @@ json.associatedProducts @associated
 json.tags @tags
 json.filters @filters
 json.categories @categories
+json.shops @shops

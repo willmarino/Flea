@@ -1,0 +1,49 @@
+.sr-container{
+  width: 90%;
+  max-width: 1260px;
+
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.sr-tags{
+  height: 30px;
+  // padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sr-tags > ul{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.sr-tag{
+  margin-right: 5px;
+  height: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 30px;
+  background: #fa9c71;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.sr-tag:hover{
+  box-shadow: 0px 0px 5px #eb7a46;
+}
+
+
+.sr-main{
+  display: flex;
+  
+}
+
+.sr-products{
+  display: flex;
+  flex-wrap: wrap;
+}

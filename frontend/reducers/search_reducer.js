@@ -7,7 +7,9 @@ import {
   RECEIVE_ASSOCIATED_RV,
   RECEIVE_RECOMMENDED_TAGS,
   RECEIVE_FILTERS,
-  RECEIVE_SEARCH_CATEGORIES
+  RECEIVE_SEARCH_CATEGORIES,
+  RECEIVE_RELATED_PRODUCTS_SHOPS,
+  CLEAR_SEARCH_DATA
 } from '../actions/search_actions';
 import {
   RECEIVE_SUGGESTED_SEARCH_TAGS
@@ -43,6 +45,15 @@ const SearchReducer = (state={}, action) => {
       return Object.assign({}, state, { productCategories : action.categories });
     case RECEIVE_SUGGESTED_SEARCH_TAGS:
       return Object.assign({}, state, { suggestedSearchTags : action.tags });
+    case RECEIVE_RELATED_PRODUCTS_SHOPS:
+      let newState = {};
+      for(let i = 0; i < action.shops.length; i++){
+        let shop = action.shops[i];
+        newState = Object.assign({}, newState, { [shop.id] : shop })
+      }
+      return Object.assign({}, state, { relatedShops : newState });
+    case CLEAR_SEARCH_DATA:
+      return {};
     default:
       return state;
   }

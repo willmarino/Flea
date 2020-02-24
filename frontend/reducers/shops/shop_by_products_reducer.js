@@ -6,21 +6,22 @@ import {
 } from '../../actions/shop_actions';
 
 const ShopsByProductsReducer = (state={}, action) => {
+  if(action.type === RECEIVE_SHOPS_BY_PRODUCTS) debugger;
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_SHOPS_BY_PRODUCTS:
       let newState = {};
       for(let i = 0; i < action.shops.length; i++){
-        let s = action.shops[i];
-        newState[s.id] = s;
+        let shop = action.shops[i];
+        newState[shop.id] = shop;
       }
-      return newState;
+      return Object.assign({}, state, { byProducts : newState })
     case RECEIVE_SHOP_BY_PRODUCT:
       return Object.assign({}, state, { byProduct : action.shop });
       case RECEIVE_SHOPS_BY_ASSOCIATED_PRODUCTS:
         return Object.assign({}, state, { shopsByAssociatedProducts  : action.shops })
       case RECEIVE_PRODUCT_SHOW_SHOP:
-        return Object.assign({}, state, { productShow : action.shop })
+        return Object.assign({}, state, { productShow : action.shop });
     default:
       return state;
   }

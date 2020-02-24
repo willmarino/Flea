@@ -6,6 +6,13 @@ class IndexItem extends React.Component{
     super(props);
   }
 
+  starsify(n){
+    let stars = [];
+      while(stars.length < n){
+        stars.push(<i className="fa fa-star" key={stars.length}></i>)
+      }
+    return stars;
+  }
 
 
     render(){
@@ -60,9 +67,9 @@ class IndexItem extends React.Component{
             <div id="item-label-top">
               <p>{this.props.product.name}</p>
               <p>{this.props.shop.name}</p>
+              <p>{this.starsify(Math.round(this.props.product.rating))}</p>
               <p>${this.props.product.price}</p>
             </div>
-            {/* <p>{this.props.product.rating}</p> */}
           </div>
         </li>
       )
