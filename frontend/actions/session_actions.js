@@ -1,7 +1,7 @@
 import * as SessionApi from '../util/session_util';
 
-import { receiveCart } from '../actions/cart_actions';
-import { receiveCartItems } from '../actions/cart_item_actions';
+import { receiveCart } from '../actions/newest_cart_actions';
+import { receiveCartItems } from '../actions/newest_cartitem_actions';
 
 export const LOG_IN_USER = "LOG_IN_USER";
 export const LOG_OUT_USER = "LOG_OUT_USER";

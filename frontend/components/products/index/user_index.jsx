@@ -1,11 +1,7 @@
 import React from 'react';
-// import SuggestedContainer from '../../suggested/suggested_container';
 import Suggested from '../../suggested/suggested';
-// import RecentlyViewedContainer from '../row/recently_viewed_container';
 import RecentlyViewed from '../row/recently_viewed';
-// import IndexRowContainer from '../row/index_row_container';
 import IndexRow from '../row/index_row';
-// import CategoryRowContainer from '../row/category_row_container';
 import Info from '../../segments/info';
 import Footer from '../../segments/footer';
 
@@ -13,7 +9,6 @@ class UserIndex extends React.Component{
   constructor(props){
     super(props)
 
-    // this.allPresent = this.allPresent.bind(this);
   }
 
   componentDidMount(){
@@ -21,9 +16,6 @@ class UserIndex extends React.Component{
       this.props.fetchIndex();
       this.props.fetchSuggestedTags();
       this.props.fetchRecentlyViewedProducts(6);
-      // this.props.fetchRecentViews();
-      // this.props.fetchSuggestedSearches();
-      // this.props.fetchProductCategories();
     }
   }
 

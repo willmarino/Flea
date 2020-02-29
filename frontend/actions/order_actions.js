@@ -1,5 +1,4 @@
 import * as OrderApiUtil from '../util/order_util';
-import { sendClearCart } from './cart_actions';
 
 export const RECEIVE_ORDER = "RECEIVE_ORDER";
 export const RECEIVE_ORDERS = "RECEIVE_ORDERS";

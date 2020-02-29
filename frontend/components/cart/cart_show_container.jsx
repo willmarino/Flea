@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import CartShow from './cart_show';
 
-// import { fetchCartShow } from '../../actions/cart_actions';
-// import { deleteCartItem, createCartItem } from '../../actions/cart_item_actions';
 
 import { fetchCartShow } from '../../actions/newest_cart_actions';
 import { createCartItem, deleteCartItem } from '../../actions/newest_cartitem_actions';
@@ -15,10 +13,6 @@ const msp = (state) => {
     loggedIn : Boolean(state.session.currentUser),
     cartId : state.entities.carts,
     pageLoaded : state.pageLoaded
-    // shops : state.entities.shops.byProducts.byProducts,
-    // shop : state.entities.shops,
-    // products : state.entities.products.byShop,
-    // cartProducts : state.entities.products.inCart
   })
 };
 

@@ -11,30 +11,16 @@ class AnonIndex extends React.Component{
   constructor(props){
     super(props)
 
-    // this.allPresent = this.allPresent.bind(this);
   }
 
   componentDidMount(){
-    // if(!this.allPresent()){
     if(!this.props.products.indexIds){
       this.props.fetchIndex();
-      // this.props.fetchProductCategories();
     }
   }
 
-  // allPresent(){
-  //   if((Object.keys(this.props.products).length !== 0) && (Object.keys(this.props.categories).length !== 0)){
-  //     return true;
-  //   }
-  //   return false;
-  // }
 
   render(){
-    // if(Object.values(this.props.products).length === 0 ||
-    //   !this.props.indexCategories ||
-    //   !this.props.catRowCategories){
-    //   return <p></p>;
-    // }
     if(!this.props.products.indexIds){
       return <p></p>
     }

@@ -24,7 +24,6 @@ class ProductShow extends React.Component{
         this.switchTabToProduct = this.switchTabToProduct.bind(this);
         this.switchTabToShop = this.switchTabToShop.bind(this);
         this.compileReviews = this.compileReviews.bind(this);
-        this.allPresent = this.allPresent.bind(this);
     }
 
     componentDidMount(){
@@ -37,10 +36,6 @@ class ProductShow extends React.Component{
             this.props.fetchProductShow(this.props.curProdId);
             window.scrollTo(0, 0);
         }
-        // this.updated = false;
-        // if(!this.updated){
-        //     this.updated = true;
-        // }
     }
 
     handleSubmit(e){
@@ -77,24 +72,20 @@ class ProductShow extends React.Component{
     compileReviews(){
         let productReviews = [];
         let pReviews = this.props.reviews['productReviewIds'].map((id) => this.props.reviews[id]);
-        // let productReviewCount = this.props.productReviews.length;
         let productReviewCount = pReviews.length;
         for(let i = 0; i < ( (this.state.limit === ('all') || pReviews.length < this.state.limit) ? pReviews.length : this.state.limit); i++){
             let r = pReviews[i];
             productReviews.push(
-                // <Review review={r} author={this.props.productReviewAuthors[i]} product={this.props.product} key={r.id}/>
                 <Review review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} key={r.id}/>
             );
         }
 
         let shopReviews = [];
         let sReviews = this.props.reviews['shopReviewIds'].map((id) => this.props.reviews[id]).reverse();
-        // let shopReviewCount = this.props.shopReviews.length;
         let shopReviewCount = sReviews.length;
         for(let i = 0; i < ( (this.state.limit === ('all') || sReviews.length < this.state.limit) ? sReviews.length : this.state.limit); i++){
             let r = sReviews[i];
             shopReviews.push(
-                // <Review review={r} author={this.props.shopReviewAuthors[i]} product={this.props.shopReviewProducts[i]} key={r.id}/>
                 <Review review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} key={r.id}/>
             );
         }
@@ -105,24 +96,10 @@ class ProductShow extends React.Component{
     }
 
     allPresent(){
-        // if(
-            // this.props.shopReviewProducts &&
-            // this.props.product &&
-            // this.props.shop &&
-            // this.props.productReviews &&
-            // this.props.shopReviews &&
-            // this.props.shopReviewAuthors &&
-            // this.props.productReviewAuthors
-        //     ){
-        //         return true;
-        //     }
-        // return false;
     }
 
     render(){
-        // if(!this.allPresent()){
-        //     return <p></p>;
-        // }
+
         if(
             !this.props.reviews.shopReviewIds ||
             !this.props.products[this.props.curProdId]
@@ -235,62 +212,3 @@ class ProductShow extends React.Component{
 }
 
 export default ProductShow;
-
-
-
-
-
-        // let tabSwitcher = <p></p>
-        // if(this.props.loggedIn){
-        //     tabSwitcher = <div onClick={this.handleClick}>Shop Reviews</div>;
-        // }
-        
-        // let reviewForm;
-        // if(this.props.loggedIn){
-        //     reviewForm = (
-        //         <form onSubmit={this.handleSubmit} className="review-form">
-        //             <div>
-        //                 <p>Title</p>
-        //                 <input type="text" onChange={this.update("title")} value={this.state.title}/>
-        //             </div>
-        //             <div>
-        //                 <p>Body</p>
-        //                 <textarea type="text" onChange={this.update("body")} value={this.state.body}/>
-        //             </div>
-        //             <div>
-        //                 <p>Rating</p>
-        //                 <input type="text" onChange={this.update("rating")} value={this.state.rating}/>
-        //             </div>
-        //             <input type="submit" value="submit"/>
-        //         </form>
-        //     );
-        // }else{
-        //     // reviewForm = <p className="null"></p>;
-        //     reviewForm = <p></p>
-        // };
-
-        // if(this.props.product && this.props.user){
-            // this.state = {
-                // title: "",
-                // body: "",
-                // rating: 0,
-                // item_id: this.props.product.id,
-                // author_id: this.props.user
-                // item_id: this.props.product.id,
-                // author_id: this.props.users[this.props.user]
-                // tab: 'product'
-            // };
-        // }
-
-
-{/* <div className="other-products">
-                    <div id="section-one">
-                        <p>By this shop</p>
-                    </div>
-                    <div id="section-two">
-                        <p>Related</p>
-                    </div>
-                    <div id="section-three">
-                        <p>Related</p>
-                    </div>
-                </div> */}

@@ -15,25 +15,7 @@ class ShopShow extends React.Component{
     this.props.addShopView(this.props.curShopId);
   }
 
-  // allPresent(){
-  //   if(this.props.shop &&
-  //       this.props.shopOwner &&
-  //       this.props.products &&
-  //       this.props.reviews &&
-  //       this.props.reviewAuthors &&
-  //       this.props.reviewProducts &&
-  //       this.props.reviewTags &&
-  //       this.props.categories){
-  //         return true;
-  //       }else{
-  //         return false;
-  //       }
-  // }
-
   render(){
-    // if(!this.allPresent()){
-    //   return <p></p>;
-    // }
     if(this.props.pageLoaded !== 'shopshow'){
       return <p>loading</p>;
     }
@@ -53,9 +35,6 @@ class ShopShow extends React.Component{
         <ShopReviews
           reviews={this.props.reviews}
           shop={curShop}
-          // authors={this.props.reviewAuthors}
-          // reviewProducts={this.props.reviewProducts}
-          // reviewTags={this.props.reviewTags}
           products={this.props.products}
           users={this.props.users}/>
       </div>

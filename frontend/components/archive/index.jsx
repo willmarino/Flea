@@ -21,20 +21,12 @@ class Index extends React.Component {
 
   }
 
-  componentDidMount(){
-    // this.props.fetchProducts();
-    // this.props.fetchShops();
-  }
-
   randomNumber(n){
     return Math.round(Math.random() * n);
   }
 
   render() {
     let randNum = this.randomNumber(7);
-    // let categories = [randNum, (randNum + 2) % this.categories.length].map((num) => {
-    //   return this.categories[num];
-    // });
     let categories = [5, 3].map((num) => {
       return this.categories[num];
     });

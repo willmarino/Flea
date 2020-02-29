@@ -11,7 +11,7 @@ import { receiveShopReviewIds } from './newest_reviews_actions';
 import { receiveUsers } from './users_actions';
 
 // fetchassociatedproducts imports
-import { receiveShops } from './shop_actions';
+import { receiveShops } from './newest_shop_actions';
 
 export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
@@ -104,13 +104,6 @@ export const fetchProductShow = (prodId) => dispatch => (
       dispatch(receiveProducts(res.products));
       dispatch(receiveProductReviewIds(res.product_review_ids));
       dispatch(receiveShopReviewIds(res.shop_review_ids));
-      // dispatch(receiveProductShowProduct(ps.product_show.product));
-      // dispatch(receiveProductShowShop(ps.product_show.shop));
-      // dispatch(receiveProductReviews(ps.product_show.product_reviews)); //reviews
-      // dispatch(receiveShopReviews(ps.product_show.shop_reviews)); //reviews
-      // dispatch(receiveProductReviewAuthors(ps.product_show.product_review_authors)); // users
-      // dispatch(receiveShopReviewAuthors(ps.product_show.shop_review_authors)); //users
-      // dispatch(receiveShopReviewProducts(ps.product_show.shop_review_products)); //products
     })
 )
 
@@ -129,7 +122,5 @@ export const fetchAssociatedProducts = (prodId, shopProducts, num) => dispatch =
       dispatch(receiveShops(res.shops));
       dispatch(receiveProducts(res.products));
       dispatch(receiveAssociatedIds(res.productIds));
-      // dispatch(receiveAssociatedProducts(ap.associated_products.products));
-      // dispatch(receiveShopsByAssociatedProducts(ap.associated_products.shops));
     })
 )

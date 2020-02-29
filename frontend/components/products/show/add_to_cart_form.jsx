@@ -5,12 +5,6 @@ class AddToCartForm extends React.Component{
   constructor(props){
     super(props);
 
-    // let options = {};
-    // let modalStatus = {};
-    // for(let i = 0; i < this.props.product.options.length; i++){
-    //   options[this.props.product.options[i]] = null;
-    //   modalStatus[this.props.product.options[i]] = false;
-    // }
     this.state = {
       errors : null,
       options : null,
@@ -94,17 +88,11 @@ class AddToCartForm extends React.Component{
   
 
   openModal(e){
-    // set all modals to closed, then open the one which was selected
     e.preventDefault();
     let modalState = this.state.modalStatus;
-    // for(let i = 0; i < Object.keys(this.state.modalStatus).length; i++){
-    //   let curKey = Object.keys(this.state.modalStatus)[i];
-    //   modalState[curKey] = false;
-    // }
     this.clearModals();
     modalState[e.currentTarget.dataset.option] = true;
     this.setState({modalStatus : modalState});
-    // this.addEventListener('mousedown', this.clearModals);
   }
 
   clearModals(){

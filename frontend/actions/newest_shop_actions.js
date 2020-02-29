@@ -21,6 +21,21 @@ export const receiveShop = (shop) => ({
   shop
 });
 
+export const createShop = (shop) => dispatch =>(
+  ShopApiUtil.createShop(shop)
+      .then(shop => dispatch(receiveShop(shop)))
+);
+
+export const updateShop = shop => dispatch => (
+  ShopApiUtil.updateShop(shop)
+      .then(shop => dispatch(receiveShop(shop)))
+);
+
+export const deleteShop = shopId => dispatch => (
+  ShopApiUtil.deleteShop(shopId)
+      .then((shop) => dispatch(removeShop(shop.id)))
+);
+
 export const fetchShopShow = (shopId) => dispatch => (
   ShopUtil.fetchShopShow(shopId)
     .then(res => {
@@ -32,13 +47,5 @@ export const fetchShopShow = (shopId) => dispatch => (
       dispatch(receiveShopProductIds(res.shopProductIds));
       dispatch(receiveShopReviewIds(res.shopReviewIds));
       dispatch(receivePageLoaded('shopshow'));
-      // dispatch(receiveShop(ss.shop_show.shop));
-      // dispatch(receiveShopOwner(ss.shop_show.owner));
-      // dispatch(receiveProductsByShop(ss.shop_show.products)); 
-      // dispatch(receiveShopReviews(ss.shop_show.reviews));
-      // dispatch(receiveShopReviewAuthors(ss.shop_show.authors));
-      // dispatch(receiveShopReviewProducts(ss.shop_show.review_products));
-      // dispatch(receiveTagsForShopReviews(ss.shop_show.review_product_tags));
-      // dispatch(receiveShopShowCategories(ss.shop_show.categories));
     })
 );

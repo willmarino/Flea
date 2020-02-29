@@ -17,17 +17,12 @@ class UserSubheader extends React.Component{
     }
     
 
-    // let showPath = `/products/${this.prop}`;
     let randNums = [];
     let i = 0;
     while(i < 4){
       randNums.push(Math.round(Math.random() * 40));
       i += 1;
     }
-    
-    // let suggestedProds = randNums.map((num) => {
-    //   <Link to={showPath}><p>{Object.values(this.props.products)[num].name}</p></Link>
-    // });
     
 
     return(

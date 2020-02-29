@@ -7,29 +7,14 @@ class CartShow extends React.Component{
   constructor(props){
     super(props);
 
-    // this.allPresent = this.allPresent.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchCartShow();
   }
 
-  // allPresent(){
-  //   if(
-  //     (Number.isInteger(this.props.cartId)) &&
-  //     (Object.values(this.props.cartProducts).length === Object.values(this.props.cartItems).length)
-  //   ){
-  //     return true;
-  //   }else{
-  //     return false;
-  //   }
-  // }
 
   render(){
-    // if there are pieces of info missing
-    // if(!this.allPresent()){
-    //   return <p></p>;
-    // if all info is there but cart is empty
     if(this.props.pageLoaded !== "cartshow"){
       return <p></p>;
     }

@@ -31,7 +31,12 @@ const receivePopularSearchIds = (ids) => ({
 const receiveSuggestedTerms = (terms) => ({
   type: RECEIVE_SUGGESTED_TERMS,
   terms
-})
+});
+
+export const createSearch = (query) => dispatch => (
+  SearchUtil.createSearch(query)
+    .then(res => dispatch(receiveSearch(res.search)))
+)
 
 // popular searches are the searches that are displayed in the searchbar modal when the searchbar is in focus,
 //  but nothing has been typed into it
@@ -63,13 +68,6 @@ export const fetchSearchMain = (queryStr) => dispatch => (
       dispatch(receiveSearchTagIds(res.tag_ids));
       dispatch(receiveSearchProductIds(res.product_ids));
       dispatch(receivePageLoaded('searchmain')); 
-
-
-      // dispatch(receiveShopsByProducts(res.shops));
-      // dispatch(clearSearchData());
-      // dispatch(receiveSearchCategories(res.categories));
-      // dispatch(receiveSearchProducts(res.products));
-      // dispatch(receiveRecommendedTags(res.tags));
     })
 )
 
@@ -80,8 +78,5 @@ export const fetchSearchMainFooter = () => dispatch => (
       dispatch(receiveAssociatedIds(res.associated_ids));
       dispatch(receiveRecentlyViewedIds(res.recent_ids));
       dispatch(receiveShops(res.shops));
-      // dispatch(receiveRecentlyViewed(res.recents));
-      // dispatch(receiveAssociatedRV(res.associated));
-      // dispatch(receiveRelatedProductsShops(res.shops));
     })
 )

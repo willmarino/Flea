@@ -21,18 +21,6 @@ class ShopProducts extends React.Component{
     this.update = this.update.bind(this);
     this.filterProductsByCategory = this.filterProductsByCategory.bind(this);
   }
-
-  // componentDidUpdate(prevProps){
-  //   if(prevProps.products !== this.props.products){
-  //     this.productsArr = this.props.products;
-  //     this.products = this.structureProducts();
-  //     this.cats = this.grabCats();
-  //   }
-  // }
-  
-  // returns an object of products grouped underneath keys corresponding to their categories,
-  // which means switching filters and displaying new products will take O(1) time, not O(n),
-  // after initial O(n) structureProducts call at beginning of component lifecycle
   structureProducts(){
     let products = this.props.products;
 

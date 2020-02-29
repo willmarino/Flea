@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import SearchResult from './search_result';
-// import { fetchSearchMain } from '../../actions/search_actions';
 import { fetchSearchMain } from '../../actions/newest_search_actions';
 
 const msp = (state, ownProps) => {
@@ -16,11 +15,6 @@ const msp = (state, ownProps) => {
     query : query,
     loggedIn : Boolean(state.session.currentUser),
     pageLoaded : state.pageLoaded
-    // searchProducts : state.search.searchProducts,
-    // recommendedTags : state.search.recommendedTags,
-    // filters : state.search.filters,
-    // categories : state.search.productCategories,
-    // shops : state.entities.shops.byProducts.byProducts,
   })
 }
 

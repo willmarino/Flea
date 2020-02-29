@@ -72,9 +72,6 @@ class ShopReviews extends React.Component{
       let r = reviewsArr[i];
       let a = users[r.author_id];
       let p = products[r.item_id];
-      // let r = this.props.reviews[i];
-      // let a = this.props.authors[i];
-      // let p = this.props.reviewProducts[i];
       for(let j = 0; j < this.filterWords.length; j++){
         let fw = this.filterWords[j];
         if(this.searchBodyForFilter(r, fw)){
@@ -160,7 +157,6 @@ class ShopReviews extends React.Component{
             author={a}
             starRating={this.starsify(Math.round(p.rating))}
             product={p}
-            // tags={ts}
             />
         )
       }
@@ -169,14 +165,12 @@ class ShopReviews extends React.Component{
         let r = this.reviews[this.state.page][i]['review'];
         let a = this.reviews[this.state.page][i]['author'];
         let p = this.reviews[this.state.page][i]['product'];
-        // let ts = this.reviews[this.state.page][i]['tags'];
         reviewsList.push(
           <ShopShowReview
             review={r}
             author={a}
             starRating={this.starsify(Math.round(p.rating))}
             product={p}
-            // tags={ts}
             />
         )
       }

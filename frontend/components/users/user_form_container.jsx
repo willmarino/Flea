@@ -4,11 +4,9 @@ import UserForm from './user_form';
 import { signupUser, signupUser2 } from '../../actions/users_actions';
 import { loginUser } from '../../actions/session_actions';
 import {
-  openModal, closeModal, OPEN_MODAL, CLOSE_MODAL
+  openModal, closeModal
 } from '../../actions/modal_actions';
 import {receiveErrors} from '../../actions/users_actions';
-
-// import { createCart } from '../../actions/cart_actions';
 
 const msp = state => ({
   user: {username: "", password: "", email: ""},
