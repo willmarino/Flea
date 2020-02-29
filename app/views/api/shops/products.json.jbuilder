@@ -1,1 +1,2 @@
-json.array! @products
+json.products @products
+json.productIds @product_ids

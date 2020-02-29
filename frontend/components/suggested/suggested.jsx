@@ -19,7 +19,8 @@ class Suggested extends React.Component{
     for(let i = 0; i < suggestedSearches.length; i++){
       let curTerm = suggestedSearches[i].tag_name;
       searches.push(
-        <li onClick={this.handleSearch}
+        <li key={curTerm}
+          onClick={this.handleSearch}
           data-val={curTerm}
           className="suggested-searches-list-item">{curTerm}</li>
       );

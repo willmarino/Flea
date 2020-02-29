@@ -6,7 +6,6 @@ import CartShowOrderContainer from './cart_show_order_container';
 class CartShowProducts extends React.Component{
   constructor(props){
     super(props);
-
     this.compileItems = this.compileItems.bind(this);
   }
 

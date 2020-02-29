@@ -9,15 +9,16 @@ class RecentlyViewed extends React.Component{
   }
 
   compileProducts(){
-    let { recentlyViewedProducts } = this.props;
-    let products = [];
-    for(let i = 0; i < recentlyViewedProducts.length; i++){
-      let p = recentlyViewedProducts[i];
-      products.push(
+    // let products = this.props.products.recentlyViewedIds.map((id) => this.props.products[id]);
+    let { products } = this.props;
+    let productsArr = [];
+    for(let i = 0; i < products.length; i++){
+      let p = products[i];
+      productsArr.push(
         <IndexItem loggedIn={this.props.loggedIn} product={p} type="simple" key={p.id}/>
       );
     }
-    this.productsList = <ul>{products}</ul>;
+    this.productsList = <ul>{productsArr}</ul>;
   }
 
   render(){

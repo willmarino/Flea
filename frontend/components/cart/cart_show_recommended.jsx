@@ -20,7 +20,7 @@ class CartShowRecommended extends React.Component{
   handleCreate(e){
     e.preventDefault();
     if(!this.props.cartProducts[e.currentTarget.dataset['itemid']]){
-      this.props.createCartItem({cart_id : this.props.cartId, item_id : e.currentTarget.dataset['itemid']});
+      this.props.createCartItem({item_id : e.currentTarget.dataset['itemid']});
     }
   }
 
@@ -36,7 +36,7 @@ class CartShowRecommended extends React.Component{
       subArr.push(
         <ul key={p.id}>
           <IndexItem type={'cart-recommended'} product={p} shop={this.props.shop} loggedIn={this.props.loggedIn}/>
-          <li onClick={(e) => this.handleCreate(e)} data-itemid={p.id}>Add to cart</li>
+          <li onClick={(e) => this.handleCreate(e)} data-numOptions={p.options.length} data-itemid={p.id}>Add to cart</li>
         </ul>
       );
       if(subArr.length === 5){

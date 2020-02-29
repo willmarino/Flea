@@ -33,15 +33,15 @@ class ProductShow extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        if(prevProps.curProdId !== this.props.curProdId){
-            this.updated = false;
-        }
-        if(!this.updated){
+        if(prevProps.curProdId !== this.props.curProdId && prevProps.curPath.includes('/products/')){
             this.props.fetchProductShow(this.props.curProdId);
-            this.updated = true;
+            window.scrollTo(0, 0);
         }
+        // this.updated = false;
+        // if(!this.updated){
+        //     this.updated = true;
+        // }
     }
-
 
     handleSubmit(e){
         e.preventDefault();
@@ -76,23 +76,28 @@ class ProductShow extends React.Component{
 
     compileReviews(){
         let productReviews = [];
-        let productReviewCount = this.props.productReviews.length;
-        for(let i = 0; i < ( (this.state.limit === ('all') || this.props.productReviews.length < this.state.limit) ? this.props.productReviews.length : this.state.limit); i++){
-            let r = this.props.productReviews[i];
+        let pReviews = this.props.reviews['productReviewIds'].map((id) => this.props.reviews[id]);
+        // let productReviewCount = this.props.productReviews.length;
+        let productReviewCount = pReviews.length;
+        for(let i = 0; i < ( (this.state.limit === ('all') || pReviews.length < this.state.limit) ? pReviews.length : this.state.limit); i++){
+            let r = pReviews[i];
             productReviews.push(
-                <Review review={r} author={this.props.productReviewAuthors[i]} product={this.props.product} key={r.id}/>
+                // <Review review={r} author={this.props.productReviewAuthors[i]} product={this.props.product} key={r.id}/>
+                <Review review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} key={r.id}/>
             );
         }
 
         let shopReviews = [];
-        let shopReviewCount = this.props.shopReviews.length;
-        for(let i = 0; i < ( (this.state.limit === ('all') || this.props.shopReviews.length < this.state.limit) ? this.props.shopReviews.length : this.state.limit); i++){
-            let r = this.props.shopReviews[i];
+        let sReviews = this.props.reviews['shopReviewIds'].map((id) => this.props.reviews[id]).reverse();
+        // let shopReviewCount = this.props.shopReviews.length;
+        let shopReviewCount = sReviews.length;
+        for(let i = 0; i < ( (this.state.limit === ('all') || sReviews.length < this.state.limit) ? sReviews.length : this.state.limit); i++){
+            let r = sReviews[i];
             shopReviews.push(
-                <Review review={r} author={this.props.shopReviewAuthors[i]} product={this.props.shopReviewProducts[i]} key={r.id}/>
+                // <Review review={r} author={this.props.shopReviewAuthors[i]} product={this.props.shopReviewProducts[i]} key={r.id}/>
+                <Review review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} key={r.id}/>
             );
         }
-
         return { 
             product: { reviews: productReviews, count: productReviewCount }, 
             shop: { reviews: shopReviews, count: shopReviewCount}
@@ -100,33 +105,41 @@ class ProductShow extends React.Component{
     }
 
     allPresent(){
-        if(this.props.shopReviewProducts &&
-            this.props.product &&
-            this.props.shop &&
-            this.props.productReviews &&
-            this.props.shopReviews &&
-            this.props.shopReviewAuthors &&
-            this.props.productReviewAuthors
-            ){
-                return true;
-            }
-        return false;
+        // if(
+            // this.props.shopReviewProducts &&
+            // this.props.product &&
+            // this.props.shop &&
+            // this.props.productReviews &&
+            // this.props.shopReviews &&
+            // this.props.shopReviewAuthors &&
+            // this.props.productReviewAuthors
+        //     ){
+        //         return true;
+        //     }
+        // return false;
     }
 
     render(){
-        if(!this.allPresent()){
+        // if(!this.allPresent()){
+        //     return <p></p>;
+        // }
+        if(
+            !this.props.reviews.shopReviewIds ||
+            !this.props.products[this.props.curProdId]
+            ){
             return <p></p>;
         }
+        let curProd = this.props.products[this.props.curProdId];
+        let curShop = this.props.shops[curProd.shop_id];
         if(!this.allReviewInfo || this.limitChanged){
             this.allReviewInfo = this.compileReviews();
             this.productReviews = this.allReviewInfo.product.reviews;
-            this.productAvg = this.starsify(Math.round(this.props.product.rating));
+            this.productAvg = this.starsify(Math.round(curProd.rating));
             this.pCount = this.allReviewInfo.product.count;
             this.shopReviews = this.allReviewInfo.shop.reviews;
-            this.shopAvg = this.starsify(Math.round(this.props.shop.rating));
+            this.shopAvg = this.starsify(Math.round(curShop.rating));
             this.sCount = this.allReviewInfo.shop.count;
         }
-
         let reviews;
         let rating;
         let count;
@@ -150,7 +163,7 @@ class ProductShow extends React.Component{
                 <div className="product">
                     <div className="photo-reviews">
                         <div className="photo">
-                            <img src={this.props.product.photoURL} alt=""/>
+                            <img src={curProd.photoURL} alt=""/>
                         </div>
                         <div className="reviews">
                             <div className="review-meta-info">
@@ -179,11 +192,11 @@ class ProductShow extends React.Component{
                     </div>
                     <div className="product-details">
                         <AddToCartFormContainer 
-                            product={this.props.product}
-                            shop={this.props.shop}
+                            product={curProd}
+                            shop={curShop}
                             productAvg={this.productAvg}
                             pCount={this.pCount}
-                            topLevelDoc={document.getElementById('prod-show')}/>
+                            curPath={this.props.curPath}/>
                         <div className="details">
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
                             accusantium doloremque laudantium, totam rem aperiam, eaque
@@ -201,16 +214,20 @@ class ProductShow extends React.Component{
                         </div>
                     </div>
                 </div>
+                {/* preview of other products sold by shop that sells the product of the page the user is on */}
                 <ShopPreviewContainer
-                    shop={this.props.shop}
+                    shop={curShop}
                     shopReviewCount={this.sCount}
                     shopStarRating={this.shopAvg}
                     curProdId={this.props.curProdId}
-                    product={this.props.product}/>
+                    curPath={this.props.curPath}
+                    product={curProd}/>
+                {/* products which are related to product which is showing, but not sold by shop featured in shop preview */}
                 <ShowRecommendContainer
-                    shop={this.props.shop}
+                    shop={curShop}
                     loggedIn={this.props.loggedIn}
-                    product={this.props.product}
+                    product={curProd}
+                    curPath={this.props.curPath}
                     curProdId={this.props.curProdId}/>
             </div>
         );

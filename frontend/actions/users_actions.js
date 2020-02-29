@@ -2,8 +2,9 @@ import * as UserApi from '../util/user_util';
 import * as SessionApi from '../util/session_util';
 
 import { loginUser } from './session_actions';
-import { createCart } from '../util/cart_util';
-import { receiveCart } from './cart_actions';
+import { receiveCart } from '../actions/newest_cart_actions';
+// import { createCart } from '../util/cart_util';
+// import { receiveCart } from './cart_actions';
 
 export const SIGN_UP_USER = "SIGN_UP_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
@@ -11,6 +12,7 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const RECENTLY_VIEWED_PRODUCTS = "RECENTLY_VIEWED_PRODUCTS";
 export const RECEIVE_AUTHORS = "RECEIVE_AUTHORS";
+export const RECEIVE_HAPPY_USER_IDS = "RECEIVE_HAPPY_USER_IDS";
 
 // export const RECEIVE_PRODUCT_REVIEW_AUTHORS = "RECEIVE_PRODUCT_REVIEW_AUTHORS";
 // export const RECEIVE_SHOP_REVIEW_AUTHORS = "RECEIVE_SHOP_REVIEW_AUTHORS";
@@ -28,10 +30,15 @@ export const receiveErrors = (errors) => ({
   errors
 });
 
-const receiveUsers = (users) => ({
+export const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
   users
 });
+
+export const receiveHappyUserIds = (ids) => ({
+  type: RECEIVE_HAPPY_USER_IDS,
+  ids
+})
 
 const recentlyViewedProducts = (products) => ({
   type: RECENTLY_VIEWED_PRODUCTS,
@@ -68,11 +75,17 @@ export const signupUser = (user) => dispatch => (
 
 export const signupUser2 = (user) => (dispatch) => (
   UserApi.createUser(user)
-    .then(user => {
-      dispatch(receiveUser(user));
-      return createCart({user_id: user.id});
-    }).then(cart => dispatch(receiveCart(cart))),
+    .then(res => {
+      dispatch(receiveUser(res.user));
+      dispatch(receiveCart(res.cart));
+    },
       errors => dispatch(receiveErrors(errors.responseJSON))
+    )
+    // .then(user => {
+    //   dispatch(receiveUser(user));
+    //   return createCart({user_id: user.id});
+    // }).then(cart => dispatch(receiveCart(cart))),
+    //   errors => dispatch(receiveErrors(errors.responseJSON))
 );
 
 export const fetchUsers = () => dispatch => (

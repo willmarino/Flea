@@ -16,13 +16,13 @@ class MainSearchbar extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchPopularTerms();
+    this.props.fetchPopularSearches();
   }
 
   componentDidUpdate(prevProps, prevState){
-    if(prevProps.suggestedTerms !== this.props.suggestedTerms){
+    if(prevProps.searches.suggestedTerms !== this.props.searches.suggestedTerms){
       this.createModal();
-    }else if(prevProps.popularTerms !== this.props.popularTerms){
+    }else if(prevProps.searches.popularSearchIds !== this.props.searches.popularSearchIds){
       this.createModal();
     }else if(prevState.query !== '' && this.state.query === ''){
       this.createModal();
@@ -43,11 +43,14 @@ class MainSearchbar extends React.Component{
   }
 
   createModal(){
-    let { popularTerms, suggestedTerms } = this.props;
+    // let { popularTerms, suggestedTerms } = this.props;
+    let { searches } = this.props;
+    let popularTerms = searches.popularSearchIds.map((id) => searches[id]);
+    let suggestedTerms = searches.suggestedTerms;
     let res = [];
-    if(this.state.query !== '' && this.props.suggestedTerms){
+    if(this.state.query !== '' && searches.suggestedTerms){
       for(let i = 0; i < suggestedTerms.length; i++){
-        let term = suggestedTerms[i].tag_name;
+        let term = suggestedTerms[i];
         res.push(
           <li key={term} className='suggested-search-term'>{term}</li>
         )
@@ -72,7 +75,7 @@ class MainSearchbar extends React.Component{
   }
 
   render(){
-    if(!this.props.popularTerms){
+    if(!this.props.searches.popularSearchIds){
       return <p></p>
     }
     let modal = (this.state.modalShowing) ? this.state.modal : null;

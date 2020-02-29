@@ -1,1 +1,1 @@
-json.array! @searches
+json.searches @searches

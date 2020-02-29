@@ -1,12 +1,6 @@
-json.happy_reviews do
-  json.reviews do
-    json.array! @happy_reviews
-  end
-  json.products do
-    json.array! @products
-  end
-  json.users do
-    json.array! @users
-  end
-
-end
+json.reviews @happy_reviews
+json.reviewIds @review_ids
+json.products @products
+json.productIds @product_ids
+json.users @users
+json.userIds @user_ids

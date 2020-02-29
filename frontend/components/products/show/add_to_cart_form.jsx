@@ -5,27 +5,48 @@ class AddToCartForm extends React.Component{
   constructor(props){
     super(props);
 
+    // let options = {};
+    // let modalStatus = {};
+    // for(let i = 0; i < this.props.product.options.length; i++){
+    //   options[this.props.product.options[i]] = null;
+    //   modalStatus[this.props.product.options[i]] = false;
+    // }
+    this.state = {
+      errors : null,
+      options : null,
+      modalStatus : null
+    }
+    this.generateModals = this.generateModals.bind(this);
+    this.setOptionValue = this.setOptionValue.bind(this);
+    this.createMenu = this.createMenu.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.clearModals = this.clearModals.bind(this);
+    this.switchModal = this.switchModal.bind(this);
+    this.modalCloser = null;
+    this.targets = [];
+    this.handleAddToCart = this.handleAddToCart.bind(this);
+  }
+
+  componentDidMount(){
+    this.createMenu();
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.product !== this.props.product){
+      this.createMenu();
+    }
+  }
+
+  createMenu(){
     let options = {};
     let modalStatus = {};
     for(let i = 0; i < this.props.product.options.length; i++){
       options[this.props.product.options[i]] = null;
       modalStatus[this.props.product.options[i]] = false;
     }
-    this.state = {
-      errors : null,
-      options,
-      modalStatus
-    }
-    this.topLevelDoc = this.props.topLevelDoc;
-    this.generateModals = this.generateModals.bind(this);
-    this.setOptionValue = this.setOptionValue.bind(this);
+    this.setState({ options, modalStatus });
     this.generateModals();
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.switchModal = this.switchModal.bind(this);
-    this.modalCloser = null;
-    this.targets = [];
-    this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
   generateModals(){
@@ -61,6 +82,7 @@ class AddToCartForm extends React.Component{
       this.setState({modalStatus : modalStatus});
     }
   }
+
   switchModal(e){
     e.preventDefault();
     if(this.state.modalStatus[e.currentTarget.dataset.option]){
@@ -124,19 +146,32 @@ class AddToCartForm extends React.Component{
   }
   
   render(){
-
+    if(this.props.product.options.length !== 0 && !this.state.options){
+      return <p></p>
+    }
     let optionsMenu = [];
-    for(let i = 0; i < Object.keys(this.state.options).length; i++){
-      let curKey = Object.keys(this.state.options)[i];
-      let curOption = this.state.options[curKey];
-      optionsMenu.push(
-        <li key={Math.round(Math.random() * 1000)} className='dropdown-button-container'>
-          <button onClick={this.switchModal} data-option={`${curKey}`} className='dropdown-button'>
-            {(curOption === null) ? 'Select an option' : curOption}
-          </button>
-          {(this.state.modalStatus[curKey]) ? this.modals[curKey] : <p></p>}
-        </li>
-      )
+
+    if(!this.state.options){
+      optionsMenu = null;
+    }else{
+      for(let i = 0; i < Object.keys(this.state.options).length; i++){
+        let curKey = Object.keys(this.state.options)[i];
+        let curOption = this.state.options[curKey];
+        optionsMenu.push(
+          <li key={Math.round(Math.random() * 1000)} className='dropdown-button-container'>
+            <button
+              // type="button"
+              onFocus={this.switchModal}
+              onBlur={this.clearModals}
+              data-option={`${curKey}`}
+              className='dropdown-button'>
+              {/* // value={(curOption === null) ? 'Select an option' : curOption}> */}
+              {(curOption === null) ? 'Select an option' : curOption}
+            </button>
+            {(this.state.modalStatus[curKey]) ? this.modals[curKey] : <p></p>}
+          </li>
+        )
+      }
     }
     let showPath;
     if(this.props.loggedIn){

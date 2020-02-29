@@ -85,7 +85,6 @@ export const fetchSuggestedSearches = () => dispatch => (
 export const fetchSearchMain = (queryStr) => dispatch => (
   SearchUtil.fetchSearchMain(queryStr)
     .then(searchObj => {
-      debugger;
       // 
       dispatch(clearSearchData());
       // 
@@ -100,7 +99,6 @@ export const fetchSearchMain = (queryStr) => dispatch => (
 export const fetchSearchMainFooter = () => dispatch => (
   SearchUtil.fetchSearchMainFooter()
     .then(res => {
-      debugger;
       dispatch(receiveRecentlyViewed(res.recents));
       dispatch(receiveAssociatedRV(res.associated));
       dispatch(receiveRelatedProductsShops(res.shops));

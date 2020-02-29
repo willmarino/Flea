@@ -28,7 +28,12 @@ class Api::ViewsController < ApplicationController
 
   def add
     product = Product.find(params[:prod_id])
-    View.create({ user_id: current_user.id, product_id: product.id })
+    if !logged_in?
+      cur_user = User.find_by(username: "DataCompiler")
+    else
+      cur_user = current_user
+    end
+    View.create({ user_id: cur_user.id, product_id: product.id })
     @views = product.views
     render :views_arr
   end

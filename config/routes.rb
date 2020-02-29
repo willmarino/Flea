@@ -45,6 +45,7 @@ Rails.application.routes.draw do
         get 'grab_index'
         get 'grab_by_category'
         get 'categories'
+        get 'recently_viewed'
       end
       member do
         get 'product_reviews'
@@ -88,6 +89,11 @@ Rails.application.routes.draw do
 
     resources :categories, only: [:index]
 
+    resources :tags, only: [:index] do
+      collection do
+        get 'suggested'
+      end
+    end
 
   end
 

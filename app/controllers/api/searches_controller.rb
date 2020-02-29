@@ -14,7 +14,7 @@ class Api::SearchesController < ApplicationController
       if current_user
         cur_id = current_user.id
       else
-        cur_id = User.find_by(name: "SearchCompiler").id
+        cur_id = User.find_by(name: "DataCompiler").id
       end
         @search = Search.create({user_id: cur_id, query: query_string})
     end
@@ -23,7 +23,25 @@ class Api::SearchesController < ApplicationController
 
   # fetches 10 searches which were created most recently
   def popular
-    @searches = Search.order(created_at: :desc)[0..9]
+    last_hundred_searches = Search.order(created_at: :desc)[0..99]
+    search_counter = {}
+    last_hundred_searches.each do |search|
+      if search_counter[search]
+        search_counter[search] += 1
+      else
+        search_counter[search] = 1
+      end
+    end
+    used_terms = []
+    @searches = []
+    search_vals = search_counter.values.sort![0..9]
+    search_counter.each do |k, v|
+      if search_vals.include?(v) && !used_terms.include?(k.query.downcase)
+        used_terms << k.query.downcase
+        @searches << k
+      end
+      break if @searches.length >= 10
+    end
     render :searches_array
   end
 
@@ -31,7 +49,16 @@ class Api::SearchesController < ApplicationController
   # should change this to include
   def suggested
     query = params[:queryStr]
-    @terms = Tag.all.select{ |tag| tag.tag_name.downcase.start_with?(query)}[0..9]
+    @terms = []
+    via_tag = Tag.all.select{ |tag| tag.tag_name.downcase.start_with?(query)}
+    via_tag.each do |tag|
+      @terms << tag.tag_name
+    end
+    via_product = Product.all.select{ |p| p.name.downcase.start_with?(query)}
+    via_category = Category.all.select{ |c| c.name.downcase.start_with?(query)}
+    via_product.concat(via_category).each do |obj|
+      @terms << obj.name
+    end
     render :terms_array
   end
 
@@ -71,7 +98,9 @@ class Api::SearchesController < ApplicationController
   def search_main
     query = params[:queryStr].downcase
     @products = []
+    @product_ids = []
     @tags = []
+    @tag_ids = []
     @filters = {}
     # @associated = []
     # products by query
@@ -79,6 +108,7 @@ class Api::SearchesController < ApplicationController
       p.name.split(" ").each do |word|
         if word.downcase.include?(query)
           @products << p
+          @product_ids << p.id
           break
         end
       end
@@ -88,6 +118,7 @@ class Api::SearchesController < ApplicationController
       if t.tag_name.downcase.start_with?(query)
         t.tagged_products.each do |p|
           @products << p if !@products.include?(p)
+          @product_ids << p.id
         end
       end
     end
@@ -97,19 +128,18 @@ class Api::SearchesController < ApplicationController
         if word.downcase.include?(query)
           c.products.each do |p|
             @products << p if !@products.include?(p)
+            @product_ids << p.id
           end
           break
         end
       end
     end
     @products.each do |p|
-      # filters
       (0...p.options.length).each do |i|
         option = p.options[i]
         if !@filters[option]
           @filters[option] = p.options_details[i]
         elsif @filters[option] != p.options_details[i]
-          # messy, will redo once broad structure is working
           p.options_details[i].each do |opdet|
             @filters[option] << opdet if !@filters[option].include?(opdet)
           end
@@ -117,32 +147,55 @@ class Api::SearchesController < ApplicationController
       end
       # tags
       p.tags.each do |tag|
-        @tags << tag if !@tags.include?(tag)
+        if !@tags.include?(tag)
+          @tag_ids << tag.id
+          @tags << tag 
+        end
       end
     end
-    @categories = @products.map{ |p| p.category }
-    @shops = @products.map{ |p| p.shop}
+    @categories = []
+    @shops = []
+    @products.each do |p|
+      cur_cat_id = p.high_level_category
+      cur_shop = p.shop
+      @categories << cur_cat_id if !@categories.include?(cur_cat_id)
+      @shops << cur_shop if !@shops.include?(cur_shop)
+    end
 
     render :search_main
 
   end
 
   def search_main_footer
-    @associated = []
-    @recents = []
+    # edit idea, send array of ids in params from searchmain which
+    # will avoid recommending products already shown in search results
+    @products = []
+    @associated_ids = []
+    @recent_ids = []
     current_user.views.order(created_at: :desc).each do |v|
-      @recents << v.product if !@recents.include?(v.product)
-      break if @recents.length >= 20
+      view_product = v.product
+      @recent_ids << view_product.id if !@recent_ids.include?(view_product.id)
+      @products << view_product
+      break if @recent_ids.length >= 20
     end
-    @recents.each do |rp|
+    recent_products = @products
+    recent_products.each do |rp|
       rp.associated_products.each do |ap|
-        @associated << ap if !@associated.include?(ap)
-        break if @associated.length >= 10
+        if !@associated_ids.include?(ap.id) && !@recent_ids.include?(ap.id)
+          @associated_ids << ap.id
+          @products << ap
+        end
+        break if @associated_ids.length >= 10
       end
-      break if @associated.length >= 10
+      break if @associated_ids.length >= 10
     end
-    @associated = @associated[0..10]
-    @shops = @recents.map{ |p| p.shop }.concat(@associated.map{ |p| p.shop })
+    @associated_ids = @associated_ids[0..10]
+    # may pull more produts than necessary, only associated ids are cut short to 10
+    @shops = []
+    @products.each do |p|
+      cur_shop = p.shop
+      @shops << cur_shop if !@shops.include?(cur_shop)
+    end
     render :search_main_footer
   end
 

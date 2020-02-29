@@ -27,6 +27,7 @@ class ShopReviews extends React.Component{
 
     this.changeFilter = this.changeFilter.bind(this);
     this.clearFilter = this.clearFilter.bind(this);
+    this.reviewsLength = null;
   }
 
   starsify(n){
@@ -64,21 +65,25 @@ class ShopReviews extends React.Component{
 
   // create structure on constructor load that will allow O(1) time fetching of groups of reviews based on pre-picked filter words
   categorizeByFilters(){
+    let { reviews, users, products } = this.props;
+    let reviewsArr = reviews.shopReviewIds.map((id) => reviews[id]);
     let filteredReviews = {};
-    for(let i = 0; i < this.props.reviews.length; i++){
-      let r = this.props.reviews[i];
-      let a = this.props.authors[i];
-      let p = this.props.reviewProducts[i];
-      let t = this.props.reviewTags[r.id];
+    for(let i = 0; i < reviewsArr.length; i++){
+      let r = reviewsArr[i];
+      let a = users[r.author_id];
+      let p = products[r.item_id];
+      // let r = this.props.reviews[i];
+      // let a = this.props.authors[i];
+      // let p = this.props.reviewProducts[i];
       for(let j = 0; j < this.filterWords.length; j++){
         let fw = this.filterWords[j];
         if(this.searchBodyForFilter(r, fw)){
           if(filteredReviews[fw]){
             filteredReviews[fw].push(
-              { review : r, author : a, product : p, tags: t }
+              { review : r, author : a, product : p}
             );
           }else{
-            filteredReviews[fw] = [{ review : r, author : a, product : p, tags: t }];
+            filteredReviews[fw] = [{ review : r, author : a, product : p}];
           }
           break;
         }
@@ -101,15 +106,19 @@ class ShopReviews extends React.Component{
   // creates pages structure for review display,
   // in this.reviews, keys are page numbers and corresponding arrays are the reviews that belong on that page
   compileReviews(){
+    let { reviews, users, products } = this.props;
+    let reviewsArr = reviews.shopReviewIds.map((id) => (reviews[id]));
+    this.reviewsLength = reviewsArr.length;
     let curPage = 1;
     let curPageReviews = [];
-    for(let i = 0; i < this.props.reviews.length; i++){
-      let r = this.props.reviews[i];
-      let a = this.props.authors[i];
-      // let p = this.props.reviewProducts[r.id];
-      let p = this.props.reviewProducts[i];
-      let t = this.props.reviewTags[r.id];
-      curPageReviews.push( { review : r, author : a, product : p, tags: t } );
+    for(let i = 0; i < reviewsArr.length; i++){
+      let r = reviewsArr[i];
+      let a = users[r.author_id];
+      let p = products[r.item_id];
+      // let r = this.props.reviews[i];
+      // let a = this.props.authors[i];
+      // let p = this.props.reviewProducts[i];
+      curPageReviews.push( { review : r, author : a, product : p} );
       if(curPageReviews.length === 5){
         this.reviews[curPage] = curPageReviews;
         curPage += 1;
@@ -143,7 +152,7 @@ class ShopReviews extends React.Component{
         let r = this.filteredReviews[this.state.curFilter][i]['review'];
         let a = this.filteredReviews[this.state.curFilter][i]['author'];
         let p = this.filteredReviews[this.state.curFilter][i]['product'];
-        let ts = this.filteredReviews[this.state.curFilter][i]['tags'];
+        // let ts = this.filteredReviews[this.state.curFilter][i]['tags'];
         // thought I needed tags, I dont need tags >:U
         reviewsList.push(
           <ShopShowReview
@@ -151,7 +160,7 @@ class ShopReviews extends React.Component{
             author={a}
             starRating={this.starsify(Math.round(p.rating))}
             product={p}
-            tags={ts}
+            // tags={ts}
             />
         )
       }
@@ -160,14 +169,14 @@ class ShopReviews extends React.Component{
         let r = this.reviews[this.state.page][i]['review'];
         let a = this.reviews[this.state.page][i]['author'];
         let p = this.reviews[this.state.page][i]['product'];
-        let ts = this.reviews[this.state.page][i]['tags'];
+        // let ts = this.reviews[this.state.page][i]['tags'];
         reviewsList.push(
           <ShopShowReview
             review={r}
             author={a}
             starRating={this.starsify(Math.round(p.rating))}
             product={p}
-            tags={ts}
+            // tags={ts}
             />
         )
       }
@@ -184,7 +193,7 @@ class ShopReviews extends React.Component{
             <div className='shop-reviews-meta-info'>
               <p>Average item rating</p>
               <div>{this.starsify(Math.round(this.props.shop.rating))}</div>
-              <p>({this.props.reviews.length})</p>
+              <p>({this.reviewsLength})</p>
             </div>
             <div className='shop-reviews-sorter'>
               <p>Sort By : Relevancy</p>

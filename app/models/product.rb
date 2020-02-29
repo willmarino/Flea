@@ -43,7 +43,6 @@ class Product < ApplicationRecord
   def self.by_category(category)
     products = []
     Product.all.each do |p|
-      # if p.high_level_category === category
       if p.category.name === category
         products << p
       end

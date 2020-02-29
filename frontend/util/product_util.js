@@ -89,12 +89,20 @@ export const fetchProductsByShop = (shopId, prodId, num) => {
   )
 }
 
-export const fetchAssociatedProducts = (prodId, shopProducts) => {
+export const fetchAssociatedProducts = (prodId, shopId, num) => {//------------------------------
   return(
     $.ajax({
       method: "GET",
       url: `/api/products/${prodId}/associated`,
-      data: {shopProducts}
+      data: {shopId}
     })
   )
 }
+
+export const fetchRecentlyViewedProducts = (limit) => (
+  $.ajax({
+    method: "GET",
+    url: "/api/products/recently_viewed",
+    data: { limit }
+  })
+)

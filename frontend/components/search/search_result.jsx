@@ -6,7 +6,10 @@ class SearchResult extends React.Component{
   constructor(props){
     super(props);
     
-    this.allPresent = this.allPresent.bind(this);
+    this.state = {
+
+    }
+
     this.compileTags = this.compileTags.bind(this);
     this.compileFilters = this.compileFilters.bind(this);
     this.compileProducts = this.compileProducts.bind(this);
@@ -22,51 +25,37 @@ class SearchResult extends React.Component{
   }
 
   shouldComponentUpdate(nextProps){
-    debugger;
-    // if(this.allPresent(nextProps) && !this.allPresent(this.props)){
-    if(nextProps.shops !== this.props.shops){
-      debugger;
+    if(nextProps.products.searchIds !== this.props.searchIds){
       this.compileAll(nextProps);
       return true;
     }else if(nextProps.query !== this.props.query){
       debugger;
       this.props.fetchSearchMain(nextProps.query);
       return true;
+    }else if(nextProps.pageLoaded !== this.props.pageLoaded){
+      return true;
     }else{
       return false;
     }
-  }
-
-  allPresent(props){
-    if(props.searchProducts &&
-      props.recommendedTags &&
-      props.filters &&
-      props.categories &&
-      props.shops &&
-      props.query){
-        return true;
-      }else{
-        return false;
-      }
   }
 
   compileAll(nextProps){
     this.compileTags(nextProps);
     this.compileFilters(nextProps);
     this.compileProducts(nextProps);
-    debugger;
   }
 
   compileTags(props){
-    let { recommendedTags } = props;
-    let tags = [];
+    let { tags } = props;
+    let recommendedTags = tags.searchIds.map((id) => tags[id]);
+    let tagsArr = [];
     for(let i = 0; i < recommendedTags.length; i++){
       let t = recommendedTags[i];
-      tags.push(
+      tagsArr.push(
         <li key={t.id} className="sr-tag">{t.tag_name}</li>
       )
     }
-    this.tagsList = tags;
+    this.tagsList = tagsArr;
   }
 
   compileFilters(props){
@@ -80,8 +69,8 @@ class SearchResult extends React.Component{
         let curOption = filters[curFilter][j];
         list.push(
           <li key={curOption}>
-            <input type="checkbox"/>
             <p>{curOption}</p>
+            <input type="checkbox"/>
           </li>
         )
       }
@@ -93,12 +82,12 @@ class SearchResult extends React.Component{
   }
 
   compileProducts(props){
-    let { searchProducts, shops } = props;
+    let { products, shops } = props;
+    let searchProducts = products.searchIds.map((id) => products[id]);
     let productsArr = [];
     for(let i = 0; i < searchProducts.length; i++){
       let p = searchProducts[i];
       let s = shops[p.shop_id];
-      debugger;
       productsArr.push(
         <IndexItem type="complex" product={p} shop={s} loggedIn={props.loggedIn}/>
       )
@@ -107,11 +96,9 @@ class SearchResult extends React.Component{
   }
 
   render(){
-    debugger;
-    if(!this.allPresent(this.props)){
-      return <p>Missing props</p>
+    if(this.props.pageLoaded !== 'searchmain'){
+      return <p>loading</p>;
     }
-    debugger;
     return(
       <div className='sr-container'>
         <div className='sr-tags'>

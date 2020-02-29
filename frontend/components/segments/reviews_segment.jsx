@@ -13,7 +13,9 @@ class ReviewsSegment extends React.Component{
   }
 
   compileReviews(){
-    let {users, reviews, products} = this.props;
+    let users = this.props.users.happyUserIds.map((id) => this.props.users[id]);
+    let products = this.props.products.happyProductIds.map((id) => this.props.products[id]);
+    let reviews = this.props.reviews.happyReviewIds.map((id) => this.props.reviews[id]);
     let reviewsObj = [];
     for(let i = 0; i < 3; i++){
       reviewsObj.push(<HappyReview product={products[i]} review={reviews[i]} user={users[i]} id={reviews[i].id} key={reviews[i].id}/>)
@@ -22,14 +24,12 @@ class ReviewsSegment extends React.Component{
   }
 
   allPresent(){
-    if(this.props.users && this.props.reviews && this.props.products) return true;
+    if(this.props.users.happyUserIds && this.props.reviews.happyReviewIds && this.props.products.happyProductIds) return true;
     return false;
   }
 
   render(){
     if(!this.allPresent()) return <p></p>;
-    let {users, reviews, products} = this.props;
-
     return(
       <ul className='all-happy-reviews'>
         {this.compileReviews()}

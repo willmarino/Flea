@@ -5,15 +5,14 @@ import ShopProducts from './shop_products';
 const msp = (state, ownProps) => {
   let curShopId = ownProps.curShopId;
   return({
+    shop : ownProps.shop,
     curShopId : curShopId,
-    shop: state.entities.shops.main,
-    products : ownProps.products,
+    products : ownProps.products.shopProductIds.map((id) => ownProps.products[id]),
+    categories : ownProps.categories,
     loggedIn : Boolean(state.session.currentUser),
-    categories : state.newcategories.shopShow
+    // shop: state.entities.shops.main,
+    // categories : state.newcategories.shopShow
   })
 };
 
-const mdp = (dispatch) => ({
-});
-
-export default connect(msp, mdp)(ShopProducts);
+export default connect(msp, null)(ShopProducts);

@@ -1,16 +1,20 @@
 import { connect } from 'react-redux';
 import ShowRecommend from './show_recommend';
-import { fetchAssociatedProducts } from '../../../actions/products/products_by_association_actions';
+// import { fetchAssociatedProducts } from '../../../actions/products/products_by_association_actions';
+import { fetchAssociatedProducts } from '../../../actions/newest_product_actions';
 
 const msp = (state, ownProps) => {
   return({
-    associatedProducts : state.entities.products.byAssociation,
-    // shopProducts : state.entities.products.shopProducts,
-    shopProducts : state.entities.products.byShop,
-    shops : state.entities.shops.byProducts.shopsByAssociatedProducts,
+    products : state.entities.products,
+    shops : state.entities.shops,
     shop : ownProps.shop,
     loggedIn : ownProps.loggedIn,
-    curProdId : ownProps.curProdId
+    curProdId : ownProps.curProdId,
+    curPath : ownProps.curPath
+    // shopProducts : state.entities.products.byShop,
+    // associatedProducts : state.entities.products.byAssociation,
+    // shopProducts : state.entities.products.shopProducts,
+    // shops : state.entities.shops.byProducts.shopsByAssociatedProducts,
   })
 };
 

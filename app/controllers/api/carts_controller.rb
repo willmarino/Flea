@@ -15,31 +15,36 @@ class Api::CartsController < ApplicationController
     # @cart_items = @cart.items
 
     if @cart.cart_items.length == 0
+      # cart_products = []
+      # shop_products = []
       @cart_items = []
-      @cart_products = []
       @shops = []
-      @shop_products = []
+      @products = []
+      @shop_product_ids = []
     else
 
       @cart_items = []
-      @cart_products = []
+      cart_products = []
       @cart.cart_items.each do |ci|
-        @cart_items << { 'item_id' => ci.product.id, 'chosen_options' => ci.chosen_options, 'id' => ci.id }
-        @cart_products << ci.product
+        # @cart_items << { 'item_id' => ci.product.id, 'chosen_options' => ci.chosen_options, 'id' => ci.id }
+        @cart_items << ci
+        cart_products << ci.product
       end
 
       @shops = []
-      @cart_products.each do |el|
+      cart_products.each do |el|
         @shops << el.shop
       end
       # based on shop of most recently added cart item (thats the way Etsy does it)
-      @shop_products = @shops[-1].products
-      if @shop_products.length > 15
-        @shop_products = @shop_products[0...15]
+      shop_products = @shops[-1].products
+      if shop_products.length > 15
+        shop_products = shop_products[0...15]
       end
+      @products = [shop_products, cart_products].flatten
+      @shop_product_ids = shop_products.map{ |p| p.id }
     end
 
-
+    render :cart_show
   end
 
   def clear

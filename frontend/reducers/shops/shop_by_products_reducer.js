@@ -6,7 +6,6 @@ import {
 } from '../../actions/shop_actions';
 
 const ShopsByProductsReducer = (state={}, action) => {
-  if(action.type === RECEIVE_SHOPS_BY_PRODUCTS) debugger;
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_SHOPS_BY_PRODUCTS:

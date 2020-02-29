@@ -8,15 +8,18 @@ class Api::CartItemsController < ApplicationController
   end
 
   def create
-    if cart_item_params[:cart_id]
-      cart_item = CartItem.new(cart_item_params)
+    cip = cart_item_params
+    if !cip[:chosen_options]
+      ops = []
+      Product.find(cip[:item_id]).options.each do
+        ops << "none"
+      end
     else
-      cart_item_info = { item_id: cart_item_params[:item_id], cart_id: current_user.cart.id, chosen_options: cart_item_params[:chosen_options]}
-      cart_item = CartItem.new(cart_item_info)
+      ops = cip[:chosen_options]
     end
-    if cart_item.save
-      @cart_item = { 'item_id' => cart_item.product.id, 'chosen_options' => cart_item.chosen_options, 'id' => cart_item.id }
-      @cart_product = cart_item.product
+    @cart_item = CartItem.new({item_id: cip[:item_id], cart_id: current_user.cart.id, chosen_options: ops})
+    if @cart_item.save
+      @cart_product = @cart_item.product
       render :show
     else
       render json: @cart_item.errors.full_messages, status: 422
@@ -24,8 +27,9 @@ class Api::CartItemsController < ApplicationController
   end
 
   def destroy
-    @cart_item = CartItem.find(params[:id])
-    @cart_item.destroy
+    cart_item = CartItem.find(params[:id])
+    @cart_item_id = cart_item.id
+    cart_item.destroy
     render :for_delete
   end
 

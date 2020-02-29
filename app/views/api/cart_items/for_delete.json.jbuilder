@@ -1,3 +1,1 @@
-json.cart_item_show do 
-  json.cart_item @cart_item
-end
+json.cartItemId @cart_item_id

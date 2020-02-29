@@ -31,19 +31,25 @@ class SearchResultFooter extends React.Component{
   }
 
   shouldComponentUpdate(nextProps, nextState){
+    debugger;
     if(this.allPresent(nextProps) && !this.allPresent(this.props)){
-      debugger;
       this.compileProducts(nextProps);
       return true;
     }else if(nextState !== this.state){
+      return true;
+    }else if(nextProps.products.associatedIds !== this.props.products.associatedIds){
+      // if(!this.recentProductsStructure && this.allPresent(nextProps)){
+      //   debugger;
+      //   this.compileProducts(nextProps);
+      // }
       return true;
     }
     return false;
   }
 
   allPresent(props){
-    if(props.recentlyViewedProducts &&
-      props.associatedProducts &&
+    if(props.products.recentlyViewedIds &&
+      props.products.associatedIds &&
       props.shops){
         return true;
       }else{
@@ -52,14 +58,15 @@ class SearchResultFooter extends React.Component{
   }
 
   compileProducts(props){
-    let { recentlyViewedProducts, associatedProducts, shops } = props;
+    let { products, shops } = props;
+    let recentlyViewedProducts = products.recentlyViewedIds.map((id) => products[id]);
+    let associatedProducts = products.associatedIds.map((id) => products[id]);
     let recentObj = this.buildStructure(recentlyViewedProducts, shops);
     this.recentProductsStructure = recentObj['obj'];
     this.recentsMaxPage = recentObj['pageNum'];
     let associatedObj = this.buildStructure(associatedProducts, shops);
     this.associatedProductsStructure = associatedObj['obj'];
     this.associatedMaxPage = associatedObj['pageNum'];
-    debugger;
   }
 
   buildStructure(products, shops){
@@ -69,7 +76,6 @@ class SearchResultFooter extends React.Component{
     for(let i = 0; i < products.length; i++){
       let p = products[i];
       let shop = shops[p.shop_id];
-      debugger;
       subArr.push(
         <IndexItem loggedIn={this.props.loggedIn} product={p} shop={shop} type="complex"/>
       )
@@ -83,14 +89,12 @@ class SearchResultFooter extends React.Component{
   }
 
   incrementRecentsPage(){
-    debugger;
     if(this.state.recentsPage + 1 <= this.recentsMaxPage){
       this.setState({ recentsPage : this.state.recentsPage + 1 });
     }
   }
 
   decrementRecentsPage(){
-    debugger;
     if(this.state.recentsPage - 1 >= this.recentsMinPage){
       this.setState({ recentsPage : this.state.recentsPage - 1 });
     }

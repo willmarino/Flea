@@ -12,30 +12,31 @@ class ShowRecommend extends React.Component{
 
 
   componentDidUpdate(prevProps){
-    if(!prevProps.shopProducts && this.props.shopProducts){
+    if(!prevProps.products.shopProductIds && this.props.products.shopProductIds){
       this.fetched = false;
     }else if(prevProps.curProdId !== this.props.curProdId){
       this.fetched = false;
     }
     if(!this.fetched){
-      this.props.fetchAssociatedProducts(this.props.product.id, this.props.shopProducts);
+      this.props.fetchAssociatedProducts(this.props.product.id, this.props.products.shopProductIds);
       this.fetched = true;
     }
   }
 
   compileProducts(){
-    let products = [];
-    for(let i = 0; i < this.props.associatedProducts.length; i++){
-      let p = this.props.associatedProducts[i];
-      products.push(
-        <IndexItem loggedIn={this.props.loggedIn} type='complex' key={p.id} shop={this.props.shops[i]} product={p}/>
+    let products = this.props.products.associatedIds.map((id) => this.props.products[id]);
+    let productsArr = [];
+    for(let i = 0; i < products.length; i++){
+      let p = products[i];
+      productsArr.push(
+        <IndexItem loggedIn={this.props.loggedIn} type='complex' key={p.id} shop={this.props.shops[p.shop_id]} product={p}/>
       )
     }
-    return products
+    return productsArr
   }
 
   render(){
-    if(!this.props.associatedProducts || !this.props.shops){
+    if(!this.props.products.associatedIds){
       return <p></p>;
     }
     let products = this.compileProducts();

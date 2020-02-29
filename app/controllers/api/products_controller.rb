@@ -48,32 +48,21 @@ class Api::ProductsController < ApplicationController
     @products = Product.by_ids(params[:ids_arr])
     render :recent_row
   end
-
+# products and sample products for categories
   def grab_index
-    categories = [
-      "Gifts",
-      "Jewelry & Accessories",
-      "Clothing & Shoes",
-      "Home & Living",
-      "Wedding & Party",
-      "Toys & Entertainment",
-      "Art & Collectibles",
-      "Craft & Supplies",
-      "Vintage"
-    ]
-    @res = []
+    @products = []
+    @ids = []
     @categories = []
-    cats = []
-    while cats.length < 3
-      c = categories[rand(9)]
-      if(!cats.include?(c))
-        cats.push(c)
-        @categories.push(Category.find_by(name: c))
+    3.times do
+      cur_category = Category.all[rand(0...Category.all.length)]
+      while @categories.include?(cur_category)
+        cur_category = Category.all[rand(0...Category.all.length)]
       end
+      @categories << cur_category
+      @products << cur_category.products[0..5]
+      @ids <<  @products[-1].map{ |product| product.id}
     end
-    cats.each do |cat|
-      @res.push(Product.by_category(cat))
-    end
+    @products.flatten!
     render :index
   end
 
@@ -107,37 +96,44 @@ class Api::ProductsController < ApplicationController
     # we have shopProducts in params, and we dont want to grab the same products for associated as those we grabbed for the shop preview,
     # so we have to have a list of the shopProducts we can compare newly aquired associated products too
     # So, we use the data in params to grab all of the products we need from the db
-    shopProducts = []
-    shopProducts_params.values.each do |obj|
-      shopProducts << Product.find(obj["id"])
-    end
+    # shopProductsIds = shopProducts_params
+    # shopProducts_params.values.each do |obj|
+    #   shopProducts << Product.find(obj["id"])
+    # end
+    main_shop_id = params[:shopId]
 
     # Next, were going to grab a large amount of products with the associayted products association, and filter it down
     # based on which products we are already displaying on the site
     @products = []
-    used = shopProducts
-    used << product
-    associated = product.associated_products
-    associated.each do |p|
-      already_seen = false
-      used.each do |asp|
-        if p.id == asp.id
-          already_seen = true
-          break
-        end
-      end
-      if !already_seen
-        @products << p
-        used << p
-      end
-      break if @products.length == 5;
+    # used = shopProducts
+    used = [product]
+    # associated = product.associated_products
+    # associated.each do |p|
+    #   already_seen = false
+    #   used.each do |asp|
+    #     if p.id == asp.id
+    #       already_seen = true
+    #       break
+    #     end
+    #   end
+    #   if !already_seen
+    #     @products << p
+    #     used << p
+    #   end
+    #   break if @products.length == 5;
+    # end
+    product.associated_products.each do |ap|
+      @products << ap if ap.shop_id != main_shop_id && !@products.include?(ap)
+      break if @products.length >= 6
     end
+    @shops = @products.map{ |p| p.shop }
+    @product_ids = @products.map{ |p| p.id }
     
     # finally, we need the associated shop for each of the products we send back, so we need to send an array of those back too
-    @shops = []
-    @products.each do |p|
-      @shops << p.shop
-    end
+    # @shops = []
+    # @products.each do |p|
+    #   @shops << p.shop
+    # end
     render :associated
   end
   
@@ -145,21 +141,63 @@ class Api::ProductsController < ApplicationController
   #   @products << p
   # end
   def product_show
-    @product = Product.find(params[:id])
-    @shop = @product.shop
-    @product_reviews = @product.reviews
-    @shop_reviews = @shop.reviews
-    @shop_review_authors = []
-    @shop_review_products = []
-    @shop_reviews.each do |sr|
-      @shop_review_authors.push(sr.user)
-      @shop_review_products.push(Product.find(sr.item_id))
+
+    product = Product.find(params[:id])
+    shop = product.shop
+    
+    shop_reviews = shop.reviews
+    shop_review_authors = shop_reviews.map{ |r| r.user }
+    shop_review_products = shop_reviews.map{ |r| r.product }
+    # shop_reviews.each do |sr|
+    #   shop_review_authors.push(sr.user)
+    #   shop_review_products.push(Product.find(sr.item_id))
+    # end
+
+    product_reviews = product.reviews
+    product_review_authors = product_reviews.map{ |p| p.user }
+    # product_reviews.each do |pr|
+    #   product_review_authors.push(pr.user)
+    # end
+
+    #
+    @shop_review_ids = shop_reviews.map{ |r| r.id }
+    @product_review_ids = product_reviews.map{ |r| r.id }
+
+    # @products = [product].concat(shop_review_products)
+    @products = [product]
+    @products << shop_review_products
+    @products.flatten!
+    # shop_review_products.each do |p|
+    #   @products << p
+    # end
+    @shops = shop
+    # @reviews = shop_reviews.concat(product_reviews)
+    @reviews = []
+    @reviews << shop_reviews
+    @reviews << product_reviews
+    @reviews.flatten!
+
+    # @users = shop_review_authors.concat(product_review_authors)
+    @users = []
+    @users << shop_review_authors
+    @users << product_review_authors
+    @users.flatten!
+    #
+    render :new_product_show
+  end
+
+  def recently_viewed
+    limit = params[:limit].to_i
+    @products = []
+    @ids = []
+    current_user.views.order(created_at: :desc).each do |view|
+      if !@ids.include?(view.product_id)
+        @products << view.product
+        @ids << view.product_id
+      end
+      break if @products.length >= limit
     end
-    @product_review_authors = []
-    @product_reviews.each do |pr|
-      @product_review_authors.push(pr.user)
-    end
-    render :product_show
+    render :recently_viewed
   end
 
   def product_params

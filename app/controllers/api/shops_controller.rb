@@ -35,26 +35,32 @@ class Api::ShopsController < ApplicationController
 
   def shop_show
     @shop = Shop.find(params[:id])
-    @owner = @shop.creator
-    @products = @shop.products
-    @reviews = @shop.reviews
-    @authors = []
-    @review_products = []
-    @review_product_tags = {}
+    @users = [@shop.creator]
+    @products = []
+    @reviews = []
+    @products << @shop.products
+    @shop_product_ids = @products.flatten.map{ |p| p.id }
+    @reviews << @shop.reviews
+    @review_ids = []
+    @reviews.flatten!
     @reviews.each do |r|
-      @authors.push(r.user)
-      # @review_products[r.id] = r.product
-      @review_products << r.product
-      @review_product_tags[r.id] = r.product.tags
+      @review_ids << r.id
+      @users.push(r.user)
+      @products << r.product
     end
+    @products.flatten!
+    @users.flatten!
     @categories = @products.map{|p| p.category}
+
+
     render :shop_show
   end
 
   def products
+    paramdata = shop_exception_params
     shop = Shop.find(params[:id])
     if params[:prodId]
-      prod_id = params[:prodId]
+      prod_id = paramdata[:prodId]
     end
     @products = []
     shop.products.each do |p|
@@ -63,8 +69,9 @@ class Api::ShopsController < ApplicationController
       else
         @products << p
       end
-      break if (@products.length == params[:num].to_i)
+      break if (@products.length >= paramdata[:num].to_i)
     end
+    @product_ids = @products.map{ |p| p.id }
     render :products
   end
 
@@ -98,8 +105,8 @@ class Api::ShopsController < ApplicationController
   end
 
   def shop_exception_params
-    # params.permit(:product)
-    params.require(:prodId).permit!
+    params.permit(:num, :prodId)
+
   end
 
 end

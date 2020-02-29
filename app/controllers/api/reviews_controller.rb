@@ -34,6 +34,9 @@ class Api::ReviewsController < ApplicationController
     @happy_reviews.each do |hr|
       @users << User.find(hr.author_id)
     end
+    @product_ids = @products.map{ |p| p.id }
+    @review_ids = @happy_reviews.map{ |r| r.id }
+    @user_ids = @users.map{ |u| u.id }
     
     render :happy_reviews
 end

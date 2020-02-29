@@ -1,6 +1,3 @@
-json.products do
-  json.array! @res
-end
-json.categories do
-  json.array! @categories
-end
+json.products @products
+json.ids @ids
+json.categories @categories

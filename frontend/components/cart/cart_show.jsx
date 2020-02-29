@@ -7,30 +7,34 @@ class CartShow extends React.Component{
   constructor(props){
     super(props);
 
-    this.allPresent = this.allPresent.bind(this);
+    // this.allPresent = this.allPresent.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchCartShow();
   }
 
-  allPresent(){
-    if(
-      (Number.isInteger(this.props.cartId)) &&
-      (Object.values(this.props.cartProducts).length === Object.values(this.props.cartItems).length)
-    ){
-      return true;
-    }else{
-      return false;
-    }
-  }
+  // allPresent(){
+  //   if(
+  //     (Number.isInteger(this.props.cartId)) &&
+  //     (Object.values(this.props.cartProducts).length === Object.values(this.props.cartItems).length)
+  //   ){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // }
 
   render(){
     // if there are pieces of info missing
-    if(!this.allPresent()){
-      return <p></p>;
+    // if(!this.allPresent()){
+    //   return <p></p>;
     // if all info is there but cart is empty
-    }else if(Object.values(this.props.cartItems).length === 0){
+    if(this.props.pageLoaded !== "cartshow"){
+      return <p></p>;
+    }
+
+    if(Object.values(this.props.cartItems).length === 0){
       return (
         <div className="cart-show-container">
           <div className="empty-cart-background-top">
@@ -47,20 +51,28 @@ class CartShow extends React.Component{
         </div>
       )
     }
+    let { products, cartItems, shops } = this.props;
+    let cartProducts = {}
+    for(let i = 0; i < Object.values(cartItems).length; i++){
+      let ci = Object.values(cartItems)[i];
+      cartProducts[ci.item_id] = products[ci.item_id];
+    }
+    let shopProducts = products.shopProductIds.map((id) => products[id]);
+    
     return(
       <div className="cart-show-container">
         <CartShowProducts
-          cartItems={this.props.cartItems}
-          cartProducts={this.props.cartProducts}
-          shops={this.props.shops}
+          cartItems={cartItems}
+          cartProducts={cartProducts}
+          shops={shops}
           deleteCartItem={this.props.deleteCartItem}
           loggedIn={this.props.loggedIn}/>
         <CartShowRecommended
-          products={this.props.products}
-          shop={this.props.shops[this.props.products[0].shop_id]}
+          products={shopProducts}
+          shop={this.props.shops[Object.values(cartProducts)[0].shop_id]}
           createCartItem={this.props.createCartItem}
           cartId={this.props.cartId}
-          cartProducts={this.props.cartProducts}
+          cartProducts={cartProducts}
           loggedIn={this.props.loggedIn}/>
         <CartShowFooter/>
       </div>

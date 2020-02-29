@@ -1,6 +1,7 @@
 import {
   SIGN_UP_USER,
   RECEIVE_USERS,
+  RECEIVE_HAPPY_USER_IDS
   // RECEIVE_PRODUCT_REVIEW_AUTHORS,
   // RECEIVE_SHOP_REVIEW_AUTHORS,
   // RECEIVE_SHOP_OWNER
@@ -14,7 +15,7 @@ import { RECEIVE_SHOP_OWNER } from '../actions/users/users_by_shop_actions';
 
 const UsersReducer = (state={}, action) => {
   Object.freeze(state);
-  let newState;
+  let newState = {};
   switch(action.type){
     // case RECEIVE_AUTHORS:
     //   // return Object.assign({}, state, { reviewAuthors : action.users })
@@ -36,7 +37,14 @@ const UsersReducer = (state={}, action) => {
     case SIGN_UP_USER:
       return Object.assign({}, state, { [action.user.id] : action.user });
     case RECEIVE_USERS:
-      return Object.assign({}, state, action.users);
+      for(let i = 0; i < action.users.length; i++){
+        let u = action.users[i];
+        newState[u.id] = u;
+      }
+      return Object.assign({}, state, newState);
+      // return Object.assign({}, state, action.users);
+    case RECEIVE_HAPPY_USER_IDS:
+      return Object.assign( {}, state, { happyUserIds : action.ids });
     default:
       return state;
   }

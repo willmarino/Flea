@@ -12,7 +12,7 @@ export const createSearch = (query) => (
 // this means all users, not just the user's own searches
 // right now popular terms just means recently searched.
 // I must add additional data into my seed file to be able to create a real popularity function.
-export const fetchPopularTerms = () => {
+export const fetchPopularSearches = () => {
   return(
     $.ajax({
       method: "GET",

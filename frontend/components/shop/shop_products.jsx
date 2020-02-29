@@ -35,6 +35,7 @@ class ShopProducts extends React.Component{
   // after initial O(n) structureProducts call at beginning of component lifecycle
   structureProducts(){
     let products = this.props.products;
+
     let res = {};
     res['all'] = [];
     for(let i = 0; i < products.length; i++){

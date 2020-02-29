@@ -7,24 +7,24 @@ class ShopPreview extends React.Component{
   constructor(props){
     super(props);
 
-    this.fetched = false;
+    this.needToUpdate = false;
 
     this.compileProducts = this.compileProducts.bind(this);
     this.configureDate = this.configureDate.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId);
+    this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId, 6);
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.curProdId !== this.props.curProdId){
-      this.fetched = false;
+    if(prevProps.curProdId !== this.props.curProdId && prevProps.curPath.includes('/products/')){
+      this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId , 6);
     }
-    if(!this.fetched){
-      this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId);
-      this.fetched = true;
-    }
+    // this.needToUpdate = true;
+    // if(this.needToUpdate){
+    //   this.needToUpdate = false;
+    // }
   }
 
   compileProducts(products){
@@ -60,17 +60,18 @@ class ShopPreview extends React.Component{
   }
 
   render(){
-    if(!this.props.shopProducts){
+    if(!this.props.products.shopProductIds){
       return <p></p>;
     }
-    let products = this.compileProducts(this.props.shopProducts);
+    // let products = this.compileProducts(this.props.shopProducts);
+    let { products } = this.props;
+    let productsArr = this.compileProducts(products.shopProductIds.map((id) => products[id]));
     return(
       // high level container
       <div className='shop-preview-container'>
         <div className='shop-preview-info-and-link'>
           <div className='shop-preview-info-and-name'>
-            <div className='fake-shop-preview-photo'>
-            </div>
+            <img src={this.props.shop.photoURL} alt="" className='fake-shop-preview-photo'/>
             <div className='shop-preview-info'>
               <div className='shop-preview-info-upper'>
                 <p>{this.props.shop.name}</p>
@@ -89,7 +90,7 @@ class ShopPreview extends React.Component{
           </div>
         </div>
         <ul className='shop-preview-products-container'>
-          {products}
+          {productsArr}
         </ul>
       </div>
     )
