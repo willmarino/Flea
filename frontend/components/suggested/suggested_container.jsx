@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Suggested from './suggested';
-import { fetchSearchMain } from '../../actions/search_actions';
+import { createSearch } from '../../actions/newest_search_actions'
 
 // suggestedSearches will be the only real content of this component
-const msp = state => ({
-  suggestedSearches : state.search.suggestedSearchTags,
+const msp = ( state, ownProps ) => ({
+  suggestedSearches : ownProps.suggestedSearches,
   currentUser : state.session.currentUser
 })
 // a click on one of the suggested searches will need to generate a search based on that tag
 const mdp = dispatch => ({
-  fetchSearchMain : (query) => dispatch(fetchSearchMain(query))
+  createSearch : (query) => dispatch(createSearch(query))
 })
 
-export default connect(msp, mdp)(Suggested)
+export default withRouter(connect(msp, mdp)(Suggested));

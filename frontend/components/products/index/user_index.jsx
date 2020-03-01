@@ -1,5 +1,5 @@
 import React from 'react';
-import Suggested from '../../suggested/suggested';
+import SuggestedContainer from '../../suggested/suggested_container';
 import RecentlyViewed from '../row/recently_viewed';
 import IndexRow from '../row/index_row';
 import Info from '../../segments/info';
@@ -32,13 +32,6 @@ class UserIndex extends React.Component{
   }
 
   render(){
-    // if(Object.values(this.props.products).length === 0 ||
-    //   !this.props.catRowCategories ||
-    //   !this.props.indexCategories ||
-    //   !this.props.suggestedSearches ||
-    //   !this.props.recentlyViewedProducts){
-    //   return <p></p>;
-    // }
     if(!this.allPresent()){
       return <p>loading</p>;
     }
@@ -51,13 +44,13 @@ class UserIndex extends React.Component{
     let rowThreeCategory = categories[rowThreeProduct.high_level_category].name;
     return(
       <div>
-        <Suggested
-          suggestedSearches={tags.suggestedIds.map((id) => tags[id])}
-          currentUser={user} />
+        <SuggestedContainer
+          suggestedSearches={tags.suggestedIds.map((id) => tags[id])}/>
         <ul className="primary-index">
           <RecentlyViewed
             products={products.recentlyViewedIds.map((id) => products[id])}
-            loggedIn={this.props.loggedIn}/>
+            loggedIn={this.props.loggedIn}
+            limit={6}/>
         </ul>
         <ul className='primary-index'>
           <IndexRow 

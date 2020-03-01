@@ -2,6 +2,7 @@ import * as ProductUtil from '../util/product_util';
 
 // fetchIndex imports
 import { receiveCategories } from './newest_categories_actions';
+import { receivePageLoaded } from './newest_page_loaded_actions';
 
 // fetchproductshow imports
 import { receiveShop } from './newest_shop_actions';
@@ -84,6 +85,7 @@ export const fetchIndex = () => (dispatch) => (
       dispatch(receiveProducts(res.products));
       dispatch(receiveCategories(res.categories));
       dispatch(receiveIndexIds(res.ids));
+      // dispatch(receivePageLoaded("main"))
     })
 );
 

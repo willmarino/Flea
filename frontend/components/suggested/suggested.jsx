@@ -10,7 +10,10 @@ class Suggested extends React.Component{
   }
 
   handleSearch(e){
-    this.props.fetchSearchMain(e.currentTarget.dataset.val);
+    // this.props.fetchSearchMain(e.currentTarget.dataset.val);
+    let query = e.currentTarget.dataset.val;
+    this.props.createSearch(query)
+      .then(this.props.history.push(`/search_result?query=${query}`));
   }
 
   compileSearchesList(){

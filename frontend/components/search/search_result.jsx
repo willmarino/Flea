@@ -96,6 +96,10 @@ class SearchResult extends React.Component{
     if(this.props.pageLoaded !== 'searchmain'){
       return <p>loading</p>;
     }
+    debugger;
+    // if(this.state.products.length === 0){
+    //   return <p>Your search returned no results! Try again.</p>;
+    // }
     return(
       <div className='sr-container'>
         <div className='sr-tags'>
