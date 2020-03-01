@@ -43,7 +43,6 @@ class MainSearchbar extends React.Component{
   }
 
   createModal(){
-    // let { popularTerms, suggestedTerms } = this.props;
     let { searches } = this.props;
     let popularTerms = searches.popularSearchIds.map((id) => searches[id]);
     let suggestedTerms = searches.suggestedTerms;

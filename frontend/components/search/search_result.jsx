@@ -16,6 +16,7 @@ class SearchResult extends React.Component{
     this.compileFilters = this.compileFilters.bind(this);
     this.compileProducts = this.compileProducts.bind(this);
     this.compileAll = this.compileAll.bind(this);
+    this.handleTagClick = this.handleTagClick.bind(this);
 
     this.tagsList = 'tags';
     this.filtersList = 'filters';
@@ -24,6 +25,13 @@ class SearchResult extends React.Component{
 
   componentDidMount(){
     this.props.fetchSearchMain(this.props.query);
+  }
+
+  handleTagClick(e){
+    e.preventDefault();
+    let query = e.currentTarget.dataset.val;
+    this.props.createSearch(query)
+      .then(this.props.history.push(`/search_result?query=${query}`));
   }
 
   componentDidUpdate(prevProps){
@@ -49,7 +57,7 @@ class SearchResult extends React.Component{
     for(let i = 0; i < recommendedTags.length; i++){
       let t = recommendedTags[i];
       tagsArr.push(
-        <li key={t.id} className="sr-tag">{t.tag_name}</li>
+        <li key={t.id} data-val={t.tag_name} onClick={this.handleTagClick} className="sr-tag">{t.tag_name}</li>
       )
     }
     this.tagsList = tagsArr;

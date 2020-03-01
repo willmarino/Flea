@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import SearchResult from './search_result';
-import { fetchSearchMain } from '../../actions/newest_search_actions';
+import { fetchSearchMain, createSearch } from '../../actions/newest_search_actions';
 
 const msp = (state, ownProps) => {
   let wholeQueryString = ownProps.location.search
@@ -20,7 +21,8 @@ const msp = (state, ownProps) => {
 }
 
 const mdp = dispatch => ({
-  fetchSearchMain : (query) => dispatch(fetchSearchMain(query))
+  fetchSearchMain : (query) => dispatch(fetchSearchMain(query)),
+  createSearch : (query) => dispatch(createSearch(query))
 })
 
-export default connect(msp, mdp)(SearchResult);
+export default withRouter(connect(msp, mdp)(SearchResult));
