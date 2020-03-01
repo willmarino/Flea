@@ -10,7 +10,7 @@ class HappyReview extends React.Component{
   starsify(num){
     let stars = [];
     for(let i = 0; i < num; i++){
-      stars.push(<li><i className="fa fa-star" key={Math.round(Math.random() * 99)}></i></li>)
+      stars.push(<li key={Math.round(Math.random() * 99)}><i className="fa fa-star"></i></li>)
     }
     return stars;
   }
@@ -38,7 +38,7 @@ class HappyReview extends React.Component{
   render(){
     let {user, review, product} = this.props;
     return(
-      <li className='happy-review' key={review.id}>
+      <li className='happy-review' >
         <div className='hr-container-one'>
           <img src={user.photoURL} alt="" className='avatar'/>
           <p>{user.username} wrote on {this.configureDate((review.created_at).slice(0,10))}</p>

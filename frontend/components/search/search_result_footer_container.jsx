@@ -9,7 +9,7 @@ const msp = (state) => ({
 })
 
 const mdp = (dispatch) => ({
-  fetchSearchMainFooter : () => dispatch(fetchSearchMainFooter())
+  fetchSearchMainFooter : (limit) => dispatch(fetchSearchMainFooter(limit))
 })
 
 export default connect(msp, mdp)(SearchResultFooter);

@@ -31,8 +31,9 @@ class MainSearchbar extends React.Component{
 
   executeSearch(e){
     e.preventDefault();
+    let url = (this.props.loggedIn) ? `/search_result?query=${this.state.query}` : `/anon/search_result?query=${this.state.query}`;
     this.props.createSearch(this.state.query)
-      .then(this.props.history.push(`/search_result?query=${this.state.query}`));
+      .then(this.props.history.push(url));
   }
 
   grabSuggestedSearches(e){

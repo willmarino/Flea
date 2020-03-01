@@ -12,7 +12,6 @@ export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_OWNED_SHOP_IDS = "RECEIVE_OWNED_SHOP_IDS";
 
 export const receiveShops = (shops) => {
-  debugger;
   return({
     type: RECEIVE_SHOPS,
     shops

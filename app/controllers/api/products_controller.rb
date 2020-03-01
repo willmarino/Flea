@@ -190,13 +190,49 @@ class Api::ProductsController < ApplicationController
     limit = params[:limit].to_i
     @products = []
     @ids = []
-    current_user.views.order(created_at: :desc).each do |view|
+
+    # run through all user views and compile a list of unique product ids
+    # if I have less than 6, than run through all user views and add products ids until I hit 6 (or the limit I am given)
+
+    user_views = current_user.views.order(created_at: :desc)
+    user_views.each do |view|
       if !@ids.include?(view.product_id)
-        @products << view.product
         @ids << view.product_id
+        @products << Product.find(view.product_id)
       end
-      break if @products.length >= limit
+      break if @products.length == limit
     end
+    if @products.length < limit
+      views = View.all.order(created_at: :desc)
+      views.each do |view|
+        if !@ids.include?(view.product_id)
+          @ids << view.product_id
+          @products << Product.find(view.product_id)
+        end
+        break if @products.length == limit
+      end
+    end
+
+
+
+    # user_views = []
+    # current_user.views.order(created_at: :desc)[0...limit].each do |view|
+    #   user_views << view
+    # end
+    # if user_views.length < 6
+    #   View.all.order(created_at: :desc).each do |view|
+    #     user_views << view if !user_views.include?(view)
+    #     break if user_views.length >= 6
+    #   end
+    # end
+    # debugger
+    # user_views.each do |view|
+    #   if !@ids.include?(view.product_id)
+    #     @products << view.product
+    #     @ids << view.product_id
+    #   end
+    #   break if @products.length >= limit
+    # end
     render :recently_viewed
   end
 

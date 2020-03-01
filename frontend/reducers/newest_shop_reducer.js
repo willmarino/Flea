@@ -5,7 +5,6 @@ import {
 } from '../actions/newest_shop_actions';
 
 const NewestShopReducer = (state={}, action) => {
-  if(action.type === RECEIVE_SHOPS) debugger;
   Object.freeze(state);
   let newState = {};
   switch(action.type){

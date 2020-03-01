@@ -35,6 +35,7 @@ class ProductShow extends React.Component{
         if(prevProps.curProdId !== this.props.curProdId && prevProps.curPath.includes('/products/')){
             this.props.fetchProductShow(this.props.curProdId);
             window.scrollTo(0, 0);
+            this.props.addView(this.props.curProdId);
         }
     }
 

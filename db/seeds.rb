@@ -322,6 +322,7 @@ u6 = User.create!(username: "Eve", viewed: [], password: "password", email: "eve
 u7 = User.create!(username: "Morty", viewed: [], password: "password", email: "morty@mail.com")
 u8 = User.create!(username: "Bert", viewed: [], password: "password", email: "bert@mail.com")
 u9 = User.create!(username: "Hillary", viewed: [], password: "password", email: "hillary@mail.com")
+u10 = User.create!(username: "DataCompiler", viewed: [], password: "password", email: "dc@mail.com")
 
 c1 = Cart.create!(user_id: u1.id, products: [])
 c2 = Cart.create!(user_id: u2.id, products: [])

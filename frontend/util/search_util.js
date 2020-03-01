@@ -45,10 +45,11 @@ export const fetchSearchMain = (queryStr) => {
   )
 }
 
-export const fetchSearchMainFooter = () => (
+export const fetchSearchMainFooter = (limit) => (
   $.ajax({
     method: "GET",
-    url: "/api/searches/search_main_footer"
+    url: "/api/searches/search_main_footer",
+    data: { limit }
   })
 )
 

@@ -71,10 +71,9 @@ export const fetchSearchMain = (queryStr) => dispatch => (
     })
 )
 
-export const fetchSearchMainFooter = () => dispatch => (
-  SearchUtil.fetchSearchMainFooter()
+export const fetchSearchMainFooter = (limit) => dispatch => (
+  SearchUtil.fetchSearchMainFooter(limit)
     .then(res => {
-      debugger;
       dispatch(receiveShops(res.shops));
       dispatch(receiveProducts(res.products));
       dispatch(receiveRecentlyViewedIds(res.recent_ids));

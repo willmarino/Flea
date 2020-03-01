@@ -7,13 +7,13 @@ const msp = (state, ownProps) => {
   let wholeQueryString = ownProps.location.search
   let queryParts = wholeQueryString.split("=");
   let query = queryParts[queryParts.length - 1];
-  debugger;
   return({
     searches : state.entities.searches,
     products : state.entities.products,
     shops : state.entities.shops,
     tags : state.entities.tags,
     filters : state.entities.filters,
+    categories : state.entities.categories,
     query : query,
     loggedIn : Boolean(state.session.currentUser),
     pageLoaded : state.pageLoaded

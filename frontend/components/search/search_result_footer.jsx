@@ -29,28 +29,13 @@ class SearchResultFooter extends React.Component{
   }
 
   componentDidMount(){
-    debugger;
-    this.props.fetchSearchMainFooter();
+    this.props.fetchSearchMainFooter(6);
   }
 
-  // shouldComponentUpdate(nextProps, nextState){
-  //   debugger;
-  //   if(this.allPresent(nextProps) && !this.allPresent(this.props)){
-  //     this.compileProducts(nextProps);
-  //     return true;
-  //   }else if(nextState !== this.state){
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
   componentDidUpdate(prevProps){
-    debugger;
     if(prevProps.products.associatedIds !== this.props.products.associatedIds && (this.props.products.associatedIds)){
-      debugger;
       this.compileProducts(this.props);
     }else if(prevProps.query !== this.props.query){
-      debugger;
       this.props.fetchSearchMainFooter();
     }
   }
@@ -59,29 +44,27 @@ class SearchResultFooter extends React.Component{
     if(props.products.recentlyViewedIds &&
       props.products.associatedIds &&
       props.shops){
-        debugger;
         return true;
       }else{
-        debugger;
         return false;
       }
   }
 
   compileProducts(props){
     let { products, shops } = props;
-    debugger;
     let recentlyViewedProducts = products.recentlyViewedIds.map((id) => products[id]);
     let associatedProducts = products.associatedIds.map((id) => products[id]);
+    debugger;
     
     let recentObj = this.buildStructure(recentlyViewedProducts, shops);
     this.recentsMaxPage = recentObj['pageNum'];
     
     let associatedObj = this.buildStructure(associatedProducts, shops);
     this.associatedMaxPage = associatedObj['pageNum'];
+
     debugger;
+
     this.setState({ recentProductsObj : recentObj['obj'], associatedProductsObj : associatedObj['obj'] });
-    // this.recentProductsStructure = recentObj['obj'];
-    // this.associatedProductsStructure = associatedObj['obj'];
 
   }
 
@@ -92,18 +75,23 @@ class SearchResultFooter extends React.Component{
     for(let i = 0; i < products.length; i++){
       let p = products[i];
       let shop = shops[p.shop_id];
-      if(!p || !shop)debugger;
       subArr.push(
         <IndexItem loggedIn={this.props.loggedIn} product={p} shop={shop} type="complex"/>
       )
-      if(subArr.length === 5){
+      if(subArr.length === 6){
         obj[pageNum] = <ul className="sr-products-list">{subArr}</ul>;
         subArr = [];
         pageNum += 1;
       }
     }
-    // returning pageNum as the number of pages of products
+
+    if(subArr.length !== 0){
+      obj[pageNum] = <ul className="sr-products-list">{subArr}</ul>;
+      pageNum += 1;
+    }
+
     debugger;
+    // returning pageNum as the number of pages of products
     return {obj, pageNum : pageNum - 1};
   }
 
@@ -134,7 +122,6 @@ class SearchResultFooter extends React.Component{
 
 
   render(){
-    debugger;
     // If I have the right props, and I have organized them into the correct structure, then render
     if(!this.allPresent(this.props) || !this.state.associatedProductsObj){
       return <p>loading</p>;

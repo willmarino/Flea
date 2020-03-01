@@ -45,6 +45,7 @@ export const fetchUserViews = () => dispatch => (
 export const fetchRecentViews = () => dispatch => (
   ViewUtil.fetchRecentViews()
     .then(res => {
+      debugger;
       dispatch(receiveRecentViews(res.views));
       dispatch(receiveRecentlyViewedProducts(res.products));
       // dispatch(receiveCatsForRecentlyViewed(res.categories));

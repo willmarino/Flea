@@ -9,7 +9,12 @@ class SearchResult extends React.Component{
     this.state = {
       tags : null,
       filters : null,
-      products : null
+      products : null,
+      mainFilters : {
+        categories : null,
+        price : { min : null, max : null }
+      },
+      sortBy : null
     }
 
     this.compileTags = this.compileTags.bind(this);
@@ -42,12 +47,21 @@ class SearchResult extends React.Component{
     }
   }
 
-
   compileAll(props){
     this.compileTags(props);
     this.compileFilters(props);
     this.compileProducts(props);
     this.setState({ tags : this.tagsList, filters : this.filtersList, products : this.productsList });
+  }
+
+  compileMainFilters(){
+    let category;
+    let filter;
+    let mainFilters = [category, filter];
+    for(let i = 0; i < mainFilters.length; i++){
+      let curFilter = mainFilters[i];
+      
+    }
   }
 
   compileTags(props){
@@ -104,10 +118,6 @@ class SearchResult extends React.Component{
     if(this.props.pageLoaded !== 'searchmain'){
       return <p>loading</p>;
     }
-    debugger;
-    // if(this.state.products.length === 0){
-    //   return <p>Your search returned no results! Try again.</p>;
-    // }
     return(
       <div className='sr-container'>
         <div className='sr-tags'>

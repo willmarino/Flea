@@ -14,9 +14,9 @@ class Api::SearchesController < ApplicationController
       if current_user
         cur_id = current_user.id
       else
-        cur_id = User.find_by(name: "DataCompiler").id
+        cur_id = User.find_by(username: "DataCompiler").id
       end
-        @search = Search.create({user_id: cur_id, query: query_string})
+      @search = Search.create({user_id: cur_id, query: query_string})
     end
     render :new_search
   end
@@ -102,7 +102,6 @@ class Api::SearchesController < ApplicationController
     @tags = []
     @tag_ids = []
     @filters = {}
-    # @associated = []
     # products by query
     Product.all.each do |p|
       p.name.split(" ").each do |word|
@@ -156,9 +155,9 @@ class Api::SearchesController < ApplicationController
     @categories = []
     @shops = []
     @products.each do |p|
-      cur_cat_id = p.high_level_category
+      cur_cat = p.category
       cur_shop = p.shop
-      @categories << cur_cat_id if !@categories.include?(cur_cat_id)
+      @categories << cur_cat if !@categories.include?(cur_cat)
       @shops << cur_shop if !@shops.include?(cur_shop)
     end
 
@@ -169,10 +168,16 @@ class Api::SearchesController < ApplicationController
   def search_main_footer
     # edit idea, send array of ids in params from searchmain which
     # will avoid recommending products already shown in search results
+    limit = params[:limit].to_i
     @products = []
     @associated_ids = []
     @recent_ids = []
-    current_user.views.order(created_at: :desc).each do |v|
+    if current_user
+      user = current_user
+    else
+      user = User.find_by(username: "DataCompiler")
+    end
+    user.views.order(created_at: :desc).each do |v|
       view_product = v.product
       if !@recent_ids.include?(view_product.id)
         @recent_ids << view_product.id 
@@ -180,6 +185,25 @@ class Api::SearchesController < ApplicationController
       end
       break if @recent_ids.length >= 20
     end
+    # if a user does not have 6 product views, I fill the recently viewed component with
+    # the most recently viewed products from all other users
+    if @recent_ids.length < limit
+      last_view_id = View.last.id
+      i = 0
+      while @recent_ids.length < limit
+
+        id = last_view_id - i
+        view = View.find(id)
+
+        if !@recent_ids.include?(view.product_id)
+          product = Product.find(view.product_id)
+          @products << product
+          @recent_ids << product.id
+        end
+        i += 1
+      end
+    end
+
     recent_products = @products
     recent_products.each do |rp|
       rp.associated_products.each do |ap|

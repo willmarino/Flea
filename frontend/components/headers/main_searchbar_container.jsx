@@ -10,7 +10,8 @@ import { createSearch } from '../../actions/newest_search_actions';
 
 const msp = (state) => ({
   searches : state.entities.searches,
-  tags : state.entities.tags
+  tags : state.entities.tags,
+  loggedIn : Boolean(state.session.currentUser)
 });
 
 const mdp = dispatch => ({
