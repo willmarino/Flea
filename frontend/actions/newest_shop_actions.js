@@ -9,16 +9,24 @@ import { receivePageLoaded } from './newest_page_loaded_actions';
 
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
+export const RECEIVE_OWNED_SHOP_IDS = "RECEIVE_OWNED_SHOP_IDS";
 
-
-export const receiveShops = (shops) => ({
-  type: RECEIVE_SHOPS,
-  shops
-});
+export const receiveShops = (shops) => {
+  debugger;
+  return({
+    type: RECEIVE_SHOPS,
+    shops
+  })
+};
 
 export const receiveShop = (shop) => ({
   type: RECEIVE_SHOP,
   shop
+});
+
+export const receiveOwnedShopIds = (ids) => ({
+  type : RECEIVE_OWNED_SHOP_IDS,
+  ids
 });
 
 export const createShop = (shop) => dispatch =>(
@@ -49,3 +57,11 @@ export const fetchShopShow = (shopId) => dispatch => (
       dispatch(receivePageLoaded('shopshow'));
     })
 );
+
+// shop manager
+export const fetchOwnedShops = () => dispatch => (
+  ShopUtil.fetchOwnedShops()
+    .then(res => {
+      receiveOwnedShopIds(res.ids)
+    })
+)

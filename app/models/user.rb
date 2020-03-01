@@ -46,9 +46,16 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
+  has_many :searches,
+    class_name: "Search",
+    primary_key: :id,
+    foreign_key: :user_id
+
   has_many :past_items,
     through: :orders,
     source: :items
+  
+
 
   has_one_attached :photo
 

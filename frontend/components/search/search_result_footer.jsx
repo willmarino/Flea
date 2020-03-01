@@ -7,7 +7,9 @@ class SearchResultFooter extends React.Component{
     
     this.state = {
       recentsPage : 1,
-      associatedPage : 1
+      associatedPage : 1,
+      recentProductsObj: null,
+      associatedProductsObj: null
     }
     
     this.recentProductsStructure;
@@ -27,46 +29,60 @@ class SearchResultFooter extends React.Component{
   }
 
   componentDidMount(){
+    debugger;
     this.props.fetchSearchMainFooter();
   }
 
-  shouldComponentUpdate(nextProps, nextState){
+  // shouldComponentUpdate(nextProps, nextState){
+  //   debugger;
+  //   if(this.allPresent(nextProps) && !this.allPresent(this.props)){
+  //     this.compileProducts(nextProps);
+  //     return true;
+  //   }else if(nextState !== this.state){
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
+  componentDidUpdate(prevProps){
     debugger;
-    if(this.allPresent(nextProps) && !this.allPresent(this.props)){
-      this.compileProducts(nextProps);
-      return true;
-    }else if(nextState !== this.state){
-      return true;
-    }else if(nextProps.products.associatedIds !== this.props.products.associatedIds){
-      // if(!this.recentProductsStructure && this.allPresent(nextProps)){
-      //   debugger;
-      //   this.compileProducts(nextProps);
-      // }
-      return true;
+    if(prevProps.products.associatedIds !== this.props.products.associatedIds && (this.props.products.associatedIds)){
+      debugger;
+      this.compileProducts(this.props);
+    }else if(prevProps.query !== this.props.query){
+      debugger;
+      this.props.fetchSearchMainFooter();
     }
-    return false;
   }
 
   allPresent(props){
     if(props.products.recentlyViewedIds &&
       props.products.associatedIds &&
       props.shops){
+        debugger;
         return true;
       }else{
+        debugger;
         return false;
       }
   }
 
   compileProducts(props){
     let { products, shops } = props;
+    debugger;
     let recentlyViewedProducts = products.recentlyViewedIds.map((id) => products[id]);
     let associatedProducts = products.associatedIds.map((id) => products[id]);
+    
     let recentObj = this.buildStructure(recentlyViewedProducts, shops);
-    this.recentProductsStructure = recentObj['obj'];
     this.recentsMaxPage = recentObj['pageNum'];
+    
     let associatedObj = this.buildStructure(associatedProducts, shops);
-    this.associatedProductsStructure = associatedObj['obj'];
     this.associatedMaxPage = associatedObj['pageNum'];
+    debugger;
+    this.setState({ recentProductsObj : recentObj['obj'], associatedProductsObj : associatedObj['obj'] });
+    // this.recentProductsStructure = recentObj['obj'];
+    // this.associatedProductsStructure = associatedObj['obj'];
+
   }
 
   buildStructure(products, shops){
@@ -76,15 +92,18 @@ class SearchResultFooter extends React.Component{
     for(let i = 0; i < products.length; i++){
       let p = products[i];
       let shop = shops[p.shop_id];
+      if(!p || !shop)debugger;
       subArr.push(
         <IndexItem loggedIn={this.props.loggedIn} product={p} shop={shop} type="complex"/>
       )
-      if(subArr.length > 4){
+      if(subArr.length === 5){
         obj[pageNum] = <ul className="sr-products-list">{subArr}</ul>;
         subArr = [];
         pageNum += 1;
       }
     }
+    // returning pageNum as the number of pages of products
+    debugger;
     return {obj, pageNum : pageNum - 1};
   }
 
@@ -116,8 +135,9 @@ class SearchResultFooter extends React.Component{
 
   render(){
     debugger;
-    if(!this.allPresent(this.props)){
-      return <p>loading</p>
+    // If I have the right props, and I have organized them into the correct structure, then render
+    if(!this.allPresent(this.props) || !this.state.associatedProductsObj){
+      return <p>loading</p>;
     }
     debugger;
     return(
@@ -128,7 +148,7 @@ class SearchResultFooter extends React.Component{
             <div onClick={this.incrementRecentsPage}>+</div>
             <div onClick={this.decrementRecentsPage}>-</div>
           </div>
-          {this.recentProductsStructure[this.state.recentsPage]}
+          {this.state.recentProductsObj[this.state.recentsPage]}
         </div>
         <div className='sr-footer-associated'>
           <div className='sr-footer-buttons'>
@@ -136,7 +156,7 @@ class SearchResultFooter extends React.Component{
             <div onClick={this.incrementAssociatedPage}>+</div>
             <div onClick={this.decrementAssociatedPage}>-</div>
           </div>
-          {this.associatedProductsStructure[this.state.associatedPage]}
+          {this.state.associatedProductsObj[this.state.associatedPage]}
         </div>
       </div>
     )

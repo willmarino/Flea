@@ -6,6 +6,4 @@ class Search < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
-  # belongs_to :user, -> { where user_id: true }
-
 end

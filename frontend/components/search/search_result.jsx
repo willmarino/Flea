@@ -7,7 +7,9 @@ class SearchResult extends React.Component{
     super(props);
     
     this.state = {
-
+      tags : null,
+      filters : null,
+      products : null
     }
 
     this.compileTags = this.compileTags.bind(this);
@@ -24,25 +26,20 @@ class SearchResult extends React.Component{
     this.props.fetchSearchMain(this.props.query);
   }
 
-  shouldComponentUpdate(nextProps){
-    if(nextProps.products.searchIds !== this.props.searchIds){
-      this.compileAll(nextProps);
-      return true;
-    }else if(nextProps.query !== this.props.query){
-      debugger;
-      this.props.fetchSearchMain(nextProps.query);
-      return true;
-    }else if(nextProps.pageLoaded !== this.props.pageLoaded){
-      return true;
-    }else{
-      return false;
+  componentDidUpdate(prevProps){
+    if(prevProps.pageLoaded === "none" && this.props.pageLoaded === "searchmain"){
+      this.compileAll(this.props);
+    }else if(prevProps.query !== this.props.query){
+      this.props.fetchSearchMain(this.props.query);
     }
   }
 
-  compileAll(nextProps){
-    this.compileTags(nextProps);
-    this.compileFilters(nextProps);
-    this.compileProducts(nextProps);
+
+  compileAll(props){
+    this.compileTags(props);
+    this.compileFilters(props);
+    this.compileProducts(props);
+    this.setState({ tags : this.tagsList, filters : this.filtersList, products : this.productsList });
   }
 
   compileTags(props){
@@ -103,15 +100,15 @@ class SearchResult extends React.Component{
       <div className='sr-container'>
         <div className='sr-tags'>
           <ul>
-            {this.tagsList}
+            {this.state.tags}
           </ul>
         </div>
         <div className='sr-main'>
           <div className='sr-filters'>
-            {this.filtersList}
+            {this.state.filters}
           </div>
           <div className='sr-products'>
-            {this.productsList}
+            {this.state.products}
           </div>
         </div>
         <SearchResultFooterContainer/>

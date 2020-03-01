@@ -8,3 +8,6 @@ export const receivePageLoaded = (page) => ({
   page
 });
 
+export const receiveClearPageLoaded = () => ({
+  type: CLEAR_PAGE_LOADED
+})

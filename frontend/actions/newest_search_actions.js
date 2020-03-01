@@ -6,7 +6,7 @@ import { receiveProducts, receiveSearchProductIds, receiveRecentlyViewedIds, rec
 import { receiveShops } from '../actions/newest_shop_actions';
 import { receiveCategories } from './newest_categories_actions';
 import { receiveTags, receiveSearchTagIds } from './newest_tag_actions';
-import { receivePageLoaded } from './newest_page_loaded_actions';
+import { receivePageLoaded, receiveClearPageLoaded } from './newest_page_loaded_actions';
 
 export const RECEIVE_SEARCHES = "RECEIVE_SEARCHES";
 export const RECEIVE_SEARCH = "RECEIVE_SEARCH";
@@ -54,12 +54,12 @@ export const fetchSuggestedTerms = (query) => dispatch => (
     .then(res => {
       dispatch(receiveSuggestedTerms(res.terms));
     })
-)
+);
 
 export const fetchSearchMain = (queryStr) => dispatch => (
   SearchUtil.fetchSearchMain(queryStr)
     .then(res => {
-      debugger
+      dispatch(receiveClearPageLoaded());
       dispatch(receiveFilters(res.filters));
       dispatch(receiveProducts(res.products));
       dispatch(receiveShops(res.shops));
@@ -74,9 +74,10 @@ export const fetchSearchMain = (queryStr) => dispatch => (
 export const fetchSearchMainFooter = () => dispatch => (
   SearchUtil.fetchSearchMainFooter()
     .then(res => {
-      dispatch(receiveProducts(res.products));
-      dispatch(receiveAssociatedIds(res.associated_ids));
-      dispatch(receiveRecentlyViewedIds(res.recent_ids));
+      debugger;
       dispatch(receiveShops(res.shops));
+      dispatch(receiveProducts(res.products));
+      dispatch(receiveRecentlyViewedIds(res.recent_ids));
+      dispatch(receiveAssociatedIds(res.associated_ids));
     })
 )

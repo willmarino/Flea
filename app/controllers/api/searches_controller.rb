@@ -174,8 +174,10 @@ class Api::SearchesController < ApplicationController
     @recent_ids = []
     current_user.views.order(created_at: :desc).each do |v|
       view_product = v.product
-      @recent_ids << view_product.id if !@recent_ids.include?(view_product.id)
-      @products << view_product
+      if !@recent_ids.include?(view_product.id)
+        @recent_ids << view_product.id 
+        @products << view_product
+      end
       break if @recent_ids.length >= 20
     end
     recent_products = @products
@@ -183,13 +185,16 @@ class Api::SearchesController < ApplicationController
       rp.associated_products.each do |ap|
         if !@associated_ids.include?(ap.id) && !@recent_ids.include?(ap.id)
           @associated_ids << ap.id
-          @products << ap
+          # @products << ap
         end
         break if @associated_ids.length >= 10
       end
       break if @associated_ids.length >= 10
     end
     @associated_ids = @associated_ids[0..10]
+    @associated_ids.each do |id|
+      @products << Product.find(id)
+    end
     # may pull more produts than necessary, only associated ids are cut short to 10
     @shops = []
     @products.each do |p|
