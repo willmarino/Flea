@@ -25,7 +25,6 @@ class Api::ViewsController < ApplicationController
     @views = views_obj.values
     prod_ids = views_obj.keys
     @products = prod_ids.map{ |id| Product.find(id) }
-    debugger
     render :recent
   end
 

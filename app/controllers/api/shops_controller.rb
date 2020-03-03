@@ -30,7 +30,49 @@ class Api::ShopsController < ApplicationController
 
   def owned
     @shops = current_user.shops
+    @shop_ids = @shops.map{ |shop| shop.id }
     render :owned_shops
+  end
+
+  # grabs shop views, shop product views, orders, and number of listings(products)
+  def owned_info
+    shop = current_user.shops.first
+    
+    # @shop_views = shop.shop_views
+    @shop_views = []
+    @shop_view_ids = []
+    shop.shop_views.each do |view|
+      @shop_views << view
+      @shop_view_ids << view.id
+    end
+
+    # @shop_product_views = shop.product_views
+    @shop_product_views = []
+    @shop_product_view_ids = []
+    shop.product_views.each do |pv|
+      unless pv.user_id == current_user.id
+        @shop_product_views << pv
+        @shop_product_view_ids << pv.id
+      end
+    end
+
+    # @orders = shop.orders
+    @orders = []
+    @order_ids = []
+    shop.orders.each do |order|
+      @orders << order
+      @order_ids << order.id
+    end
+
+    # @shop_products = shop.products
+    @shop_products = []
+    @shop_product_ids = []
+    shop.products.each do |p|
+      @shop_products << p
+      @shop_product_ids << p.id
+    end
+
+    render :owned_info
   end
 
   def shop_show

@@ -54,7 +54,6 @@ class SearchResultFooter extends React.Component{
     let { products, shops } = props;
     let recentlyViewedProducts = products.recentlyViewedIds.map((id) => products[id]);
     let associatedProducts = products.associatedIds.map((id) => products[id]);
-    debugger;
     
     let recentObj = this.buildStructure(recentlyViewedProducts, shops);
     this.recentsMaxPage = recentObj['pageNum'];
@@ -62,7 +61,6 @@ class SearchResultFooter extends React.Component{
     let associatedObj = this.buildStructure(associatedProducts, shops);
     this.associatedMaxPage = associatedObj['pageNum'];
 
-    debugger;
 
     this.setState({ recentProductsObj : recentObj['obj'], associatedProductsObj : associatedObj['obj'] });
 
@@ -90,7 +88,6 @@ class SearchResultFooter extends React.Component{
       pageNum += 1;
     }
 
-    debugger;
     // returning pageNum as the number of pages of products
     return {obj, pageNum : pageNum - 1};
   }
@@ -126,7 +123,6 @@ class SearchResultFooter extends React.Component{
     if(!this.allPresent(this.props) || !this.state.associatedProductsObj){
       return <p>loading</p>;
     }
-    debugger;
     return(
       <div className='sr-footer'>
         <div className='sr-footer-recents'>

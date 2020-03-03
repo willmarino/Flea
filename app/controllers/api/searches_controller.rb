@@ -153,11 +153,15 @@ class Api::SearchesController < ApplicationController
       end
     end
     @categories = []
+    @category_ids = []
     @shops = []
     @products.each do |p|
       cur_cat = p.category
       cur_shop = p.shop
-      @categories << cur_cat if !@categories.include?(cur_cat)
+      if !@categories.include?(cur_cat)
+        @categories << cur_cat
+        @category_ids << cur_cat.id
+      end
       @shops << cur_shop if !@shops.include?(cur_shop)
     end
 

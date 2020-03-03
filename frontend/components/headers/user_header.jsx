@@ -72,7 +72,7 @@ class UserHeader extends React.Component{
   }
 
   handleSMPlink(){
-    this.props.history.push('/shops-manager');
+    this.props.history.push('/shops-manager/dashboard');
   }
 
   render(){

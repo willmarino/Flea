@@ -9,7 +9,6 @@ class RecentlyViewed extends React.Component{
   }
 
   compileProducts(){
-    debugger;
     let { products } = this.props;
     let productsArr = [];
     for(let i = 0; i < (this.props.limit ? this.props.limit : products.length); i++){

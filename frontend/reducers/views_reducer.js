@@ -1,24 +1,21 @@
 import {
-  RECEIVE_USER_VIEWS,
-  RECEIVE_PRODUCT_VIEWS,
-  RECEIVE_RECENT_VIEWS
+  RECEIVE_VIEWS,
+  RECEIVE_SHOP_PRODUCT_VIEW_IDS
 } from '../actions/view_actions';
 
-import {
-  RECEIVE_SHOP_VIEWS
-} from '../actions/shop_view_actions';
 
 const ViewsReducer = (state={}, action) => {
   Object.freeze(state);
+  let newState = {};
   switch(action.type){
-    case RECEIVE_USER_VIEWS:
-      return Object.assign({}, state, { userViews : action.views });
-    case RECEIVE_PRODUCT_VIEWS:
-      return Object.assign({}, state, { productViews : action.views });
-    case RECEIVE_SHOP_VIEWS:
-      return Object.assign({}, state, { shopViews : action.views });
-    case RECEIVE_RECENT_VIEWS:
-      return Object.assign({}, state, { recentViews : action.views })
+    case RECEIVE_VIEWS:
+      for(let i = 0; i < action.views.length; i++){
+        let cur_view = action.views[i];
+        newState[cur_view.id] = cur_view;
+      }
+      return Object.assign({}, state, newState);
+    case RECEIVE_SHOP_PRODUCT_VIEW_IDS:
+      return Object.assign({}, state, { shopProductViewIds : action.ids});
     default:
       return state;
   }

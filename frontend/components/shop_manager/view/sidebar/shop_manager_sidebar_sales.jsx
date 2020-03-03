@@ -13,10 +13,11 @@ class ShopManagerSidebarSales extends React.Component{
   }
 
   generateList(){
-    let { ownedShops } = this.props;
+    let { shops } = this.props;
+    let ownedShops = shops.ownedShopIds.map((id) => shops[id]);
     let shopTabs = [];
-    for(let i = 0; i < Object.values(ownedShops).length; i++){
-      let curShop = Object.values(ownedShops)[i];
+    for(let i = 0; i < ownedShops.length; i++){
+      let curShop = ownedShops[i];
       shopTabs.push(
         <li onClick={this.handleUIChange} data-component={curShop.name} key={curShop.name} className="SMS-sales-item">
           <p>icon</p>

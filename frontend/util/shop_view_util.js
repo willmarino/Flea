@@ -13,4 +13,4 @@ export const addShopView = (shop_id) => (
     url: "/api/shop_views/add",
     data : {shop_id}
   })
-)
+);

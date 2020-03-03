@@ -18,7 +18,7 @@ class ShopManagerLanding extends React.Component{
 
   render(){
     if(this.state.fetched){
-      if(Object.keys(this.props.ownedShops).length === 0){
+      if(Object.keys(this.props.shops.ownedShopIds).length === 0){
         return(
           <ShopManagerCreateShopContainer/>
         )

@@ -4,7 +4,7 @@ import * as SearchUtil from '../util/search_util';
 import { receiveFilters } from '../actions/newest_filters_actions';
 import { receiveProducts, receiveSearchProductIds, receiveRecentlyViewedIds, receiveAssociatedIds } from '../actions/newest_product_actions';
 import { receiveShops } from '../actions/newest_shop_actions';
-import { receiveCategories } from './newest_categories_actions';
+import { receiveCategories, receiveSearchCategoryIds } from './newest_categories_actions';
 import { receiveTags, receiveSearchTagIds } from './newest_tag_actions';
 import { receivePageLoaded, receiveClearPageLoaded } from './newest_page_loaded_actions';
 
@@ -64,6 +64,7 @@ export const fetchSearchMain = (queryStr) => dispatch => (
       dispatch(receiveProducts(res.products));
       dispatch(receiveShops(res.shops));
       dispatch(receiveCategories(res.categories));
+      dispatch(receiveSearchCategoryIds(res.category_ids));
       dispatch(receiveTags(res.tags));
       dispatch(receiveSearchTagIds(res.tag_ids));
       dispatch(receiveSearchProductIds(res.product_ids));

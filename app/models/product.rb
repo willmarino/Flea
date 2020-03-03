@@ -107,6 +107,12 @@ class Product < ApplicationRecord
     primary_key: :id,
     foreign_key: :high_level_category
 
+  # has_many :product_orders,
+  has_many :orders,
+    class_name: "ProductOrder",
+    primary_key: :id,
+    foreign_key: :product_id
+
   has_many :associated_products,
     through: :tags,
     source: :tagged_products

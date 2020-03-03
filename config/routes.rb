@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       end
       collection do
         get 'owned'
+        get 'owned_info'
       end
       resources :products, only: [:create]
     end

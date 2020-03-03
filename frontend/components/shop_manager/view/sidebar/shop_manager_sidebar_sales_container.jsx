@@ -5,7 +5,7 @@ import { receiveShopManagerChange } from '../../../../actions/shop_manager_actio
 const msp = (state) => {
   return({
     tab : state.ui.shopManager,
-    ownedShops : state.entities.shops.main.ownedShops
+    shops : state.entities.shops
   })
 };
 

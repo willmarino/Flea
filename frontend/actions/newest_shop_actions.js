@@ -7,6 +7,11 @@ import { receiveReviews, receiveShopReviewIds } from './newest_reviews_actions';
 import { receiveCategories } from './newest_categories_actions';
 import { receivePageLoaded } from './newest_page_loaded_actions';
 
+// fetchOwnedShopInfo
+import { receiveViews, receiveShopProductViewIds } from './view_actions';
+import { receiveShopViews, receiveShopViewsIds } from './shop_view_actions';
+import { receiveOrders, receiveShopOrdersIds } from './order_actions';
+
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_OWNED_SHOP_IDS = "RECEIVE_OWNED_SHOP_IDS";
@@ -61,6 +66,24 @@ export const fetchShopShow = (shopId) => dispatch => (
 export const fetchOwnedShops = () => dispatch => (
   ShopUtil.fetchOwnedShops()
     .then(res => {
-      receiveOwnedShopIds(res.ids)
+      dispatch(receiveShops(res.shops));
+      dispatch(receiveOwnedShopIds(res.shop_ids));
+    })
+);
+
+// shop manager dashboard
+export const fetchOwnedShopInfo = () => dispatch => (
+  ShopUtil.fetchOwnedShopInfo()
+    .then(res => {
+      debugger;
+      dispatch(receiveViews(res.shop_product_views));
+      dispatch(receiveShopProductViewIds(res.shop_product_view_ids));
+      dispatch(receiveShopViews(res.shop_views));
+      dispatch(receiveShopViewsIds(res.shop_view_ids));
+      dispatch(receiveOrders(res.orders));
+      dispatch(receiveShopOrdersIds(res.order_ids));
+      dispatch(receiveProducts(res.shop_products));
+      dispatch(receiveShopProductIds(res.shop_product_ids));
+      dispatch(receivePageLoaded('SM-dashboard-main'));
     })
 )

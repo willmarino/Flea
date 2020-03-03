@@ -56,4 +56,11 @@ export const fetchOwnedShops = () => (
         method : "GET",
         url: "/api/shops/owned"
     })
-)
+);
+
+export const fetchOwnedShopInfo = () => (
+    $.ajax({
+      method: "GET",
+      url: "/api/shops/owned_info"
+    })
+  )
