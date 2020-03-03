@@ -4,6 +4,9 @@ export const RECEIVE_ORDER = "RECEIVE_ORDER";
 export const RECEIVE_ORDERS = "RECEIVE_ORDERS";
 export const RECEIVE_SHOP_ORDERS_IDS = "RECEIVE_SHOP_ORDERS_IDS";
 
+// for createOrder
+import { sendClearCart } from './newest_cartitem_actions';
+
 const receiveOrder = (order) => ({
   type: RECEIVE_ORDER,
   order

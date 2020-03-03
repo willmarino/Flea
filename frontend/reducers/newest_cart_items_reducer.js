@@ -1,7 +1,8 @@
 import {
   RECEIVE_CART_ITEM,
   RECEIVE_CART_ITEMS,
-  REMOVE_CART_ITEM
+  REMOVE_CART_ITEM,
+  SEND_CLEAR_CART
 } from '../actions/newest_cartitem_actions';
 
 const NewestCartItemsReducer = (state={}, action) => {
@@ -21,6 +22,8 @@ const NewestCartItemsReducer = (state={}, action) => {
       newState = Object.assign({}, state);
       delete newState[action.cartItemId];
       return newState;
+    case SEND_CLEAR_CART:
+      return {};
     default:
       return state;
   }

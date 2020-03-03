@@ -6,6 +6,7 @@ import { receiveProduct } from '../actions/newest_product_actions';
 export const RECEIVE_CART_ITEMS = "RECEIVE_CART_ITEMS";
 export const RECEIVE_CART_ITEM = "RECEIVE_CART_ITEM";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const SEND_CLEAR_CART = "SEND_CLEAR_CART";
 
 export const receiveCartItems = (cartItems) => ({
   type: RECEIVE_CART_ITEMS,
@@ -20,6 +21,10 @@ const receiveCartItem = (cartItem) => ({
 const removeCartItem = (cartItemId) => ({
   type: REMOVE_CART_ITEM,
   cartItemId
+});
+
+export const sendClearCart = () => ({
+  type: SEND_CLEAR_CART
 })
 
 export const fetchCartItems = () => dispatch => (

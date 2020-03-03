@@ -46,6 +46,10 @@ class DMDashboardMain extends React.Component{
     }
   }
 
+  aggregateRevenue(orders){
+
+  }
+
   render(){
     debugger;
     if(this.props.pageLoaded !== "SM-dashboard-main"){
@@ -61,7 +65,11 @@ class DMDashboardMain extends React.Component{
           </div>
           <p>View Detailed Stats</p>
         </div>
-        <DashboardMainStats/>
+        <DashboardMainStats
+          views={this.props.views.shopProductViewIds.map((id) => this.props.views[id])}
+          visits={this.props.shopViews.shopViewIds.map((id) => this.props.shopViews[id])}
+          orders={this.props.orders.shopOrderids.map((id) => this.props.orders[id])}
+          revenue={"abc"}/>
         <div className="SM-dashboard-main-info">
           <p>Hey, while youre here check out my other projects</p>
           <a href="http://o-o-t-d.herokuapp.com/#/splash" target="_blank">OOTD</a>

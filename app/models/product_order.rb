@@ -15,7 +15,7 @@ class ProductOrder < ApplicationRecord
   belongs_to :order,
     class_name: "Order",
     primary_key: :id,
-    foreign_key: :product_id
+    foreign_key: :order_id
 
 
 end

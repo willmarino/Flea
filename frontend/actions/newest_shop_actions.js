@@ -11,6 +11,7 @@ import { receivePageLoaded } from './newest_page_loaded_actions';
 import { receiveViews, receiveShopProductViewIds } from './view_actions';
 import { receiveShopViews, receiveShopViewsIds } from './shop_view_actions';
 import { receiveOrders, receiveShopOrdersIds } from './order_actions';
+import { receiveProductOrders, receiveShopProductOrderIds } from './product_orders_actions';
 
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
@@ -82,6 +83,8 @@ export const fetchOwnedShopInfo = () => dispatch => (
       dispatch(receiveShopViewsIds(res.shop_view_ids));
       dispatch(receiveOrders(res.orders));
       dispatch(receiveShopOrdersIds(res.order_ids));
+      dispatch(receiveProductOrders(res.product_orders));
+      dispatcj(receiveShopProductOrderIds(res.product_order_ids));
       dispatch(receiveProducts(res.shop_products));
       dispatch(receiveShopProductIds(res.shop_product_ids));
       dispatch(receivePageLoaded('SM-dashboard-main'));

@@ -14,7 +14,7 @@ const ShopViewReducer = (state={}, action) => {
       }
       return Object.assign({}, state, newState);
     case RECEIVE_SHOP_VIEWS_IDS:
-      return Object.assign({}, state, { ShopViewIds : action.ids })
+      return Object.assign({}, state, { shopViewIds : action.ids })
     default:
       return state;
   }

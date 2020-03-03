@@ -3,7 +3,7 @@ import CartShowOrder from './cart_show_order';
 
 import { createOrder } from '../../actions/order_actions';
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
   let productIds = Object.values(state.entities.cartItems).map((el) => el.item_id);
   return({
     user : state.session.currentUser,

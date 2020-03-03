@@ -10,6 +10,7 @@ class CartShowOrder extends React.Component{
   handleOrder(){
     let user_id = this.props.user.id;
     let product_ids = this.props.productIds;
+    // we need the user id for the order creation and the product ids for the product order creations
     this.props.createOrder({user_id : user_id, product_ids : product_ids});
   }
 

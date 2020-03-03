@@ -64,6 +64,13 @@ class Api::ShopsController < ApplicationController
       @order_ids << order.id
     end
 
+    @product_orders = []
+    @product_order_ids = []
+    shop.product_orders.each do |po|
+      @product_orders << po
+      @product_order_ids << po.id
+    end
+
     # @shop_products = shop.products
     @shop_products = []
     @shop_product_ids = []
