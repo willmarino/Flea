@@ -23,6 +23,7 @@ class Api::OrdersController < ApplicationController
         product = Product.find(prod_id)
         shop = product.shop
         ProductOrder.create!({ order_id: @order.id, product_id: prod_id, shop_id: shop.id })
+        product.stock_amt -= 1
       end
       current_user.cart.cart_items.destroy_all
       render :show

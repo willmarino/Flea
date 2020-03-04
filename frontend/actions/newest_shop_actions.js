@@ -76,7 +76,6 @@ export const fetchOwnedShops = () => dispatch => (
 export const fetchOwnedShopInfo = () => dispatch => (
   ShopUtil.fetchOwnedShopInfo()
     .then(res => {
-      debugger;
       dispatch(receiveViews(res.shop_product_views));
       dispatch(receiveShopProductViewIds(res.shop_product_view_ids));
       dispatch(receiveShopViews(res.shop_views));
@@ -84,7 +83,7 @@ export const fetchOwnedShopInfo = () => dispatch => (
       dispatch(receiveOrders(res.orders));
       dispatch(receiveShopOrdersIds(res.order_ids));
       dispatch(receiveProductOrders(res.product_orders));
-      dispatcj(receiveShopProductOrderIds(res.product_order_ids));
+      dispatch(receiveShopProductOrderIds(res.product_order_ids));
       dispatch(receiveProducts(res.shop_products));
       dispatch(receiveShopProductIds(res.shop_product_ids));
       dispatch(receivePageLoaded('SM-dashboard-main'));

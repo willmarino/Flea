@@ -6,6 +6,7 @@ const msp = state => ({
   views : state.entities.views,
   shopViews : state.entities.shopViews,
   orders : state.entities.orders,
+  productOrders : state.entities.productOrders,
   products : state.entities.products,
   pageLoaded : state.pageLoaded
 })

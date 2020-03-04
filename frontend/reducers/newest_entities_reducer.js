@@ -10,6 +10,8 @@ import NewestCartItemsReducer from './newest_cart_items_reducer';
 import NewestFiltersReducer from './newest_filters_reducer';
 import ViewsReducer from './views_reducer';
 import ShopViewsReducer from './shop_view_reducer';
+import OrdersReducer from './orders_reducer';
+import ProductOrdersReducer from './product_orders_reducer';
 import UsersReducer from './users_reducer';
 
 const NewestEntitiesReducer = combineReducers({
@@ -24,7 +26,9 @@ const NewestEntitiesReducer = combineReducers({
   cartItems : NewestCartItemsReducer,
   filters : NewestFiltersReducer,
   views : ViewsReducer,
-  shopViews : ShopViewsReducer
+  shopViews : ShopViewsReducer,
+  orders : OrdersReducer,
+  productOrders : ProductOrdersReducer
 })
 
 export default NewestEntitiesReducer;
