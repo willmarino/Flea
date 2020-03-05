@@ -1,0 +1,66 @@
+.SM-dashboard-main-container{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.SM-dashboard-main-header{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.SM-dashboard-main-header-one{
+  display: flex;
+}
+
+.SM-dashboard-main-info{
+  width: 100%;
+  padding: 60px;
+  box-sizing: border-box;
+}
+
+.SM-dashboard-main-info-projects{
+  display: flex;
+}
+
+.SM-dashboard-main-stat-displays{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 75px;
+}
+
+.SM-dashboard-main-orders-block-container{
+  width: 45%;
+  // border: 1px solid gray;
+}
+
+.SM-dashboard-main-listings-block-container{
+  width: 45%;
+  // border: 1px solid gray;
+}
+
+.SM-dashboard-main-stat-block-header{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-bottom: none;
+  padding: 15px;
+}
+
+.SM-dashboard-main-stat-block-body{
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid gray;
+}
+
+.SM-dashboard-main-stat-block-body-bar{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

@@ -33,6 +33,7 @@ Rails.application.routes.draw do
         get 'shop_reviews'
         get 'products'
         get 'shop_show'
+        get 'owned_view'
       end
       collection do
         get 'owned'

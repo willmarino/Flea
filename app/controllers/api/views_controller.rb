@@ -41,9 +41,11 @@ class Api::ViewsController < ApplicationController
     else
       cur_user = current_user
     end
-    View.create({ user_id: cur_user.id, product_id: product.id })
-    @views = product.views
-    render :views_arr
+    @view = View.create({ user_id: cur_user.id, product_id: product.id })
+    # @views = product.views
+    # render :views_arr
+    @product = @view.product
+    render :add_view
   end
 
 end

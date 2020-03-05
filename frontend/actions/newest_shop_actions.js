@@ -88,4 +88,24 @@ export const fetchOwnedShopInfo = () => dispatch => (
       dispatch(receiveShopProductIds(res.shop_product_ids));
       dispatch(receivePageLoaded('SM-dashboard-main'));
     })
-)
+);
+
+export const fetchOwnedShopView = (id) => dispatch => (
+  ShopUtil.fetchOwnedShopView(id)
+    .then(res => {
+      dispatch(receiveShop(res.shop));
+      dispatch(receiveProducts(res.products));
+      dispatch(receiveShopProductIds(res.product_ids));
+      dispatch(receiveCategories(res.categories));
+      dispatch(receiveUsers(res.user));
+      dispatch(receivePageLoaded("ownedshop"));
+    })
+);
+
+// Why did you apply to work at WinIt?
+// We're a small team where each engineer contributes in different strengths. What do you think you'd bring to the table?
+// What do you like about software development? How did you get into it?
+// What is your favorite software project that you've worked on and what was your role?
+// What experience do you have with node.js or additional backend experience -- please add specifics?
+// What platforms / frameworks / languages do you like to work with -- web / mobile?
+// Can you share a story about a time you’ve worked with someone to solve a problem? How did you approach it and who did what?

@@ -6,6 +6,8 @@ import * as ViewUtil from '../util/view_util';
 // export const RECEIVE_RECENTLY_VIEWED_PRODUCTS = "RECEIVE_RECENTLY_VIEWED_PRODUCTS";
 // export const RECEIVE_CATS_FOR_RECENTLY_VIEWED = "RECEIVE_CATS_FOR_RECENTLY_VIEWED";
 
+import { receiveProduct, receiveRecentlyViewedId } from '../actions/newest_product_actions';
+
 export const RECEIVE_VIEWS = "RECEIVE_VIEWS";
 export const RECEIVE_SHOP_PRODUCT_VIEW_IDS = "RECEIVE_SHOP_PRODUCT_VIEW_IDS";
 
@@ -63,14 +65,16 @@ export const fetchRecentViews = () => dispatch => (
     })
 );
 
-export const fetchProductViews = (id) => dispatch => (
-  ViewUtil.fetchProductViews(id)
-    .then(views => dispatch(receiveProductViews(views)))
-);
+// export const fetchProductViews = (id) => dispatch => (
+//   ViewUtil.fetchProductViews(id)
+//     .then(views => dispatch(receiveViews(views)))
+// );
 
 export const addView = (id) => dispatch => (
   ViewUtil.addView(id)
-    .then(views => {
-      dispatch(receiveProductViews(views))
+    .then(res => {
+      dispatch(receiveViews(res.view));
+      dispatch(receiveProduct(res.product));
+      dispatch(receiveRecentlyViewedId(res.product.id));
     })
 );

@@ -3,13 +3,15 @@ import React from 'react';
 class ShopManagerSidebarSales extends React.Component{
   constructor(props){
     super(props);
+    this.handleUIChange = this.handleUIChange.bind(this);
     this.generateList = this.generateList.bind(this);
     this.list = this.generateList();
   }
 
   handleUIChange(e){
     e.preventDefault();
-    this.props.receiveShopManagerChange(e.currentTarget.dataset.component);
+    let id = parseInt(e.currentTarget.dataset.id, 10);
+    this.props.history.push(`/ownedshops/${id}`)
   }
 
   generateList(){
@@ -19,7 +21,7 @@ class ShopManagerSidebarSales extends React.Component{
     for(let i = 0; i < ownedShops.length; i++){
       let curShop = ownedShops[i];
       shopTabs.push(
-        <li onClick={this.handleUIChange} data-component={curShop.name} key={curShop.name} className="SMS-sales-item">
+        <li onClick={this.handleUIChange} data-component={curShop.name} data-id={curShop.id} key={curShop.name} className="SMS-sales-item">
           <p>icon</p>
           <p>{curShop.name}</p>
         </li>

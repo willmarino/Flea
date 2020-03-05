@@ -35,16 +35,16 @@ class DMDMOrdersBlock extends React.Component{
   render(){
     return(
       <div className="SM-dashboard-main-orders-block-container">
-        <div>
+        <div className="SM-dashboard-main-stat-block-header">
           <p>Orders</p>
           <p>View all orders</p>
         </div>
-        <div>
-          <div>
+        <div className="SM-dashboard-main-stat-block-body">
+          <div className="SM-dashboard-main-stat-block-body-bar">
             <p>New</p>
             <p>{this.numNewOrders}</p>
           </div>
-          <div>
+          <div className="SM-dashboard-main-stat-block-body-bar">
             <p>Old</p>
             <p>{this.numShippedOrders}</p>
           </div>

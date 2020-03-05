@@ -3,6 +3,7 @@ import {
   RECEIVE_PRODUCTS,
   REMOVE_PRODUCT,
   RECEIVE_INDEX_IDS,
+  RECEIVE_RECENTLY_VIEWED_ID,
   RECEIVE_RECENTLY_VIEWED_IDS,
   RECEIVE_HAPPY_PRODUCT_IDS,
   RECEIVE_SHOP_PRODUCT_IDS,
@@ -30,6 +31,21 @@ const NewestProductsReducer = (state={}, action) => {
       return Object.assign({}, state, { indexIds : action.ids });
     case RECEIVE_RECENTLY_VIEWED_IDS:
       return Object.assign({}, state, { recentlyViewedIds : action.ids });
+    case RECEIVE_RECENTLY_VIEWED_ID:
+      let newStateTwo;
+      if(state.recentlyViewedIds){
+        newStateTwo = Object.assign({}, state);
+        newStateTwo.recentlyViewedIds.forEach((id, i) => {
+          if(action.id === id){
+            newStateTwo.recentlyViewedIds.splice(i, 1);
+          }
+        })
+        newStateTwo.recentlyViewedIds.unshift(action.id);
+        return newStateTwo;
+      }else{
+        newStateTwo = [action.id];
+        return Object.assign({}, state, { recentlyViewedIds : newStateTwo });
+      }
     case RECEIVE_HAPPY_PRODUCT_IDS:
       return Object.assign({}, state, { happyProductIds : action.ids });
     case RECEIVE_SHOP_PRODUCT_IDS:

@@ -9,9 +9,7 @@ class DMDashboard extends React.Component{
   }
   render(){
     return(
-      <div>
-        <Route exact path="/shops-manager/dashboard/" component={DMDashboardMainContainer}/>
-      </div>
+      <Route exact path="/shops-manager/dashboard/" component={DMDashboardMainContainer}/>
     )
   }
 }

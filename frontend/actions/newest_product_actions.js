@@ -19,6 +19,7 @@ export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const RECEIVE_INDEX_IDS = "RECEIVE_INDEX_IDS";
 export const RECEIVE_RECENTLY_VIEWED_IDS = "RECEIVE_RECENTLY_VIEWED_IDS";
+export const RECEIVE_RECENTLY_VIEWED_ID = "RECEIVE_RECENTLY_VIEWED_ID";
 export const RECEIVE_HAPPY_PRODUCT_IDS = "RECEIVE_HAPPY_PRODUCT_IDS";
 export const RECEIVE_SEARCH_PRODUCT_IDS = "RECEIVE_SEARCH_PRODUCT_IDS";
 
@@ -51,6 +52,11 @@ const receiveIndexIds = (ids) => ({
 export const receiveRecentlyViewedIds = (ids) => ({
   type: RECEIVE_RECENTLY_VIEWED_IDS,
   ids
+});
+
+export const receiveRecentlyViewedId = (id) => ({
+  type: RECEIVE_RECENTLY_VIEWED_ID,
+  id
 });
 
 export const receiveShopProductIds = (ids) => ({

@@ -45,12 +45,12 @@ class ShopManagerSidebarMain extends React.Component{
       'Dashboard': 'dashboard',
       'Listings': 'listings',
       'Messages': 'messages',
-      'Orders & Shipping': 'orders&shipping',
+      'Orders & Shipping': 'orders_shipping',
       'Stats': 'stats',
       'Finances': 'finances',
       'Marketing': 'marketing',
       'Integrations': 'integrations',
-      'Community & Help': 'community&help',
+      'Community & Help': 'community_help',
       'Settings': 'settings'
     };
     let compiledTabs = []

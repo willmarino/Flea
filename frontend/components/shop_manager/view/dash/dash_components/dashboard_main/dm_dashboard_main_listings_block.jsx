@@ -23,20 +23,20 @@ class DMDMListingsBlock extends React.Component{
   render(){
     return(
       <div className="SM-dashboard-main-listings-block-container">
-        <div>
-            <p>Listings</p>
-            <p>View all listings</p>
+        <div className="SM-dashboard-main-stat-block-header">
+          <p>Listings</p>
+          <p>View all listings</p>
+        </div>
+        <div className="SM-dashboard-main-stat-block-body">
+          <div className="SM-dashboard-main-stat-block-body-bar">
+            <p>Current Listings</p>
+            <p>{this.inStock}</p>
           </div>
-          <div>
-            <div>
-              <p>Current Listings</p>
-              <p>{this.inStock}</p>
-            </div>
-            <div>
-              <p>Sold out</p>
-              <p>{this.outOfStock}</p>
-            </div>
+          <div className="SM-dashboard-main-stat-block-body-bar">
+            <p>Sold out</p>
+            <p>{this.outOfStock}</p>
           </div>
+        </div>
       </div>
     )
   }

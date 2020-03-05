@@ -82,6 +82,23 @@ class Api::ShopsController < ApplicationController
     render :owned_info
   end
 
+  def owned_view
+    @shop = Shop.find(params[:id])
+    @products = []
+    @product_ids = []
+    @shop.products.each do |p|
+      @products << p
+      @product_ids << p.id
+    end
+    @categories = []
+    @products.each do |p|
+      category = Category.find(p.high_level_category)
+      @categories << category if !@categories.include?(category)
+    end
+    @owner = @shop.creator
+    render :owned_view
+  end
+
   def shop_show
     @shop = Shop.find(params[:id])
     @users = [@shop.creator]

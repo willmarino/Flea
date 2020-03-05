@@ -32,12 +32,10 @@ class DMDashboardMain extends React.Component{
   }
 
   setTimePeriod(e){
-    debugger;
     this.setState({ timePeriod : this.filters[parseInt(e.currentTarget.dataset.idx, 10)] });
   }
 
   handleModalSwitch(){
-    debugger;
     if(this.state.modal){
       this.setState({ modal : null });
     }else{
@@ -62,10 +60,12 @@ class DMDashboardMain extends React.Component{
     return(
       <div className="SM-dashboard-main-container">
         <div className="SM-dashboard-main-header">
-          <p>Stats Overview for</p>
-          <div onClick={this.handleModalSwitch} >
-            <p>{this.state.timePeriod}</p>
-            {this.state.modal}
+          <div className="SM-dashboard-main-header-one">
+            <p>Stats Overview for</p>
+            <div onClick={this.handleModalSwitch} >
+              <p>{this.state.timePeriod}</p>
+              {this.state.modal}
+            </div>
           </div>
           <p>View Detailed Stats</p>
         </div>
@@ -77,8 +77,14 @@ class DMDashboardMain extends React.Component{
           revenue={this.aggregateRevenue(productOrders.shopProductOrderIds.map((id) => productOrders[id]))}/>
         <div className="SM-dashboard-main-info">
           <p>Hey, while youre here check out my other projects</p>
-          <a href="http://o-o-t-d.herokuapp.com/#/splash" target="_blank">OOTD</a>
-          <a href="https://willmarino.github.io/Astro/" target="_blank">Astro</a>
+          <div className="SM-dashboard-main-info-projects">
+            <div>
+              <a href="http://o-o-t-d.herokuapp.com/#/splash" target="_blank">OOTD</a>
+            </div>
+            <div>
+              <a href="https://willmarino.github.io/Astro/" target="_blank">Astro</a>
+            </div>
+          </div>
         </div>
         <div className="SM-dashboard-main-stat-displays">
           <DMDMOrdersBlock orders={orders.shopOrderIds.map((id) => orders[id])}/>

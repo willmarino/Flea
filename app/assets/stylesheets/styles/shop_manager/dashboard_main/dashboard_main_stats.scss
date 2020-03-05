@@ -1,0 +1,20 @@
+.SM-dashboard-main-stats-container{
+  display: flex;
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.SM-dashboard-main-stats-block-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 25%;
+  height: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid gray;
+}
+
+.SM-dashboard-main-stats-block-container > p{
+  text-align: center;
+}

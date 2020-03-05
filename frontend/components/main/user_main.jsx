@@ -8,6 +8,7 @@ import ShopShowContainer from '../shop/shop_show_container';
 import CartShowContainer from '../cart/cart_show_container';
 import ShopManagerLandingContainer from '../shop_manager/shop_manager_landing_container';
 import SearchResultContainer from '../search/search_result_container';
+import OwnedShopContainer from '../owned_shop/owned_shop_container';
 
 class UserMain extends React.Component{
     constructor(props){
@@ -16,8 +17,7 @@ class UserMain extends React.Component{
     }
 
     render(){
-        let shopManagerPath= "/shops-manager/dashboard";
-        // if(this.props.location.pathname === shopManagerPath){
+        // let shopManagerPath= "/shops-manager/dashboard";
         if(this.props.location.pathname.includes("shops-manager")){
             return <ShopManagerLandingContainer/>;
         }
@@ -37,6 +37,7 @@ class UserMain extends React.Component{
                     <Route path={shopShowPath} component={ShopShowContainer}/>
                     <Route exact path={cartPath} component={CartShowContainer}/>
                     <Route path={searchResultPath} component={SearchResultContainer}/>
+                    <Route path="/ownedshops/:prodId" component={OwnedShopContainer}/>
                 </div>
             </div>
         );
