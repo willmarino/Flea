@@ -16,6 +16,7 @@ class OwnedShop extends React.Component{
     if(this.props.pageLoaded !== 'ownedshop'){
       return <p>loading</p>;
     }
+    debugger;
     let { shops, products, categories, users } = this.props
     let ownedShop = shops[this.props.curProdId];
     return(

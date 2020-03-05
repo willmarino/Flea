@@ -3,11 +3,11 @@ import OwnedShop from './owned_shop';
 import { fetchOwnedShopView } from '../../actions/newest_shop_actions';
 
 const msp = (state, ownProps) => {
-  debugger;
   return({
     shops : state.entities.shops,
     products : state.entities.products,
     categories : state.entities.categories,
+    users : state.entities.users,
     pageLoaded : state.pageLoaded,
     curProdId : ownProps.match.params.prodId
   })
