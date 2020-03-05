@@ -1,4 +1,5 @@
 import React from 'react';
+import IndexItem from '../products/index/index_item';
 
 class OwnedShopListings extends React.Component{
   constructor(props){
@@ -17,31 +18,31 @@ class OwnedShopListings extends React.Component{
 
   compileFilters(){
     let { products, categories } = this.props;
-    debugger;
     this.productsByFilter = { 10000 : [] }
     let catArr = [];
     products.forEach((p) => {
-      let prodBlock = <li>
-        <img src={p.photoURL} alt=""/>
-        <p>{p.name}</p>
-        <p>${p.price}</p>
-      </li>;
+      let prodBlock = <IndexItem product={p} loggedIn={true} type={"mid"}/>;
       this.productsByFilter[10000].push(prodBlock);
-      if(this.productsByFilter[p.high_level_category.name]){
+      if(this.productsByFilter[p.high_level_category]){
         this.productsByFilter[p.high_level_category.id].push(prodBlock);
       }else{
-        this.productsByFilter[p.high_level_category.name] = [prodBlock];
+        this.productsByFilter[p.high_level_category] = [prodBlock];
       }
-      if(!catArr.includes(categories[p.high_level_category.name])){
-        catArr.push(categories[p.high_level_category.name]);
+      if(!catArr.includes(categories[p.high_level_category])){
+        catArr.push(categories[p.high_level_category]);
       }
     });
-    this.filters = catArr.map((cat) => <li onClick={this.switchCategory} data-cat={cat.id}>{cat}</li>);
-    this.filters.unshift(<li onClick={this.switchCategory} data-cat={10000} >All</li>)
+    this.filters = catArr.map((cat) => <li onClick={this.switchCategory} data-cat={cat.id}>
+      <p>{cat.name}</p>
+      <p>{this.productsByFilter[cat.id].length}</p>
+    </li>);
+    this.filters.unshift(<li onClick={this.switchCategory} data-cat={10000} >
+      <p>All</p>
+      <p>{this.productsByFilter[10000].length}</p>
+    </li>)
   }
 
   render(){
-    debugger;
     return(
       <div className="OSL-container">
         <div className="OSL-header">
@@ -52,16 +53,20 @@ class OwnedShopListings extends React.Component{
         </div>
         <div className="OSL-listings">
           <div className="OSL-filters">
-            <input type="text"/>
+            <div className="shop-listings-search">
+              <p className="shop-listings-search-mag">E</p>
+              <input type="text"/>
+              <p className="shop-listings-search-clear">X</p>
+            </div>
             {this.filters}
             <p>sales</p>
             <p>admirers</p>
           </div>
-          <div className="OSL-products">
-            <ul>
-              {this.productsByFilter[this.state.category]}
-            </ul>
-          </div>
+          {/* <div className="OSL-products-container"> */}
+          <ul className="OSL-products">
+            {this.productsByFilter[this.state.category]}
+          </ul>
+          {/* </div> */}
         </div>
       </div>
     )

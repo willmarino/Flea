@@ -6,7 +6,7 @@ const OwnedShopHeader = (props) => {
     <div className="OSH-container">
       <div className="OSH-left">
         <div className="OSH-left-one">
-          <img src={shop.photoURL} alt=""/>
+          <img src={shop.photoURL} alt="" className="OSH-shop-image"/>
         </div>
         <div className="OSH-left-two">
           <p className="OSH-left-two-top">{shop.name}</p>

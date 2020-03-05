@@ -1,0 +1,58 @@
+.OSL-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.OSL-header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.OSL-listings{
+  display: flex;
+}
+
+.OSL-products{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.OSL-filters{
+  min-width: 250px;
+}
+
+.OSL-filters li{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: gray;
+  list-style-type: none;
+}
+
+.shop-listings-search{
+  position: relative; 
+}
+
+.shop-listings-search input{
+  padding: 5px;
+  padding-left: 30px;
+  width: 250px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.shop-listings-search-mag{
+  position: absolute;
+  top: 6px;
+  left: 10px;
+}
+
+.shop-listings-search-clear{
+  position: absolute;
+  top: 6px;
+  left: 230px;
+}

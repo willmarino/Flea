@@ -52,8 +52,6 @@ class IndexItem extends React.Component{
               <p>{this.props.product.name}</p>
               <p>${this.props.product.price}</p>
             </div>
-              {/* <p>{this.props.shop.name}</p> */}
-            {/* <p>{this.props.product.rating}</p> */}
           </div>
         </li>
       )
