@@ -122,3 +122,4 @@ export const createShopProduct = (id, formData) => dispatch => (
       dispatch(receiveShopProductId(res.product_ids));
     })
 );
+

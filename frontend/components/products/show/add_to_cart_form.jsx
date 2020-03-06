@@ -10,6 +10,7 @@ class AddToCartForm extends React.Component{
       options : null,
       modalStatus : null
     }
+    this.capitalize = this.capitalize.bind(this);
     this.generateModals = this.generateModals.bind(this);
     this.setOptionValue = this.setOptionValue.bind(this);
     this.createMenu = this.createMenu.bind(this);
@@ -30,6 +31,11 @@ class AddToCartForm extends React.Component{
     if(prevProps.product !== this.props.product){
       this.createMenu();
     }
+  }
+
+  capitalize(str){
+    let res = str[0].toUpperCase() + str.slice(1);
+    return res;
   }
 
   createMenu(){
@@ -145,6 +151,10 @@ class AddToCartForm extends React.Component{
       for(let i = 0; i < Object.keys(this.state.options).length; i++){
         let curKey = Object.keys(this.state.options)[i];
         let curOption = this.state.options[curKey];
+        debugger;
+        optionsMenu.push(
+          <li key={curKey} className="dropdown-button-header">{this.capitalize(curKey)}</li>
+        )
         optionsMenu.push(
           <li key={Math.round(Math.random() * 1000)} className='dropdown-button-container'>
             <button
@@ -174,14 +184,14 @@ class AddToCartForm extends React.Component{
           <div className="stars">{this.props.productAvg}</div>
           <div className="review_count">({this.props.pCount})</div>
         </div>
-        <div className="product-title">{this.props.product.name}</div>
-        <div className="price">{this.props.product.price}</div>
-        <div className="bestseller" id="showpage"><p>Bestseller</p></div>
+        <div className="product-title">{this.capitalize(this.props.product.name)}</div>
+        <div className="price">${this.props.product.price}</div>
+        {/* <div className="bestseller" id="showpage"><p>Bestseller</p></div> */}
         <ul>
           {optionsMenu}
         </ul>
         <div>
-          <p onClick={this.handleAddToCart}>Add to Cart</p>
+          <p onClick={this.handleAddToCart} className="add-to-cart-button">Add to Cart</p>
           <p>{this.state.errors}</p>
         </div>
       </div>

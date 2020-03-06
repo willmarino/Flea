@@ -18,6 +18,7 @@ class ProductShow extends React.Component{
         this.allReviewInfo = null;
         this.updated = false;
 
+        this.compileMiniPhotos = this.compileMiniPhotos.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.switchReviewDisplay = this.switchReviewDisplay.bind(this);
         this.starsify = this.starsify.bind(this);
@@ -37,6 +38,17 @@ class ProductShow extends React.Component{
             window.scrollTo(0, 0);
             this.props.addView(this.props.curProdId);
         }
+    }
+
+    compileMiniPhotos(){
+        this.miniPhotos = [];
+        [0, 1, 2, 3, 4, 5].forEach((el) => {
+            this.miniPhotos.push(
+                <li className="miniphoto-container">
+                    <img src={this.props.products[this.props.curProdId].photoURL} alt="" className="miniphoto"/>
+                </li>
+            )
+        })
     }
 
     handleSubmit(e){
@@ -136,12 +148,17 @@ class ProductShow extends React.Component{
             : <button className='review-display-button' onClick={this.switchReviewDisplay}>{this.state.limitMessage}</button> ;
 
         this.limitChanged = false;
+        this.compileMiniPhotos();
+        debugger;
         return(
             <div className="product-show-container" id='prod-show'>
                 <div className="product">
                     <div className="photo-reviews">
                         <div className="photo">
-                            <img src={curProd.photoURL} alt=""/>
+                            <ul className="miniphotos-list">
+                                {this.miniPhotos}
+                            </ul>
+                            <img src={curProd.photoURL} alt="" id="main-photo"/>
                         </div>
                         <div className="reviews">
                             <div className="review-meta-info">
@@ -176,7 +193,8 @@ class ProductShow extends React.Component{
                             pCount={this.pCount}
                             curPath={this.props.curPath}/>
                         <div className="details">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+                            <p className="dropdown-button-header">Description</p>
+                            <p className="description-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
                             accusantium doloremque laudantium, totam rem aperiam, eaque
                             ipsa quae ab illo inventore veritatis et quasi architecto beatae
                             vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
@@ -188,7 +206,7 @@ class ProductShow extends React.Component{
                             laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
                             autem vel eum iure reprehenderit qui in ea voluptate velit
                             esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
-                            quo voluptas nulla pariatur?
+                            quo voluptas nulla pariatur?</p>
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,7 @@ import DMIntegrationsContainer from './dash_components/integrations/dm_integrati
 import DMCommunityContainer from './dash_components/community/dm_community_container';
 import DMSettingsContainer from './dash_components/settings/dm_settings_container';
 import DMListingsAddContainer from './dash_components/add_listing/dm_listings_add_container';
+import DMListingsUpdateContainer from './dash_components/update_listing/dm_update_listing_container';
 
 class ShopManagerDash extends React.Component{
   constructor(props){
@@ -32,6 +33,7 @@ class ShopManagerDash extends React.Component{
         <Route exact path="/shops-manager/community_help" component={DMCommunityContainer}/>
         <Route exact path="/shops-manager/settings" component={DMSettingsContainer}/>
         <Route exact path="/shops-manager/listings/add/:shopId" component={DMListingsAddContainer}/>
+        <Route exact path="/shops-manager/listings/:prodId/update" component={DMListingsUpdateContainer}/>
       </div>
     )
   }

@@ -177,10 +177,8 @@ class Api::ShopsController < ApplicationController
   end
 
   def add_product
-    debugger
     attrs = add_listing_params
     category = Category.find_by(name: attrs[:category])
-    debugger
     product = Product.create!({ 
       shop_id: attrs[:shop_id],
       name: attrs[:name],
@@ -188,9 +186,7 @@ class Api::ShopsController < ApplicationController
       high_level_category: category.id,
       stock_amt: attrs[:amount]
     })
-    debugger
     product.photo.attach(io: attrs[:photo], filename: "#{attrs[:name]}_imagefile")
-    debugger
     product.set_photourl
 
     @product = [product]

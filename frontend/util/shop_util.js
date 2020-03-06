@@ -89,4 +89,5 @@ export const createShopProduct = (id, formData) => (
         contentType: false,
         processData: false
     })
-)
+);
+

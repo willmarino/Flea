@@ -91,6 +91,13 @@ export const receiveSearchProductIds = (ids) => ({
 
 // --------------------------------------------------------------------------------------------------------
 
+export const fetchProduct = (id) => dispatch => (
+  ProductUtil.fetchProduct(id)
+    .then(res => {
+      dispatch(receiveProduct(res.product));
+    })
+)
+
 export const fetchIndex = () => (dispatch) => (
   ProductUtil.fetchIndex()
     .then(res => {
@@ -137,4 +144,12 @@ export const fetchAssociatedProducts = (prodId, shopProducts, num) => dispatch =
       dispatch(receiveProducts(res.products));
       dispatch(receiveAssociatedIds(res.productIds));
     })
-)
+);
+
+export const updateShopProduct = (prodId, formData) => dispatch => (
+  ProductUtil.updateProduct(prodId, formData)
+    .then(res => {
+      dispatch(receiveProduct(res.product));
+      dispatch(receiveShopProductId(prodId));
+    })
+);

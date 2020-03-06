@@ -17,8 +17,17 @@ class Api::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update_attributes
-      @rating = @product.rating
+    attrs = update_params
+    debugger
+    if @product.update_attributes({ name: attrs[:name], price: attrs[:price], stock_amt: attrs[:amount], category: attrs[:high_level_category] })
+      if(attrs[:photo])
+        debugger
+        @product.photo.purge
+        @product.photo.attach(io: attrs[:photo], filename: "#{attrs[:name]}_imagefile")
+        @product.set_photourl
+      end
+      @product_id = @product.id
+      debugger
       render :show
     else
       render json: @product.errors.full_messages, status: 422
@@ -28,7 +37,9 @@ class Api::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     if @product
-      @rating = @product.rating
+      @product_id = @product.id
+      # @rating = @product.rating
+      # json.partial! 'product', product: @product
       render :show
     else
       render json: ["Product not found"], status: 404
@@ -213,6 +224,10 @@ class Api::ProductsController < ApplicationController
       end
     end
     render :recently_viewed
+  end
+
+  def update_params
+    params.require(:product).permit(:name, :price, :stock_amt, :photo, :category)
   end
 
   def product_params

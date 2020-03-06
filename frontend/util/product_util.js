@@ -7,18 +7,18 @@ export const createProduct = (product) => (
   })
 );
 
-export const updateProduct = (productId) => (
+export const updateProduct = (id, formData) => (
   $.ajax({
     method: "PATCH",
-    url: `/api/products/${productId}`,
-    data: { product }
+    url: `/api/products/${id}`,
+    data: formData
   })
 );
 
-export const fetchProduct = (productId) => (
+export const fetchProduct = (id) => (
   $.ajax({
     method: "GET",
-    url: `/api/products/${productId}`
+    url: `/api/products/${id}`
   })
 );
 

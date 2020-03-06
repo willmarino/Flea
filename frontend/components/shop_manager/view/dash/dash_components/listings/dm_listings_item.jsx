@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DMListingsItem = (props) => {
+  let productUpdateUrl = `/shops-manager/listings/${props.product.id}/update`;
   return(
     <div className="DM-listings-item">
-      <Link>
+      <Link to={productUpdateUrl}>
       <img src={props.product.photoURL} alt=""/>
       <div className="DM-listings-item-details">
         <p>{props.product.name}</p>
