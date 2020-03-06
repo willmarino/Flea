@@ -6,7 +6,7 @@ import UserMain from './main/user_main';
 
 const App = () => {
   return (
-    <div>
+    <div className="app-container">
       <Switch>
         <AuthRoute path="/anon" component={AnonMain}/>
         <ProtectedRoute path="/" component={UserMain}/>

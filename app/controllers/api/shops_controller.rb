@@ -99,6 +99,17 @@ class Api::ShopsController < ApplicationController
     render :owned_view
   end
 
+  def owned_listings
+    shop = Shop.find(params[:id])
+    @products = []
+    @product_ids = []
+    shop.products.each do |p|
+      @products << p
+      @product_ids << p.id
+    end
+    render :owned_listings
+  end
+
   def shop_show
     @shop = Shop.find(params[:id])
     @users = [@shop.creator]
@@ -165,6 +176,33 @@ class Api::ShopsController < ApplicationController
     end
   end
 
+  def add_product
+    debugger
+    attrs = add_listing_params
+    category = Category.find_by(name: attrs[:category])
+    debugger
+    product = Product.create!({ 
+      shop_id: attrs[:shop_id],
+      name: attrs[:name],
+      price: attrs[:price],
+      high_level_category: category.id,
+      stock_amt: attrs[:amount]
+    })
+    debugger
+    product.photo.attach(io: attrs[:photo], filename: "#{attrs[:name]}_imagefile")
+    debugger
+    product.set_photourl
+
+    @product = [product]
+    @product_id = product.id
+
+    render :new_listing
+  end
+
+
+  def add_listing_params
+    params.require(:product).permit(:photo, :name, :price, :category, :amount, :shop_id)
+  end
 
   def shop_params
     params.require(:shop).permit(:name, :image_url, :location, :creator_id, :description, :announcement)

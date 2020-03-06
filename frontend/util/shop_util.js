@@ -63,11 +63,30 @@ export const fetchOwnedShopInfo = () => (
         method: "GET",
         url: "/api/shops/owned_info"
     })
-)
+);
 
 export const fetchOwnedShopView = (id) => (
     $.ajax({
         method: "GET",
-        url: `/api/shops/${id}/owned_view`,
+        url: `/api/shops/${id}/owned_view`
+    })
+);
+
+export const fetchOwnedShopListings = (id) => {
+    return(
+        $.ajax({
+            method: "GET",
+            url: `/api/shops/${id}/owned_listings`
+        })
+    )
+};
+
+export const createShopProduct = (id, formData) => (
+    $.ajax({
+        method: "POST",
+        url: `/api/shops/${id}/add_product`,
+        data: formData,
+        contentType: false,
+        processData: false
     })
 )

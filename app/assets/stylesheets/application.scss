@@ -61,6 +61,14 @@
   @import './styles/shop_manager/owned_shop/owned_shop.scss';
   @import './styles/shop_manager/owned_shop/owned_shop_header.scss';
   @import './styles/shop_manager/owned_shop/owned_shop_listings.scss';
+  @import './styles/shop_manager/listings/listings.scss';
+  @import './styles/shop_manager/listings/listings_header.scss';
+  @import './styles/shop_manager/listings/listings_mid.scss';
+  @import './styles/shop_manager/listings/listings_mid_main.scss';
+  @import './styles/shop_manager/listings/listings_mid_sidebar.scss';
+  @import './styles/shop_manager/listings/listings_footer.scss';
+  @import './styles/shop_manager/listings/listings_mid_item.scss';
+  @import './styles/shop_manager/add_listing/add_listings.scss';
   
  a{
    text-decoration: none;

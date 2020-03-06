@@ -62,11 +62,9 @@ class OwnedShopListings extends React.Component{
             <p>sales</p>
             <p>admirers</p>
           </div>
-          {/* <div className="OSL-products-container"> */}
           <ul className="OSL-products">
             {this.productsByFilter[this.state.category]}
           </ul>
-          {/* </div> */}
         </div>
       </div>
     )

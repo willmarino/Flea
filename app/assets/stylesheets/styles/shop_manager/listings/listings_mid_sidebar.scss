@@ -1,0 +1,64 @@
+.SML-mid-sidebar{
+  width: 230px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.SML-mid-sidebar-one{
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
+
+.SML-mid-sidebar-one p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SML-mid-sidebar-two{
+  display: flex;
+  justify-content: space-between;
+}
+
+.SML-mid-sidebar-two-left{
+  display: flex;
+}
+
+.SML-mid-sidebar-two-right{
+  display: flex;
+}
+
+.SML-mid-sidebar-three{
+  display: flex;
+  flex-direction: column;
+}
+
+.SML-mid-sidebar-four{
+  display: flex;
+  flex-direction: column;
+}
+
+.SML-mid-sidebar-four-box{
+  display: flex;
+}
+
+.SML-mid-sidebar-five{
+  display: flex;
+  flex-direction: column;
+}
+
+.SML-mid-sidebar-five-box{
+  display: flex;
+}
+
+.SML-mid-sidebar-six{
+  display: flex;
+  flex-direction: column;
+}
+
+.SML-mid-sidebar-seven{
+  display: flex;
+}

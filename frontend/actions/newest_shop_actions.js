@@ -13,6 +13,9 @@ import { receiveShopViews, receiveShopViewsIds } from './shop_view_actions';
 import { receiveOrders, receiveShopOrdersIds } from './order_actions';
 import { receiveProductOrders, receiveShopProductOrderIds } from './product_orders_actions';
 
+// create new shop product
+import { receiveShopProductId } from './newest_product_actions';
+
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_OWNED_SHOP_IDS = "RECEIVE_OWNED_SHOP_IDS";
@@ -102,10 +105,20 @@ export const fetchOwnedShopView = (id) => dispatch => (
     })
 );
 
-// Why did you apply to work at WinIt?
-// We're a small team where each engineer contributes in different strengths. What do you think you'd bring to the table?
-// What do you like about software development? How did you get into it?
-// What is your favorite software project that you've worked on and what was your role?
-// What experience do you have with node.js or additional backend experience -- please add specifics?
-// What platforms / frameworks / languages do you like to work with -- web / mobile?
-// Can you share a story about a time you’ve worked with someone to solve a problem? How did you approach it and who did what?
+export const fetchOwnedShopListings = (id) => dispatch => {
+  return(
+    ShopUtil.fetchOwnedShopListings(id)
+      .then(res => {
+        dispatch(receiveProducts(res.products));
+        dispatch(receiveShopProductIds(res.product_ids));
+      })
+  )
+};
+
+export const createShopProduct = (id, formData) => dispatch => (
+  ShopUtil.createShopProduct(id, formData)
+    .then(res => {
+      dispatch(receiveProducts(res.product));
+      dispatch(receiveShopProductId(res.product_ids));
+    })
+);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import DMSearchContainer from './dash_components/search/dm_search_container';
 import DMDashboardContainer from './dash_components/dashboard_main/dm_dashboard_container';
 import DMListingsContainer from './dash_components/listings/dm_listings_container';
@@ -11,35 +11,15 @@ import DMMarketingContainer from './dash_components/marketing/dm_marketing_conta
 import DMIntegrationsContainer from './dash_components/integrations/dm_integrations_container';
 import DMCommunityContainer from './dash_components/community/dm_community_container';
 import DMSettingsContainer from './dash_components/settings/dm_settings_container';
-// import DMOwnedShopContainer from '../../../owned_shop/dm_owned_shop_container';
+import DMListingsAddContainer from './dash_components/add_listing/dm_listings_add_container';
 
 class ShopManagerDash extends React.Component{
   constructor(props){
     super(props);
-
-    // this.componentMap = {
-    //   'search' : <DMSearchContainer/>,
-    //   'dashboard' : <DMDashboardContainer/>,
-    //   'listings' : <DMListingsContainer/>,
-    //   'messages' : <DMMessagesContainer/>,
-    //   'orders_shipping' : <DMOrdersContainer/>,
-    //   'stats' : <DMStatsContainer/>,
-    //   'finances' : <DMFinancesContainer/>,
-    //   'marketing' : <DMMarketingContainer/>,
-    //   'integrations' : <DMIntegrationsContainer/>,
-    //   'community_help' : <DMCommunityContainer/>,
-    //   'settings' : <DMSettingsContainer/>
-    // }
   }
   render(){
-    // let url = this.props.location.pathname;
-    // let urlArr = url.split("/");
-    // let urlEnding = urlArr[urlArr.length - 1];
-    // return(
-    //   this.componentMap[urlEnding]
-    // )
     return(
-      <div>
+      <div className="SM-dash-container">
         <Route exact path="/shops-manager/search" component={DMSearchContainer}/>
         <Route exact path="/shops-manager/dashboard" component={DMDashboardContainer}/>
         <Route exact path="/shops-manager/listings" component={DMListingsContainer}/>
@@ -51,7 +31,7 @@ class ShopManagerDash extends React.Component{
         <Route exact path="/shops-manager/integrations" component={DMIntegrationsContainer}/>
         <Route exact path="/shops-manager/community_help" component={DMCommunityContainer}/>
         <Route exact path="/shops-manager/settings" component={DMSettingsContainer}/>
-        {/* <Route path="/shops-manager/owned/:prodId" component={DMOwnedShopContainer}/> */}
+        <Route exact path="/shops-manager/listings/add/:shopId" component={DMListingsAddContainer}/>
       </div>
     )
   }

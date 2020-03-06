@@ -7,6 +7,7 @@ import {
   RECEIVE_RECENTLY_VIEWED_IDS,
   RECEIVE_HAPPY_PRODUCT_IDS,
   RECEIVE_SHOP_PRODUCT_IDS,
+  RECEIVE_SHOP_PRODUCT_ID,
   RECEIVE_ASSOCIATED_IDS,
   RECEIVE_SEARCH_PRODUCT_IDS
 } from "../actions/newest_product_actions";
@@ -50,6 +51,14 @@ const NewestProductsReducer = (state={}, action) => {
       return Object.assign({}, state, { happyProductIds : action.ids });
     case RECEIVE_SHOP_PRODUCT_IDS:
       return Object.assign({}, state, { shopProductIds : action.ids });
+    case RECEIVE_SHOP_PRODUCT_ID:
+      if(state.shopProductIds){
+        newState = state.shopProductIds;
+        newState.push(action.id);
+      }else{
+        newState = [action.id];
+      }
+      return Object.assign({}, state, newState);
     case RECEIVE_ASSOCIATED_IDS:
       return Object.assign({}, state, { associatedIds : action.ids });
     case RECEIVE_SEARCH_PRODUCT_IDS:

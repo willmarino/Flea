@@ -17,7 +17,6 @@ class UserMain extends React.Component{
     }
 
     render(){
-        // let shopManagerPath= "/shops-manager/dashboard";
         if(this.props.location.pathname.includes("shops-manager")){
             return <ShopManagerLandingContainer/>;
         }

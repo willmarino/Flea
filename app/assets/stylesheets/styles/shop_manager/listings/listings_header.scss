@@ -1,0 +1,46 @@
+.SM-dash-container{
+  width: 100%;
+  // width: 100vh;
+  height: 100vh;
+}
+
+.SML-container{
+  width: 100%;
+}
+
+.SML-header{
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid gray;
+  box-sizing: border-box;
+}
+
+.SML-header-right{
+  display: flex;
+}
+
+.SML-header-right-two{
+  width: 120px;
+  height: 30px;
+  position: relative;
+  background: gray;
+}
+
+.SML-header-right-two:hover{
+  cursor: pointer;
+}
+
+
+.SML-header-right-two-plus{
+  position: absolute;
+  top: 6px;
+  left: 5px;
+}
+
+.SML-header-right-two-add{
+  position: absolute;
+  top: 6px;
+  left: 20px;
+}

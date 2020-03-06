@@ -34,12 +34,14 @@ Rails.application.routes.draw do
         get 'products'
         get 'shop_show'
         get 'owned_view'
+        get 'owned_listings'
+        post 'add_product'
       end
       collection do
         get 'owned'
         get 'owned_info'
       end
-      resources :products, only: [:create]
+      # resources :products, only: [:create]
     end
 
     resources :products, only: [:index, :show, :destroy, :update] do
