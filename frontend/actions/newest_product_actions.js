@@ -18,6 +18,7 @@ export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const RECEIVE_INDEX_IDS = "RECEIVE_INDEX_IDS";
+export const RECEIVE_CATEGORY_ROW_IDS = "RECEIVE_CATEGORY_ROW_IDS";
 export const RECEIVE_RECENTLY_VIEWED_IDS = "RECEIVE_RECENTLY_VIEWED_IDS";
 export const RECEIVE_RECENTLY_VIEWED_ID = "RECEIVE_RECENTLY_VIEWED_ID";
 export const RECEIVE_HAPPY_PRODUCT_IDS = "RECEIVE_HAPPY_PRODUCT_IDS";
@@ -49,6 +50,11 @@ const receiveIndexIds = (ids) => ({
   type: RECEIVE_INDEX_IDS,
   ids
 });
+
+const receiveCategoryRowIds = (ids) => ({
+  type: RECEIVE_CATEGORY_ROW_IDS,
+  ids
+})
 
 export const receiveRecentlyViewedIds = (ids) => ({
   type: RECEIVE_RECENTLY_VIEWED_IDS,
@@ -103,6 +109,7 @@ export const fetchIndex = () => (dispatch) => (
     .then(res => {
       dispatch(receiveProducts(res.products));
       dispatch(receiveCategories(res.categories));
+      dispatch(receiveCategoryRowIds(res.category_row_product_ids));
       dispatch(receiveIndexIds(res.ids));
       // dispatch(receivePageLoaded("main"))
     })

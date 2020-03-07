@@ -12,10 +12,9 @@ class CategoryIndexItem extends React.Component{
     return(
       <li className="category cat-item">
         <Link to="/" className="link-container">
-          <img src={this.props.p.photoURL} alt="" className="index-fake-image"/>
+          <img src={this.props.p.photoURL} alt="" className="category-item-image"/>
         </Link>
         <div className="category-details">
-          {/* <p>{this.props.p.high_level_category}</p> */}
           <p>{this.props.categoryName}</p>
         </div>
       </li>

@@ -15,16 +15,21 @@ class CategoryRow extends React.Component{
     let products = [];
     for(let i = 0; i < this.props.products.length; i++){
       let p = this.props.products[i];
+      debugger;
       products.push(
-        <CategoryIndexItem 
+        <CategoryIndexItem
           p={p}
           key={p.id}
-          categoryName={this.props.catRowCategories[p.high_level_category].name}/>)
+          categoryName={this.props.categories[p.high_level_category].name}/>
+      )
     }
 
     return(
       <>
-        <h2 className= "row-header">Gifts!</h2>
+        <div className="row-header-container">
+          <p className="row-header">Popular Categories</p>
+          <p className="row-header-sub">See More</p>
+        </div>
         <li>
           <ul>
             {products}

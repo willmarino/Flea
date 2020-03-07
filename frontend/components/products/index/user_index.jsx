@@ -2,6 +2,7 @@ import React from 'react';
 import SuggestedContainer from '../../suggested/suggested_container';
 import RecentlyViewed from '../row/recently_viewed';
 import IndexRow from '../row/index_row';
+import CategoryRowContainer from '../row/category_row_container';
 import Info from '../../segments/info';
 import Footer from '../../segments/footer';
 
@@ -66,9 +67,11 @@ class UserIndex extends React.Component{
             category={rowTwoCategory}
             loggedIn={this.props.loggedIn}/>
         </ul>
-        {/* <ul className='primary-index' id='cat-row'>
-          <CategoryRowContainer/>
-        </ul> */}
+        <ul className='primary-index' id='cat-row'>
+          <CategoryRowContainer
+            products={this.props.products}
+            categories={this.props.categories}/>
+        </ul>
         <Info/>
         <Footer/>
       </div>

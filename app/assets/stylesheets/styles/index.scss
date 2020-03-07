@@ -26,18 +26,31 @@
   width: 100%;
 }
 
-.row-header{
-  font-size: 15px;
-  color:#222;
-  // font-family: 'Arimo', sans-serif;
-  font-family: 'Arimo';
-  padding-left: 15px;
-
-  margin: 15px;
-
+.row-header-container{
   width: 100%;
+  height: 40px;
+  display: flex;
+}
+
+.row-header{
+  font-size: 14px;
+  color:#222;
+  font-family: 'Arimo';
+  font-weight: 800;
+  margin-left: 15px;
+  margin-right: 15px;
+  line-height: 40px;
   display: flex;
   justify-content: left;
+}
+
+.row-header-sub{
+  font-size: 12px;
+  line-height: 40px;
+  font-family: 'Arimo';
+  color:#222;
+  font-weight: lighter;
+  margin-top: 1px;
 }
 
 .product-row{
@@ -65,8 +78,10 @@
 
 .cat-item{
   flex: 1 1 auto;
+  box-shadow: 0 0 2px gray;
+  padding-bottom: 30px;
 }
 
-#cat-row{
-  
+.cat-item:hover{
+  box-shadow: 0 0 3px #222;
 }

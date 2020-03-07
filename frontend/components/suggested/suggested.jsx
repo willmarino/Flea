@@ -10,7 +10,6 @@ class Suggested extends React.Component{
   }
 
   handleSearch(e){
-    // this.props.fetchSearchMain(e.currentTarget.dataset.val);
     let query = e.currentTarget.dataset.val;
     this.props.createSearch(query)
       .then(this.props.history.push(`/search_result?query=${query}`));
@@ -25,7 +24,7 @@ class Suggested extends React.Component{
         <li key={curTerm}
           onClick={this.handleSearch}
           data-val={curTerm}
-          className="suggested-searches-list-item">{curTerm}</li>
+          className="suggested-searches-list-item"><p>{curTerm}</p></li>
       );
     }
     this.searchesList = <ul className="suggested-searches-list">{searches}</ul>;
@@ -40,7 +39,7 @@ class Suggested extends React.Component{
           <div className='suggested-searches-subheaders-and-list'>
             <div className="suggested-searches-subheaders">
               <p className="suggested-searches-subheader" id="ss-subheader-one">Suggested Searches</p>
-              <p className="suggested-searches-subheader" id="ss-subheader-two">Based on recent activity</p>
+              <p className="suggested-searches-subheader" id="ss-subheader-two">Based on your recent activity</p>
             </div>
             {this.searchesList}
           </div>

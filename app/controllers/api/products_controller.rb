@@ -73,6 +73,23 @@ class Api::ProductsController < ApplicationController
       @products << cur_category.products[0..5]
       @ids <<  @products[-1].map{ |product| product.id}
     end
+
+    @category_row_product_ids = []
+    category_row_cat_ids = []
+    low = Category.first.id
+    high = Category.last.id
+    while category_row_cat_ids.length < 6
+      cat_id = rand(low..high)
+      if !category_row_cat_ids.include?(cat_id)
+        cat = Category.find(cat_id)
+        product = Product.find_by(high_level_category: cat_id)
+        @products << product
+        @category_row_product_ids << product.id
+        @categories << cat
+        category_row_cat_ids.push(cat_id)
+      end
+    end
+
     @products.flatten!
     render :index
   end

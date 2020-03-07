@@ -24,7 +24,10 @@ class RecentlyViewed extends React.Component{
     this.compileProducts();
     return(
       <>
-        <h2 className="row-header">Recently Viewed</h2>
+        <div className="row-header-container">
+          <p className="row-header">Recently Viewed</p>
+          <p className="row-header-sub">See More</p>
+        </div>
         <li>
           {this.productsList}
         </li>
