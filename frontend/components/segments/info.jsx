@@ -1,5 +1,5 @@
 import React from 'react';
-
+// import x from '../../../app/assets/images/headphone.jpg'
 class Info extends React.Component{
   constructor(props){
     super(props);
@@ -9,6 +9,7 @@ class Info extends React.Component{
   render(){
     return(
       <div className="info-whole">
+        {/* <img src="../../../app/assets/images/headphone.jpg" alt="" className="info-segment-image"/> */}
         <div className='info-content-container'>
           <div className="info-top">
             <p className='info-main-header'>What is Flea?</p>

@@ -11,6 +11,7 @@ class IndexRow extends React.Component{
         let productsList = products.map((p) => {
             return <IndexItem product={p} type={this.props.type} loggedIn={this.props.loggedIn} key={p.id}/> //shop={this.props.shops[p.shop_id]}
         });
+        debugger;
         return(
             <> 
                 <div className="row-header-container">

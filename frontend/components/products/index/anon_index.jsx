@@ -1,6 +1,6 @@
 import React from 'react';
 // import IndexRowContainer from '../row/index_row_container';
-// import CategoryRowContainer from '../row/category_row_container';
+import CategoryRowContainer from '../row/category_row_container';
 import IndexRow from '../row/index_row';
 import Advert from '../../segments/advert';
 import Info from '../../segments/info';
@@ -24,7 +24,15 @@ class AnonIndex extends React.Component{
     if(!this.props.products.indexIds){
       return <p></p>
     }
-    let { products, categories} = this.props;
+    // let { products, categories} = this.props;
+    let { products, tags, categories } = this.props;
+    let rowOneProduct = products[products.indexIds[0][0]];
+    let rowTwoProduct = products[products.indexIds[1][0]];
+    let rowThreeProduct = products[products.indexIds[2][0]];
+    let rowOneCategory = categories[rowOneProduct.high_level_category].name;
+    let rowTwoCategory = categories[rowTwoProduct.high_level_category].name;
+    let rowThreeCategory = categories[rowThreeProduct.high_level_category].name;
+    debugger;
     return(
       <div>
         <Advert/>
@@ -32,23 +40,25 @@ class AnonIndex extends React.Component{
           <IndexRow 
             type='simple'
             products={products.indexIds[0].map((id) => products[id])}
-            category={categories[products.indexIds[0][0].high_level_category]}/>
+            category={rowOneCategory}/>
         </ul>
         <ul className='primary-index'>
           <IndexRow
             type='simple'
             products={products.indexIds[1].map((id) => products[id])}
-            category={categories[products.indexIds[1][0].high_level_category]}/>
+            category={rowTwoCategory}/>
         </ul>
         <ul className='primary-index'>
           <IndexRow
             type='simple'
             products={products.indexIds[2].map((id) => products[id])}
-            category={categories[products.indexIds[2][0].high_level_category]}/>
+            category={rowThreeCategory}/>
         </ul>
-        {/* <ul className='primary-index' id='cat-row'>
-          <CategoryRowContainer categories={this.props.catRowCategories}/>
-        </ul> */}
+        <ul className='primary-index' id='cat-row'>
+          <CategoryRowContainer
+            products={this.props.products}
+            categories={this.props.categories}/>
+        </ul>
         <Info/>
         <ReviewSegmentContainer/>
         <Footer/>

@@ -18,7 +18,12 @@ class ReviewsSegment extends React.Component{
     let reviews = this.props.reviews.happyReviewIds.map((id) => this.props.reviews[id]);
     let reviewsObj = [];
     for(let i = 0; i < 3; i++){
-      reviewsObj.push(<HappyReview product={products[i]} review={reviews[i]} user={users[i]} key={reviews[i].id}/>)
+      reviewsObj.push(<HappyReview
+        product={products[i]}
+        review={reviews[i]}
+        user={users[i]}
+        loggedIn={this.props.loggedIn}
+        key={reviews[i].id}/>)
     }
     return reviewsObj;
   }

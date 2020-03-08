@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class HappyReview extends React.Component{
   constructor(props){
@@ -17,18 +18,9 @@ class HappyReview extends React.Component{
 
   configureDate(str){
     let months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December'
+      'January', 'February', 'March', 'April', 'May',
+      'June', 'July', 'August', 'September', 'October',
+      'November', 'December'
     ];
     let [year, month, day] = str.split('-');
     return `${months[month - 1]} ${day}`
@@ -37,10 +29,14 @@ class HappyReview extends React.Component{
 
   render(){
     let {user, review, product} = this.props;
+    let productShowPath = `/products/${product.id}`;
+    if(!this.props.loggedIn) productShowPath = '/anon' + productShowPath;
     return(
       <li className='happy-review' >
         <div className='hr-container-one'>
+          <Link to={productShowPath}>
           <img src={user.photoURL} alt="" className='avatar'/>
+          </Link>
           <p>{user.username} wrote on {this.configureDate((review.created_at).slice(0,10))}</p>
           <ul className='star-rating'>{this.starsify(review.rating)}</ul>
         </div>

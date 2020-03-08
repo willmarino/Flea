@@ -73,3 +73,29 @@
   width: 100%;
   object-fit: cover;
 }
+
+.item-sale-info{
+  display: flex;
+  position: relative;
+}
+
+.item-sale-info p{
+  margin-left: 5px;
+}
+
+#item-sale-oldprice{
+  font-size: 12px;
+  color: #4a874f;
+}
+
+#item-sale-percentage{
+  font-size: 12px;
+  color: #4a874f;
+}
+
+#item-sale-dash{
+  border-bottom: 1px solid #4a874f;
+  position: absolute;
+  bottom: 5px;
+  width: 35px;
+}

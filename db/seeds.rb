@@ -363,6 +363,8 @@ shops.each_with_index do |shop, i|
     shop.photo.attach(io: file, filename: indiv_file)
 end
 
+# length = 8
+sales_amounts = [5, 10, 15, 20, 25, 30, 35, 40]
 
 # clothing and shoes
 i = 0
@@ -377,17 +379,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.66
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: clothingandshoes_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Clothing & Shoes",
         high_level_category: cat1.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
-
     )
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -434,16 +447,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: jewelrynames[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Jewelry & Accessories",
         high_level_category: cat2.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -489,17 +514,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: homeandliving_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Home & Living",
         high_level_category: cat3.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
-
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -544,17 +580,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: artsandcrafts_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Craft & Supplies",
         high_level_category: cat4.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
-
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -600,17 +647,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: artsandcollect_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Art & Collectibles",
         high_level_category: cat5.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
-
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -655,17 +713,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: weddingandparty_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Wedding & Party",
         high_level_category: cat6.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
-
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -709,17 +778,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: vintage_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Vintage",
         high_level_category: cat7.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
-
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -763,17 +843,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: gift_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Gifts",
         high_level_category: cat8.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
-
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(
@@ -817,17 +908,28 @@ while i < 6
             option_details << possible_option_details[i]
         end
     end
+    prod_price = (rand() * 200).round(2)
+    if prod_price.to_s.split(".")[-1].length == 1
+        prod_price = (prod_price.to_s + "0").to_f
+    end
+    if rand() > 0.75
+        # prod_sale = prod_price * (rand(1..30).to_f / 100).round(2)
+        prod_sale = sales_amounts[rand(0..sales_amounts.length - 1)].to_f / 100
+    else
+        prod_sale = nil
+    end
     x = Product.create!(
         name: tande_names[i],
         shop_id: shops[i % shops.length].id,
-        # high_level_category: "Toys & Entertainment",
         high_level_category: cat9.id,
-        price: (rand() * 200).round(2),
+        price: prod_price,
+        sale: prod_sale,
         stock_amt: rand(50),
         options: options,
         options_details: option_details
     )
-
+    user_for_view = users[rand(0..8)]
+    View.create({ user_id: user_for_view.id, product_id: x.id })
     j = 0
     while j < 4;
         Review.create!(

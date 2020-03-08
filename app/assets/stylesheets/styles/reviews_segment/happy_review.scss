@@ -28,6 +28,7 @@
   height: 60px;
   width: 60px;
   border-radius: 30px;
+  object-fit: cover;
 }
 
 // star rating
@@ -47,17 +48,13 @@
 }
 
 
-
-
-
-
 .product-photo{
   width: 215px;
   height: 215px;
 
   margin-top: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 2px;
 
   object-fit: cover;
 }

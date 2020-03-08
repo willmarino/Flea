@@ -4,6 +4,19 @@ import React from 'react';
 class IndexItem extends React.Component{
   constructor(props){
     super(props);
+
+    let { product } = this.props;
+    if(this.props.product.sale){
+      debugger;
+      this.price = (product.price - (product.price * product.sale)).toFixed(2);
+      this.altPrice = `$${product.price}`;
+      this.salePercentage = `(%${Math.round(product.sale * 100)} off)`;
+    }else{
+      debugger;
+      this.price = (product.price).toFixed(2);
+      this.altPrice = null;
+      this.salePercentage = null;
+    }
   }
 
   starsify(n){
@@ -13,7 +26,6 @@ class IndexItem extends React.Component{
       }
     return stars;
   }
-
 
     render(){
 
@@ -25,6 +37,10 @@ class IndexItem extends React.Component{
       path = `/products/${this.props.product.id}`;
     }
     let item;
+    let dash = null;
+    if(this.altPrice){
+      dash = <p id="item-sale-dash"></p>
+    }
 
     if(this.props.type === "simple"){
       item = (
@@ -34,10 +50,13 @@ class IndexItem extends React.Component{
           </Link>
           <div className="item-labels-simple">
             <div className="item-price">
-              <i className="fa fa-euro-sign"></i>
-              <p>${this.props.product.price}</p>
+              <p>${this.price}</p>
+              <div className="item-sale-info">
+                <p id="item-sale-oldprice">{this.altPrice}</p>
+                <p id="item-sale-percentage">{this.salePercentage}</p>
+                {dash}
+              </div>
             </div>
-            {/* {widgets[Math.round(Math.random())]} */}
           </div>
         </li>
       )
