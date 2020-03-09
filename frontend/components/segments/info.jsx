@@ -12,8 +12,8 @@ class Info extends React.Component{
         {/* <img src="../../../app/assets/images/headphone.jpg" alt="" className="info-segment-image"/> */}
         <div className='info-content-container'>
           <div className="info-top">
-            <p className='info-main-header'>What is Flea?</p>
-            <p>Sed ut perspiciatis unde omnis iste natus error</p>
+            <p className='info-main-header'>Like the site?</p>
+            <p id="info-top-subheader"><a href="https://github.com/willmarino/Flea">Check out the code here</a></p>
           </div>
           <div className="info-mid">
             <div id="info-mid-one">
@@ -41,7 +41,7 @@ class Info extends React.Component{
           </div>
           <div className='info-bottom'>
             <p>Have questions?</p>
-            <button>Help Center</button>
+            <p className="help-center-button">Go To Help Center</p>
           </div>
         </div>
       </div>

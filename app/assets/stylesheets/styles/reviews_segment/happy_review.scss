@@ -22,6 +22,12 @@
   margin-bottom: 10px;
 }
 
+.hr-container-one p{
+  font-family: 'Arimo';
+  font-size: 14px;
+  color: #222;
+}
+
 
 // profile photo used in review
 .avatar{
@@ -42,9 +48,11 @@
   height: 35px;
 
   text-align: center;
-
+  font-family: 'Arimo';
   margin-top: 5px;
   margin-bottom: 10px;
+  font-size: 14px;
+  color: #222;
 }
 
 
@@ -61,7 +69,14 @@
 
 .product-description{
   text-align: center;
-
+  font-family: 'Arimo';
   margin-top: 10px;
   margin-bottom: 10px;
+  font-size: 14px;
+  color: #222;
+}
+
+.hr-product-container:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }

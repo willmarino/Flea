@@ -34,17 +34,17 @@ class HappyReview extends React.Component{
     return(
       <li className='happy-review' >
         <div className='hr-container-one'>
-          <Link to={productShowPath}>
           <img src={user.photoURL} alt="" className='avatar'/>
-          </Link>
           <p>{user.username} wrote on {this.configureDate((review.created_at).slice(0,10))}</p>
           <ul className='star-rating'>{this.starsify(review.rating)}</ul>
         </div>
         <p className='review-body'>{review.body}</p>
-        <div>
+        <Link to={productShowPath}>
+        <div className="hr-product-container">
           <img src={product.photoURL} alt="" className='product-photo'/>
-          <p className='product-description'>placeholder description</p>
+          <p className='product-description'>{product.name}</p>
         </div>
+        </Link>
       </li>
     )
   }
