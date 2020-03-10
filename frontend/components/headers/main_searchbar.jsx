@@ -84,7 +84,7 @@ class MainSearchbar extends React.Component{
         <input
           type="text"
           className="search"
-          id="user-search"
+          // id="user-search"
           value={this.state.query}
           onChange={this.grabSuggestedSearches}
           autoComplete='off'

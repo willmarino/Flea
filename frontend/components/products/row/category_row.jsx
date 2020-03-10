@@ -15,7 +15,6 @@ class CategoryRow extends React.Component{
     let products = [];
     for(let i = 0; i < this.props.products.length; i++){
       let p = this.props.products[i];
-      debugger;
       products.push(
         <CategoryIndexItem
           p={p}

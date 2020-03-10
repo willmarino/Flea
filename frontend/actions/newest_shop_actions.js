@@ -19,6 +19,8 @@ import { receiveShopProductId } from './newest_product_actions';
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_OWNED_SHOP_IDS = "RECEIVE_OWNED_SHOP_IDS";
+export const RECEIVE_MOST_VIEWED_SHOP_ID = "RECEIVE_MOST_VIEWED_SHOP_ID";
+export const RECEIVE_MOST_ORDERED_SHOP_ID = "RECEIVE_MOST_ORDERED_SHOP_ID";
 
 export const receiveShops = (shops) => {
   return({
@@ -36,6 +38,16 @@ export const receiveOwnedShopIds = (ids) => ({
   type : RECEIVE_OWNED_SHOP_IDS,
   ids
 });
+
+export const receiveMostViewedShopId = (id) => ({
+  type : RECEIVE_MOST_VIEWED_SHOP_ID,
+  id
+});
+
+export const receiveMostOrderedShopId = (id) => ({
+  type : RECEIVE_MOST_ORDERED_SHOP_ID,
+  id
+})
 
 export const createShop = (shop) => dispatch =>(
   ShopApiUtil.createShop(shop)

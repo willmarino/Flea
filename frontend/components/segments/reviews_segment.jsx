@@ -29,7 +29,9 @@ class ReviewsSegment extends React.Component{
   }
 
   allPresent(){
-    if(this.props.users.happyUserIds && this.props.reviews.happyReviewIds && this.props.products.happyProductIds) return true;
+    if(this.props.users.happyUserIds &&
+      this.props.reviews.happyReviewIds &&
+      this.props.products.happyProductIds) return true;
     return false;
   }
 

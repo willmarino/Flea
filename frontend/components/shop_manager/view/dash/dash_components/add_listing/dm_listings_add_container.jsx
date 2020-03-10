@@ -4,7 +4,6 @@ import DMListingsAdd from './dm_listings_add';
 import { createShopProduct } from '../../../../../../actions/newest_shop_actions';
 
 const msp = (state, ownProps) => {
-  debugger;
   let shop = state.entities.shops[ownProps.match.params.shopId];
   return({
     shops : state.entities.shops,

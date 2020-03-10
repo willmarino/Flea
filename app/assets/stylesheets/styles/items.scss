@@ -10,6 +10,7 @@
   object-fit: cover;
 
   border-radius: 4px;
+  transition: box-shadow 0.5s;
 
   // flex-grow: 1;
 }
@@ -19,7 +20,7 @@
 }
 
 .index-fake-image:hover{
-  box-shadow: 0px 0px 1px 1px darkgray;
+  box-shadow: 0px 0px 2px 2px gray;
 }
 
 .simple, .complex, .category{

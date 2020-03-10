@@ -60,8 +60,8 @@
   width: 215px;
   height: 215px;
 
-  margin-top: 10px;
-  margin-bottom: 10px;
+  // margin-top: 10px;
+  // margin-bottom: 10px;
   border-radius: 2px;
 
   object-fit: cover;
@@ -70,13 +70,23 @@
 .product-description{
   text-align: center;
   font-family: 'Arimo';
-  margin-top: 10px;
-  margin-bottom: 10px;
+  // margin-top: 10px;
+  // margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   font-size: 14px;
   color: #222;
+}
+
+.hr-product-container{
+  margin-top: 10px;
+  padding-bottom: 20px;
+  transition: text-decoration 0.5s, box-shadow 0.5s;
 }
 
 .hr-product-container:hover{
   cursor: pointer;
   text-decoration: underline;
+  text-decoration-color: #222;
+  box-shadow: 0 0 4px #222;
 }

@@ -26,14 +26,6 @@ class DMListingsAdd extends React.Component{
     formData.append('product[amount]', this.state.amount);
     formData.append('product[photo]', this.state.imageFile);
     formData.append('product[shop_id]', this.props.shop.id);
-    debugger;
-    // $.ajax({
-    //   method: "POST",
-    //   url: `/api/shops/${this.props.shop.id}/add_product`,
-    //   data: formData,
-    //   contentType: false,
-    //   processData: false
-    // });
     this.props.createShopProduct(this.props.shop.id, formData)
       .then(() => {
         this.props.history.push('/shops-manager/listings');
@@ -45,18 +37,13 @@ class DMListingsAdd extends React.Component{
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () => {
-      debugger;
       this.setState({ imageUrl : reader.result, imageFile : file });
     }
-    debugger;
     if(file){
       reader.readAsDataURL(file);
-      debugger;
     }else{
       this.setState({ imageUrl : '', imageFile : null });
-      debugger;
     }
-    debugger;
   }
 
   update(field){
@@ -66,7 +53,6 @@ class DMListingsAdd extends React.Component{
   }
 
   render(){
-    debugger;
     return(
       <div className="add-listing-container">
         <h2>Add Listing</h2>

@@ -1,0 +1,44 @@
+.trending-items-container{
+  max-width: 1260px;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.trending-items-header{
+  max-width: 1260px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.trending-items-header-one{
+  margin-right: 10px;
+  font-family: 'Arimo';
+  font-size: 16px;
+}
+
+.trending-items-header-two{
+  margin-right: 10px;
+  font-family: 'Arimo';
+  font-size: 12px;
+}
+
+.trending-items-header-one:hover{
+}
+
+.trending-items-header-two:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.trending-items-main{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}

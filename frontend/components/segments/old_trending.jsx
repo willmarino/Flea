@@ -6,12 +6,6 @@ class Trending extends React.Component{
 
   }
 
-  componentDidMount() {
-    // this.props.fetchReviews();
-    // this.props.fetchShops();
-  }
-
-
   render(){
 
     let products = [];

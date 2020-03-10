@@ -70,10 +70,14 @@
 .info-message{
   margin: 30px;
   margin-top: 10px;
-  padding: 15px;
+  padding: 15px 0;
   line-height: 25px;
   color: 	#303030;
   text-align: center;
+}
+
+.info-top{
+  margin-bottom: 20px;
 }
 
 #info-top-subheader{
@@ -95,6 +99,7 @@
   border: 2px solid black;
   padding: 10px;
   border-radius: 25px;
+  transition: box-shadow 0.5s;
 }
 
 .help-center-button:hover{

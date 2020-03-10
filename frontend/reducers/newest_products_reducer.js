@@ -10,7 +10,8 @@ import {
   RECEIVE_SHOP_PRODUCT_IDS,
   RECEIVE_SHOP_PRODUCT_ID,
   RECEIVE_ASSOCIATED_IDS,
-  RECEIVE_SEARCH_PRODUCT_IDS
+  RECEIVE_SEARCH_PRODUCT_IDS,
+  RECEIVE_MOST_BOUGHT_PRODUCT_ID
 } from "../actions/newest_product_actions";
 
 const NewestProductsReducer = (state={}, action) => {
@@ -66,6 +67,8 @@ const NewestProductsReducer = (state={}, action) => {
       return Object.assign({}, state, { associatedIds : action.ids });
     case RECEIVE_SEARCH_PRODUCT_IDS:
       return Object.assign({}, state, { searchIds : action.ids });
+    case RECEIVE_MOST_BOUGHT_PRODUCT_ID:
+      return Object.assign({}, state, { mostBought : action.id });
     default:
       return state;
   }

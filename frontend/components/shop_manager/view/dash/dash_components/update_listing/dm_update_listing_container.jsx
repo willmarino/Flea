@@ -4,7 +4,6 @@ import DMListingsUpdate from './dm_update_listing';
 import { fetchProduct, updateShopProduct } from '../../../../../../actions/newest_product_actions';
 
 const msp = (state, ownProps) => {
-  debugger;
   let curProdId = ownProps.match.params.prodId;
   return({
     product : state.entities.products[curProdId],

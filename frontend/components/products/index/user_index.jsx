@@ -43,7 +43,6 @@ class UserIndex extends React.Component{
     let rowOneCategory = categories[rowOneProduct.high_level_category].name;
     let rowTwoCategory = categories[rowTwoProduct.high_level_category].name;
     let rowThreeCategory = categories[rowThreeProduct.high_level_category].name;
-    debugger;
     return(
       <div>
         <SuggestedContainer

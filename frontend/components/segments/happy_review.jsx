@@ -6,6 +6,8 @@ class HappyReview extends React.Component{
     super(props);
 
     this.starsify = this.starsify.bind(this);
+    this.capitalize = this.capitalize.bind(this);
+    this.configureDate = this.configureDate.bind(this);
   }
 
   starsify(num){
@@ -14,6 +16,11 @@ class HappyReview extends React.Component{
       stars.push(<li key={Math.round(Math.random() * 99)}><i className="fa fa-star"></i></li>)
     }
     return stars;
+  }
+
+  capitalize(str){
+    let res = str[0].toUpperCase() + str.slice(1);
+    return res;
   }
 
   configureDate(str){
@@ -42,7 +49,7 @@ class HappyReview extends React.Component{
         <Link to={productShowPath}>
         <div className="hr-product-container">
           <img src={product.photoURL} alt="" className='product-photo'/>
-          <p className='product-description'>{product.name}</p>
+          <p className='product-description'>{this.capitalize(product.name)}</p>
         </div>
         </Link>
       </li>

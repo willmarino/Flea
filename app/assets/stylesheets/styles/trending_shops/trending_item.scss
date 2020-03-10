@@ -1,0 +1,27 @@
+.trending-item-container{
+  transition: box-shadow 0.5s;
+}
+
+.trending-item-container:hover{
+  box-shadow: 0 0 3px #222;
+}
+
+.trending-item-image{
+  width: 20vw;
+  height: 20vw;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.trending-item-info{
+  margin-top: 20px;
+  font-family: 'Arimo';
+  font-size: 12px;
+  color: #222;
+  text-align: center;
+}
+
+#trending-item-info-item-name{
+  font-size: 14px;
+  margin-bottom: 5px;
+}

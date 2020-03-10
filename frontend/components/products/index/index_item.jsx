@@ -7,12 +7,10 @@ class IndexItem extends React.Component{
 
     let { product } = this.props;
     if(this.props.product.sale){
-      debugger;
       this.price = (product.price - (product.price * product.sale)).toFixed(2);
       this.altPrice = `$${product.price}`;
       this.salePercentage = `(%${Math.round(product.sale * 100)} off)`;
     }else{
-      debugger;
       this.price = (product.price).toFixed(2);
       this.altPrice = null;
       this.salePercentage = null;

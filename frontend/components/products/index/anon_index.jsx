@@ -1,10 +1,10 @@
 import React from 'react';
-// import IndexRowContainer from '../row/index_row_container';
 import CategoryRowContainer from '../row/category_row_container';
 import IndexRow from '../row/index_row';
 import Advert from '../../segments/advert';
 import Info from '../../segments/info';
 import ReviewSegmentContainer from '../../segments/reviews_segment_container';
+import TrendingItemsContainer from '../../segments/trending_items_container';
 import Footer from '../../segments/footer';
 
 class AnonIndex extends React.Component{
@@ -32,7 +32,6 @@ class AnonIndex extends React.Component{
     let rowOneCategory = categories[rowOneProduct.high_level_category].name;
     let rowTwoCategory = categories[rowTwoProduct.high_level_category].name;
     let rowThreeCategory = categories[rowThreeProduct.high_level_category].name;
-    debugger;
     return(
       <div>
         <Advert/>
@@ -61,6 +60,7 @@ class AnonIndex extends React.Component{
         </ul>
         <Info/>
         <ReviewSegmentContainer/>
+        <TrendingItemsContainer/>
         <Footer/>
       </div>
     )

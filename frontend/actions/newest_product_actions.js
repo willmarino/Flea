@@ -24,6 +24,7 @@ export const RECEIVE_RECENTLY_VIEWED_ID = "RECEIVE_RECENTLY_VIEWED_ID";
 export const RECEIVE_HAPPY_PRODUCT_IDS = "RECEIVE_HAPPY_PRODUCT_IDS";
 export const RECEIVE_SEARCH_PRODUCT_IDS = "RECEIVE_SEARCH_PRODUCT_IDS";
 export const RECEIVE_SHOP_PRODUCT_ID = "RECEIVE_SHOP_PRODUCT_ID"
+export const RECEIVE_MOST_BOUGHT_PRODUCT_ID = "RECEIVE_MOST_BOUGHT_PRODUCT_ID";
 
 // fetchProductsByShop
 export const RECEIVE_SHOP_PRODUCT_IDS = "RECEIVE_SHOP_PRODUCT_IDS";
@@ -86,6 +87,11 @@ export const receiveHappyProductIds = (ids) => ({
   type: RECEIVE_HAPPY_PRODUCT_IDS,
   ids
 });
+
+export const receiveMostBoughtProduct = (id) => ({
+  type: RECEIVE_MOST_BOUGHT_PRODUCT_ID,
+  id
+})
 
 // for search function in search actions
 export const receiveSearchProductIds = (ids) => ({

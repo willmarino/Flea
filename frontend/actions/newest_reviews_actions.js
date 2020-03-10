@@ -1,10 +1,11 @@
 import * as ReviewUtil from '../util/review_util';
 
 // imported for happy reviews functions
-import { receiveProducts } from './newest_product_actions';
+import { receiveProducts, receiveProduct, receiveMostBoughtProduct } from './newest_product_actions';
 import { receiveHappyProductIds } from './newest_product_actions';
 import { receiveUsers } from './users_actions';
 import { receiveHappyUserIds } from './users_actions';
+import { receiveShop, receiveMostOrderedShopId, receiveMostViewedShopId } from './newest_shop_actions';
 
 export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS";
 export const RECEIVE_HAPPY_REVIEW_IDS = "RECEIVE_HAPPY_REVIEW_IDS";
@@ -35,11 +36,19 @@ export const receiveShopReviewIds = (ids) => ({
 export const fetchHappyReviews = () => dispatch => (
   ReviewUtil.fetchHappyReviews()
     .then(res => {
+      debugger;
       dispatch(receiveReviews(res.reviews));
       dispatch(receiveHappyReviewIds(res.reviewIds));
       dispatch(receiveProducts(res.products));
       dispatch(receiveHappyProductIds(res.productIds));
       dispatch(receiveUsers(res.users));
       dispatch(receiveHappyUserIds(res.userIds));
+
+      dispatch(receiveShop(res.mostViewedShop));
+      dispatch(receiveMostViewedShopId(res.mostViewedShop.id));
+      dispatch(receiveShop(res.mostOrderedShop));
+      dispatch(receiveMostOrderedShopId(res.mostOrderedShop.id));
+      dispatch(receiveProduct(res.mostBoughtProduct));
+      dispatch(receiveMostBoughtProduct(res.mostBoughtProduct.id));
     })
 )

@@ -18,16 +18,13 @@ class Api::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     attrs = update_params
-    debugger
     if @product.update_attributes({ name: attrs[:name], price: attrs[:price], stock_amt: attrs[:amount], category: attrs[:high_level_category] })
       if(attrs[:photo])
-        debugger
         @product.photo.purge
         @product.photo.attach(io: attrs[:photo], filename: "#{attrs[:name]}_imagefile")
         @product.set_photourl
       end
       @product_id = @product.id
-      debugger
       render :show
     else
       render json: @product.errors.full_messages, status: 422

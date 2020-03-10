@@ -9,60 +9,55 @@ class Footer extends React.Component{
   render(){
     return(
       <div className="footer">
-        <div id="top">
+        <div className="top">
           <div className="footer-input">
             <p>Get fresh Flea trends and unique gift ideas delivered right to your inbox.</p>
             <input type="text"/>
           </div>
         </div>
         <div id="middle">
-          <div className="shop">
-            <p>Shop</p>
-            <p>Gift cards</p>
-            <p>Etsy blog</p>
+          <div className="footer-column">
+            <p className="footer-column-header">Shop</p>
+            <p className="footer-column-tag">Gift cards</p>
+            <p className="footer-column-tag">Etsy blog</p>
           </div>
-          <div className="sell">
-            <p>Sell</p>
-            <p>Sell on Etsy</p>
-            <p>Teams</p>
-            <p>Forums</p>
-            <p>Affiliates</p>
+          <div className="footer-column">
+            <p className="footer-column-header">Sell</p>
+            <p className="footer-column-tag">Sell on Etsy</p>
+            <p className="footer-column-tag">Teams</p>
+            <p className="footer-column-tag">Forums</p>
+            <p className="footer-column-tag">Affiliates</p>
           </div>
-          <div className="about">
-            <p>About</p>
-            <p>Etsy, Inc.</p>
-            <p>Policies</p>
-            <p>Investors</p>
-            <p>Careers</p>
-            <p>Press</p>
-            <p>Impact</p>
+          <div className="footer-column">
+            <p className="footer-column-header">About</p>
+            <p className="footer-column-tag">Etsy, Inc.</p>
+            <p className="footer-column-tag">Policies</p>
+            <p className="footer-column-tag">Investors</p>
+            <p className="footer-column-tag">Careers</p>
+            <p className="footer-column-tag">Press</p>
+            <p className="footer-column-tag">Impact</p>
           </div>
-          <div className="help">
-            <p>Help</p>
-            <div>
-              <p>Help Center</p>
-              <p>Privacy Settings</p>
+          <div className="footer-column">
+            <p className="footer-column-header">Help</p>
+            <p className="footer-column-tag">Help Center</p>
+            <p className="footer-column-tag" id="top-of-column-button">Privacy Settings</p>
+            <a href="https://github.com/willmarino/Flea" target="_blank" className="footer-column-button">Download the Flea App</a>
+            <div className="footer-icons" id="bottom-of-column-button">
+              <i className="fa fa-instagram"></i>
+              <i className="fa fa-facebook"></i>
+              <i className="fa fa-pinterest"></i>
+              <i className="fa fa-twitter"></i>
+              <i className="fa fa-youtube"></i>
             </div>
-            <div>
-              <button></button>
-              <div>
-                <i className="fa fa-instagram"></i>
-                <i className="fa fa-facebook"></i>
-                <i className="fa fa-pinterest"></i>
-                <i className="fa fa-twitter"></i>
-                <i className="fa fa-youtube"></i>
-              </div>
-            </div>
-
           </div>
         </div>
         <div id="bottom">
-          <button>
-            <i className="fas fa-flag-usa"></i>
+          <div>
+            {/* <i className="fas fa-flag-usa"></i> */}
             <p>United States</p>
-            <p>English</p>
+            <p id="bottom-left-mid">English</p>
             <p>USD</p>
-          </button>
+          </div>
           <div>
             <p>Flea inc.</p>
             <p>Terms of User</p>

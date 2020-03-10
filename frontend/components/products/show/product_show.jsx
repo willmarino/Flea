@@ -149,7 +149,6 @@ class ProductShow extends React.Component{
 
         this.limitChanged = false;
         this.compileMiniPhotos();
-        debugger;
         return(
             <div className="product-show-container" id='prod-show'>
                 <div className="product">

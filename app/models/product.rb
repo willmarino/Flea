@@ -32,6 +32,18 @@ class Product < ApplicationRecord
     return total / (self.reviews.length * 1.0)
   end
 
+  def self.most_bought
+    res = nil
+    Product.all.each do |p|
+      if !res
+        res = p
+      elsif res.orders.length < p.orders.length
+        res = p
+      end
+    end
+    return res
+  end
+
   def self.by_ids(ids_arr)
     products = []
     ids_arr.each do |p| # p is id of product
@@ -51,22 +63,6 @@ class Product < ApplicationRecord
   end
 
   def self.product_categories
-    # categories = [
-    # "Jewelry & Accessories",
-    # "Clothing & Shoes",
-    # "Home & Living",
-    # "Wedding & Party",
-    # "Toys & Entertainment",
-    # "Art & Collectibles",
-    # "Craft & Supplies",
-    # "Vintage",
-    # "Gifts"
-    # ]
-    # products = []
-    # categories.each do |category|
-    #   # products << Product.find_by(high_level_category: category)
-    #   products << Category.find_by(name: category).products
-    # end
     products = []
     Category.all.each do |cat|
       cur_products = cat.products
@@ -74,9 +70,9 @@ class Product < ApplicationRecord
       products << cur_products[rand_num]
       break if products.length == 6
     end
-
     return products
   end
+
 
   belongs_to :shop,
     class_name: "Shop",

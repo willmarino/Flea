@@ -21,6 +21,30 @@ class Shop < ApplicationRecord
     self.save
   end
 
+  def self.most_viewed
+    res = nil
+    Shop.all.each do |s|
+      if !res
+        res = s
+      elsif s.shop_views.length > res.shop_views.length
+        res = s
+      end
+    end
+    return res
+  end
+
+  def self.most_ordered
+    res = nil
+    Shop.all.each do |s|
+      if !res
+        res = s
+      elsif res.orders.length < s.orders.length
+        res = s
+      end
+    end
+    return res
+  end
+
   has_many :products,
     class_name: "Product",
     primary_key: :id,

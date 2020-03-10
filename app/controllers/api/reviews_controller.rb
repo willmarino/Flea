@@ -20,23 +20,36 @@ class Api::ReviewsController < ApplicationController
     3.times do
         random_nums << rand(0...all_happy_reviews.length)
     end
+
     @happy_reviews = []
+    @review_ids = []
     random_nums.each do |n|
-        @happy_reviews << all_happy_reviews[n]
+      @happy_reviews << all_happy_reviews[n]
+      @review_ids << all_happy_reviews[n].id
     end
 
     @products = []
+    @product_ids = []
     @happy_reviews.each do |hr|
-        @products << Product.find(hr.item_id)
+      product = Product.find(hr.item_id)
+      @products << product
+      @product_ids << product.id
     end
 
     @users = []
+    @user_ids = []
     @happy_reviews.each do |hr|
-      @users << User.find(hr.author_id)
+      user = User.find(hr.author_id)
+      @users << user
+      @user_ids << user.id
     end
-    @product_ids = @products.map{ |p| p.id }
-    @review_ids = @happy_reviews.map{ |r| r.id }
-    @user_ids = @users.map{ |u| u.id }
+
+    @most_viewed_shop = Shop.most_viewed
+    # @most_viewed_shop_id = @most_viewed_shop.id
+    @most_ordered_shop = Shop.most_ordered
+    # @most_ordered_shop_id = @most_ordered_shop.id
+    @most_bought_product = Product.most_bought
+    # @most_bought_product_id = @most_bought_product.id
     
     render :happy_reviews
 end

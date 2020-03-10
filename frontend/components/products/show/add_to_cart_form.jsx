@@ -151,7 +151,6 @@ class AddToCartForm extends React.Component{
       for(let i = 0; i < Object.keys(this.state.options).length; i++){
         let curKey = Object.keys(this.state.options)[i];
         let curOption = this.state.options[curKey];
-        debugger;
         optionsMenu.push(
           <li key={curKey} className="dropdown-button-header">{this.capitalize(curKey)}</li>
         )
