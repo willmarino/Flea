@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import TrendingItems from './trending_items';
+import { fetchTrendingItems } from '../../actions/newest_shop_actions';
 
 const msp = state => {
   debugger;
@@ -10,4 +11,8 @@ const msp = state => {
   })
 };
 
-export default connect(msp, null)(TrendingItems);
+const mdp = dispatch => ({
+  fetchTrendingItems: () => dispatch(fetchTrendingItems())
+});
+
+export default connect(msp, mdp)(TrendingItems);

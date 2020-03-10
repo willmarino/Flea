@@ -43,12 +43,5 @@ export const fetchHappyReviews = () => dispatch => (
       dispatch(receiveHappyProductIds(res.productIds));
       dispatch(receiveUsers(res.users));
       dispatch(receiveHappyUserIds(res.userIds));
-
-      dispatch(receiveShop(res.mostViewedShop));
-      dispatch(receiveMostViewedShopId(res.mostViewedShop.id));
-      dispatch(receiveShop(res.mostOrderedShop));
-      dispatch(receiveMostOrderedShopId(res.mostOrderedShop.id));
-      dispatch(receiveProduct(res.mostBoughtProduct));
-      dispatch(receiveMostBoughtProduct(res.mostBoughtProduct.id));
     })
 )

@@ -44,11 +44,11 @@ class Api::ReviewsController < ApplicationController
       @user_ids << user.id
     end
 
-    @most_viewed_shop = Shop.most_viewed
+    # @most_viewed_shop = Shop.most_viewed
+    # @most_ordered_shop = Shop.most_ordered
+    # @most_bought_product = Product.most_bought
     # @most_viewed_shop_id = @most_viewed_shop.id
-    @most_ordered_shop = Shop.most_ordered
     # @most_ordered_shop_id = @most_ordered_shop.id
-    @most_bought_product = Product.most_bought
     # @most_bought_product_id = @most_bought_product.id
     
     render :happy_reviews

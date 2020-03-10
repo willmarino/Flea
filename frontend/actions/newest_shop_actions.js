@@ -16,6 +16,9 @@ import { receiveProductOrders, receiveShopProductOrderIds } from './product_orde
 // create new shop product
 import { receiveShopProductId } from './newest_product_actions';
 
+// fetchTrendingItems imports
+import { receiveProduct, receiveMostBoughtProduct } from '../actions/newest_product_actions';
+
 export const RECEIVE_SHOPS = "RECEIVE_SHOPS";
 export const RECEIVE_SHOP = "RECEIVE_SHOP";
 export const RECEIVE_OWNED_SHOP_IDS = "RECEIVE_OWNED_SHOP_IDS";
@@ -135,3 +138,15 @@ export const createShopProduct = (id, formData) => dispatch => (
     })
 );
 
+
+export const fetchTrendingItems = () => dispatch => (
+  ShopUtil.fetchTrendingItems()
+    .then(res => {
+      dispatch(receiveShop(res.mostViewedShop));
+      dispatch(receiveMostViewedShopId(res.mostViewedShop.id));
+      dispatch(receiveShop(res.mostOrderedShop));
+      dispatch(receiveMostOrderedShopId(res.mostOrderedShop.id));
+      dispatch(receiveProduct(res.mostBoughtProduct));
+      dispatch(receiveMostBoughtProduct(res.mostBoughtProduct.id));
+    })
+);

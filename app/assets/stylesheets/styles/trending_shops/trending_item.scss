@@ -1,14 +1,16 @@
 .trending-item-container{
   transition: box-shadow 0.5s;
+  padding-bottom: 20px;
 }
 
 .trending-item-container:hover{
-  box-shadow: 0 0 3px #222;
+  box-shadow: 0 0 4px #222;
+  text-decoration: underline;
 }
 
 .trending-item-image{
-  width: 20vw;
-  height: 20vw;
+  width: 18vw;
+  height: 18vw;
   object-fit: cover;
   border-radius: 3px;
 }

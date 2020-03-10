@@ -1,0 +1,3 @@
+json.mostViewedShop @most_viewed_shop
+json.mostOrderedShop @most_ordered_shop
+json.mostBoughtProduct @most_bought_product

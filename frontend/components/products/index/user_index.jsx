@@ -3,6 +3,7 @@ import SuggestedContainer from '../../suggested/suggested_container';
 import RecentlyViewed from '../row/recently_viewed';
 import IndexRow from '../row/index_row';
 import CategoryRowContainer from '../row/category_row_container';
+import TrendingItemsContainer from '../../segments/trending_items_container';
 import Info from '../../segments/info';
 import Footer from '../../segments/footer';
 
@@ -72,6 +73,7 @@ class UserIndex extends React.Component{
             products={this.props.products}
             categories={this.props.categories}/>
         </ul>
+        <TrendingItemsContainer/>
         <Info/>
         <Footer/>
       </div>

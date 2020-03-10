@@ -152,6 +152,13 @@ class Api::ShopsController < ApplicationController
     render :products
   end
 
+  def trending_items
+    @most_viewed_shop = Shop.most_viewed
+    @most_ordered_shop = Shop.most_ordered
+    @most_bought_product = Product.most_bought
+    render :trending_items
+  end
+
 
   def index
     @shops = Shop.all

@@ -91,3 +91,9 @@ export const createShopProduct = (id, formData) => (
     })
 );
 
+export const fetchTrendingItems = () => (
+    $.ajax({
+        method: "GET",
+        url: '/api/shops/trending_items'
+    })
+);

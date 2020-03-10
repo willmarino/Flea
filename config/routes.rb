@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       collection do
         get 'owned'
         get 'owned_info'
+        get 'trending_items'
       end
       # resources :products, only: [:create]
     end
