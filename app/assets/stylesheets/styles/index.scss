@@ -83,10 +83,12 @@
 
 .cat-item{
   flex: 1 1 auto;
-  box-shadow: 0 0 2px gray;
+  // box-shadow: 0 0 2px gray;
+  border: 1px solid #D8D8D8;
   padding-bottom: 30px;
+  transition: box-shadow 0.4s;
 }
 
 .cat-item:hover{
-  box-shadow: 0 0 3px #222;
+  box-shadow: 0px 0px 3px 2px #D8D8D8;
 }

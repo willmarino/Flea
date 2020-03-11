@@ -32,6 +32,17 @@ class Api::OrdersController < ApplicationController
     end
   end
 
+  def by_shop
+    shop = Shop.find(params[:id])
+    @orders = []
+    @shop_order_ids = []
+    shop.orders.each do |o|
+      @orders << o
+      @shop_order_ids << o.id
+    end
+    render :by_shop
+  end
+
   def order_params
     params.require(:order).permit(:user_id, product_ids: [])
   end

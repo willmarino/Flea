@@ -4,9 +4,7 @@ import IndexItem from '../index/index_item';
 class ShowRecommend extends React.Component{
   constructor(props){
     super(props);
-
     this.fetched = false;
-
     this.compileProducts = this.compileProducts.bind(this);
   }
 
@@ -42,7 +40,7 @@ class ShowRecommend extends React.Component{
     let products = this.compileProducts();
     return(
       <>
-        <h2>You may also like</h2>
+        <p className="shop-recommended-header">You may also like</p>
         <ul className='product-show-associated-list'>
           {products}
         </ul>

@@ -9,6 +9,7 @@ import CartShowContainer from '../cart/cart_show_container';
 import ShopManagerLandingContainer from '../shop_manager/shop_manager_landing_container';
 import SearchResultContainer from '../search/search_result_container';
 import OwnedShopContainer from '../owned_shop/owned_shop_container';
+import UserProfileContainer from '../user_profile/user_profile_container';
 
 class UserMain extends React.Component{
     constructor(props){

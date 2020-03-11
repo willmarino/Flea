@@ -27,7 +27,11 @@ Rails.application.routes.draw do
       end
     end
     resources :cart_items, only: [:index, :create, :destroy]
-    resources :orders, only: [:show, :index, :create]
+    resources :orders, only: [:show, :index, :create] do
+      collection do
+        get 'by_shop'
+      end
+    end
     resource :session, only: [:create, :destroy]
 
     resources :shops, only: [:create, :show, :index, :update, :destroy] do

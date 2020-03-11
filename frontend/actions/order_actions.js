@@ -20,7 +20,7 @@ export const receiveOrders = (orders) => ({
 export const receiveShopOrdersIds = (ids) => ({
   type: RECEIVE_SHOP_ORDERS_IDS,
   ids
-})
+});
 
 export const fetchOrder = (orderId) => dispatch => (
   OrderApiUtil.fetchOrder(orderId)
@@ -44,3 +44,10 @@ export const createOrder = (order) => dispatch => {
   )
 };
 
+export const fetchOrdersByShop = (id) => (dispatch) => (
+  OrderApiUtil.fetchOrdersByShop(id)
+    .then(res => {
+      dispatch(receiveOrders(res.orders));
+      dispatch(receiveShopOrdersIds(res.shop_order_ids));
+    })
+)

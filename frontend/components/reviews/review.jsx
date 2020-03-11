@@ -6,6 +6,17 @@ class Review extends React.Component{
 
         this.starsify = this.starsify.bind(this);
         this.configureDate = this.configureDate.bind(this);
+        this.handleNavigate = this.handleNavigate.bind(this);
+    }
+
+    handleNavigate(e){
+        e.preventDefault();
+        let { history, product, loggedIn} = this.props;
+        let url = `/products/${product.id}`
+        if(!loggedIn){
+            url = '/anon' + url;
+        }
+        history.push(url);
     }
 
     starsify(n){
@@ -57,8 +68,8 @@ class Review extends React.Component{
                     </div>
                 </div>
                 <div className='product-img-and-name'>
-                    <img src={this.props.product.photoURL} alt=""/>
-                    <p>{this.props.product.name}</p>
+                    <img onClick={this.handleNavigate} src={this.props.product.photoURL} className="review-product-image" alt=""/>
+                    <p onClick={this.handleNavigate}>{this.props.product.name}</p>
                 </div>
             </div>
                 

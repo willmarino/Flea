@@ -25,12 +25,10 @@ class ProductShowReviews extends React.Component{
         </div>
         <div className='reviews-tabs'>
             <div>
-                <p onClick={this.switchTabToProduct}>For this item</p>
-                <p>{this.pCount}</p>
+                <p onClick={this.switchTabToProduct}>For this item ({this.pCount})</p>
             </div>
             <div>
-                <p onClick={this.switchTabToShop}>For this shop</p>
-                <p>{this.sCount}</p>
+                <p onClick={this.switchTabToShop}>For this shop ({this.sCount})</p>
             </div>
         </div>
         <ul>

@@ -3,7 +3,6 @@ import TrendingItems from './trending_items';
 import { fetchTrendingItems } from '../../actions/newest_shop_actions';
 
 const msp = state => {
-  debugger;
   return ({
     products: state.entities.products,
     shops: state.entities.shops,

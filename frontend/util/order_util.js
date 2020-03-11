@@ -23,3 +23,11 @@ export const createOrder = (order) => {
     })
   )
 };
+
+export const fetchOrdersByShop = (id) => (
+  $.ajax({
+    method: "GET",
+    url: '/api/orders/by_shop',
+    data: { id }
+  })
+)

@@ -53,7 +53,7 @@ class DMDashboardMain extends React.Component{
   }
 
   render(){
-    if(this.props.pageLoaded !== "SM-dashboard-main"){
+    if(this.props.pageLoaded[this.props.pageLoaded.length - 1] !== "SM-dashboard-main"){
       return <p>loading</p>;
     }
     let { views, shopViews, orders, productOrders, products } = this.props;

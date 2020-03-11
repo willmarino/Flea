@@ -96,7 +96,6 @@ export const fetchUserCart = (userId) => dispatch => (
 export const fetchUserById = (id) => (dispatch) => (
   UserApi.fetchUserById(id)
     .then(res => {
-      debugger;
       dispatch(receiveUserSimple(res.user))
     })
 )
@@ -104,7 +103,6 @@ export const fetchUserById = (id) => (dispatch) => (
 export const fetchFavorites = (id) => (dispatch) => (
   UserApi.fetchFavorites(id)
     .then(res => {
-      debugger;
       dispatch(receiveProducts(res.products));
       dispatch(receiveShops(res.shops));
       dispatch(receiveProductFavorites(res.product_favorites));

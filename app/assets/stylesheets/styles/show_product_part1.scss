@@ -12,8 +12,6 @@
   font-family: 'Arimo';
 }
 
-
-
 .product{
   width: 100%;
   display: flex;
@@ -99,23 +97,26 @@
 .buy-product{
   padding: 10px;
   padding-top: 40px;
-  height: 50%;
+  height: 60%;
 
 }
 
 .details{
   padding: 10px;
-  height: 50%;
+  height: 40%;
 }
 
 .price{
   font-weight: 300;
-  font-size: 20px;
+  font-size: 14px;
   margin-bottom: 20px;
+  color: #222;
+  font-family: 'Arimo';
+
 }
 
 .add-to-cart-button{
-  margin-top: 20px;
+  margin-top: 100px;
   background: #222222;
   width: 100%;
   color: white;
@@ -123,10 +124,20 @@
   text-align: center;
   line-height: 50px;
   border-radius: 30px;
+  transition: box-shadow 0.4s;
+}
+
+.add-to-cart-button:hover{
+  box-shadow: 0 0 2px 2px #222;
+  cursor: pointer;
 }
 
 .dropdown-button-container{
   width: 100%;
+}
+
+.dropdown-button-container:hover{
+  cursor: pointer;
 }
 
 .description-body{
@@ -148,16 +159,18 @@
   width: 100%;
 }
 
+.add-to-cart-shop-name{
+  font-size: 16px;
+  font-family: 'Arimo';
+  color: #222;
+}
+
 // _______-----_-__-_-_--_----_____----___----__----__----__---__
 
 .top-bar{
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-.gray-text{
-  color: 	#484848;
 }
 
 .stars{
@@ -183,4 +196,21 @@
   display: flex;
   width: 200px;
   justify-content: space-between;
+}
+
+.review-meta-info p{
+  font-size: 14px;
+  font-family: 'Arimo';
+}
+
+.reviews-tab p{
+  font-size: 14px;
+  font-family: 'Arimo';
+  transition: color .4s, text-decoration .4s;
+}
+
+.reviews-tab p:hover{
+  cursor: pointer;
+  color: #989898;
+  text-decoration: underline;
 }

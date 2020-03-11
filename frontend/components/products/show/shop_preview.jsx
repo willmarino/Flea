@@ -8,23 +8,32 @@ class ShopPreview extends React.Component{
     super(props);
 
     this.needToUpdate = false;
-
     this.compileProducts = this.compileProducts.bind(this);
     this.configureDate = this.configureDate.bind(this);
+    this.handleNavigate = this.handleNavigate.bind(this);
+  }
+
+  handleNavigate(e){
+    let { shop, loggedIn, history } = this.props;
+    let url = `/shops/${this.props.shop.id}`;
+    if(!this.props.loggedIn){
+      url = '/anon' + url;
+    }
+    history.push(url);
   }
 
   componentDidMount(){
-    this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId, 6);
+    let { fetchProductsByShop, fetchOrdersByShop, shop, curProdId } = this.props;
+    fetchProductsByShop(shop.id, curProdId, 6)
+      .then(() => {
+        fetchOrdersByShop(shop.id);
+      })
   }
 
   componentDidUpdate(prevProps){
     if(prevProps.curProdId !== this.props.curProdId && prevProps.curPath.includes('/products/')){
       this.props.fetchProductsByShop(this.props.shop.id, this.props.curProdId , 6);
     }
-    // this.needToUpdate = true;
-    // if(this.needToUpdate){
-    //   this.needToUpdate = false;
-    // }
   }
 
   compileProducts(products){
@@ -60,7 +69,8 @@ class ShopPreview extends React.Component{
   }
 
   render(){
-    if(!this.props.products.shopProductIds){
+    // if(!this.props.products.shopProductIds){
+    if(!this.props.orders.shopOrderIds){
       return <p></p>;
     }
     // let products = this.compileProducts(this.props.shopProducts);
@@ -71,23 +81,21 @@ class ShopPreview extends React.Component{
       <div className='shop-preview-container'>
         <div className='shop-preview-info-and-link'>
           <div className='shop-preview-info-and-name'>
-            <img src={this.props.shop.photoURL} alt="" className='fake-shop-preview-photo'/>
+            <img onClick={this.handleNavigate} src={this.props.shop.photoURL} alt="" className='fake-shop-preview-photo'/>
             <div className='shop-preview-info'>
               <div className='shop-preview-info-upper'>
-                <p>{this.props.shop.name}</p>
+                <p onClick={this.handleNavigate} className="shop-preview-shop-name">{this.props.shop.name}</p>
                 <p>{this.props.shopStarRating}</p>
                 <p>{this.props.shopReviewCount}</p>
               </div>
               <div className='shop-preview-info-lower'>
                 <p>location placeholder</p>
-                <p>num sales</p>
+                <p>{this.props.orders.shopOrderIds.length} Sales</p>
                 <p> On Etsy since {this.configureDate(this.props.shop.created_at)}</p>
               </div>
             </div>
           </div>
-          <div className='shop-preview-link'>
-            <Link to='/'><button> View all {this.props.shopReviewCount} items</button></Link>
-          </div>
+          <p onClick={this.handleNavigate} className='shop-preview-link'> View all {this.props.shopReviewCount} reviews</p>
         </div>
         <ul className='shop-preview-products-container'>
           {productsArr}

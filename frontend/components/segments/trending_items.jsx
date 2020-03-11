@@ -13,11 +13,9 @@ class TrendingItems extends React.Component{
   }
 
   render(){
-  debugger;
   if(!this.props.products.mostBought){
     return <p>loading</p>;
   }
-  debugger;
   let { shops, products } = this.props;
   let mostViewedShop = shops[shops.mostViewed];
   let mostOrderedShop = shops[shops.mostOrdered];

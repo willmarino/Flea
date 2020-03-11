@@ -14,7 +14,7 @@ class ShopShow extends React.Component{
   }
 
   render(){
-    if(this.props.pageLoaded !== 'shopshow'){
+    if(this.props.pageLoaded[this.props.pageLoaded.length - 1] !== 'shopshow'){
       return <p>loading</p>;
     }
     let { users, shops, curShopId } = this.props;

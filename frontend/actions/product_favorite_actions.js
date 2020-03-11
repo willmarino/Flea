@@ -28,7 +28,6 @@ export const receivePFIdsProfile = (ids) => ({
 export const fetchProductFavorites = (id) => (dispatch) => (
   ProductFavoriteUtil.fetchProductFavorites(id)
     .then(res => {
-      debugger;
       dispatch(receiveProductFavorites(res.product_favorites));
     })
 );
@@ -36,7 +35,6 @@ export const fetchProductFavorites = (id) => (dispatch) => (
 export const createProductFavorite = (id) => (dispatch) => (
   ProductFavoriteUtil.createProductFavorite(id)
     .then(res => {
-      debugger;
       dispatch(receiveProductFavorite(res.product_favorite));
     })
 );
@@ -44,7 +42,6 @@ export const createProductFavorite = (id) => (dispatch) => (
 export const deleteProductFavorite = (id) => (dispatch) => (
   ProductFavoriteUtil.deleteProductFavorite(id)
     .then(res => {
-      debugger;
       dispatch(removeProductFavorite(res.product_favorite_id));
     })
 );

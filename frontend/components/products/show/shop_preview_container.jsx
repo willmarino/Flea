@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ShopPreview from './shop_preview';
-// import { fetchProductsByShop } from '../../../actions/product_actions';
 import { fetchProductsByShop } from '../../../actions/newest_product_actions';
+import { fetchOrdersByShop } from '../../../actions/order_actions';
 
 const msp = (state, ownProps) => {
   return({
-    // shopProducts : state.entities.products.shopProducts,
-    // shopProducts : state.entities.products.byShop,
     shopStarRating: ownProps.shopStarRating,
     shopReviewCount: ownProps.shopReviewCount,
     products : state.entities.products,
     shops : state.entities.shops,
     product : ownProps.product,
+    orders :state.entities.orders,
     shop : ownProps.shop,
     curPath : ownProps.curPath,
     curProdId : ownProps.curProdId,
@@ -21,7 +21,8 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch) => ({
-  fetchProductsByShop : (shopId, prodId, num) => dispatch(fetchProductsByShop(shopId, prodId, num))
+  fetchProductsByShop : (shopId, prodId, num) => dispatch(fetchProductsByShop(shopId, prodId, num)),
+  fetchOrdersByShop : (id) => dispatch(fetchOrdersByShop(id))
 });
 
-export default connect(msp, mdp)(ShopPreview);
+export default withRouter(connect(msp, mdp)(ShopPreview));

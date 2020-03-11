@@ -69,12 +69,21 @@
   display: flex;
   align-items: center;
   width: 240px;
-
+  font-size: 14px;
+  color: #222;
 }
 
 // name of user who left review
 .review-username{
   text-align: center;
+  margin-right: 10px;
+  transition: color 0.4s, text-decoration 0.4s;
+}
+
+.review-username:hover{
+  color:	#989898;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 // when review was left
@@ -100,9 +109,10 @@
 .user-review-body{
   margin-left: 60px;
   margin-bottom: 10px;
-  width: 400px;
-  // font-family: 'Biryani', sans-serif;
+  width: 600px;
   font-family: 'Arimo';
+  font-size: 14px;
+  color: #222;
 }
 
 // product img and name
@@ -118,4 +128,27 @@
   width: 40px;
   margin-right: 10px;
   object-fit: cover;
+}
+
+.product-img-and-name > p{
+  color:#484848;
+  text-decoration: underline;
+  font-size: 12px;
+  font-family: 'Arimo';
+  transition: color 0.4s;
+}
+
+.product-img-and-name > p:hover{
+  color:#A8A8A8;
+  cursor: pointer;
+}
+
+.review-product-image{
+  border-radius: 3px;
+  transition: box-shadow 0.4s;
+}
+
+.review-product-image:hover{
+  box-shadow: 0 0 1px 1px #222;
+  cursor: pointer;
 }

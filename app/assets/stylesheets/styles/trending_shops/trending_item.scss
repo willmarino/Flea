@@ -1,11 +1,13 @@
 .trending-item-container{
   transition: box-shadow 0.5s;
   padding-bottom: 20px;
+  text-decoration-color: #222;
 }
 
 .trending-item-container:hover{
   box-shadow: 0 0 4px #222;
   text-decoration: underline;
+  text-decoration-color: #222;
 }
 
 .trending-item-image{

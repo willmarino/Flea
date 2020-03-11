@@ -46,7 +46,8 @@ class SearchResult extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.pageLoaded === "none" && this.props.pageLoaded === "searchmain"){
+    if(prevProps.pageLoaded[this.props.pageLoaded.length - 1] === "none" &&
+      this.props.pageLoaded[this.props.pageLoaded.length - 1] === "searchmain"){
       this.compileAll(this.props);
     }else if(prevProps.query !== this.props.query){
       this.props.fetchSearchMain(this.props.query);
@@ -221,7 +222,7 @@ class SearchResult extends React.Component{
   }
 
   render(){
-    if(this.props.pageLoaded !== 'searchmain'){
+    if(this.props.pageLoaded[this.props.pageLoaded.length - 1] !== 'searchmain'){
       return <p>loading</p>;
     }
     // pull entities out of state

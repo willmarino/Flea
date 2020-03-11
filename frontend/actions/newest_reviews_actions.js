@@ -36,7 +36,6 @@ export const receiveShopReviewIds = (ids) => ({
 export const fetchHappyReviews = () => dispatch => (
   ReviewUtil.fetchHappyReviews()
     .then(res => {
-      debugger;
       dispatch(receiveReviews(res.reviews));
       dispatch(receiveHappyReviewIds(res.reviewIds));
       dispatch(receiveProducts(res.products));

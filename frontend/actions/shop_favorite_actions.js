@@ -28,7 +28,6 @@ export const receiveSFIdsProfile = (ids) => ({
 export const fetchShopFavorites = (id) => (dispatch) => (
   ShopFavoriteUtil.fetchShopFavorites(id)
     .then(res => {
-      debugger;
       dispatch(receiveShopFavorites(res.shop_favorites));
     })
 );
@@ -36,7 +35,6 @@ export const fetchShopFavorites = (id) => (dispatch) => (
 export const createShopFavorite = (id) => (dispatch) => (
   ShopFavoriteUtil.createShopFavorite(id)
     .then(res => {
-      debugger;
       dispatch(receiveShopFavorite(res.shop_favorite));
     })
 );
@@ -44,7 +42,6 @@ export const createShopFavorite = (id) => (dispatch) => (
 export const deleteShopFavorite = (id) => (dispatch) => (
   ShopFavoriteUtil.deleteShopFavorite(id)
     .then(res => {
-      debugger;
       dispatch(removeShopFavorite(res.shop_favorite_id));
     })
 );

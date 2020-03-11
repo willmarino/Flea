@@ -3,12 +3,9 @@ import { Link } from 'react-router-dom';
 
 const TrendingItem = (props) => {
   let showPath = '/';
-  debugger;
   if(props.header.includes('Product')){
-    debugger;
     showPath += 'products/';
   }else if(props.header.includes('Shop')){
-    debugger;
     showPath += 'shops/';
   }
   showPath += props.item.id;

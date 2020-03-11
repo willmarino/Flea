@@ -15,7 +15,7 @@ class CartShow extends React.Component{
 
 
   render(){
-    if(this.props.pageLoaded !== "cartshow"){
+    if(this.props.pageLoaded[this.props.pageLoaded.length - 1] !== "cartshow"){
       return <p></p>;
     }
 

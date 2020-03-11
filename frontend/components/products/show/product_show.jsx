@@ -1,5 +1,5 @@
 import React from 'react';
-import Review from '../../reviews/review';
+import ReviewContainer from '../../reviews/review_container';
 import { Link } from 'react-router-dom';
 import AddToCartFormContainer from './add_to_cart_form_container';
 import ShopPreviewContainer from './shop_preview_container';
@@ -89,7 +89,7 @@ class ProductShow extends React.Component{
         for(let i = 0; i < ( (this.state.limit === ('all') || pReviews.length < this.state.limit) ? pReviews.length : this.state.limit); i++){
             let r = pReviews[i];
             productReviews.push(
-                <Review review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} key={r.id}/>
+                <ReviewContainer review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} a={1}/>
             );
         }
 
@@ -99,7 +99,7 @@ class ProductShow extends React.Component{
         for(let i = 0; i < ( (this.state.limit === ('all') || sReviews.length < this.state.limit) ? sReviews.length : this.state.limit); i++){
             let r = sReviews[i];
             shopReviews.push(
-                <Review review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} key={r.id}/>
+                <ReviewContainer review={r} author={this.props.users[r.author_id]} product={this.props.products[r.item_id]} a={1}/>
             );
         }
         return { 
@@ -167,12 +167,10 @@ class ProductShow extends React.Component{
                             </div>
                             <div className='reviews-tabs'>
                                 <div className='reviews-tab'>
-                                    <p onClick={this.switchTabToProduct}>For this item</p>
-                                    <p>{this.pCount}</p>
+                                    <p onClick={this.switchTabToProduct}>For this item ({this.pCount})</p>
                                 </div>
                                 <div className='reviews-tab'>
-                                    <p onClick={this.switchTabToShop}>For this shop</p>
-                                    <p>{this.sCount}</p>
+                                    <p onClick={this.switchTabToShop}>For this shop ({this.sCount})</p>
                                 </div>
                             </div>
 

@@ -13,7 +13,7 @@ class OwnedShop extends React.Component{
   }
 
   render(){
-    if(this.props.pageLoaded !== 'ownedshop'){
+    if(this.props.pageLoaded[this.props.pageLoaded.length - 1] !== 'ownedshop'){
       return <p>loading</p>;
     }
     let { shops, products, categories, users } = this.props

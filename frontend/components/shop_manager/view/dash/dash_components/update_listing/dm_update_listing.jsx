@@ -20,21 +20,16 @@ class DMListingsUpdate extends React.Component{
   }
 
   componentDidMount(){
-    debugger;
     if(!this.props.product){
-      debugger;
       this.props.fetchProduct(this.props.curProdId)
         .then(() => {
-          debugger;
           this.fillState();
         })
     }
   }
 
   componentDidUpdate(){
-    debugger;
     if(!this.isStateFilled && this.props.product){
-      debugger;
       this.isStateFilled = true;
       this.fillState();
     }
@@ -61,7 +56,6 @@ class DMListingsUpdate extends React.Component{
     if(this.state.imageFile){
       formData.append('product[photo]', this.state.imageFile);
     }
-    debugger;
     this.props.updateShopProduct(this.props.curProdId, formData)
       .then(() => {
         this.props.history.push('/shops-manager/listings');
@@ -73,18 +67,13 @@ class DMListingsUpdate extends React.Component{
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () => {
-      debugger;
       this.setState({ imageUrl : reader.result, imageFile : file });
     }
-    debugger;
     if(file){
       reader.readAsDataURL(file);
-      debugger;
     }else{
       this.setState({ imageUrl : '', imageFile : null });
-      debugger;
     }
-    debugger;
   }
 
   update(field){
@@ -94,11 +83,9 @@ class DMListingsUpdate extends React.Component{
   }
 
   render(){
-    debugger;
     if(!this.props.product){
       return <p>loading</p>;
     }
-    debugger;
     return(
       <div className="add-listing-container">
         <h2>Add Listing</h2>

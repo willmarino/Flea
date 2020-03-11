@@ -8,14 +8,11 @@ class UserProfile extends React.Component{
   componentDidMount(){
     let { users, curId, fetchUserById, fetchFavorites } = this.props;
     if(!Object.keys(users).includes(curId)){
-      debugger;
       fetchUserById(curId)
         .then(() => {
-          debugger;
           fetchFavorites(curId);
         })
     }else{
-      debugger;
       fetchFavorites(curId);
     }
   }

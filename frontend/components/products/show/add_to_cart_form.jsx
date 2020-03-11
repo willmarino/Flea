@@ -131,11 +131,12 @@ class AddToCartForm extends React.Component{
             chosenOps.push(options[i]);
           }
         }
-        this.props.createCartItem({item_id : item_id, chosen_options : chosenOps})
+        this.props.createCartItem({item_id : item_id, chosen_options : chosenOps});
       }else{
-        this.setState({ errors : 'you already have this item in your cart'})
+        this.setState({ errors : 'you already have this item in your cart'});
       }
-      this.setState({errors : 'You must be logged in'})
+    }else{
+      this.setState({errors : 'You must be logged in'});
     }
   }
   
@@ -157,12 +158,10 @@ class AddToCartForm extends React.Component{
         optionsMenu.push(
           <li key={Math.round(Math.random() * 1000)} className='dropdown-button-container'>
             <button
-              // type="button"
               onFocus={this.switchModal}
               onBlur={this.clearModals}
               data-option={`${curKey}`}
               className='dropdown-button'>
-              {/* // value={(curOption === null) ? 'Select an option' : curOption}> */}
               {(curOption === null) ? 'Select an option' : curOption}
             </button>
             {(this.state.modalStatus[curKey]) ? this.modals[curKey] : <p></p>}
@@ -179,13 +178,12 @@ class AddToCartForm extends React.Component{
     return(
       <div className="buy-product">
         <div className="top-bar">
-          <Link to={showPath}><div className="gray-text">{this.props.shop.name}</div></Link>
+          <Link to={showPath}><p className="add-to-cart-shop-name">{this.props.shop.name}</p></Link>
           <div className="stars">{this.props.productAvg}</div>
           <div className="review_count">({this.props.pCount})</div>
         </div>
-        <div className="product-title">{this.capitalize(this.props.product.name)}</div>
-        <div className="price">${this.props.product.price}</div>
-        {/* <div className="bestseller" id="showpage"><p>Bestseller</p></div> */}
+        <p className="product-title">{this.capitalize(this.props.product.name)}</p>
+        <p className="price">${this.props.product.price}</p>
         <ul>
           {optionsMenu}
         </ul>
