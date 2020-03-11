@@ -54,22 +54,22 @@ class Api::UsersController < ApplicationController
     user = User.find(params[:id])
     @shop_favorites = []
     @shops = []
-    @shop_ids = []
+    # @shop_ids = []
     user.shop_favorites.each do |sf|
       @shop_favorites << sf
       s = sf.shop
       @shops << s
-      @shop_ids << s.id
+      # @shop_ids << s.id
     end
     
     @product_favorites = []
     @products = []
-    @product_ids = []
+    # @product_ids = []
     user.product_favorites.each do |pf|
       @product_favorites << pf
       p = pf.product
       @products << p
-      @product_ids << p.id
+      # @product_ids << p.id
     end
     render :favorites
   end

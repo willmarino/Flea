@@ -27,10 +27,18 @@ export const fetchShopFavorites = (id) => (dispatch) => (
     })
 );
 
-export const createShopFavorite = (sf) => (dispatch) => (
-  ShopFavoriteUtil.createShopFavorite(sf)
+export const createShopFavorite = (id) => (dispatch) => (
+  ShopFavoriteUtil.createShopFavorite(id)
     .then(res => {
       debugger;
       dispatch(receiveShopFavorite(res.shop_favorite));
     })
-)
+);
+
+export const deleteShopFavorite = (id) => (dispatch) => (
+  ShopFavoriteUtil.deleteShopFavorite(id)
+    .then(res => {
+      debugger;
+      dispatch(removeShopFavorite(res.shop_favorite_id));
+    })
+);

@@ -1,0 +1,1 @@
+json.product_favorites @product_favorites

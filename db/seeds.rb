@@ -23,6 +23,8 @@ View.destroy_all
 ShopView.destroy_all
 Search.destroy_all
 Category.destroy_all
+ProductFavorite.destroy_all
+ShopFavorite.destroy_all
 
 
 artsandcollect = [
@@ -424,6 +426,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -491,6 +497,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -558,6 +568,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -624,6 +638,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -691,6 +709,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -757,6 +779,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -822,6 +848,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -887,6 +917,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -952,6 +986,10 @@ while i < 6
     end
 
     CartItem.create!(item_id: x.id, cart_id: carts[rand(7)].id)
+    rand_user = users[rand(0..8)]
+    if !rand_user.product_favorites.map{ |pf| pf.product_id }.include?(x.id)
+        ProductFavorite.create!({ user_id: rand_user.id, product_id: x.id })
+    end
 
     x.set_rating
 
@@ -965,4 +1003,20 @@ end
 
 shops.each do |shop|
     shop.set_rating
+end
+
+# Shop Favorites ------------------------------------------------------------------
+
+users.each do |user|
+    (0..1).each do |i|
+        rand_nums = []
+        while rand_nums.length < 2
+            num = rand(0..6)
+            if !rand_nums.include?(num)
+                rand_nums << num
+            end
+        end
+        ShopFavorite.create({ user_id: user.id, shop_id: shops[rand_nums[i]].id })
+    end
+
 end

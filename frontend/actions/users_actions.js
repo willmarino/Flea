@@ -4,6 +4,12 @@ import * as SessionApi from '../util/session_util';
 import { loginUser } from './session_actions';
 import { receiveCart } from '../actions/newest_cart_actions';
 
+// fetch favorites actions
+import { receiveShops } from '../actions/newest_shop_actions';
+import { receiveProducts } from '../actions/newest_product_actions';
+import { receiveShopFavorites } from '../actions/shop_favorite_actions';
+import { receiveProductFavorites } from '../actions/product_favorite_actions';
+
 export const SIGN_UP_USER = "SIGN_UP_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -80,3 +86,14 @@ export const fetchUserCart = (userId) => dispatch => (
   UserApi.fetchUserCart(userId)
     .then(cart => dispatch(receiveCart(cart)))
 );
+
+export const fetchFavorites = () => (dispatch) => (
+  UserApi.fetchFavorites()
+    .then(res => {
+      debugger;
+      dispatch(receiveProducts(res.products));
+      dispatch(receiveShops(res.shops));
+      dispatch(receiveProductFavorites(res.product_favorites));
+      dispatch(receiveShopFavorites(res.shop_favorites));
+    })
+)

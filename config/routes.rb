@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index, :show] do
       collection do
         post 'add_viewed' #add a viewed product's id to user's viewed attribute
+        get 'favorites'
       end
       member do
         get 'recently_viewed' #return recently viewed product objects
         get 'cart'
-        get 'favorites'
         post 'clear_views'
       end
     end

@@ -50,4 +50,11 @@ export const fetchUserCart = (userId) => (
     method: "GET",
     url: `/api/users/${userId}/cart`
   })
+);
+
+export const fetchFavorites = () => (
+  $.ajax({
+    method: "GET",
+    url: '/api/users/favorites'
+  })
 )
