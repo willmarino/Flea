@@ -50,6 +50,16 @@ class User < ApplicationRecord
     class_name: "Search",
     primary_key: :id,
     foreign_key: :user_id
+  
+  has_many :shop_favorites,
+    class_name: "ShopFavorite",
+    primary_key: :id,
+    foreign_key: :user_id
+
+  has_many :product_favorites,
+    class_name: "ProductFavorite",
+    primary_key: :id,
+    foreign_key: :user_id
 
   has_many :past_items,
     through: :orders,

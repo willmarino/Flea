@@ -6,8 +6,6 @@ import ShopReviews from './shop_reviews'
 class ShopShow extends React.Component{
   constructor(props){
     super(props);
-
-    // this.allPresent = this.allPresent.bind(this);
   }
 
   componentDidMount(){
@@ -26,7 +24,9 @@ class ShopShow extends React.Component{
         <ShopTopBanner
           shop={curShop}
           curShopId={this.props.curShopId}
-          shopOwner={users[curShop.creator_id]}/>
+          shopOwner={users[curShop.creator_id]}
+          createShopFavorite={this.props.createShopFavorite}
+          currentUser={this.props.currentUser}/>
         <ShopProductsContainer
           shop={curShop}
           curShopId={this.props.curShopId}

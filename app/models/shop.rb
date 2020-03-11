@@ -55,15 +55,20 @@ class Shop < ApplicationRecord
     primary_key: :id,
     foreign_key: :shop_id
 
-  belongs_to :creator,
-    class_name: "User",
-    primary_key: :id,
-    foreign_key: :creator_id
-
   has_many :product_orders,
     class_name: "ProductOrder",
     primary_key: :id,
     foreign_key: :shop_id
+
+  has_many :favorites,
+    class_name: "ShopFavorite",
+    primary_key: :id,
+    foreign_key: :shop_id
+
+  belongs_to :creator,
+    class_name: "User",
+    primary_key: :id,
+    foreign_key: :creator_id
 
   has_many :orders,
     through: :product_orders,

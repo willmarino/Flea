@@ -1,0 +1,2 @@
+module Api::ShopFavoritesHelper
+end

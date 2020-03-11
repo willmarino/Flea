@@ -4,8 +4,15 @@ class ShopTopBanner extends React.Component{
   constructor(props){
     super(props);
 
+    this.handleCreateShopFavorite = this.handleCreateShopFavorite.bind(this);
     this.starsify = this.starsify.bind(this);
     this.configureDate = this.configureDate.bind(this);
+  }
+
+  handleCreateShopFavorite(e){
+    e.preventDefault();
+    // let sf = { user_id : this.props.currentUser, shop_id : this.props.shop.id };
+    this.props.createShopFavorite(this.props.shop.id);
   }
 
   starsify(n){
@@ -57,6 +64,7 @@ class ShopTopBanner extends React.Component{
               <p>On Etsy since {this.configureDate(shop.created_at)}</p>
             </div>
             <p>{this.starsify(Math.round(shop.rating))}</p>
+            <p onClick={this.handleCreateShopFavorite} className="add-shop-favorite-button">Favorite Shop (num)</p>
           </div>
         </div>
         <div className="shop-show-banner-owner">

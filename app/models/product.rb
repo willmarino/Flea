@@ -98,6 +98,11 @@ class Product < ApplicationRecord
     primary_key: :id,
     foreign_key: :product_id
 
+  has_many :favorites,
+    class_name: "ProductFavorite",
+    primary_key: :id,
+    foreign_key: :product_id
+
   belongs_to :category,
     class_name: "Category",
     primary_key: :id,

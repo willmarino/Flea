@@ -25,14 +25,26 @@
   object-fit: cover;
 }
 
-
-
-
-
 // fake image/placeholder
 .shop-show-shop-photo{
   width: 150px;
   height: 150px;
   border-radius: 5px;
   object-fit: cover;
+}
+
+.add-shop-favorite-button{
+  border-radius: 3px;
+  background: gray;
+  padding: 8px;
+  width: 150px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.add-shop-favorite-button:hover{
+  background: black;
+  color: white;
+  cursor: pointer;
 }

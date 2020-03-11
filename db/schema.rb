@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_07_235229) do
+ActiveRecord::Schema.define(version: 2020_03_10_225154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 2020_03_07_235229) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "product_favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_favorites_on_product_id"
+    t.index ["user_id"], name: "index_product_favorites_on_user_id"
+  end
+
   create_table "product_orders", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "product_id", null: false
@@ -125,6 +134,15 @@ ActiveRecord::Schema.define(version: 2020_03_07_235229) do
     t.integer "user_id"
     t.index ["query"], name: "index_searches_on_query"
     t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+
+  create_table "shop_favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_shop_favorites_on_shop_id"
+    t.index ["user_id"], name: "index_shop_favorites_on_user_id"
   end
 
   create_table "shop_views", force: :cascade do |t|

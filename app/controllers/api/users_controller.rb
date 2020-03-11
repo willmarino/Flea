@@ -50,6 +50,30 @@ class Api::UsersController < ApplicationController
     render 'api/carts/show'
   end
 
+  def favorites
+    user = User.find(params[:id])
+    @shop_favorites = []
+    @shops = []
+    @shop_ids = []
+    user.shop_favorites.each do |sf|
+      @shop_favorites << sf
+      s = sf.shop
+      @shops << s
+      @shop_ids << s.id
+    end
+    
+    @product_favorites = []
+    @products = []
+    @product_ids = []
+    user.product_favorites.each do |pf|
+      @product_favorites << pf
+      p = pf.product
+      @products << p
+      @product_ids << p.id
+    end
+    render :favorites
+  end
+
   def viewed_params
     params.require(:product).permit(:product_id)
   end

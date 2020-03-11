@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       member do
         get 'recently_viewed' #return recently viewed product objects
         get 'cart'
+        get 'favorites'
         post 'clear_views'
       end
     end
@@ -100,7 +101,16 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :shop_favorites, only: [:create, :destroy, :index] do
+      collection do
+        get 'by_shop'
+      end
+    end
+    resources :product_favorites, only: [:create, :destroy, :index] do
+      collection do
+        get 'by_product'
+      end
+    end
   end
-
 
 end
