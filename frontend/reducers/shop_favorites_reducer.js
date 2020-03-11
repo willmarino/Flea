@@ -1,7 +1,8 @@
 import {
   RECEIVE_SHOP_FAVORITES,
   RECEIVE_SHOP_FAVORITE,
-  REMOVE_SHOP_FAVORITE
+  REMOVE_SHOP_FAVORITE,
+  RECEIVE_SF_IDS_PROFILE,
 } from '../actions/shop_favorite_actions';
 
 const ShopFavoritesReducer = (state={}, action) => {
@@ -20,6 +21,8 @@ const ShopFavoritesReducer = (state={}, action) => {
       newState = Object.assign({}, state);
       delete newState[action.shop_favorite.id];
       return newState;
+    case RECEIVE_SF_IDS_PROFILE:
+      return Object.assign({}, state, { forProfile : action.ids });
     default:
       return state;
   }

@@ -7,6 +7,7 @@ import ProductShowContainer from '../products/show/product_show_container';
 import AnonIndexContainer from '../products/index/anon_index_container';
 import ShopShowContainer from '../shop/shop_show_container';
 import SearchResultContainer from '../search/search_result_container';
+import UserProfileContainer from '../user_profile/user_profile_container';
 
 class AnonMain extends React.Component{
     constructor(props){
@@ -17,6 +18,7 @@ class AnonMain extends React.Component{
         let showPath = "/anon/products/:prodId";
         let shopShowPath = "/anon/shops/:shopId";
         let searchResultPath = "/anon/search_result";
+        let userProfilePath = "/anon/profiles/:userId";
         return(
             <div>
                 <div className="anon-main-top">
@@ -29,6 +31,7 @@ class AnonMain extends React.Component{
                     <Route path={showPath} component={ProductShowContainer}/>
                     <Route path={shopShowPath} component={ShopShowContainer}/>
                     <Route path={searchResultPath} component={SearchResultContainer}/>
+                    <Route exact path={userProfilePath} component={UserProfileContainer}/>
                 </div>
             </div>
         );

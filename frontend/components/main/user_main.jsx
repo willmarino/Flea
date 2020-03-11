@@ -24,6 +24,7 @@ class UserMain extends React.Component{
         let shopShowPath = "/shops/:shopId";
         let cartPath = "/cart";
         let searchResultPath = "/search_result";
+        let userProfilePath = "/profiles/:userId";
         return(
             <div>
                 <div className="user-main-top">
@@ -37,6 +38,7 @@ class UserMain extends React.Component{
                     <Route exact path={cartPath} component={CartShowContainer}/>
                     <Route path={searchResultPath} component={SearchResultContainer}/>
                     <Route path="/ownedshops/:prodId" component={OwnedShopContainer}/>
+                    <Route exact path={userProfilePath} component={UserProfileContainer}/>
                 </div>
             </div>
         );

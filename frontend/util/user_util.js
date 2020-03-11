@@ -14,11 +14,12 @@ export const fetchUser = user => (
   })
 );
 
-export const userById = userId => (
- $.ajax({
-   method: "GET",
-   url: `/api/users/${userId}`
- })
+export const fetchUserById = id => (
+  $.ajax({
+    method: "GET",
+    url: `/api/users/by_id`,
+    data: { id }
+  })
 );
 
 export const createUser = (user) => (
@@ -52,9 +53,10 @@ export const fetchUserCart = (userId) => (
   })
 );
 
-export const fetchFavorites = () => (
+export const fetchFavorites = (id) => (
   $.ajax({
     method: "GET",
-    url: '/api/users/favorites'
+    url: '/api/users/favorites',
+    data: { id }
   })
 )

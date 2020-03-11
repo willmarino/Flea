@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all[1..-1]
     render :index
   end
 
@@ -50,26 +50,31 @@ class Api::UsersController < ApplicationController
     render 'api/carts/show'
   end
 
+  def by_id
+    @user = User.find(params[:id])
+    render :by_id
+  end
+
   def favorites
     user = User.find(params[:id])
     @shop_favorites = []
     @shops = []
-    # @shop_ids = []
+    @shop_favorite_ids = []
     user.shop_favorites.each do |sf|
       @shop_favorites << sf
       s = sf.shop
       @shops << s
-      # @shop_ids << s.id
+      @shop_favorite_ids << sf.id
     end
     
     @product_favorites = []
     @products = []
-    # @product_ids = []
+    @product_favorite_ids = []
     user.product_favorites.each do |pf|
       @product_favorites << pf
       p = pf.product
       @products << p
-      # @product_ids << p.id
+      @product_favorite_ids << pf.id
     end
     render :favorites
   end
