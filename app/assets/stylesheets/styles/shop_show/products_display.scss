@@ -4,7 +4,16 @@
   margin: 0 auto;
 
   padding-bottom: 30px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #e1e3df;
+}
+
+.shop-show-filter-categories{
+}
+
+.shop-show-products-container p{
+  font-family: 'Arimo';
+  color: #222;
+  font-size: 12px;
 }
 
 .shop-show-products-top-bar{
@@ -16,6 +25,11 @@
   display: flex;
 }
 
+#products-display-header{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 .shop-show-products{
   width: 80%;
   display: flex;
@@ -23,9 +37,81 @@
 }
 
 .shop-show-filters{
-  width: 20%;
+  width: 230px;
+  margin-right: 20px;
 }
 
-// .shop-show-filter-categories{
+.pc-search-input-container{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+  position: relative;
+}
 
-// }
+.pc-search-input{
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #c5c5c5;
+  border-radius: 3px;
+}
+
+.pc-search-input:hover{
+  border-color: #909090;
+}
+
+.pc-search-input:focus{
+  border-color: #222;
+}
+
+.pc-search-submit{
+  position: absolute;
+  right: 12px;
+  bottom: 9px;
+  color: #222;
+}
+
+.filter-list-item{
+  padding: 10px;
+}
+
+.filter-list-item:hover{
+  cursor: pointer;
+  background: #f0f0f0;
+}
+
+.filter-list-item:focus{
+  background: #f0f0f0;
+}
+
+.filter-list-item-grayed{
+  background: #f0f0f0;
+}
+
+.pc-contact-owner{
+  padding: 10px 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #d4d4d4;
+  margin-bottom: 25px;
+}
+
+.pc-contact-owner > p{
+  text-align: center;
+}
+
+.pc-contact-owner:hover{
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.pc-sales-and-admires{
+  padding: 15px 0px;
+  border-top: 1px solid #e1e3df;
+  border-bottom: 1px solid #e1e3df;
+}
+
+.pc-sales-and-admires > p{
+  margin: 20px 0px;
+}

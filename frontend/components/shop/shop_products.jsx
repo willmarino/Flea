@@ -21,11 +21,12 @@ class ShopProducts extends React.Component{
     this.update = this.update.bind(this);
     this.filterProductsByCategory = this.filterProductsByCategory.bind(this);
   }
+
   structureProducts(){
     let products = this.props.products;
-
+    this.numProductsPerCat = {};
     let res = {};
-    res['all'] = [];
+    res['All'] = [];
     for(let i = 0; i < products.length; i++){
       let p = products[i];
       let cat = this.props.categories[p.high_level_category].name;
@@ -34,7 +35,7 @@ class ShopProducts extends React.Component{
       }else{
         res[cat] = [p];
       }
-      res['all'].push(p);
+      res['All'].push(p);
     }
     return res;
   }
@@ -45,7 +46,9 @@ class ShopProducts extends React.Component{
     for(let i = 0; i < productKeys.length; i++){
       let key = productKeys[i];
       res.push(
-        <li key={key} data-value={key} onClick={(e) => this.filterProductsByCategory(e)}>{key}</li>
+        <li key={key} className="filter-list-item" data-value={key} onClick={(e) => this.filterProductsByCategory(e)}>
+          <p>{key}</p>
+        </li>
       );
     }
     return res;
@@ -78,7 +81,25 @@ class ShopProducts extends React.Component{
 
   // change the products which are being displayed
   filterProductsByCategory(e){
-    this.setState({products : this.products[e.currentTarget.dataset.value]});
+    // take gray background off of every cat li
+    // add it to e.currentTarget
+
+    let unorderedList = document.getElementById('cat-arr');
+    let children = unorderedList.children;
+    debugger;
+    for(let i = 0; i < children.length - 1; i++){
+      let child = children[i];
+      if(child.classList.contains('filter-list-item-grayed')){
+        debugger;
+        child.classList.remove('filter-list-item-grayed');
+      }
+    }
+    debugger;
+    let element = e.currentTarget;
+    element.classList.add('filter-list-item-grayed');
+    // element.classList.remove('filter-list-item');
+
+    this.setState({products : this.products[element.dataset.value]});
     this.setState({search : ''});
   }
 
@@ -94,21 +115,23 @@ class ShopProducts extends React.Component{
 
     return(
       <div className="shop-show-products-container">
-        {/* <div> */}
         <div className="shop-show-products-top-bar">
-          <p>Items</p>
+          <p id="products-display-header">Items</p>
           <button value="Sort: Custom"></button>
         </div>
         <div className="filters-and-products">
           <div className="shop-show-filters">
-            <form onSubmit={this.handleSubmit}>
-              <input type="text" value={this.state.search} onChange={this.update}/>
-              <input type="submit" value='submit'/>
+            <form onSubmit={this.handleSubmit} className="pc-search-input-container">
+              <input type="text" value={this.state.search} onChange={this.update} className="pc-search-input"/>
+              <input type="submit" value='submit' className="pc-search-submit"/>
             </form>
-            <ul className='shop-show-filter-categories'>
+            <ul id="cat-arr" className='shop-show-filter-categories'>
               {this.cats}
+              <li className="pc-contact-owner">
+                <p>Contact Shop Owner</p>
+              </li>
             </ul>
-            <div>
+            <div className="pc-sales-and-admires">
               <p>Sales</p>
               <p>Admirers</p>
             </div>
@@ -117,7 +140,6 @@ class ShopProducts extends React.Component{
             {productsList}
           </ul>
         </div>
-        {/* </div> */}
       </div>
     )
   }
