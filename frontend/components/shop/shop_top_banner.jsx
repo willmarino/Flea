@@ -7,11 +7,21 @@ class ShopTopBanner extends React.Component{
     this.handleCreateShopFavorite = this.handleCreateShopFavorite.bind(this);
     this.starsify = this.starsify.bind(this);
     this.configureDate = this.configureDate.bind(this);
+    this.handleNavigate = this.handleNavigate.bind(this);
+  }
+
+  handleNavigate(e){
+    e.preventDefault();
+    let { shopOwner, currentUser, history } = this.props;
+    let url = `/profiles/${shopOwner.id}`;
+    if(!currentUser){
+      url = '/anon' + url;
+    }
+    history.push(url);
   }
 
   handleCreateShopFavorite(e){
     e.preventDefault();
-    // let sf = { user_id : this.props.currentUser, shop_id : this.props.shop.id };
     this.props.createShopFavorite(this.props.shop.id);
   }
 
@@ -47,30 +57,30 @@ class ShopTopBanner extends React.Component{
 
   render(){
     let shop = this.props.shop;
-    // definer banner here
     return(
       <div className="shop-show-banner-container">
         <div className="shop-show-banner-shop">
-          {/* <div className="top-banner-fake-image">
-          </div> */}
           <img src={shop.photoURL} alt="" className="shop-show-shop-photo"/>
           <div className="banner-shop-info">
-            <p>{shop.name}</p>
-            <p>{shop.description}</p>
-            <p>{shop.name}</p>
+            <p id="shop-banner-header">{shop.name}</p>
+            <p id="shop-banner-description">{shop.description}</p>
             <div>
-              <p>Placeholder Location</p>
-              <p>Num Sales</p>
-              <p>On Etsy since {this.configureDate(shop.created_at)}</p>
+              <div className="sb-location-and-sales">
+                <p>Placeholder Location</p>
+                <p id="sb-sales">{this.props.sales.length} Sales</p>
+              </div>
+              <p id="sb-created-at">On Etsy since {this.configureDate(shop.created_at)}</p>
             </div>
-            <p>{this.starsify(Math.round(shop.rating))}</p>
+            <p id="sb-reviews-info">{this.starsify(Math.round(shop.rating))} ({this.props.numReviews})</p>
             <p onClick={this.handleCreateShopFavorite} className="add-shop-favorite-button">Favorite Shop (num)</p>
           </div>
         </div>
         <div className="shop-show-banner-owner">
           <p>SHOP OWNER</p>
-          <img src={this.props.shopOwner.photoURL} alt="" className="shop-owner-avatar"/>
-          <p>{this.props.shopOwner.username}</p>
+          <div className="owner-avatar-and-name">
+            <img onClick={this.handleNavigate} src={this.props.shopOwner.photoURL} alt="" className="shop-owner-avatar"/>
+            <p onClick={this.handleNavigate} id="shop-owner-name">{this.props.shopOwner.username}</p>
+          </div>
           <p>Contact</p>
         </div>
       </div>

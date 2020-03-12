@@ -19,9 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         shops: {
 
         },
-        carts: {
-
-        },
         cartItems: {
 
         },

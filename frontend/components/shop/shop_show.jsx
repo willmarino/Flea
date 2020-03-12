@@ -1,5 +1,6 @@
 import React from 'react';
-import ShopTopBanner from './shop_top_banner';
+// import ShopTopBanner from './shop_top_banner';
+import ShopTopBannerContainer from './shop_top_banner_container';
 import ShopProductsContainer from './shop_products_container';
 import ShopReviews from './shop_reviews'
 
@@ -9,24 +10,28 @@ class ShopShow extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchShopShow(this.props.curShopId);
-    this.props.addShopView(this.props.curShopId);
+    let { fetchOrdersByShop, fetchShopShow, addShopView, curShopId } = this.props;
+    fetchShopShow(curShopId);
+    fetchOrdersByShop(curShopId);
+    addShopView(curShopId);
   }
 
   render(){
-    if(this.props.pageLoaded[this.props.pageLoaded.length - 1] !== 'shopshow'){
+    let { pageLoaded, orders } = this.props;
+    if(pageLoaded[pageLoaded.length - 1] !== 'shopshow' || !orders.shopOrderIds){
       return <p>loading</p>;
     }
     let { users, shops, curShopId } = this.props;
     let curShop = shops[curShopId];
     return(
       <div>
-        <ShopTopBanner
+        <ShopTopBannerContainer
           shop={curShop}
           curShopId={this.props.curShopId}
           shopOwner={users[curShop.creator_id]}
-          createShopFavorite={this.props.createShopFavorite}
-          currentUser={this.props.currentUser}/>
+          currentUser={this.props.currentUser}
+          sales={this.props.orders.shopOrderIds}
+          numReviews={this.props.reviews.shopReviewIds.length}/>
         <ShopProductsContainer
           shop={curShop}
           curShopId={this.props.curShopId}

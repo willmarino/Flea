@@ -12,17 +12,31 @@
   justify-content: space-between;
 }
 
+.shop-show-banner-container p{
+  font-family: 'Arimo';
+  font-size: 14px;
+  color: #222;
+}
+
+.banner-shop-info{
+  padding-left: 20px;
+  // height: 200px;
+}
+
+#shop-banner-header{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#shop-banner-description{
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: 	#383838;
+}
+
 // shop info and image
 .shop-show-banner-shop{
   display: flex;
-}
-
-// shop owner avatar photo
-.shop-owner-avatar{
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
 }
 
 // fake image/placeholder
@@ -35,16 +49,83 @@
 
 .add-shop-favorite-button{
   border-radius: 3px;
-  background: gray;
+  background: #C8C8C8;
   padding: 8px;
   width: 150px;
   height: 20px;
   text-align: center;
   line-height: 20px;
+  transition: box-shadow .5s;
 }
 
 .add-shop-favorite-button:hover{
-  background: black;
-  color: white;
   cursor: pointer;
+  box-shadow: 0 0 3px 2px #222;
+}
+
+.shop-show-banner-owner{
+  width: 80px;
+}
+
+.shop-show-banner-owner p{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Arimo';
+  font-size: 14px;
+  color: #222;
+}
+
+// div inside of larger shop owner component which contains user avatar and name
+.owner-avatar-and-name:hover{
+  cursor: pointer;
+}
+
+// shop owner avatar photo
+.shop-owner-avatar{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 5px 10px 5px 10px;
+  transition: box-shadow .5s;
+}
+
+.shop-owner-avatar:hover{
+  box-shadow: 0 0 3px 2px #222;
+}
+
+#shop-owner-name{
+  margin-bottom: 3px;
+}
+
+#shop-owner-name:hover{
+  text-decoration: underline;
+}
+
+.sb-location-and-sales{
+  display: flex;
+  margin-bottom: 3px;
+}
+
+.sb-location-and-sales p{
+  color : #383838
+}
+
+#sb-sales{
+  border-right: 1px solid #383838;
+  border-left: 1px solid #383838;
+  padding: 0px 10px;
+  margin: 0px 10px;
+}
+
+#sb-created-at{
+  color : #383838;
+  margin-bottom: 3px; 
+}
+
+#sb-reviews-info{
+  color : #383838;
+  margin-bottom: 10px;
 }
