@@ -81,9 +81,6 @@ class ShopProducts extends React.Component{
 
   // change the products which are being displayed
   filterProductsByCategory(e){
-    // take gray background off of every cat li
-    // add it to e.currentTarget
-
     let unorderedList = document.getElementById('cat-arr');
     let children = unorderedList.children;
     debugger;
@@ -97,7 +94,6 @@ class ShopProducts extends React.Component{
     debugger;
     let element = e.currentTarget;
     element.classList.add('filter-list-item-grayed');
-    // element.classList.remove('filter-list-item');
 
     this.setState({products : this.products[element.dataset.value]});
     this.setState({search : ''});
@@ -132,8 +128,8 @@ class ShopProducts extends React.Component{
               </li>
             </ul>
             <div className="pc-sales-and-admires">
-              <p>Sales</p>
-              <p>Admirers</p>
+              <p id="pc-sales">{this.props.numSales} Sales</p>
+              <p id="pc-admires">{Object.keys(this.props.shopFavorites).length} Admirers</p>
             </div>
           </div>
           <ul className="shop-show-products">

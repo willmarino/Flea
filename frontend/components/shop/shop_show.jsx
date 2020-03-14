@@ -10,7 +10,8 @@ class ShopShow extends React.Component{
   }
 
   componentDidMount(){
-    let { fetchOrdersByShop, fetchShopShow, addShopView, curShopId } = this.props;
+    let { fetchShopFavorites, fetchOrdersByShop, fetchShopShow, addShopView, curShopId } = this.props;
+    fetchShopFavorites(curShopId);
     fetchShopShow(curShopId);
     fetchOrdersByShop(curShopId);
     addShopView(curShopId);
@@ -36,7 +37,9 @@ class ShopShow extends React.Component{
           shop={curShop}
           curShopId={this.props.curShopId}
           products={this.props.products}
-          categories={this.props.categories}/>
+          categories={this.props.categories}
+          numSales={this.props.orders.shopOrderIds.length}
+          shopFavorites={this.props.shopFavorites}/>
         <ShopReviews
           reviews={this.props.reviews}
           shop={curShop}

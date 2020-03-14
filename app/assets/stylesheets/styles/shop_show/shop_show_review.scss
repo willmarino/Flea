@@ -6,7 +6,7 @@
 }
 
 .left-bar-user-avatar{
-  width: 10%;
+  width: 60px;
 }
 
 .left-bar-user-avatar img{
@@ -16,12 +16,35 @@
   object-fit: cover;
 }
 
+.shop-show-review-user-info{
+  display: flex;
+  width: 100%;
+}
 
+.shop-show-review-username{
+  height: 50px;
+  line-height: 50px;
+  margin-right: 10px;
+  text-decoration: underline;
+  transition: color .4s;
+}
 
+.shop-show-review-username:hover{
+  color: #989898;
+  cursor: pointer;
+}
 
 .shop-show-review-timestamp{
   height: 50px;
   line-height: 50px;
+}
+
+.shop-show-review-rating{
+  margin-bottom: 5px;
+}
+
+.shop-show-review-body{
+  margin-bottom: 20px;
 }
 
 .shop-show-review-product-info{
@@ -29,15 +52,20 @@
   align-items: center;
 }
 
-// .shop-show-review-product-info img{
-//   width: 100px;
-//   height: 75px;
-//   object-fit: cover;
-// }
+.shop-show-review-product-name{
+  text-decoration: underline;
+  transition: color .4s;
+}
+
+.shop-show-review-product-name:hover{
+  color: #989898;
+  cursor: pointer;
+}
 
 .review-product-photo-and-link{
   width: 100px;
   height: 75px;
+  margin-right: 20px;
 }
 
 .review-product-photo{

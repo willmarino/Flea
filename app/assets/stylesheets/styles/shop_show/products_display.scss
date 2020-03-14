@@ -115,3 +115,17 @@
 .pc-sales-and-admires > p{
   margin: 20px 0px;
 }
+
+#pc-sales{
+
+}
+
+#pc-admires{
+  text-decoration: underline;
+  transition: color .4s;
+}
+
+#pc-admires:hover{
+  cursor: pointer;
+  color: #989898;
+}

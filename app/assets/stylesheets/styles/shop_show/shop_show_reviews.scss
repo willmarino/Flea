@@ -9,6 +9,23 @@
   padding-top: 20px;
 }
 
+.shop-reviews-container p{
+  font-family: 'Arimo';
+  color: #222;
+  font-size: 14px;
+}
+
+#shop-reviews-header{
+  font-size: 16px;
+}
+
+.shop-reviews-header-bar{
+  width: 100%;
+  height: 115px;
+  padding-left: 60px;
+  box-sizing: border-box;
+}
+
 .shop-reviews-left-bar{
   width: 20%;
 }
@@ -25,6 +42,15 @@
 .shop-reviews-meta-info{
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.shop-reviews-meta-info > p{
+  margin-right: 10px;
+}
+
+.shop-reviews-meta-info > div{
+  margin-right: 10px;
 }
 
 .shop-reviews-sorter{
@@ -36,17 +62,28 @@
   flex-direction: column;
 }
 
+.shop-reviews-filter > p{
+  margin-bottom: 10px;
+}
+
 .shop-reviews-filter-buttons{
   display: flex;
 }
 
 .shop-reviews-filter-buttons li{
-  padding: 10px;
+  padding: 7px;
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: 1px;
   display: flex;
   justify-content: space-around;
-  width: 75px
+  width: 75px;
+  margin-right: 5px;
+  transition: background .3s;
+}
+
+.shop-reviews-filter-buttons > li:hover{
+  cursor: pointer;
+  background: #f0f0f0;
 }
 
 .shop-reviews-list{

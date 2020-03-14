@@ -112,9 +112,6 @@ class ShopReviews extends React.Component{
       let r = reviewsArr[i];
       let a = users[r.author_id];
       let p = products[r.item_id];
-      // let r = this.props.reviews[i];
-      // let a = this.props.authors[i];
-      // let p = this.props.reviewProducts[i];
       curPageReviews.push( { review : r, author : a, product : p} );
       if(curPageReviews.length === 5){
         this.reviews[curPage] = curPageReviews;
@@ -149,7 +146,6 @@ class ShopReviews extends React.Component{
         let r = this.filteredReviews[this.state.curFilter][i]['review'];
         let a = this.filteredReviews[this.state.curFilter][i]['author'];
         let p = this.filteredReviews[this.state.curFilter][i]['product'];
-        // let ts = this.filteredReviews[this.state.curFilter][i]['tags'];
         // thought I needed tags, I dont need tags >:U
         reviewsList.push(
           <ShopShowReview
@@ -180,23 +176,25 @@ class ShopReviews extends React.Component{
     return(
       <div className='shop-reviews-container'>
         <div className='shop-reviews-left-bar'>
-          <p>Reviews</p>
+          <p id="shop-reviews-header">Reviews</p>
         </div>
         <div className='shop-reviews-reviews-block'>
-          <div className='shop-reviews-top-bar'>
-            <div className='shop-reviews-meta-info'>
-              <p>Average item rating</p>
-              <div>{this.starsify(Math.round(this.props.shop.rating))}</div>
-              <p>({this.reviewsLength})</p>
+          <div className='shop-reviews-header-bar'>
+            <div className='shop-reviews-top-bar'>
+              <div className='shop-reviews-meta-info'>
+                <p>Average item rating</p>
+                <div>{this.starsify(Math.round(this.props.shop.rating))}</div>
+                <p>({this.reviewsLength})</p>
+              </div>
+              <div className='shop-reviews-sorter'>
+                <p>Sort By : Relevancy</p>
+              </div>
             </div>
-            <div className='shop-reviews-sorter'>
-              <p>Sort By : Relevancy</p>
+            <div className='shop-reviews-filter'>
+              <p>See reviews that mention: </p>
+              <ul className='shop-reviews-filter-buttons'>{this.filters}</ul>
+              {this.clearFilterButton}
             </div>
-          </div>
-          <div className='shop-reviews-filter'>
-            <p>See reviews that mention: </p>
-            <ul className='shop-reviews-filter-buttons'>{this.filters}</ul>
-            {this.clearFilterButton}
           </div>
           <ul className='shop-reviews-list'>{reviewsList}</ul>
           <ul>{pages}</ul>

@@ -37,6 +37,10 @@
   // flex: 1 1 auto;
 }
 
+.complex{
+  max-height: 220px;
+}
+
 .simple > div, .complex > div{
   padding-left: 10px;
   padding-right: 10px;
