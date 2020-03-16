@@ -24,7 +24,6 @@ class AnonIndex extends React.Component{
     if(!this.props.products.indexIds){
       return <p></p>
     }
-    // let { products, categories} = this.props;
     let { products, tags, categories } = this.props;
     let rowOneProduct = products[products.indexIds[0][0]];
     let rowTwoProduct = products[products.indexIds[1][0]];

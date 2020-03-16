@@ -46,7 +46,7 @@ class SearchResult extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    if(prevProps.pageLoaded[this.props.pageLoaded.length - 1] === "none" &&
+    if(prevProps.pageLoaded[prevProps.pageLoaded.length - 1] === "none" &&
       this.props.pageLoaded[this.props.pageLoaded.length - 1] === "searchmain"){
       this.compileAll(this.props);
     }else if(prevProps.query !== this.props.query){
@@ -229,17 +229,6 @@ class SearchResult extends React.Component{
     let tags = this.state.tags;
     let filters = this.state.filters;
     let products = this.state.products;
-    
-    // filter products by price if value in state is not null
-    // if(this.state.generalFilters.price.max){
-    //   products = products.select(el => el.props.product.price > this.state.generalFilters.price.min);
-    //   products = products.select(el => el.props.product.price < this.state.generalFilters.price.max);
-    // }
-
-    // filter products by category
-    // if(this.state.generalFilters.category){
-    //   products = products.select(el => el.props.product.high_level_category === this.state.generalFilters.category);
-    // };
 
     return(
       <div className='sr-container'>

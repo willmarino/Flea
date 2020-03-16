@@ -79,19 +79,16 @@ class ShopProducts extends React.Component{
     this.setState({ search : e.currentTarget.value });
   }
 
-  // change the products which are being displayed
+  // change the filter which is currently selected
   filterProductsByCategory(e){
     let unorderedList = document.getElementById('cat-arr');
     let children = unorderedList.children;
-    debugger;
     for(let i = 0; i < children.length - 1; i++){
       let child = children[i];
       if(child.classList.contains('filter-list-item-grayed')){
-        debugger;
         child.classList.remove('filter-list-item-grayed');
       }
     }
-    debugger;
     let element = e.currentTarget;
     element.classList.add('filter-list-item-grayed');
 
