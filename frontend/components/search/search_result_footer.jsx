@@ -126,18 +126,38 @@ class SearchResultFooter extends React.Component{
     return(
       <div className='sr-footer'>
         <div className='sr-footer-recents'>
-          <div className='sr-footer-buttons'>
-            <p>Page {this.state.recentsPage} of {this.recentsMaxPage}</p>
-            <div onClick={this.incrementRecentsPage}>+</div>
-            <div onClick={this.decrementRecentsPage}>-</div>
+          <div className='sr-footer-header'>
+            <div className='sr-footer-left'>
+              <p id="header">Recently Viewed</p>
+              <p className='small-underlined-link'>See More</p>
+            </div>
+            <div className='sr-footer-buttons'>
+              <p className='page-switch-display'>Page {this.state.recentsPage} of {this.recentsMaxPage}</p>
+              <div onClick={this.decrementRecentsPage} className='page-switcher-container'>
+                <p className='page-switcher-button'> {'<'} </p>
+              </div>
+              <div onClick={this.incrementRecentsPage} className='page-switcher-container'>
+                <p className='page-switcher-button'>></p>
+              </div>
+            </div>
           </div>
           {this.state.recentProductsObj[this.state.recentsPage]}
         </div>
         <div className='sr-footer-associated'>
-          <div className='sr-footer-buttons'>
-            <p>Page {this.state.associatedPage} of {this.associatedMaxPage}</p>
-            <div onClick={this.incrementAssociatedPage}>+</div>
-            <div onClick={this.decrementAssociatedPage}>-</div>
+          <div className='sr-footer-header'>
+            <div className='sr-footer-left'>
+              <p id="header">Associated with Recently Viewed</p>
+              <p className='small-underlined-link'>See More</p>
+            </div>
+            <div className='sr-footer-buttons'>
+              <p className='page-switch-display'>Page {this.state.associatedPage} of {this.associatedMaxPage}</p>
+              <div onClick={this.decrementAssociatedPage} className='page-switcher-container'>
+                <p className='page-switcher-button'> {'<'} </p>
+              </div>
+              <div onClick={this.incrementAssociatedPage} className='page-switcher-container'>
+                <p className='page-switcher-button'>></p>
+              </div>
+            </div>
           </div>
           {this.state.associatedProductsObj[this.state.associatedPage]}
         </div>

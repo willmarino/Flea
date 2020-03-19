@@ -3,6 +3,79 @@
   flex-direction: column;
 }
 
+.sr-footer > div{
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.sr-footer-header{
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.sr-footer-header > div{
+  display: flex;
+}
+
+.sr-footer-header p{
+  // line-height: 30px;
+}
+
+.small-underlined-link{
+  font-family: 'Arimo';
+  font-size: 12px;
+  text-decoration: underline;
+  color: #222;
+  line-height: 30px;
+  transition: color .3s;
+}
+
+.small-underlined-link:hover{
+  color: #989898;
+  cursor: pointer;
+}
+
+#header{
+  font-family: 'Arimo';
+  font-size: 20px;
+  color: #222;
+  margin-right: 20px;
+  line-height: 30px;
+}
+
 .sr-products-list{
   display: flex;
+}
+
+.page-switch-display{
+  margin-right: 20px;
+  line-height: 30px;
+  font-family: 'Arimo';
+  color: #222;
+}
+
+.page-switcher-container{
+  margin-right: 10px;
+}
+
+.page-switcher-button{
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background: #fbf9f6;
+  border: 1px solid #222;
+  transition: border .3s, box-shadow .3s, color .3s, background .3s;
+}
+
+.page-switcher-button:hover{
+  cursor: pointer;
+  border: 1px solid #222;
+  background: #efefef;
+  box-shadow: 0 0 1px 1px #222;
 }

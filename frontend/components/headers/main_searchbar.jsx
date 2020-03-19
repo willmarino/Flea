@@ -13,6 +13,9 @@ class MainSearchbar extends React.Component{
     this.executeSearch = this.executeSearch.bind(this);
     this.grabSuggestedSearches = this.grabSuggestedSearches.bind(this);
     this.setModal = this.setModal.bind(this);
+    this.addEventListeners = this.addEventListeners.bind(this);
+
+    this.addEventListeners();
   }
 
   componentDidMount(){
@@ -27,6 +30,19 @@ class MainSearchbar extends React.Component{
     }else if(prevState.query !== '' && this.state.query === ''){
       this.createModal();
     }
+  }
+
+  addEventListeners(){
+    window.addEventListener('keypress', (e) => {
+      if(e.keyCode === '40'){
+        // move down
+      }
+    });
+    window.addEventListener('keypress', (e) => {
+      if(e.keyCode === '38'){
+        // move up
+      }
+    });
   }
 
   executeSearch(e){

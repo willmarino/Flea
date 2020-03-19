@@ -26,7 +26,9 @@ class SearchResult extends React.Component{
     this.compilePriceFilter = this.compilePriceFilter.bind(this);
     this.compileAll = this.compileAll.bind(this);
     this.handleTagClick = this.handleTagClick.bind(this);
+    // this.addEventListeners = this.addEventListeners.bind(this);
 
+    // this.addEventListeners();
     this.tagsList = 'tags';
     this.filtersList = 'filters';
     this.productsList = 'products';
@@ -45,6 +47,19 @@ class SearchResult extends React.Component{
       .then(this.props.history.push(`/search_result?query=${query}`));
   }
 
+  // addEventListeners(){
+  //   window.addEventListener('keypress', (e) => {
+  //     if(e.keyCode === '40'){
+  //       // move down
+  //     }
+  //   });
+  //   window.addEventListener('keypress', (e) => {
+  //     if(e.keyCode === '38'){
+  //       // move up
+  //     }
+  //   });
+  // }
+
   componentDidUpdate(prevProps){
     if(prevProps.pageLoaded[prevProps.pageLoaded.length - 1] === "none" &&
       this.props.pageLoaded[this.props.pageLoaded.length - 1] === "searchmain"){
@@ -59,6 +74,7 @@ class SearchResult extends React.Component{
     this.compileFilters(props);
     this.compileProducts(props);
     this.setState({ tags : this.tagsList, filters : this.filtersList, products : this.productsList });
+
     // this.setState({ tags : this.tagsList, filters : this.filtersList, products : this.productsList }, () => {
       // this.compilePriceFilter();
       // this.compileCategoryFilters();
@@ -175,7 +191,9 @@ class SearchResult extends React.Component{
     for(let i = 0; i < recommendedTags.length; i++){
       let t = recommendedTags[i];
       tagsArr.push(
-        <li key={t.id} data-val={t.tag_name} onClick={this.handleTagClick} className="sr-tag">{t.tag_name}</li>
+        <li key={t.id} data-val={t.tag_name} onClick={this.handleTagClick} className="sr-tag">
+          <p className='sr-tag-p'>{t.tag_name}</p>
+        </li>
       )
     }
     this.tagsList = tagsArr;
@@ -191,14 +209,14 @@ class SearchResult extends React.Component{
       for(let j = 0; j < filters[curFilter].length; j++){
         let curOption = filters[curFilter][j];
         list.push(
-          <li key={curOption}>
-            <p>{curOption}</p>
+          <li key={curOption} className='sr-filter-item'>
             <input type="checkbox"/>
+            <p>{curOption}</p>
           </li>
         );
       }
       filtersArr.push(
-        <p>{curFilter}</p>
+        <p className='sr-filter-item-header'>{curFilter}</p>
       );
       filtersArr.push(
         <ul>{list}</ul>
@@ -222,27 +240,41 @@ class SearchResult extends React.Component{
   }
 
   render(){
-    if(this.props.pageLoaded[this.props.pageLoaded.length - 1] !== 'searchmain'){
+    if(!this.state.products || !this.state.filters || !this.state.tags){
       return <p>loading</p>;
     }
     // pull entities out of state
-    let tags = this.state.tags;
-    let filters = this.state.filters;
-    let products = this.state.products;
+    // let tags = this.state.tags;
+    // let filters = this.state.filters;
+    // let products = this.state.products;
 
+    let category;
+    if(!this.state.generalFilters.category){
+      category = 'All Categories';
+    }else{
+      category = this.state.generalFilters.category;
+    }
+    debugger;
     return(
       <div className='sr-container'>
         <div className='sr-tags'>
           <ul>
-            {tags}
+            {this.state.tags}
           </ul>
         </div>
         <div className='sr-main'>
           <div className='sr-filters'>
-            {filters}
+            {this.state.filters}
           </div>
-          <div className='sr-products'>
-            {products}
+          <div className='sr-products-and-header'>
+            <div className='sr-products-header'>
+              <p id='srph-one'>{category}</p>
+              <p id='srph-two'>> "{this.props.query}"</p>
+              <p id='srph-three'>({this.state.products.length} Results)</p>
+            </div>
+            <div className='sr-products'>
+              {this.state.products}
+            </div>
           </div>
         </div>
         <SearchResultFooterContainer/>

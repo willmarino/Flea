@@ -7,12 +7,38 @@
   margin-bottom: 30px;
 }
 
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.sr-filters{
+  min-width: 150px;
+}
+
+.sr-filter-item{
+  display: flex;
+}
+
+.sr-filter-item > p{
+  font-family: 'Arimo';
+  color: #222;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.sr-filter-item-header{
+  font-size: 14px;
+  font-family: 'Arimo';
+  color: #222;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 .sr-tags{
   height: 30px;
-  // padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .sr-tags > ul{
@@ -22,28 +48,60 @@
 }
 
 .sr-tag{
-  margin-right: 5px;
+  margin-right: 10px;
   height: 100%;
   text-align: center;
   font-size: 14px;
-  line-height: 30px;
   background: #fa9c71;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 15px;
+  padding: 5px 15px;
   box-sizing: border-box;
+  transition: background .3s, box-shadow .3s;
 }
 
 .sr-tag:hover{
-  box-shadow: 0px 0px 5px #eb7a46;
+  box-shadow: 0px 0px 1px #222;
+  background: #f76c2d;
+  cursor: pointer;
+}
+
+.sr-tag-p{
+  line-height: 20px;
+  font-family: 'Arimo';
 }
 
 
 .sr-main{
   display: flex;
-  
+  min-height: 500px;
 }
 
 .sr-products{
   display: flex;
   flex-wrap: wrap;
+}
+
+.sr-products-header{
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.sr-products-header > p{
+  font-family: 'Arimo';
+  color: #222;
+  font-size: 12px;
+}
+
+#srph-one{
+  margin-right: 5px;
+}
+
+#srph-two{
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+#srph-three{
+  margin-right: 5px;
 }
