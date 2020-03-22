@@ -136,7 +136,7 @@ class ShopReviews extends React.Component{
     for(let i = 0; i <= Object.keys(this.reviews).length; i++){
       let p = Object.keys(this.reviews)[i];
       pages.push(
-        <li key={p} onClick={this.changePage} data-val={p}>{p}</li>
+        <li key={p} onClick={this.changePage} data-val={p} className='page-switch-button'>{p}</li>
       )
     }
 
@@ -197,7 +197,7 @@ class ShopReviews extends React.Component{
             </div>
           </div>
           <ul className='shop-reviews-list'>{reviewsList}</ul>
-          <ul>{pages}</ul>
+          <ul className='page-buttons-container'>{pages}</ul>
         </div>
       </div>
     )

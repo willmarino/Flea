@@ -7,12 +7,14 @@ class MainSearchbar extends React.Component{
     this.state = {
       query : '',
       modal : null,
-      modalShowing : false
+      modalShowing : false,
+      selectedTerm : null
     }
     this.createModal = this.createModal.bind(this);
     this.executeSearch = this.executeSearch.bind(this);
     this.grabSuggestedSearches = this.grabSuggestedSearches.bind(this);
     this.setModal = this.setModal.bind(this);
+    this.changeHighlightedTerm = this.changeHighlightedTerm.bind(this);
     this.addEventListeners = this.addEventListeners.bind(this);
 
     this.addEventListeners();
@@ -32,17 +34,39 @@ class MainSearchbar extends React.Component{
     }
   }
 
-  addEventListeners(){
-    window.addEventListener('keypress', (e) => {
-      if(e.keyCode === '40'){
-        // move down
+  addEventListeners(){ //40 = down, 38 = up
+    window.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowDown' || e.key === 'ArrowUp'){
+        this.changeHighlightedTerm(e.keyCode);
       }
     });
-    window.addEventListener('keypress', (e) => {
-      if(e.keyCode === '38'){
-        // move up
-      }
-    });
+    // window.addEventListener('keypress', (e) => {
+    //   if(e.keyCode === '38'){
+    //     // move up
+    //   }
+    // });
+  }
+
+  changeHighlightedTerm(num){
+    // debugger;
+    // if(num === 40){
+    //   let selectedTerm = (this.state.selectedTerm !== null) ? this.state.selectedTerm : 'null';
+    //   let terms = this.state.modal.props.children;
+    //   debugger;
+    //   if(selectedTerm === 'null'){
+    //     selectedTerm = 0;
+    //   }else{
+    //     selectedTerm += 1;
+    //     debugger;
+    //   }
+
+    //   terms[selectedTerm] = <li key={terms[selectedTerm]} className='suggested-search-term highlighted-term'>{terms[selectedTerm]}</li>;
+    //   debugger;
+
+    //   this.setState({ selectedTerm });
+    // }else if(num === 38){
+
+    // }
   }
 
   executeSearch(e){

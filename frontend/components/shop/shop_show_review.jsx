@@ -35,8 +35,8 @@ class ShopShowReview extends React.Component{
         </div>
         <div>
           <div className='shop-show-review-user-info'>
-            <p className='shop-show-review-username'>{this.props.author.username}</p>
-            <p className="shop-show-review-timestamp"> {this.configureDate(this.props.review.created_at)}</p>
+            <p className='shop-show-review-username'>{this.props.author.username}, </p>
+            <p className="shop-show-review-timestamp"> on {this.configureDate(this.props.review.created_at)}</p>
           </div>
           <div className="shop-show-review-rating">{this.props.starRating}</div>
           <p className="shop-show-review-body">{this.props.review.body}</p>
