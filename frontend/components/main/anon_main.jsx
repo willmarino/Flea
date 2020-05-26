@@ -15,26 +15,34 @@ class AnonMain extends React.Component{
     }
 
     render(){
-        let showPath = "/anon/products/:prodId";
-        let shopShowPath = "/anon/shops/:shopId";
-        let searchResultPath = "/anon/search_result";
-        let userProfilePath = "/anon/profiles/:userId";
+        // let showPath = "/anon/products/:prodId";
+        // let shopShowPath = "/anon/shops/:shopId";
+        // let searchResultPath = "/anon/search_result";
+        // let userProfilePath = "/anon/profiles/:userId";
+        // return(
+        //     <div>
+        //         <div className="anon-main-top">
+        //             <AnonHeaderContainer/>
+        //             <ModalContainer/>
+        //             <CategoryNav/>
+        //         </div>
+        //         <div className="anon-main-mid">
+        //             <Route exact path="/anon" component={AnonIndexContainer}/>
+        //             <Route path={showPath} component={ProductShowContainer}/>
+        //             <Route path={shopShowPath} component={ShopShowContainer}/>
+        //             <Route path={searchResultPath} component={SearchResultContainer}/>
+        //             <Route exact path={userProfilePath} component={UserProfileContainer}/>
+        //         </div>
+        //     </div>
+        // );
+        // --------------------------------------------------------------------------------------------------------------------------------
         return(
             <div>
-                <div className="anon-main-top">
-                    <AnonHeaderContainer/>
-                    <ModalContainer/>
-                    <CategoryNav/>
-                </div>
-                <div className="anon-main-mid">
-                    <Route exact path="/anon" component={AnonIndexContainer}/>
-                    <Route path={showPath} component={ProductShowContainer}/>
-                    <Route path={shopShowPath} component={ShopShowContainer}/>
-                    <Route path={searchResultPath} component={SearchResultContainer}/>
-                    <Route exact path={userProfilePath} component={UserProfileContainer}/>
-                </div>
+                <Header/>
+                <Body/>
+                <Footer/>
             </div>
-        );
+        )
     }
 }
 
