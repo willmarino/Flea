@@ -1,15 +1,15 @@
 import React from 'react';
-import UserHeaderContainer from '../headers/user_header_container';
-import CategoryNav from '../category_nav/category_nav';
+import UserHeaderContainer from '../../headers/user_header_container';
+import CategoryNav from '../../category_nav/category_nav';
 import { Route } from 'react-router-dom';
-import ProductShowContainer from '../products/show/product_show_container';
-import UserIndexContainer from '../products/index/user_index_container';
-import ShopShowContainer from '../shop/shop_show_container';
-import CartShowContainer from '../cart/cart_show_container';
-import ShopManagerLandingContainer from '../shop_manager/shop_manager_landing_container';
-import SearchResultContainer from '../search/search_result_container';
-import OwnedShopContainer from '../owned_shop/owned_shop_container';
-import UserProfileContainer from '../user_profile/user_profile_container';
+import ProductShowContainer from '../../products/show/product_show_container';
+import UserIndexContainer from '../../products/index/user_index_container';
+import ShopShowContainer from '../../shop/shop_show_container';
+import CartShowContainer from '../../cart/cart_show_container';
+import ShopManagerLandingContainer from '../../shop_manager/shop_manager_landing_container';
+import SearchResultContainer from '../../search/search_result_container';
+import OwnedShopContainer from '../../owned_shop/owned_shop_container';
+import UserProfileContainer from '../../user_profile/user_profile_container';
 
 class UserMain extends React.Component{
     constructor(props){
