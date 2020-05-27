@@ -23,7 +23,7 @@ class AnonHome extends React.Component{
       return <p>loading</p>
     }
     return(
-      <div>
+      <div className="body">
         <Advert/>
         <ProductIndex products={products} categories={categories} loggedIn={loggedIn}/>
         <Info/>

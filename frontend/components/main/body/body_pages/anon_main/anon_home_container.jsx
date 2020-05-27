@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import AnonHome from './anon_home';
-// import { fetchIndex } from '../../../actions/newest_product_actions';
 import { fetchIndex } from '../../../../../actions/newest_product_actions';
 
 const msp = (state) => ({
