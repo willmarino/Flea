@@ -8,7 +8,7 @@ class Advert extends React.Component{
 
     render(){
         return(
-            <div className="advert-whole">
+            <div className="advert-container">
                 <p>Hey you, there's some pretty good stuff on here</p>
                 <div className="advert-images">
                     <div id="gifts">

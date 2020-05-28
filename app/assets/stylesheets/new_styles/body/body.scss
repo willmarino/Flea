@@ -1,6 +1,6 @@
-@import '_body_vars';
-
 .body{
   width: 100%;
-  max-width: $max-content-width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
