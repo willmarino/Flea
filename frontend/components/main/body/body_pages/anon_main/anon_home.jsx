@@ -20,7 +20,7 @@ class AnonHome extends React.Component{
   render(){
     let { products, categories, loggedIn } = this.props;
     if(!products.indexIds){
-      return <p>loading</p>
+      return <p></p>
     }
     return(
       <div className="body">

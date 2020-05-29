@@ -85,6 +85,14 @@
   @import './new_styles/body/segments/advert.scss';
 
 
+  // transitions
+  @import './new_styles/transitions/fade_shrink.scss';
+
+  // product preview stlyings
+  @import './new_styles/product_preview.scss/simple_product_preview.scss';
+  @import './new_styles/product_preview.scss/standard_product_preview.scss';
+
+
 
 
  a{

@@ -9,7 +9,7 @@ class Advert extends React.Component{
     render(){
         return(
             <div className="advert-container">
-                <p>Hey you, there's some pretty good stuff on here</p>
+                <p id="advert-subheader">Welcome to Flea!</p>
                 <div className="advert-images">
                     <div id="gifts">
                         <div id="gift-one">
