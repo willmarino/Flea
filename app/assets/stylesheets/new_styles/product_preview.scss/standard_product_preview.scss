@@ -1,0 +1,17 @@
+.standard-product-preview-photo{
+  width: 100%;
+  height: 165px;
+
+  margin-bottom: 5px;
+
+  border-radius: 3px;
+
+  object-fit: cover;
+
+  transition: all .3s;
+}
+
+.standard-product-preview-photo:hover{
+  box-shadow: 0 0 8px 3px #D8D8D8;
+  cursor: pointer;
+}

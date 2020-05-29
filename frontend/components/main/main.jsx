@@ -21,9 +21,8 @@ class Main extends React.Component{
   }
 
   render(){
-    debugger;
     return(
-      <CSSTransition classNames={'fade'} in={this.state.mounted} timeout={3000} appear={true}>
+      <CSSTransition classNames={'fade-shrink'} in={this.state.mounted} timeout={1500} appear={true}>
         <Switch>
           <AuthRoute path="/anon" component={AnonMain}/>
           <ProtectedRoute path="/" component={UserMainContainer}/>

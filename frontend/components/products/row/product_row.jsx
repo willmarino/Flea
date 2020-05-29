@@ -1,5 +1,6 @@
 import React from 'react';
-import IndexItem from '../index/index_item';
+// import IndexItem from '../index/index_item';
+import ProductPreview from '../product_preview/product_preview';
 
 class ProductRow extends React.Component{
     constructor(props){
@@ -8,8 +9,9 @@ class ProductRow extends React.Component{
 
     render(){
         let { rowOfProducts, type, loggedIn, category } = this.props;
-        let productsList = rowOfProducts.map((p) => {
-            return <IndexItem product={p} type={type} loggedIn={loggedIn} key={p.id}/>
+        let productsList = rowOfProducts.map((product) => {
+            // return <IndexItem product={p} type={type} loggedIn={loggedIn} key={p.id}/>
+            return <ProductPreview previewType={type} product={product}/>
         });
         return(
             <div className="product-row-container">

@@ -1,0 +1,23 @@
+.fade-shrink-enter{
+  opacity: 0;
+}
+.fade-shrink-enter-active{
+  opacity: 1;
+  transition: all 1500ms;
+}
+.fade-shrink-exit{
+  opacity: 1;
+}
+.fade-shrink-exit-active{
+  opacity: 0;
+  transition: all 1500ms;
+}
+
+.fade-shrink-appear{
+  opacity: 0;
+}
+
+.fade-shrink-appear-active{
+  opacity: 1;
+  transition: all 1500ms;
+}
