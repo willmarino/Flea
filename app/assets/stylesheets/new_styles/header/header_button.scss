@@ -1,0 +1,26 @@
+.header-button{
+  width: 80px;
+  min-height: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+
+  box-sizing: border-box;
+
+  margin: 0px 10px;
+  padding: 10px;
+
+  transition: all .3s;
+}
+
+.header-button:hover{
+  background: #F0F0F0;
+  cursor: pointer;
+}
+
+.header-button p{
+  font-size: 13px;
+}

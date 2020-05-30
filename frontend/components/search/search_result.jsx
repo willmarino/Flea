@@ -254,7 +254,6 @@ class SearchResult extends React.Component{
     }else{
       category = this.state.generalFilters.category;
     }
-    debugger;
     return(
       <div className='sr-container'>
         <div className='sr-tags'>
