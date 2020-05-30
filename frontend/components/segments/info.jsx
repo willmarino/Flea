@@ -8,8 +8,8 @@ class Info extends React.Component{
 
   render(){
     return(
-      <div className="info-whole">
-        <div className='info-content-container'>
+      // <div className="info-segment-container">
+        <div className="info-segment-container">
           <div className="info-top">
             <p className='info-main-header'>Like the site?</p>
             <p id="info-top-subheader"><a href="https://github.com/willmarino/Flea">Check out the code here</a></p>
@@ -43,7 +43,7 @@ class Info extends React.Component{
             <p className="help-center-button">Go To Help Center</p>
           </div>
         </div>
-      </div>
+      // </div>
     );
   }
 }
