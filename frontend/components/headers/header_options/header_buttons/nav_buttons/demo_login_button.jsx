@@ -12,7 +12,7 @@ class DemoLoginButton extends React.Component{
   render(){
     return(
       <div onClick={this.handleClick} className="header-button">
-        <p>DemoUser Login</p>
+        <p>Demouser Login</p>
       </div>
     )
   }
