@@ -3,7 +3,6 @@ import SimpleProductPreview from './product_preview_types/simple_product_preview
 
 const ProductPreview = (props) => {
   let { product } = props;
-  debugger;
   let componentMap = {
     "complex": 1,
     "mid": 2,
