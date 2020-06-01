@@ -1,0 +1,37 @@
+.categories-nav-container{
+  min-width: 100%;
+  max-width: 1240px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 13px;
+}
+
+.category-button:not(:last-child){
+  margin-right: 5px;
+}
+
+.category-button:not(:first-child){
+  margin-left: 5px;
+}
+
+.category-button:hover{
+  cursor: pointer;
+  div.category-button-expanding-border{
+    width: 100%;
+    border-bottom: 1px solid black;
+  }
+}
+
+.category-button-expanding-border{
+  height: 10px;
+  width: 0px;
+  border-bottom: 1px solid white;
+  transition: all .3s;
+}

@@ -1,9 +1,22 @@
 @import '../_body_vars';
 
+.advert-top-container{
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 1px solid 	#B0B0B0;
+
+}
+
 .advert-container{
   width: 100%;
   max-width: $max-content-width;
   height: 500px;
+
+  padding-top: 30px;
 }
 
 #advert-subheader{

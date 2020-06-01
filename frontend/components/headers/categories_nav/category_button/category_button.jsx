@@ -19,6 +19,7 @@ class CategoryButton extends React.Component{
     return(
       <div className="category-button">
         <p>{category.name}</p>
+        <div className="category-button-expanding-border"></div>
       </div>
     )
   }
