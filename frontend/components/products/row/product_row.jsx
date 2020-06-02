@@ -1,5 +1,4 @@
 import React from 'react';
-// import IndexItem from '../index/index_item';
 import ProductPreview from '../product_preview/product_preview';
 
 class ProductRow extends React.Component{
@@ -16,10 +15,11 @@ class ProductRow extends React.Component{
         let firstHalfProductList = [];
         let secondHalfProductList = [];
         rowOfProducts.forEach((product, i) => {
+            let product = <ProductPreview previewType={type} product={product} loggedIn={loggedIn}/>;
             if(i < (rowOfProducts.length / 2)){
-                firstHalfProductList.push(<ProductPreview previewType={type} product={product}/>);
+                firstHalfProductList.push(product);
             }else{
-                secondHalfProductList.push(<ProductPreview previewType={type} product={product}/>);
+                secondHalfProductList.push(product);
             }
         });
         firstHalfProductList = <ul className="p-row-half">{firstHalfProductList}</ul>
