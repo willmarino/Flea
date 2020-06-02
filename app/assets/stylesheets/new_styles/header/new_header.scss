@@ -1,0 +1,22 @@
+// overall total header container
+.main-header-container{
+  width: 100%;
+  max-width: 1240px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+// top half of header container
+.top-header-container{
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 0px;
+
+}

@@ -175,15 +175,17 @@
   padding-left: 10px;
   padding-right: 10px;
 
+  border: 1px solid 	#D8D8D8;
   box-shadow: inset 0 0 2px #000000;
-  transition: border 0.5s;
+  transition: all .3s;
 }
 
 .search:hover{
-  border: 1px solid rgba(34, 34, 34, 0.15);
+  border: 1px solid black;
 }
 
 .search:focus{
+  border: 1px solid black;
   background-color: white;
 }
 
