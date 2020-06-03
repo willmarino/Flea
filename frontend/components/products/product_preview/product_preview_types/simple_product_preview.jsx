@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ProductInfo from '../product_info/product_info';
 
 class SimpleProductPreview extends React.Component{
   constructor(props){
@@ -15,13 +16,14 @@ class SimpleProductPreview extends React.Component{
   render(){
     let { product } = this.props;
     return(
-      <div onClick={this.handleClick} className='simple-product-preview-container'>
+      <div onClick={this.handleClick} className='standard-product-preview-container'>
         <div className="standard-product-preview-photo-container">
           <img className="standard-product-preview-photo" src={product.photoURL} alt=""/>
         </div>
-        <div className="spp-info">
+        {/* <div className="spp-info">
           <p>${product.price}</p>
-        </div>
+        </div> */}
+        <ProductInfo product={product}/>
       </div>
     )
   }

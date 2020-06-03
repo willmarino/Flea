@@ -8,6 +8,10 @@ import TrendingItemsContainer from '../../../../segments/trending_items_containe
 class AnonHome extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      componentFullyRenderedCountNeeded: 3,
+      componentFullyRenderedCount: 0
+    }
   }
 
   componentDidMount(){
@@ -15,6 +19,10 @@ class AnonHome extends React.Component{
     if(!products.indexIds){
       fetchIndex();
     }
+  }
+
+  incrementReadyCount(){
+    this.setState({ componentFullyRenderedCount: componentFullyRenderedCount + 1 });
   }
 
   render(){

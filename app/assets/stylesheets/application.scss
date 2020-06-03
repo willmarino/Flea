@@ -93,6 +93,9 @@
   // product preview stlyings
   @import './new_styles/product_preview.scss/simple_product_preview.scss';
   @import './new_styles/product_preview.scss/standard_product_preview.scss';
+  // product preview info
+  @import './new_styles/product_preview.scss/product_info/product_info.scss';
+  @import './new_styles/product_preview.scss/product_info/product_price.scss';
 
   // header options
   @import './new_styles/header/header_options.scss';
