@@ -16,7 +16,9 @@ class SimpleProductPreview extends React.Component{
     let { product } = this.props;
     return(
       <div onClick={this.handleClick} className='simple-product-preview-container'>
-        <img className="standard-product-preview-photo" src={product.photoURL} alt=""/>
+        <div className="standard-product-preview-photo-container">
+          <img className="standard-product-preview-photo" src={product.photoURL} alt=""/>
+        </div>
         <div className="spp-info">
           <p>${product.price}</p>
         </div>
