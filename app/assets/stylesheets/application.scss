@@ -93,12 +93,18 @@
   // product preview stlyings
   @import './new_styles/product_preview.scss/simple_product_preview.scss';
   @import './new_styles/product_preview.scss/standard_product_preview.scss';
+  // product preview info
+  @import './new_styles/product_preview.scss/product_info/product_info.scss';
+  @import './new_styles/product_preview.scss/product_info/product_price.scss';
 
   // header options
   @import './new_styles/header/header_options.scss';
   @import './new_styles/header/header_button.scss';
   @import './new_styles/header/categories_nav.scss';
   @import './new_styles/header/new_header.scss';
+
+  // spinners
+  @import './new_styles/spinners/default_spinner.scss';
 
 
 

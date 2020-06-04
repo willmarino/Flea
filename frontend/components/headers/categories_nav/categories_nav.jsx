@@ -6,16 +6,13 @@ class CategoriesNav extends React.Component{
     super(props);
   }
   componentDidMount(){
-    debugger;
     this.props.fetchAllCategories();
   }
   render(){
     let categories = Object.values(this.props.categories);
-    debugger;
     if(categories.length === 0){
       return <p></p>
     }
-    debugger;
     return(
       <ul className="categories-nav-container">
         {categories.map((category) => {

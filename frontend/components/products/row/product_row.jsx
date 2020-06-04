@@ -15,11 +15,11 @@ class ProductRow extends React.Component{
         let firstHalfProductList = [];
         let secondHalfProductList = [];
         rowOfProducts.forEach((product, i) => {
-            let product = <ProductPreview previewType={type} product={product} loggedIn={loggedIn}/>;
+            let p = <ProductPreview previewType={type} product={product} loggedIn={loggedIn}/>;
             if(i < (rowOfProducts.length / 2)){
-                firstHalfProductList.push(product);
+                firstHalfProductList.push(p);
             }else{
-                secondHalfProductList.push(product);
+                secondHalfProductList.push(p);
             }
         });
         firstHalfProductList = <ul className="p-row-half">{firstHalfProductList}</ul>

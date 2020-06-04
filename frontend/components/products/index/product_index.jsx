@@ -14,7 +14,7 @@ const ProductIndex = (props) => {
     )
   })
 
-  return (<div className="product-index-container"> {rows} </div>)
+  return <div className="product-index-container"> {rows} </div>;
 }
 
 export default ProductIndex;

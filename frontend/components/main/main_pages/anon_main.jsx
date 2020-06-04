@@ -1,17 +1,23 @@
 import React from 'react';
 import Body from '../body/body';
-import AnonHeaderContainer from '../../headers/anon_header_container';
 import Header from '../../headers/header';
+import Footer from '../../segments/footer';
 
-const AnonMain = () => {
-    return(
-        <div className="main-container">
-            <Header loggedIn={false}/>
-            {/* <AnonHeaderContainer/> */}
-            <Body/>
-            {/* <Footer/> */}
-        </div>
-    )
+
+class AnonMain extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return(
+            <div className="main-container">
+                <Header loggedIn={false}/>
+                <Body/>
+                <Footer/>
+                {/* <AnonHeaderContainer/> */}
+            </div>
+        )
+    }
 }
 
 export default AnonMain;

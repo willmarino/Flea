@@ -1,17 +1,28 @@
 import React from 'react';
-import SimpleProductPreview from './product_preview_types/simple_product_preview';
+import ProductInfo from './product_info'
 
-const ProductPreview = (props) => {
-  let { product } = props;
-  let componentMap = {
-    "complex": 1,
-    "mid": 2,
-    "simple": <SimpleProductPreview product={product}/>,
-    "reviewed": 4
+class ProductPreview extends React.Component{
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
-  return(
-    componentMap[props.previewType]
-  )
+
+  handleClick(){
+    // 
+    // 
+  }
+
+  render(){
+    let { product, previewType } = this.props;
+    return(
+      <div onClick={this.handleClick} className='standard-product-preview-container'>
+        <div className="standard-product-preview-photo-container">
+          <img className="standard-product-preview-photo" src={product.photoURL} alt=""/>
+        </div>
+        <ProductInfo product={product} previewType={previewType}/>
+      </div>
+    )
+  }
 }
 
 export default ProductPreview;

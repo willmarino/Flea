@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 import ProductIndex from '../../../../products/index/product_index';
 import Advert from '../../../../segments/advert';
 import Info from '../../../../segments/info';
@@ -8,10 +9,14 @@ import TrendingItemsContainer from '../../../../segments/trending_items_containe
 class AnonHome extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      mounted: false
+    }
   }
 
   componentDidMount(){
     let { products, fetchIndex} = this.props;
+    this.setState({ mounted: true })
     if(!products.indexIds){
       fetchIndex();
     }
@@ -20,16 +25,18 @@ class AnonHome extends React.Component{
   render(){
     let { products, categories, loggedIn } = this.props;
     if(!products.indexIds){
-      return <p></p>
+      return <div className="lds-ring-container"><div className="lds-ring"><div></div><div></div><div></div><div></div></div></div>;
     }
     return(
-      <div className="body">
-        <Advert/>
-        <ProductIndex products={products} categories={categories} loggedIn={loggedIn}/>
-        <Info/>
-        <ReviewSegmentContainer/>
-        <TrendingItemsContainer/>
-      </div>
+      <CSSTransition classNames={'fade-shrink'} in={this.state.mounted} timeout={1500} appear={true}>
+        <div className="body">
+          <Advert/>
+          <ProductIndex products={products} categories={categories} loggedIn={loggedIn} incrementReadyCount={this.incrementReadyCount}/>
+          <Info/>
+          <ReviewSegmentContainer incrementReadyCount={this.incrementReadyCount}/>
+          <TrendingItemsContainer incrementReadyCount={this.incrementReadyCount}/>
+        </div>
+      </CSSTransition>
     )
   }
 }

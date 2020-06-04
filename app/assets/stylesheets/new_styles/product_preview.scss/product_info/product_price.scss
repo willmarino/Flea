@@ -1,0 +1,34 @@
+.spp-price{
+  display: flex;
+}
+
+#spp-pre-sale-price{
+  margin-right: 10px;
+}
+
+#spp-post-sale-info{
+  display: flex;
+}
+
+#spp-post-sale-info p{
+  height: 100%;
+  line-height: 15px;
+
+  color: #509757;
+  font-size: 13px;
+}
+
+#spp-post-sale-info-price{
+  position: relative;
+  height: 15px;
+  margin-right: 5px;
+}
+
+#dash{
+  position: absolute;
+
+  width: 100%;
+  top: 50%;
+
+  border-top: 1px solid #509757;
+}
