@@ -10,6 +10,7 @@ const msp = (state) => ({
 
 const mdp = (dispatch) => ({
   fetchIndex : () => dispatch(fetchIndex())
+  // mainSetReady: mainSetReady
 })
 
 export default connect(msp, mdp)(AnonHome)
