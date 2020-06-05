@@ -1,0 +1,33 @@
+.login-container{
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  flex-direction: column;
+
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#login-form{
+  height: 40%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+  border: 1px solid blue;
+}
+
+.login-form-header{
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-form-header > p{
+  font-size: 20px;
+  line-height: 20px;
+}

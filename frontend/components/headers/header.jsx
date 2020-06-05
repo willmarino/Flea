@@ -1,7 +1,6 @@
 import React from 'react';
-
-// import { Link } from 'react-router-dom';
-// import MainSearchbarContainer from './main_searchbar_container';
+// import ModalContainer from '../modal/modal_container';
+import SessionModal from '../modal/session_modal';
 
 import HeaderTop from './header_top';
 
@@ -19,6 +18,8 @@ const Header = (props) => {
       <div className="main-header-container">
         <HeaderTop loggedIn={props.loggedIn}/>
         <CategoriesNavContainer/>
+        <SessionModal/>
+        {/* <ModalContainer/> */}
       </div>
     )
 }

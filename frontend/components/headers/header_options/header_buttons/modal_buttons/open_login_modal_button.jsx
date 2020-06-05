@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class OpenLoginModalButton extends React.Component{
   constructor(props){
@@ -7,7 +8,10 @@ class OpenLoginModalButton extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(){
-    this.props.openModal();
+    // this.props.openModal('login');
+    let { history } = this.props;
+    history.push('/anon/login');
+
   }
   render(){
     return(
@@ -18,4 +22,4 @@ class OpenLoginModalButton extends React.Component{
   }
 }
 
-export default OpenLoginModalButton;
+export default withRouter(OpenLoginModalButton);

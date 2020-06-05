@@ -1,0 +1,33 @@
+.form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input-container{
+  width: 150px;
+  height: 25px;
+}
+
+.form-input{
+  width: 100%;
+  height: 100%;
+
+  padding: 5px;
+
+  border: 1px solid 	#E0E0E0;
+}
+
+.form-input:hover{
+  border: 1px solid 	#B0B0B0; 
+}
+
+.form-input:focus{
+  border: 1px solid #484848; 
+}
+
+.form-error-message{
+  color: darkred;
+  font-size: 12px;
+}

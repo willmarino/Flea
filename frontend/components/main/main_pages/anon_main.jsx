@@ -12,9 +12,8 @@ class AnonMain extends React.Component{
         return(
             <div className="main-container">
                 <Header loggedIn={false}/>
-                <Body/>
+                {/* <Body/> */}
                 <Footer/>
-                {/* <AnonHeaderContainer/> */}
             </div>
         )
     }
