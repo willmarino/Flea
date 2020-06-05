@@ -33,355 +33,355 @@
 // -------------------------------------------------------------------------------------------------
 
 
-.half-one{
-  height: 60%;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.15);
-}
-.half-two{
-  height: 40%;
-}
+// .half-one{
+//   height: 60%;
+//   border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+// }
+// .half-two{
+//   height: 40%;
+// }
 
-// --------
-// 'continue with' button styling
+// // --------
+// // 'continue with' button styling
 
-.continue-button-one, .continue-button-two{
-  display: flex;
-  justify-content: center;
+// .continue-button-one, .continue-button-two{
+//   display: flex;
+//   justify-content: center;
 
-  // padding: 10px;
-  min-width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+//   // padding: 10px;
+//   min-width: 100%;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
 
-  border: 1px solid rgba(34, 34, 34, 0.15);
-  border-radius: 3px;
+//   border: 1px solid rgba(34, 34, 34, 0.15);
+//   border-radius: 3px;
   
-  height: 50px;
-}
+//   height: 50px;
+// }
 
-.button-content{
-  width: 75%;
-  display: flex;
-  justify-content: space-between;
-}
+// .button-content{
+//   width: 75%;
+//   display: flex;
+//   justify-content: space-between;
+// }
 
-.button-content p{
-  font-weight: bold;
-  font-size: 16px;
-}
-
-
-
-
-// -------
-
-.form-row{
-  width: 100%;
-  // padding: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-
-// username and password inputs
-#two, #three{
-  // padding: 10px;
-  width: 100%;
-  height: 80px;
-}
-
-#two, #three{
-  background-color: white;
-
-}
-
-#two p, #three p{
-  padding-bottom: 10px;
-  // font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: 'Arimo';
-}
+// .button-content p{
+//   font-weight: bold;
+//   font-size: 16px;
+// }
 
 
 
-.form-row input{
-  width: 100%;
-  font-size: 14px;
-}
 
-// .form-row label{
+// // -------
+
+// .form-row{
+//   width: 100%;
+//   // padding: 10px;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+// }
+
+
+// // username and password inputs
+// #two, #three{
+//   // padding: 10px;
+//   width: 100%;
+//   height: 80px;
+// }
+
+// #two, #three{
+//   background-color: white;
+
+// }
+
+// #two p, #three p{
+//   padding-bottom: 10px;
+//   // font-family: Verdana, Geneva, Tahoma, sans-serif;
+//   font-family: 'Arimo';
+// }
+
+
+
+// .form-row input{
+//   width: 100%;
+//   font-size: 14px;
+// }
+
+// // .form-row label{
+// //   width: 100%;
+// // }
+
+// .modal-form button{
+//   width: 50px;
+// }
+
+// .modal-form #one{
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   // font-family: Verdana, Geneva, Tahoma, sans-serif;
+//   font-family: 'Arimo';
+// }
+
+// #four {
+//   display: flex;
+//   align-items: center;
+//   padding: 1px;
+// }
+
+// #one button{
+//   width: 80px;
+//   height: 40px;
+//   background-color: white;
+//   border-radius: 18px;
+//   border: 2px solid black;
+//   font-size: 12px;
+//   font-weight: 600;
+// }
+
+// #one button:hover{
+//   box-shadow: 0px 0px 10px 3px lightgray;
+// }
+
+// #one div{
+//   font-size: 20px;
+//   font-weight: 600;
+// }
+
+// #four button{
+//   width: 100%;
+//   height: 45px;
+//   background-color: black;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+//   color: white;
+//   // font-family: Verdana, Geneva, Tahoma, sans-serif;
+//   font-family: 'Arimo';
+//   font-size: 15px;
+// }
+
+
+// .login-input{
+//   border-radius: 5px;
+//   border: 1px solid lightgray;
+//   height: 44px;
+// }
+
+// .login-input:hover{
+//   border: 1px solid gray;
+// }
+
+// .login-input:focus{
+//   border: 1px solid black;
+// }
+
+
+
+// // login styling 
+// // ------------------------------------------------------------------------------------------------
+// // sign up styling
+
+
+// .signup-half-one{
+//   min-width: 100%;
+//   height: 60%;
+//   border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+// }
+// .signup-half-two{
+//   min-width: 100%;
+//   height: 40%;
+// }
+
+// .signup-input{
+//   border-radius: 5px;
+//   border: 1px solid lightgray;
+//   height: 44px;
+// }
+
+// .signup-input:hover{
+//   border-radius: 5px;
+//   border: 1px solid gray;
+//   height: 44px;
+// }
+
+// .signup-input:focus{
+//   border-radius: 5px;
+//   border: 1px solid black;
+//   height: 44px;
+// }
+
+// #signup-five input:hover{
+//   background-color: 	#383838;
+// }
+
+// .registration-account{
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+// }
+
+
+
+// .signup-form-row input{
 //   width: 100%;
 // }
 
-.modal-form button{
-  width: 50px;
-}
-
-.modal-form #one{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  // font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: 'Arimo';
-}
-
-#four {
-  display: flex;
-  align-items: center;
-  padding: 1px;
-}
-
-#one button{
-  width: 80px;
-  height: 40px;
-  background-color: white;
-  border-radius: 18px;
-  border: 2px solid black;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-#one button:hover{
-  box-shadow: 0px 0px 10px 3px lightgray;
-}
-
-#one div{
-  font-size: 20px;
-  font-weight: 600;
-}
-
-#four button{
-  width: 100%;
-  height: 45px;
-  background-color: black;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: white;
-  // font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: 'Arimo';
-  font-size: 15px;
-}
+// .signup-form-row p{
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+// }
 
 
-.login-input{
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  height: 44px;
-}
-
-.login-input:hover{
-  border: 1px solid gray;
-}
-
-.login-input:focus{
-  border: 1px solid black;
-}
+// #signup-five button{
+//   width: 100%;
+//   height: 45px;
+//   background-color: black;
+//   margin-top: 20px;
+//   margin-bottom: 10px;
+//   color: white;
+//   // font-family: Verdana, Geneva, Tahoma, sans-serif;
+//   font-family: 'Arimo';
+//   font-size: 15px;
+// }
 
 
 
-// login styling 
-// ------------------------------------------------------------------------------------------------
-// sign up styling
+// #signup-one div{
+//   font-size: 28px;
+//   font-weight: 600;
+// }
 
+// #signup-one p{
+//   font-weight: lighter;
+// }
 
-.signup-half-one{
-  min-width: 100%;
-  height: 60%;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.15);
-}
-.signup-half-two{
-  min-width: 100%;
-  height: 40%;
-}
+// .signup-form-row button{
+//   width: 100%;
+// }
 
-.signup-input{
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  height: 44px;
-}
+// // -----------------------------------------------------------------------------
+// // half styling
 
-.signup-input:hover{
-  border-radius: 5px;
-  border: 1px solid gray;
-  height: 44px;
-}
-
-.signup-input:focus{
-  border-radius: 5px;
-  border: 1px solid black;
-  height: 44px;
-}
-
-#signup-five input:hover{
-  background-color: 	#383838;
-}
-
-.registration-account{
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-
-
-.signup-form-row input{
-  width: 100%;
-}
-
-.signup-form-row p{
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-
-#signup-five button{
-  width: 100%;
-  height: 45px;
-  background-color: black;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: white;
-  // font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: 'Arimo';
-  font-size: 15px;
-}
-
-
-
-#signup-one div{
-  font-size: 28px;
-  font-weight: 600;
-}
-
-#signup-one p{
-  font-weight: lighter;
-}
-
-.signup-form-row button{
-  width: 100%;
-}
-
-// -----------------------------------------------------------------------------
-// half styling
-
-.half-one{
-  min-width: 100%;
-}
+// .half-one{
+//   min-width: 100%;
+// }
 
 
 
 
 
 
-// -----------------------------------------------------------------------------
-// options styling (stay signed in, checkbox, forgot password?, middle of login)
+// // -----------------------------------------------------------------------------
+// // options styling (stay signed in, checkbox, forgot password?, middle of login)
 
-.login-options{
+// .login-options{
   
-  min-width: 100%;
+//   min-width: 100%;
 
-  display: flex;
+//   display: flex;
 
-  // margin: 10px;
-  // padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+//   // margin: 10px;
+//   // padding: 10px;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
 
-  align-items: center;
-  justify-content: space-between;
+//   align-items: center;
+//   justify-content: space-between;
 
-}
+// }
 
-.option-one{
-  display: flex;
+// .option-one{
+//   display: flex;
 
-  width: 135px;
+//   width: 135px;
 
-  align-items: center;
-  justify-content: space-between;
-}
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
-.option-one button{
-  width: 30px;
-  height: 30px;
+// .option-one button{
+//   width: 30px;
+//   height: 30px;
 
-  border: 2px solid rgba(34, 34, 34, 0.15);
+//   border: 2px solid rgba(34, 34, 34, 0.15);
 
-  // padding-right: 10px;
-}
+//   // padding-right: 10px;
+// }
 
-.option-one p{
+// .option-one p{
 
-}
+// }
 
-.option-two{
-  display: flex;
+// .option-two{
+//   display: flex;
 
-  align-items: center;
-}
+//   align-items: center;
+// }
 
-.option-two p{
-  font-size: 13px;
-  font-weight: lighter;
-  text-decoration: underline;
-  color :#595959;
-}
+// .option-two p{
+//   font-size: 13px;
+//   font-weight: lighter;
+//   text-decoration: underline;
+//   color :#595959;
+// }
 
-.option-two p:hover{
-  color: #404040;
-}
+// .option-two p:hover{
+//   color: #404040;
+// }
 
-// -----------------------------------------------------------------------------
-// divider styling
+// // -----------------------------------------------------------------------------
+// // divider styling
 
-.divider{
-  position: relative;
-  display: flex;
-  justify-content: center;
+// .divider{
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
 
-}
+// }
 
-.divider-trouble{
+// .divider-trouble{
 
-}
+// }
 
-.divider-or{
-  position: absolute;
-  top: 43px;
-  z-index: 15;
-  background: white;
-  color: gray;
-  width: 50px;
-  display: flex;
-  justify-content: center;
-}
+// .divider-or{
+//   position: absolute;
+//   top: 43px;
+//   z-index: 15;
+//   background: white;
+//   color: gray;
+//   width: 50px;
+//   display: flex;
+//   justify-content: center;
+// }
 
-.signup-divider-or{
-  position: absolute;
-  top: 35px;
-  z-index: 15;
-  background: white;
-  color: gray;
-  width: 50px;
-  display: flex;
-  justify-content: center;
-}
+// .signup-divider-or{
+//   position: absolute;
+//   top: 35px;
+//   z-index: 15;
+//   background: white;
+//   color: gray;
+//   width: 50px;
+//   display: flex;
+//   justify-content: center;
+// }
 
-// -----------------------------------------------------------------------------
-// warning styling
+// // -----------------------------------------------------------------------------
+// // warning styling
 
-.warning{
-  padding-top: 10px;
-  font-size: 12px;
-  // font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: 'Arimo';
-  color: #585858;
-}
+// .warning{
+//   padding-top: 10px;
+//   font-size: 12px;
+//   // font-family: Verdana, Geneva, Tahoma, sans-serif;
+//   font-family: 'Arimo';
+//   color: #585858;
+// }
 
-// -----------------------------------------------------------------------------
-// errors styling
+// // -----------------------------------------------------------------------------
+// // errors styling
 
-.errors{
-  height: 20px;
-  width: 100%;
-  font-size: 12px;
-  color: darkred;
-}
+// .errors{
+//   height: 20px;
+//   width: 100%;
+//   font-size: 12px;
+//   color: darkred;
+// }

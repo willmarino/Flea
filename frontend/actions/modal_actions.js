@@ -7,6 +7,7 @@ export const openModal = (dash) => ({
   dash
 });
 
+
 export const closeModal = () => ({
   type: CLOSE_MODAL
 })
