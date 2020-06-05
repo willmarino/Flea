@@ -12,10 +12,6 @@
 #login-form{
   height: 40%;
   
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  
   border: 1px solid blue;
 }
 
@@ -27,7 +23,3 @@
   justify-content: space-between;
 }
 
-.login-form-header > p{
-  font-size: 20px;
-  line-height: 20px;
-}

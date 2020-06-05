@@ -1,7 +1,7 @@
 import React from 'react';
-import SessionFormInput from '../../common/session_form_input';
-import SubmitButton from '../../common/submit_button';
-import BorderedNavButton from '../../../../buttons/bordered_nav_button';
+import { withRouter } from 'react-router-dom';
+import SessionFormBody from '../../../../forms/standard_form/standard_form_body';
+import SessionFormHeader from '../../../../forms/standard_form/standard_form_header';
 
 class LoginForm extends React.Component{
   constructor(props){
@@ -13,7 +13,7 @@ class LoginForm extends React.Component{
       }
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this)
+    this.update = this.update.bind(this);
   }
   handleSubmit(e){
     let { loginUser } = this.props;
@@ -22,22 +22,28 @@ class LoginForm extends React.Component{
   }
   update(field){
     return (e) => {
+      debugger;
       let credentials = this.state.credentials;
       credentials[field] = e.currentTarget.value;
       this.setState({ credentials });
     }
   }
   render(){
-    let { openModal } = this.props;
+    let { history, errors } = this.props;
+    debugger;
     return(
-      <div id='login-form' className='form-container'>
-        <div className='login-form-header'>
-          <p>Login</p>
-          {/* <BorderedNavButton message={'Registration'} navAction={() => }/> */}
-        </div>
-        <SessionFormInput update={this.update('username')} hidden={false}/>
-        <SessionFormInput update={this.update('password')} hidden={true}/>
-        <SubmitButton submit={this.handleSubmit} message={'login'}/>
+      <div id='login-form' className='standard-form-container'>
+        <SessionFormHeader
+          navButton={true}
+          navFunction={() => history.push('/anon/register')}
+          headerMessage='Login'/>
+        <SessionFormBody
+          inputs={['username', 'password']}
+          values={this.state.credentials['username'], this.state.credentials['password']}
+          submitMessage={'login'}
+          submitFunc={this.handleSubmit}
+          updateFunc={this.update}
+          errors={errors}/>
       </div>
     )
   }
