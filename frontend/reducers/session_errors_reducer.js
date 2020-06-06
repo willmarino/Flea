@@ -1,5 +1,5 @@
 import { RECEIVE_ERRORS, LOG_IN_USER } from "../actions/session_actions";
-import { RECEIVE_USERS, SIGN_UP_USER } from "../actions/users_actions";
+import { SIGN_UP_USER } from "../actions/users_actions";
 
 
 const SessionErrorsReducer = (state=[], action) => {

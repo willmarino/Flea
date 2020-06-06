@@ -14,4 +14,4 @@ class BorderedNavButton extends React.Component{
   }
 }
 
-export default withRouter(BorderedNavButton);
+export default BorderedNavButton;

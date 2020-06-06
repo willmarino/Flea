@@ -8,7 +8,6 @@ class OpenLoginModalButton extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(){
-    // this.props.openModal('login');
     let { history } = this.props;
     history.push('/anon/login');
 

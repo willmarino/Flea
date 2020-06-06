@@ -107,12 +107,16 @@
   @import './new_styles/spinners/default_spinner.scss';
 
   // forms
-  @import './new_styles/forms/form.scss';
+  @import './new_styles/forms/standard/standard_form.scss';
+  @import './new_styles/forms/standard/standard_form_body.scss';
+  @import './new_styles/forms/standard/standard_form_header.scss';
 
   // modal forms
   @import './new_styles/modal/login/login.scss';
   @import './new_styles/modal/registration/registration.scss';
 
+  // buttons
+  @import './new_styles/buttons/bordered_nav_button.scss';
 
 
 

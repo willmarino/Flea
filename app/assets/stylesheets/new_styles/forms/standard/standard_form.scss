@@ -1,0 +1,7 @@
+// dimensions of the form should be given by the id of the form, which pertains to its specific use case
+.standard-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
