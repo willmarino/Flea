@@ -1,13 +1,17 @@
 .standard-form-body-container{
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+
 }
 
 .standard-form-input-container{
   width: 100%;
-  height: 60px;
+  height: 70px;
   margin: 10px 0;
   box-sizing: border-box;
 }
@@ -20,7 +24,9 @@
 
   box-sizing: border-box;
   border: 1px solid 	#E0E0E0;
-  border-radius: 5px;
+  border-radius: 3px;
+
+  transition: all .3s;
 }
 
 .standard-form-input:hover{
@@ -44,4 +50,20 @@
   color: darkred;
   font-size: 12px;
   height: 20%;
+}
+
+.standard-submit-button{
+  height: 43px;
+  width: 100%;
+
+  margin: 20px 0px 10px 0px;
+  border-radius: 3px;
+
+  color: white;
+  background: black;
+}
+
+.standard-submit-button:hover{
+  opacity: 0.8;
+  cursor: pointer;
 }

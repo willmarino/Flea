@@ -36,14 +36,15 @@ class LoginForm extends React.Component{
         <SessionFormHeader
           navButton={true}
           navFunction={() => history.push('/anon/register')}
-          headerMessage='Login'/>
+          headerMessage='Sign In'/>
         <SessionFormBody
           inputs={['username', 'password']}
           values={this.state.credentials['username'], this.state.credentials['password']}
-          submitMessage={'login'}
+          submitMessage={'Sign In'}
           submitFunc={this.handleSubmit}
           updateFunc={this.update}
-          errors={errors}/>
+          errors={errors}
+          extra='login'/>
       </div>
     )
   }

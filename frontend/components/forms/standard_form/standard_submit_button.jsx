@@ -8,7 +8,7 @@ class StandardSubmitButton extends React.Component{
   render(){
     let { submitMessage, submitFunc } = this.props;
     return(
-      <input type="submit" value={submitMessage} onClick={submitFunc}/>
+      <input className="standard-submit-button" type="submit" value={submitMessage} onClick={submitFunc}/>
     )
   }
 }
