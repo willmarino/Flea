@@ -4,6 +4,10 @@ import StandardSubmitButton from './standard_submit_button';
 
 const StandardFormBody = (props) => {
   let { inputs, submitMessage, updateFunc, values, submitFunc, extra } = props;
+  l
+  if(extra === 'login'){
+    login
+  }
   let inputForms = inputs.map((inputName, i) => {
     return (
       <StandardFormInput
