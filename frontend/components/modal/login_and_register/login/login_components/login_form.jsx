@@ -1,7 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import SessionFormBody from '../../../../forms/standard_form/standard_form_body';
 import SessionFormHeader from '../../../../forms/standard_form/standard_form_header';
+import StandardFormInput from '../../../../forms/standard_form/standard_form_input';
+import LoginMid from './login_mid';
+import StandardSubmitButton from '../../../../forms/standard_form/standard_submit_button';
 
 class LoginForm extends React.Component{
   constructor(props){
@@ -30,21 +32,24 @@ class LoginForm extends React.Component{
   }
   render(){
     let { history, errors } = this.props;
-    debugger;
+    let { credentials } = this.state;
+    let inputForms = Object.keys(credentials).map((inputName) => {
+      return (
+        <StandardFormInput
+          value={credentials[inputName]}
+          updateFunc={this.update(inputName)}
+          label={inputName}
+          hidden={inputName === 'password'}/>)
+    })
     return(
       <div id='login-form' className='standard-form-container'>
         <SessionFormHeader
           navButton={true}
           navFunction={() => history.push('/anon/register')}
           headerMessage='Sign In'/>
-        <SessionFormBody
-          inputs={['username', 'password']}
-          values={this.state.credentials['username'], this.state.credentials['password']}
-          submitMessage={'Sign In'}
-          submitFunc={this.handleSubmit}
-          updateFunc={this.update}
-          errors={errors}
-          extra='login'/>
+        {inputForms}
+        <LoginMid/>
+        <StandardSubmitButton/>
       </div>
     )
   }

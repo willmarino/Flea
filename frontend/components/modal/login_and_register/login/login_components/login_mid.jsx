@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LoginExtra = (props) => {
+const LoginMid = () => {
   return(
-    <div>
-      <div>
+    <div className="login-extra-container">
+      <div id="login-extra-checkbox-container">
         <input type="checkbox"/>
         <p>Stay Signed In</p>
       </div>
@@ -12,4 +12,4 @@ const LoginExtra = (props) => {
   )
 }
 
-export default LoginExtra;
+export default LoginMid;
