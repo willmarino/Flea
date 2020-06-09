@@ -1,0 +1,28 @@
+.login-extra-container{
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#login-extra-checkbox-container{
+  display: flex;
+  align-items: center;
+}
+
+#login-extra-checkbox-container > p{
+  font-size: 13px;
+  color: #585858;
+}
+
+#login-extra-checkbox-container > input{
+  margin-right: 10px;
+}
+
+.login-extra-container > p{
+  color: #595959;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
