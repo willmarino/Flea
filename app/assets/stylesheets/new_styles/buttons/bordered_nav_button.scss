@@ -1,5 +1,5 @@
 .bordered-nav-button{
-  height: 30px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,8 @@
 }
 
 .bordered-nav-button:hover{
-  box-shadow: 0 0 3px 2px 	#D0D0D0;
+  border-width: 3px;
+  box-shadow: 0 0 11px 5px 	#E8E8E8;
   cursor: pointer;
 }
 
