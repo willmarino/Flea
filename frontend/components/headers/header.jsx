@@ -16,7 +16,7 @@ const Header = (props) => {
   }else{
     // options = <UserHeaderOptions/>
   }
-  if(history.location.pathname === '/anon/login'){
+  if(history.location.pathname === '/anon/login' || history.location.pathname === '/anon/register'){
     sessionModal = <SessionModal/>
   }else{
     sessionModal = null;

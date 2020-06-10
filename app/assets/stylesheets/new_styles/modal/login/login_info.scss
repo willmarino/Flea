@@ -1,6 +1,6 @@
 $dark-gray: #595959;
 
-.login-form-info-container{
+.session-form-info-container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +70,7 @@ $dark-gray: #595959;
   margin-left: 10px;
 }
 
-#login-info-warning{
+#session-info-warning{
   margin-top: 70px;
   font-size: 10px;
   color: $dark-gray

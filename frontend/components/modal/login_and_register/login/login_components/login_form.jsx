@@ -9,7 +9,7 @@ class LoginForm extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      credentials: {
+      info: {
         username: '',
         password: ''
       }
@@ -19,24 +19,32 @@ class LoginForm extends React.Component{
   }
   handleSubmit(e){
     let { loginUser } = this.props;
-    let { credentials } = this.state;
-    loginUser(credentials);
+    let { info } = this.state;
+    loginUser(info);
   }
   update(field){
-    return (e) => {
+    let that = this;
+    return (e, that) => {
       debugger;
-      let credentials = this.state.credentials;
-      credentials[field] = e.currentTarget.value;
-      this.setState({ credentials });
+
+      // let credentials = this.state.credentials;
+      // credentials[field] = e.currentTarget.value;
+      // this.setState({ credentials });
+
+      let fieldToBeEdited = this.state.info[field];
+      debugger;
+      this.setState({ [fieldToBeEdited] : e.currentTarget.value });
     }
   }
   render(){
     let { history, errors } = this.props;
-    let { credentials } = this.state;
-    let inputForms = Object.keys(credentials).map((inputName) => {
+    let { info } = this.state;
+    // this.update = this.update.bind(this);
+
+    let inputForms = Object.keys(info).map((inputName) => {
       return (
         <StandardFormInput
-          value={credentials[inputName]}
+          value={info[inputName]}
           updateFunc={this.update(inputName)}
           label={inputName}
           hidden={inputName === 'password'}/>)

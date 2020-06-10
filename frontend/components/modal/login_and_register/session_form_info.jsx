@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoginFormInfo = () => {
+const SessionFormInfo = () => {
   let icons = [<i className="fa fa-google"></i>, <i className="fa fa-facebook"></i>, <i class="fa fa-apple"></i>]
   let iconNames = ['Google', 'Facebook', 'Apple'];
   let iconsContainer = icons.map((el, i) => {
@@ -12,7 +12,7 @@ const LoginFormInfo = () => {
     )
   })
   return(
-    <div className='login-form-info-container'>
+    <div className='session-form-info-container'>
       <div id='trouble-signing-in'>
         <p>Trouble Signing In?</p>
       </div>
@@ -24,7 +24,7 @@ const LoginFormInfo = () => {
         </div>
       </div>
       {iconsContainer}
-      <p id='login-info-warning'>
+      <p id='session-info-warning'>
         By clicking Sign in or Continue with Google, Facebook, or Apple, 
         you agree to Etsy's Terms of Use and Privacy Policy. 
         Etsy may send you communications; 
@@ -35,4 +35,4 @@ const LoginFormInfo = () => {
   )
 }
 
-export default LoginFormInfo;
+export default SessionFormInfo;

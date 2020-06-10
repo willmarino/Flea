@@ -11,7 +11,7 @@ const SessionModal = (props) => {
   if(history.location.pathname === '/anon/login'){
     res = <Login/>
   }else if(history.location.pathname === '/anon/register'){
-    
+    res = <Register/>
   }
   return(
     <div className="modal-background" onClick={() => history.push('/anon')}>
