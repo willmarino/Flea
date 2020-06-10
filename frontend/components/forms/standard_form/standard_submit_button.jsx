@@ -1,16 +1,20 @@
 import React from 'react';
 
-class StandardSubmitButton extends React.Component{
-  constructor(props){
-    super(props)
+// class StandardSubmitButton extends React.Component{
+//   constructor(props){
+//     super(props)
 
-  }
-  render(){
-    let { submitMessage, submitFunc } = this.props;
-    return(
-      <input className="standard-submit-button" type="submit" value={submitMessage} onClick={submitFunc}/>
-    )
-  }
+//   }
+// render(){
+const StandardSubmitButton = (props) => {
+  let { submitMessage, submitFunc, info } = props;
+  let handleSubmit = (info) => {
+    submitFunc(info);
+  };
+  return(
+    <input className="standard-submit-button" type="submit" value={submitMessage} onClick={handleSubmit(info)}/>
+  )
 }
+// }
 
 export default StandardSubmitButton;
