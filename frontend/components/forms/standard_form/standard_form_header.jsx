@@ -3,10 +3,10 @@ import { withRouter } from 'react-router-dom';
 import BorderedNavButton from '../../buttons/bordered_nav_button';
 
 const StandardFormHeader = (props) => {
-  let { headerMessage, navFunction } = props;
+  let { headerMessage, navFunction, buttonMessage } = props;
   let button;
   if(navFunction){
-    button = <BorderedNavButton message={'Registration'} navFunction={navFunction}/>
+    button = <BorderedNavButton message={buttonMessage} navFunction={navFunction}/>
   }else{
     button = <p></p>;
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+
 import StandardFormHeader from '../../../../forms/standard_form/standard_form_header';
 import StandardFormInput from '../../../../forms/standard_form/standard_form_input';
 import StandardSubmitButton from '../../../../forms/standard_form/standard_submit_button';
@@ -19,7 +19,7 @@ class LoginForm extends React.Component{
   }
 
   render(){
-    let { history, errors, loginUser } = this.props;
+    let { errors, loginUser, openModal } = this.props;
     let { info } = this.state;
 
     let inputForms = Object.keys(info).map((inputName) => {
@@ -28,7 +28,7 @@ class LoginForm extends React.Component{
     })
     return(
       <div id='login-form' className='standard-form-container'>
-        <StandardFormHeader navFunction={() => history.push('/anon/register')} headerMessage='Sign In'/>
+        <StandardFormHeader navFunction={() => openModal('register')} buttonMessage={'Register'} headerMessage='Sign In'/>
         {inputForms}
         <LoginMid/>
         <StandardSubmitButton submitMessage={'Login'} submitFunc={loginUser} info={info}/>
@@ -37,4 +37,4 @@ class LoginForm extends React.Component{
   }
 }
 
-export default withRouter(LoginForm);
+export default LoginForm;
