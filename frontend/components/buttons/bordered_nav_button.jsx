@@ -5,9 +5,9 @@ class BorderedNavButton extends React.Component{
     super(props);
   }
   render(){
-    let { message, navAction } = this.props;
+    let { message, navFunction } = this.props;
     return(
-      <div className='bordered-nav-button' onClick={navAction}>
+      <div className='bordered-nav-button' onClick={navFunction}>
         <p>{message}</p>
       </div>
     )

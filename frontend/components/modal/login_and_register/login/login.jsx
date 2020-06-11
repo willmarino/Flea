@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginFormContainer from './login_components/login_form_container';
-import LoginFormInfo from './login_components/login_form_info';
+import SessionFormInfo from '../session_form_info';
 
 class Login extends React.Component{
   constructor(props){
@@ -10,7 +10,7 @@ class Login extends React.Component{
     return (
     <div className='login-container'>
       <LoginFormContainer/>
-      <LoginFormInfo/>
+      <SessionFormInfo/>
     </div>
     )
   }

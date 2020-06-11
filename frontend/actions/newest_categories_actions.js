@@ -22,7 +22,6 @@ export const receiveSearchCategoryIds = (ids) => ({
 export const fetchAllCategories = () => (dispatch) => (
   CategoryUtil.fetchAllCategories()
     .then(res => {
-      debugger;
       dispatch(receiveCategories(res));
     })
 )
