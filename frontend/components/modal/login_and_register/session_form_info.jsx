@@ -30,7 +30,7 @@ const SessionFormInfo = (props) => {
         </div>
       </div>
       {iconsContainer}
-      <p id='session-info-warning'>
+      <p id='session-info-warning' className={`${type}-modal-warning`}>
         By clicking Sign in or Continue with Google, Facebook, or Apple, 
         you agree to Etsy's Terms of Use and Privacy Policy. 
         Etsy may send you communications; 

@@ -11,7 +11,7 @@ class Register extends React.Component{
     return(
       <div className='register-container'>
         <RegisterFormContainer/>
-        <SessionFormInfo/>
+        <SessionFormInfo type={'register'}/>
       </div>
     )
   }
