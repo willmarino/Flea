@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import BorderedNavButton from '../../buttons/bordered_nav_button';
 
 const StandardFormHeader = (props) => {

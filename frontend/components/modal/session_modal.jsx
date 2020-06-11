@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Login from './login_and_register/login/login';
+import Register from './login_and_register/register/register';
 // import UserLoginContainer from '../users/user_login_container';
 // import UserFormContainer from '../users/user_form_container';
 

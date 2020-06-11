@@ -1,7 +1,8 @@
 import React from 'react';
 
-const SessionFormInfo = () => {
-  let icons = [<i className="fa fa-google"></i>, <i className="fa fa-facebook"></i>, <i class="fa fa-apple"></i>]
+const SessionFormInfo = (props) => {
+  let { type } = props;
+  let icons = [<i className="fa fa-google"></i>, <i className="fa fa-facebook"></i>, <i className="fa fa-apple"></i>]
   let iconNames = ['Google', 'Facebook', 'Apple'];
   let iconsContainer = icons.map((el, i) => {
     return (
@@ -11,11 +12,16 @@ const SessionFormInfo = () => {
       </div>
     )
   })
+  let optionalMessage = (type === 'login')
+  ? 
+    (<div id='trouble-signing-in'>
+      <p>Trouble Signing In?</p>
+    </div>)
+  :
+    null;
   return(
     <div className='session-form-info-container'>
-      <div id='trouble-signing-in'>
-        <p>Trouble Signing In?</p>
-      </div>
+      {optionalMessage}
       <div className="message-and-border-container">
         <div id="or-message">
           <p>OR</p>
