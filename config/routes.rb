@@ -47,6 +47,7 @@ Rails.application.routes.draw do
         get 'owned'
         get 'owned_info'
         get 'trending_items'
+        get 'fetch_by_product_id'
       end
       # resources :products, only: [:create]
     end

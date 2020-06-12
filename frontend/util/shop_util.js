@@ -97,3 +97,11 @@ export const fetchTrendingItems = () => (
         url: '/api/shops/trending_items'
     })
 );
+
+export const fetchShopByProductId = (data) => (
+    $.ajax({
+        method: "GET",
+        url: '/api/shops/fetch_by_product_id',
+        data: { data }
+    })
+)

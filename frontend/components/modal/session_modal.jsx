@@ -1,21 +1,20 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import Login from './login_and_register/login/login';
 import Register from './login_and_register/register/register';
-// import UserLoginContainer from '../users/user_login_container';
-// import UserFormContainer from '../users/user_form_container';
-
 
 const SessionModal = (props) => {
-  let { history } = props;
+  let { modalStatus, closeModal } = props;
+  if(!modalStatus || modalStatus === 'none'){
+    return null;
+  }
   let res;
-  if(history.location.pathname === '/anon/login'){
+  if(modalStatus === 'login'){
     res = <Login/>
-  }else if(history.location.pathname === '/anon/register'){
+  }else if(modalStatus === 'register'){
     res = <Register/>
   }
   return(
-    <div className="modal-background" onClick={() => history.push('/anon')}>
+    <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         {res}
       </div>
@@ -23,4 +22,4 @@ const SessionModal = (props) => {
   );
 }
 
-export default withRouter(SessionModal);
+export default SessionModal;

@@ -3,7 +3,7 @@ import OpenLoginModalButton from './open_login_modal_button';
 import { openModal } from '../../../../../actions/modal_actions';
 
 const mdp = (dispatch) => ({
-  openModal: (dash) => dispatch(openModal(dash))
+  openModal: (status) => dispatch(openModal(status))
 });
 
 export default connect(null, mdp)(OpenLoginModalButton);

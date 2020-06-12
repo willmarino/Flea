@@ -10,7 +10,7 @@ class Login extends React.Component{
     return (
     <div className='login-container'>
       <LoginFormContainer/>
-      <SessionFormInfo/>
+      <SessionFormInfo type={'login'}/>
     </div>
     )
   }

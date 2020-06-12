@@ -71,7 +71,15 @@ $dark-gray: #595959;
 }
 
 #session-info-warning{
-  margin-top: 70px;
+  // margin-top: 70px;
   font-size: 10px;
   color: $dark-gray
+}
+
+.login-modal-warning{
+  margin-top: 80px;
+}
+
+.register-modal-warning{
+  margin-top: 30px;
 }
