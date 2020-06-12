@@ -4,7 +4,6 @@ import Register from './login_and_register/register/register';
 
 const SessionModal = (props) => {
   let { modalStatus, closeModal } = props;
-  debugger;
   if(!modalStatus || modalStatus === 'none'){
     return null;
   }

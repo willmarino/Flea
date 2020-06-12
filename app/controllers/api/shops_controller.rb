@@ -202,6 +202,11 @@ class Api::ShopsController < ApplicationController
     render :new_listing
   end
 
+  def fetch_by_product_id
+    @shop = Product.find(params['data'].to_i).shop
+    render :show
+  end
+
 
   def add_listing_params
     params.require(:product).permit(:photo, :name, :price, :category, :amount, :shop_id)

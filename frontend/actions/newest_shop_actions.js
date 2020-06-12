@@ -150,3 +150,13 @@ export const fetchTrendingItems = () => dispatch => (
       dispatch(receiveMostBoughtProduct(res.mostBoughtProduct.id));
     })
 );
+
+
+// fetch shop for display in product preview info container
+export const fetchShopByProductId = (productId) => dispatch => (
+  ShopUtil.fetchShopByProductId(productId)
+    .then((res) => {
+      debugger;
+      dispatch(receiveShop(res.shop));
+    })
+);

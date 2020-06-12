@@ -22,7 +22,6 @@ class RegisterForm extends React.Component{
   render(){
     let { openModal, errors, signupUser } = this.props;
     let { info } = this.state;
-    debugger;
     let inputForms = Object.keys(info).map((inputName) => {
       return <StandardFormInput value={info[inputName]} updateFunc={update(inputName, this)} label={inputName}/>
     })
