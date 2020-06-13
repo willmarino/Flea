@@ -15,7 +15,7 @@ class ProductPreview extends React.Component{
   render(){
     let { product, previewType } = this.props;
     return(
-      <div onClick={this.handleClick} className='standard-product-preview-container'>
+      <div onClick={this.handleClick} className='standard-product-preview-container' id={`${previewType}-pp-container`}>
         <div className="standard-product-preview-photo-container">
           <img className="standard-product-preview-photo" src={product.photoURL} alt=""/>
         </div>
