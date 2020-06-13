@@ -155,8 +155,8 @@ export const fetchTrendingItems = () => dispatch => (
 // fetch shop for display in product preview info container
 export const fetchShopByProductId = (productId) => dispatch => (
   ShopUtil.fetchShopByProductId(productId)
-    .then((res) => {
+    .then((shop) => {
       debugger;
-      dispatch(receiveShop(res.shop));
+      dispatch(receiveShop(shop));
     })
 );
