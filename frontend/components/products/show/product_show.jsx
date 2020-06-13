@@ -114,9 +114,10 @@ class ProductShow extends React.Component{
     }
 
     render(){
-
         if(!this.props.reviews.shopReviewIds ||
             !this.props.products[this.props.curProdId]){
+            return <DefaultSpinner/>;
+        }else if(this.props.products[this.props.curProdId] && !this.props.shops[this.props.products[this.props.curProdId].shop_id]){
             return <DefaultSpinner/>;
         }
         let curProd = this.props.products[this.props.curProdId];

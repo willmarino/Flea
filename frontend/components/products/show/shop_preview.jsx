@@ -70,12 +70,13 @@ class ShopPreview extends React.Component{
 
   render(){
     // if(!this.props.products.shopProductIds){
-    if(!this.props.orders.shopOrderIds){
+    if(!this.props.orders.shopOrderIds || !this.props.shop){
       return <p></p>;
     }
     // let products = this.compileProducts(this.props.shopProducts);
     let { products } = this.props;
     let productsArr = this.compileProducts(products.shopProductIds.map((id) => products[id]));
+    debugger;
     return(
       // high level container
       <div className='shop-preview-container'>
