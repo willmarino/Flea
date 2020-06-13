@@ -16,7 +16,6 @@ class ComplexProductInfo extends React.Component{
     if(!shop){
       return null;
     }
-    debugger;
     return(
       <div className='complex-product-info-container'>
         <p id={'cppi-product-name'}>{product.name}</p>

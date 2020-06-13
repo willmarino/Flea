@@ -15,7 +15,6 @@ class MidProductInfo extends React.Component{
     if(!shop){
       return null;
     }
-    debugger;
     return(
       <div className='mid-product-info-container'>
         <p id={'mppi-product-name'}>{product.name}</p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import ProductInfo from './product_info'
 
 class ProductPreview extends React.Component{
@@ -8,8 +9,9 @@ class ProductPreview extends React.Component{
   }
 
   handleClick(){
-    // 
-    // 
+    let { history, product, loggedIn } = this.props;
+    let url = (loggedIn) ? `/products/${product.id}` : `/anon/products/${product.id}`
+    history.push(history.push(url));
   }
 
   render(){
@@ -25,4 +27,4 @@ class ProductPreview extends React.Component{
   }
 }
 
-export default ProductPreview;
+export default withRouter(ProductPreview);

@@ -18,7 +18,7 @@
   height: 40%;
 
   display: flex;
-
+  box-sizing: border-box;
   flex-direction: column;
   background: #d7e6f5;
   justify-content: center;
@@ -106,6 +106,8 @@
   width: 100%;
   height: 45%;
 
+  box-sizing: border-box;
+
   // padding-left: 40px;
   // padding-right: 40px;
   padding: 40px;
@@ -119,6 +121,7 @@
 .footer #bottom{
   padding-left: 40px;
   padding-right: 40px;
+  box-sizing: border-box;
   width: 100%;
   height: 25%;
   display: flex;

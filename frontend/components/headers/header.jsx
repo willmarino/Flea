@@ -14,10 +14,12 @@ const Header = (props) => {
     // options = <UserHeaderOptions/>
   }
   return(
-    <div className="main-header-container">
-      <HeaderTop loggedIn={props.loggedIn}/>
-      <CategoriesNavContainer/>
-      <SessionModalContainer/>
+    <div className='full-width-header-container'>
+      <div className="main-header-container">
+        <HeaderTop loggedIn={props.loggedIn}/>
+        <CategoriesNavContainer/>
+        <SessionModalContainer/>
+      </div>
     </div>
   )
 }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group'
+import DefaultSpinner from '../../loading_spinners/default_spinner';
 import ReviewContainer from '../../reviews/review_container';
 import { Link } from 'react-router-dom';
 import AddToCartFormContainer from './add_to_cart_form_container';
@@ -113,11 +115,9 @@ class ProductShow extends React.Component{
 
     render(){
 
-        if(
-            !this.props.reviews.shopReviewIds ||
-            !this.props.products[this.props.curProdId]
-            ){
-            return <p></p>;
+        if(!this.props.reviews.shopReviewIds ||
+            !this.props.products[this.props.curProdId]){
+            return <DefaultSpinner/>;
         }
         let curProd = this.props.products[this.props.curProdId];
         let curShop = this.props.shops[curProd.shop_id];
@@ -150,79 +150,81 @@ class ProductShow extends React.Component{
         this.limitChanged = false;
         this.compileMiniPhotos();
         return(
-            <div className="product-show-container" id='prod-show'>
-                <div className="product">
-                    <div className="photo-reviews">
-                        <div className="photo">
-                            <ul className="miniphotos-list">
-                                {this.miniPhotos}
-                            </ul>
-                            <img src={curProd.photoURL} alt="" id="main-photo"/>
-                        </div>
-                        <div className="reviews">
-                            <div className="review-meta-info">
-                                <p>Reviews</p>
-                                <p>{rating}</p>
-                                <p>{count}</p>
+            <CSSTransition classNames={'fade-shrink'} in={this.state.mounted} timeout={1500} appear={true}>
+                <div className="product-show-container" id='prod-show'>
+                    <div className="product">
+                        <div className="photo-reviews">
+                            <div className="photo">
+                                <ul className="miniphotos-list">
+                                    {this.miniPhotos}
+                                </ul>
+                                <img src={curProd.photoURL} alt="" id="main-photo"/>
                             </div>
-                            <div className='reviews-tabs'>
-                                <div className='reviews-tab'>
-                                    <p onClick={this.switchTabToProduct}>For this item ({this.pCount})</p>
+                            <div className="reviews">
+                                <div className="review-meta-info">
+                                    <p>Reviews</p>
+                                    <p>{rating}</p>
+                                    <p>{count}</p>
                                 </div>
-                                <div className='reviews-tab'>
-                                    <p onClick={this.switchTabToShop}>For this shop ({this.sCount})</p>
+                                <div className='reviews-tabs'>
+                                    <div className='reviews-tab'>
+                                        <p onClick={this.switchTabToProduct}>For this item ({this.pCount})</p>
+                                    </div>
+                                    <div className='reviews-tab'>
+                                        <p onClick={this.switchTabToShop}>For this shop ({this.sCount})</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div className="reviews-list">
-                                {reviews}
+                                <div className="reviews-list">
+                                    {reviews}
+                                </div>
+                                <div>
+                                    {reviewDisplaySwitcher}
+                                </div>
                             </div>
-                            <div>
-                                {reviewDisplaySwitcher}
+                        </div>
+                        <div className="product-details">
+                            <AddToCartFormContainer 
+                                product={curProd}
+                                shop={curShop}
+                                productAvg={this.productAvg}
+                                pCount={this.pCount}
+                                curPath={this.props.curPath}/>
+                            <div className="details">
+                                <p className="dropdown-button-header">Description</p>
+                                <p className="description-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+                                accusantium doloremque laudantium, totam rem aperiam, eaque
+                                ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                                aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+                                ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
+                                ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
+                                non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+                                autem vel eum iure reprehenderit qui in ea voluptate velit
+                                esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+                                quo voluptas nulla pariatur?</p>
                             </div>
                         </div>
                     </div>
-                    <div className="product-details">
-                        <AddToCartFormContainer 
-                            product={curProd}
-                            shop={curShop}
-                            productAvg={this.productAvg}
-                            pCount={this.pCount}
-                            curPath={this.props.curPath}/>
-                        <div className="details">
-                            <p className="dropdown-button-header">Description</p>
-                            <p className="description-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-                            accusantium doloremque laudantium, totam rem aperiam, eaque
-                            ipsa quae ab illo inventore veritatis et quasi architecto beatae
-                            vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
-                            ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-                            non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                            voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-                            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-                            autem vel eum iure reprehenderit qui in ea voluptate velit
-                            esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
-                            quo voluptas nulla pariatur?</p>
-                        </div>
-                    </div>
+                    {/* preview of other products sold by shop that sells the product of the page the user is on */}
+                    <ShopPreviewContainer
+                        shop={curShop}
+                        shopReviewCount={this.sCount}
+                        shopStarRating={this.shopAvg}
+                        curProdId={this.props.curProdId}
+                        curPath={this.props.curPath}
+                        product={curProd}/>
+                    {/* products which are related to product which is showing, but not sold by shop featured in shop preview */}
+                    <ShowRecommendContainer
+                        shop={curShop}
+                        loggedIn={this.props.loggedIn}
+                        product={curProd}
+                        curPath={this.props.curPath}
+                        curProdId={this.props.curProdId}/>
                 </div>
-                {/* preview of other products sold by shop that sells the product of the page the user is on */}
-                <ShopPreviewContainer
-                    shop={curShop}
-                    shopReviewCount={this.sCount}
-                    shopStarRating={this.shopAvg}
-                    curProdId={this.props.curProdId}
-                    curPath={this.props.curPath}
-                    product={curProd}/>
-                {/* products which are related to product which is showing, but not sold by shop featured in shop preview */}
-                <ShowRecommendContainer
-                    shop={curShop}
-                    loggedIn={this.props.loggedIn}
-                    product={curProd}
-                    curPath={this.props.curPath}
-                    curProdId={this.props.curProdId}/>
-            </div>
+            </CSSTransition>
         );
     }
 }

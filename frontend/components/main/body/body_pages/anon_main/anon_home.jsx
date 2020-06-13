@@ -1,5 +1,6 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
+import DefaultSpinner from '../../../../loading_spinners/default_spinner';
 import ProductIndex from '../../../../products/index/product_index';
 import Advert from '../../../../segments/advert';
 import Info from '../../../../segments/info';
@@ -25,7 +26,8 @@ class AnonHome extends React.Component{
   render(){
     let { products, categories, loggedIn } = this.props;
     if(!products.indexIds){
-      return <div className="lds-ring-container"><div className="lds-ring"><div></div><div></div><div></div><div></div></div></div>;
+      // return <div className="lds-ring-container"><div className="lds-ring"><div></div><div></div><div></div><div></div></div></div>;
+      return <DefaultSpinner/>
     }
     return(
       <CSSTransition classNames={'fade-shrink'} in={this.state.mounted} timeout={1500} appear={true}>
