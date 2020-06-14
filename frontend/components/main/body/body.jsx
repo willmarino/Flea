@@ -1,16 +1,20 @@
 import React from 'react';
-import { withRouter, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import AnonHomeContainer from './body_pages/anon_main/anon_home_container';
+import ProductShowContainer from '../../products/show/product_show_container';
 
 const Body = () => {
   return(
-    <Route exact path="/anon" component={AnonHomeContainer}/>
+    <Switch>
+      <Route exact path="/anon" component={AnonHomeContainer}/>
+      <Route path={'/anon/products/:prodId'} component={ProductShowContainer}/>
 
-    // <Route path={showPath} component={ProductShowContainer}/>
+      <Route path={'/products/:prodId'} component={ProductShowContainer}/>
+    </Switch>
     // <Route path={shopShowPath} component={ShopShowContainer}/>
     // <Route path={searchResultPath} component={SearchResultContainer}/>
     // <Route exact path={userProfilePath} component={UserProfileContainer}/>
   )
 }
 
-export default withRouter(Body);
+export default Body;

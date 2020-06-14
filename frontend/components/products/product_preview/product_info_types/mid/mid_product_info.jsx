@@ -1,8 +1,7 @@
 import React from 'react';
 import ProductPrice from '../product_price';
-import StarRating from '../star_rating';
 
-class ComplexProductInfo extends React.Component{
+class MidProductInfo extends React.Component{
   constructor(props){
     super(props);
 
@@ -17,14 +16,13 @@ class ComplexProductInfo extends React.Component{
       return null;
     }
     return(
-      <div className='complex-product-info-container'>
-        <p id={'cppi-product-name'}>{product.name}</p>
-        <p id={'cppi-shop-name'}>{shop.name}</p>
-        <StarRating rating={product.rating}/>
+      <div className='mid-product-info-container'>
+        <p id={'mppi-product-name'}>{product.name}</p>
+        <p id={'mppi-shop-name'}>{shop.name}</p>
         <ProductPrice product={product}/>
       </div>
     )
   }
 }
 
-export default ComplexProductInfo;
+export default MidProductInfo;

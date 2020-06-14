@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import IndexItem from '../index/index_item';
+import ProductRow from '../row/product_row';
 
 
 class ShopPreview extends React.Component{
@@ -24,6 +25,7 @@ class ShopPreview extends React.Component{
 
   componentDidMount(){
     let { fetchProductsByShop, fetchOrdersByShop, shop, curProdId } = this.props;
+    window.scrollTo(0, 0);
     fetchProductsByShop(shop.id, curProdId, 6)
       .then(() => {
         fetchOrdersByShop(shop.id);
@@ -70,12 +72,13 @@ class ShopPreview extends React.Component{
 
   render(){
     // if(!this.props.products.shopProductIds){
-    if(!this.props.orders.shopOrderIds){
+    if(!this.props.orders.shopOrderIds || !this.props.shop){
       return <p></p>;
     }
     // let products = this.compileProducts(this.props.shopProducts);
     let { products } = this.props;
-    let productsArr = this.compileProducts(products.shopProductIds.map((id) => products[id]));
+    // let productsArr = this.compileProducts(products.shopProductIds.map((id) => products[id]));
+    let productsArr = <ProductRow rowOfProducts={products.shopProductIds.map((id) => products[id])} loggedIn={this.props.loggedIn} type={'complex'}/>
     return(
       // high level container
       <div className='shop-preview-container'>

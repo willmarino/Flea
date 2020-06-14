@@ -1,6 +1,7 @@
 .product-row-container{
   // float: left;
   display: inline block;
+  width: 100%;
 }
 
 .p-row{
@@ -18,16 +19,17 @@
 }
 
 .p-row-half{
-  width: 50%;
+  box-sizing: border-box;
+  max-width: 50%;
   display: flex;
 }
 
 .p-row-half:first-child{
-  margin-right: 7px;
+  padding-right: 7px;
 }
 
 .p-row-half:last-child{
-  margin-left: 7px;
+  padding-left: 7px;
 }
 
 .p-row-subheader{

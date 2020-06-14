@@ -156,7 +156,6 @@ export const fetchTrendingItems = () => dispatch => (
 export const fetchShopByProductId = (productId) => dispatch => (
   ShopUtil.fetchShopByProductId(productId)
     .then((shop) => {
-      debugger;
       dispatch(receiveShop(shop));
     })
 );
