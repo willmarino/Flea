@@ -14,7 +14,9 @@ class ProductShow extends React.Component{
         this.state = {
             tab: 'product',
             limit: 4,
-            limitMessage: '+ More'
+            limitMessage: '+ More',
+            mounted: false,
+            displayChange: false
         };
         this.limitChanged = false;
         this.allReviewInfo = null;
@@ -30,7 +32,10 @@ class ProductShow extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchProductShow(this.props.curProdId);
+        this.props.fetchProductShow(this.props.curProdId)
+            .then(() => {
+                this.setState({ mounted: true });
+            })
         this.props.addView(this.props.curProdId);
     }
 
@@ -39,6 +44,15 @@ class ProductShow extends React.Component{
             this.props.fetchProductShow(this.props.curProdId);
             window.scrollTo(0, 0);
             this.props.addView(this.props.curProdId);
+        }
+        if(prevProps.curProdId !== this.props.curProdId){
+            if(this.state.mounted && this.state.displayChange === false){
+                this.setState({ displayChange: true });
+            }
+        }else{
+            if(this.state.mounted && this.state.displayChange === true){
+                this.setState({ displayChange: false });
+            }
         }
     }
 
@@ -151,7 +165,7 @@ class ProductShow extends React.Component{
         this.limitChanged = false;
         this.compileMiniPhotos();
         return(
-            <CSSTransition classNames={'fade-shrink'} in={this.state.mounted} timeout={1500} appear={true}>
+            <CSSTransition classNames={'fade-shrink'} in={this.state.mounted || this.state.displayChange} timeout={1500} appear={true}>
                 <div className="product-show-container" id='prod-show'>
                     <div className="product">
                         <div className="photo-reviews">
@@ -216,7 +230,8 @@ class ProductShow extends React.Component{
                         shopStarRating={this.shopAvg}
                         curProdId={this.props.curProdId}
                         curPath={this.props.curPath}
-                        product={curProd}/>
+                        product={curProd}
+                        loggedIn={this.props.loggedIn}/>
                     {/* products which are related to product which is showing, but not sold by shop featured in shop preview */}
                     <ShowRecommendContainer
                         shop={curShop}

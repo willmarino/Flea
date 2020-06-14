@@ -1,5 +1,6 @@
 import React from 'react';
 import IndexItem from '../index/index_item';
+import ProductRow from '../row/product_row';
 
 class ShowRecommend extends React.Component{
   constructor(props){
@@ -37,7 +38,13 @@ class ShowRecommend extends React.Component{
     if(!this.props.products.associatedIds){
       return <p></p>;
     }
-    let products = this.compileProducts();
+    // let products = this.compileProducts();
+    let products = (
+      <ProductRow
+        type={'complex'}
+        rowOfProducts={this.props.products.associatedIds.map((id) => this.props.products[id])}
+        loggedIn={this.props.loggedIn}/>
+    )
     return(
       <>
         <p className="shop-recommended-header">You may also like</p>

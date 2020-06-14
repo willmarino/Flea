@@ -12,6 +12,7 @@ class ProductPreview extends React.Component{
     let { history, product, loggedIn } = this.props;
     let url = (loggedIn) ? `/products/${product.id}` : `/anon/products/${product.id}`
     history.push(history.push(url));
+    window.scrollTo(0, 0);
   }
 
   render(){

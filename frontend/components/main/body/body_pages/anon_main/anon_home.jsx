@@ -26,7 +26,6 @@ class AnonHome extends React.Component{
   render(){
     let { products, categories, loggedIn } = this.props;
     if(!products.indexIds){
-      // return <div className="lds-ring-container"><div className="lds-ring"><div></div><div></div><div></div><div></div></div></div>;
       return <DefaultSpinner/>
     }
     return(

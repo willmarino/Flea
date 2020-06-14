@@ -20,12 +20,18 @@ class ProductRow extends React.Component{
         });
         firstHalfProductList = <ul className="p-row-half">{firstHalfProductList}</ul>
         secondHalfProductList = <ul className="p-row-half">{secondHalfProductList}</ul>
-        return(
-            <div className="product-row-container">
+        let header = null;
+        if(category){
+            header = (
                 <div className="p-row-subheader">
                     <p>{category}</p>
                     <p className="h-light-gray" id="p-row-see-more">See More</p>
                 </div>
+            )
+        }
+        return(
+            <div className="product-row-container">
+                {header}
                 <div className="p-row">
                     {firstHalfProductList}
                     {secondHalfProductList}
