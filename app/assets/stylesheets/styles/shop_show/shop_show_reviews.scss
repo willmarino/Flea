@@ -1,8 +1,8 @@
 .shop-reviews-container{
-  max-width: 1260px;
-  width: 90%;
+  max-width: 1240px;
+  width: 100%;
 
-  margin: 0 auto;
+  // margin: 0 auto;
 
   display: flex;
 
@@ -12,7 +12,13 @@
 .shop-reviews-container p{
   font-family: 'Arimo';
   color: #222;
+  // color: #d7d7d7;
   font-size: 14px;
+}
+
+#review-p{
+  color: 	#606060;
+  font-size: 13px;
 }
 
 #shop-reviews-header{

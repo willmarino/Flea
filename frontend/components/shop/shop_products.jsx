@@ -1,5 +1,7 @@
 import React from 'react';
-import IndexItem from '../products/index/index_item';
+// import IndexItem from '../products/index/index_item';
+// import ProductPreview from '../products/product_preview/product_preview';
+import ShopProductsBox from './shop_products_box';
 
 class ShopProducts extends React.Component{
   constructor(props){
@@ -98,13 +100,13 @@ class ShopProducts extends React.Component{
 
   render(){
 
-    let productsList = [];
-    for(let i = 0; i < this.state.products.length; i++){
-      let p = this.state.products[i];
-      productsList.push(
-        <IndexItem type='mid' product={p} loggedIn={this.props.loggedIn} key={p.id}/>
-      )
-    }
+    // let productsList = [];
+    // for(let i = 0; i < this.state.products.length; i++){
+    //   let p = this.state.products[i];
+    //   productsList.push(
+    //     <ProductPreview loggedIn={this.props.loggedIn} product={p} previewType={'complex'}/>
+    //   )
+    // }
 
     return(
       <div className="shop-show-products-container">
@@ -116,7 +118,7 @@ class ShopProducts extends React.Component{
           <div className="shop-show-filters">
             <form onSubmit={this.handleSubmit} className="pc-search-input-container">
               <input type="text" value={this.state.search} onChange={this.update} className="pc-search-input"/>
-              <input type="submit" value='submit' className="pc-search-submit"/>
+              <input type="submit" value='search' className="pc-search-submit"/>
             </form>
             <ul id="cat-arr" className='shop-show-filter-categories'>
               {this.cats}
@@ -129,9 +131,10 @@ class ShopProducts extends React.Component{
               <p id="pc-admires">{Object.keys(this.props.shopFavorites).length} Admirers</p>
             </div>
           </div>
-          <ul className="shop-show-products">
+          <ShopProductsBox products={this.state.products}/>
+          {/* <ul className="shop-show-products">
             {productsList}
-          </ul>
+          </ul> */}
         </div>
       </div>
     )

@@ -186,9 +186,9 @@ class ShopReviews extends React.Component{
                 <div>{this.starsify(Math.round(this.props.shop.rating))}</div>
                 <p>({this.reviewsLength})</p>
               </div>
-              <div className='shop-reviews-sorter'>
+              {/* <div className='shop-reviews-sorter'>
                 <p>Sort By : Relevancy</p>
-              </div>
+              </div> */}
             </div>
             <div className='shop-reviews-filter'>
               <p>See reviews that mention: </p>
