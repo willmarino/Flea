@@ -1,4 +1,4 @@
-json.extract! @user, :id, :username, :email, :viewed
+json.extract! @user, :id, :username, :email, :viewed, :photoURL
 
 json.login_obj do
   json.user @user

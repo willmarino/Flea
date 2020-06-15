@@ -16,8 +16,12 @@ class LoginForm extends React.Component{
         password: ''
       }
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  handleSubmit(){
+    let {loginUser, closeModal} = this.props;
+    loginUser(this.state.info).then(() => closeModal());
+  }
   render(){
     let { errors, loginUser, openModal } = this.props;
     let { info } = this.state;
@@ -31,7 +35,7 @@ class LoginForm extends React.Component{
         <StandardFormHeader navFunction={() => openModal('register')} buttonMessage={'Register'} headerMessage='Sign In'/>
         {inputForms}
         <LoginMid/>
-        <StandardSubmitButton submitMessage={'Login'} submitFunc={loginUser} info={info}/>
+        <StandardSubmitButton submitMessage={'Login'} submitFunc={this.handleSubmit} info={info}/>
       </div>
     )
   }

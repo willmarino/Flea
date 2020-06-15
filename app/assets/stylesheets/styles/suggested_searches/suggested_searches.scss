@@ -64,18 +64,20 @@
   align-items: center;
 
   text-align: center;
-  width: 80px;
+  width: 100px;
   height: 35px;
   padding: 5px;
-  // line-height: 35px;
-  background:	#E0E0E0;
+  background:		#F0F0F0;
   border-radius: 25px;
+
+  box-shadow: 0 0 1px 1px 	#C0C0C0;
+
   margin-right: 10px;
   box-sizing: border-box;
   transition: background .5s;
 }
 
 .suggested-searches-list-item:hover{
-  background:	#C8C8C8;
+  background:		#D8D8D8;
   cursor: pointer;
 }
