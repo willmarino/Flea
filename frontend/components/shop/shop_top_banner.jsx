@@ -57,6 +57,7 @@ class ShopTopBanner extends React.Component{
 
   render(){
     let shop = this.props.shop;
+    debugger;
     return(
       <div className="shop-show-banner-container">
         <div className="shop-show-banner-shop">

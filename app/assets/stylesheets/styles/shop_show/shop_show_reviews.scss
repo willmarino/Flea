@@ -78,7 +78,7 @@
 
 .shop-reviews-filter-buttons li{
   padding: 7px;
-  border: 2px solid black;
+  border: 1px solid 	#C0C0C0;
   border-radius: 1px;
   display: flex;
   justify-content: space-around;
@@ -89,7 +89,7 @@
 
 .shop-reviews-filter-buttons > li:hover{
   cursor: pointer;
-  background: #f0f0f0;
+  // background: #f0f0f0;
 }
 
 .shop-reviews-list{
@@ -101,13 +101,30 @@
 
 
 .page-switch-button{
-  background: #989899;
+  box-sizing: border-box;
   padding: 8px;
-  border: 1px solid #222;
+  border: 1px solid #C0C0C0;
+  transition: all .3s;
 }
+
+.page-switch-button:hover{
+  cursor: pointer;
+  background: 	#E0E0E0;
+}
+
+// .page-switch-button:first-of-type{
+//   border-top-left-radius: 15px;
+//   border-bottom-left-radius: 15px;
+// }
+
+// .page-switch-button:last-of-type{
+//   border-top-right-radius: 15px;
+//   border-bottom-right-radius: 15px;
+// }
 
 .page-buttons-container{
   display: flex;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
   justify-content: center;
 }

@@ -70,6 +70,7 @@ export const deleteShop = shopId => dispatch => (
 export const fetchShopShow = (shopId) => dispatch => (
   ShopUtil.fetchShopShow(shopId)
     .then(res => {
+      debugger;
       dispatch(receiveProducts(res.products));
       dispatch(receiveShop(res.shop));
       dispatch(receiveReviews(res.reviews));
