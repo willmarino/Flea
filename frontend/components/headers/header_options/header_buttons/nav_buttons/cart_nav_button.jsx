@@ -7,7 +7,7 @@ class CartNavButton extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(){
-    // this.props.history.push('/cart')
+    this.props.history.push('/cart');
   }
   render(){
     return(

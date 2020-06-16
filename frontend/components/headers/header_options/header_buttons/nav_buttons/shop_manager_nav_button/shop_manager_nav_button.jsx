@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { GiShop } from 'react-icons/gi';
 
 class ShopManagerNavButton extends React.Component{
   constructor(props){
@@ -9,8 +10,8 @@ class ShopManagerNavButton extends React.Component{
   render(){
     let { history } = this.props;
     return(
-      <div className="header-button" onClick={}>
-        <i class="fas fa-store"></i>
+      <div className="header-button">
+        <GiShop/>
       </div>
     )
   }
