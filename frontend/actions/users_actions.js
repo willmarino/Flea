@@ -96,7 +96,9 @@ export const fetchUserCart = (userId) => dispatch => (
 export const fetchUserById = (id) => (dispatch) => (
   UserApi.fetchUserById(id)
     .then(res => {
-      dispatch(receiveUserSimple(res.user))
+      // dispatch(receiveUserSimple(res.user))
+      debugger;
+      dispatch(receiveUser(res.user))
     })
 )
 

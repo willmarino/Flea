@@ -16,7 +16,6 @@ class Api::SessionsController < ApplicationController
 
       @cart = @user.cart
       @cart_items = @cart.items
-
       render :show
     else
       render json: ["Wrong password"], status: 422

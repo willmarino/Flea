@@ -27,7 +27,10 @@ export const loginUser = user => dispatch => (
       dispatch(receiveUser(lo.login_obj.user))
       dispatch(receiveCart(lo.login_obj.cart))
       dispatch(receiveCartItems(lo.login_obj.cart_items))},
-      errors => dispatch(receiveErrors(errors.responseJSON))
+      errors => {
+        debugger;
+        dispatch(receiveErrors(errors.responseJSON))
+      }
     )
 );
 

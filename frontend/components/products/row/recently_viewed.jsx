@@ -1,5 +1,6 @@
 import React from 'react';
 import IndexItem from '../index/index_item';
+import ProductRow from './product_row';
 
 class RecentlyViewed extends React.Component{
   constructor(props){
@@ -21,18 +22,11 @@ class RecentlyViewed extends React.Component{
   }
 
   render(){
-    this.compileProducts();
     return(
-      <>
-        <div className="row-header-container">
-          <p className="row-header">Recently Viewed</p>
-          <p className="row-header-sub">See More</p>
-        </div>
-        <li>
-          {this.productsList}
-        </li>
-      </>
-  )
+      <div className="product-index-container">
+        <ProductRow type={'complex'} category={'Recently Viewed'} rowOfProducts={this.props.products.slice(0, 6)} loggedIn={true}/>
+      </div>
+    )
   }
 }
 

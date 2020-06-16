@@ -129,6 +129,7 @@ class ProductShow extends React.Component{
 
     render(){
         if(!this.props.reviews.shopReviewIds ||
+            !this.props.reviews.productReviewIds ||
             !this.props.products[this.props.curProdId]){
             return <DefaultSpinner/>;
         }else if(this.props.products[this.props.curProdId] && !this.props.shops[this.props.products[this.props.curProdId].shop_id]){
@@ -206,8 +207,8 @@ class ProductShow extends React.Component{
                                 pCount={this.pCount}
                                 curPath={this.props.curPath}/>
                             <div className="details">
-                                <p className="dropdown-button-header">Description</p>
-                                <p className="description-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+                                <p className="product-details-header">Description</p>
+                                <p id="description-body">Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
                                 accusantium doloremque laudantium, totam rem aperiam, eaque
                                 ipsa quae ab illo inventore veritatis et quasi architecto beatae
                                 vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit

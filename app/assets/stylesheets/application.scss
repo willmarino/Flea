@@ -42,6 +42,7 @@
   @import './styles/product_show/shop_preview.scss';
   @import './styles/product_show/associated_products.scss';
   @import './styles/shop_show/top_banner.scss';
+  @import './styles/shop_show/shop_show.scss';
   @import './styles/shop_show/products_display.scss';
   @import './styles/shop_show/shop_show_reviews.scss';
   @import './styles/shop_show/shop_show_review.scss';
@@ -124,6 +125,10 @@
 
   // buttons
   @import './new_styles/buttons/bordered_nav_button.scss';
+  @import './new_styles/buttons/user_info_dropdown_button.scss';
+
+  // dropdown
+  @import './new_styles/dropdown/user_info_dropdown.scss';
 
 
 

@@ -133,7 +133,7 @@ class ShopReviews extends React.Component{
     this.compileReviews();
 
     let pages = [];
-    for(let i = 0; i <= Object.keys(this.reviews).length; i++){
+    for(let i = 0; i < Object.keys(this.reviews).length; i++){
       let p = Object.keys(this.reviews)[i];
       pages.push(
         <li key={p} onClick={this.changePage} data-val={p} className='page-switch-button'>{p}</li>
@@ -186,9 +186,9 @@ class ShopReviews extends React.Component{
                 <div>{this.starsify(Math.round(this.props.shop.rating))}</div>
                 <p>({this.reviewsLength})</p>
               </div>
-              <div className='shop-reviews-sorter'>
+              {/* <div className='shop-reviews-sorter'>
                 <p>Sort By : Relevancy</p>
-              </div>
+              </div> */}
             </div>
             <div className='shop-reviews-filter'>
               <p>See reviews that mention: </p>

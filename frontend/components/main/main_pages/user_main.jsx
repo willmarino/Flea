@@ -11,40 +11,55 @@ import SearchResultContainer from '../../search/search_result_container';
 import OwnedShopContainer from '../../owned_shop/owned_shop_container';
 import UserProfileContainer from '../../user_profile/user_profile_container';
 
+import Body from '../body/body';
+import Header from '../../headers/header';
+import Footer from '../../segments/footer';
+
 class UserMain extends React.Component{
     constructor(props){
         super(props);
-
     }
 
     render(){
-        if(this.props.location.pathname.includes("shops-manager")){
-            return <ShopManagerLandingContainer/>;
-        }
-        let showPath = "/products/:prodId";
-        let shopShowPath = "/shops/:shopId";
-        let cartPath = "/cart";
-        let searchResultPath = "/search_result";
-        let userProfilePath = "/profiles/:userId";
         return(
-            <div>
-                <div className="user-main-top">
-                    <UserHeaderContainer/>
-                    <CategoryNav/>
-                </div>
-                <div className="user-main-mid">
-                    <Route exact path="/" component={UserIndexContainer}/>
-                    <Route path={showPath} component={ProductShowContainer}/>
-                    <Route path={shopShowPath} component={ShopShowContainer}/>
-                    <Route exact path={cartPath} component={CartShowContainer}/>
-                    <Route path={searchResultPath} component={SearchResultContainer}/>
-                    <Route path="/ownedshops/:prodId" component={OwnedShopContainer}/>
-                    <Route exact path={userProfilePath} component={UserProfileContainer}/>
-                </div>
+            <div className="main-container">
+                <Header loggedIn={true}/>
+                <Body/>
+                <Footer/>
             </div>
-        );
-
+        )
     }
 }
 
 export default UserMain;
+
+
+
+
+
+
+// if(this.props.location.pathname.includes("shops-manager")){
+//     return <ShopManagerLandingContainer/>;
+// }
+// let showPath = "/products/:prodId";
+// let shopShowPath = "/shops/:shopId";
+// let cartPath = "/cart";
+// let searchResultPath = "/search_result";
+// let userProfilePath = "/profiles/:userId";
+// return(
+//     <div>
+//         <div className="user-main-top">
+//             <UserHeaderContainer/>
+//             <CategoryNav/>
+//         </div>
+//         <div className="user-main-mid">
+//             <Route exact path="/" component={UserIndexContainer}/>
+//             <Route path={showPath} component={ProductShowContainer}/>
+//             <Route path={shopShowPath} component={ShopShowContainer}/>
+//             <Route exact path={cartPath} component={CartShowContainer}/>
+//             <Route path={searchResultPath} component={SearchResultContainer}/>
+//             <Route path="/ownedshops/:prodId" component={OwnedShopContainer}/>
+//             <Route exact path={userProfilePath} component={UserProfileContainer}/>
+//         </div>
+//     </div>
+// );
