@@ -8,7 +8,8 @@ class AddToCartForm extends React.Component{
     this.state = {
       errors : null,
       options : null,
-      modalStatus : null
+      modalStatus : null,
+      addStatus: null
     }
     this.capitalize = this.capitalize.bind(this);
     this.generateModals = this.generateModals.bind(this);
@@ -131,7 +132,10 @@ class AddToCartForm extends React.Component{
             chosenOps.push(options[i]);
           }
         }
-        this.props.createCartItem({item_id : item_id, chosen_options : chosenOps});
+        this.props.createCartItem({item_id : item_id, chosen_options : chosenOps})
+          .then(() => {
+            this.setState({ addStatus: true, errors: null });
+          })
       }else{
         this.setState({ errors : 'you already have this item in your cart'});
       }
@@ -175,6 +179,10 @@ class AddToCartForm extends React.Component{
     }else{
       showPath = `/anon/shops/${this.props.shop.id}`;
     }
+    let addStatus = null;
+    if(this.state.addStatus){
+      addStatus = <p className='success-message'>This product has been added to your cart!</p>
+    }
     return(
       <div className="buy-product">
         <div className="top-bar">
@@ -189,7 +197,8 @@ class AddToCartForm extends React.Component{
         </ul>
         <div>
           <p onClick={this.handleAddToCart} className="add-to-cart-button">Add to Cart</p>
-          <p>{this.state.errors}</p>
+          {addStatus}
+          <p className='error-text'>{this.state.errors}</p>
         </div>
       </div>
     )

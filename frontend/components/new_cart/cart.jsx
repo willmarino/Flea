@@ -24,13 +24,18 @@ class Cart extends React.Component{
     if(pageLoaded[pageLoaded.length - 1] !== "cartshow"){
       return <DefaultSpinner/>;
     }
+    let recommendedProducts;
     let shopProducts = products.shopProductIds.map((id) => products[id]);
-
+    if(shopProducts.length === 0){
+      recommendedProducts = null;
+    }else{
+      recommendedProducts = <CartRecommendedProducts products={shopProducts.slice(0, 6)} loggedIn={loggedIn}/>
+    }
     return(
       <div className='cart-container'>
         <p className='cart-header'>{Object.values(cartItems).length} Items in your cart</p>
         <CartProducts products={products} cartItems={cartItems} shops={shops} handleDelete={this.handleDelete}/>
-        <CartRecommendedProducts products={shopProducts.slice(0, 6)} loggedIn={loggedIn}/>
+        {recommendedProducts}
       </div>
     )
   }

@@ -1,0 +1,17 @@
+.action-success-modal-container{
+  position: absolute;
+  top: 30px;
+  width: 200px;
+  height: 100px;
+
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 2px 	#D3D3D3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 30;
+  background: white;
+}

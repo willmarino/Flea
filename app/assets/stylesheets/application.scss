@@ -122,6 +122,7 @@
   @import './new_styles/modal/login/login.scss';
   @import './new_styles/modal/registration/registration.scss';
   @import './new_styles/modal/login/login_info.scss';
+  @import './new_styles/modal/action_success_modal.scss';
 
   // buttons
   @import './new_styles/buttons/bordered_nav_button.scss';
@@ -135,6 +136,9 @@
   @import './new_styles/cart/cart_products.scss';
   @import './new_styles/cart/cart_product.scss';
   @import './new_styles/cart/cart_product_info.scss';
+
+  // errors
+  @import './new_styles/errors/error-text.scss';
 
 
 
