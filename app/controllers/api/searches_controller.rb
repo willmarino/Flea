@@ -96,6 +96,7 @@ class Api::SearchesController < ApplicationController
   end
 
   def search_main
+    # debugger
     query = params[:queryStr].downcase
     @products = []
     @product_ids = []
@@ -114,7 +115,7 @@ class Api::SearchesController < ApplicationController
     end
     # tagged products by query
     Tag.all.each do |t|
-      if t.tag_name.downcase.start_with?(query)
+      if t.tag_name.downcase.start_with?(query.downcase)
         t.tagged_products.each do |p|
           @products << p if !@products.include?(p)
           @product_ids << p.id
@@ -124,12 +125,19 @@ class Api::SearchesController < ApplicationController
     # products by query match with category
     Category.all.each do |c|
       c.name.split(" ").each do |word|
-        if word.downcase.include?(query)
+        if word.downcase.include?(query.downcase)
           c.products.each do |p|
             @products << p if !@products.include?(p)
             @product_ids << p.id
           end
           break
+        end
+      end
+      if c.name.downcase.include?(query.downcase)
+        # debugger
+        c.products.each do |p|
+          @products << p if !@products.include?(p)
+          @product_ids << p.id
         end
       end
     end
@@ -165,7 +173,7 @@ class Api::SearchesController < ApplicationController
       end
       @shops << cur_shop if !@shops.include?(cur_shop)
     end
-
+    # debugger
     render :search_main
 
   end

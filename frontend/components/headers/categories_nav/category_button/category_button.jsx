@@ -7,17 +7,19 @@ class CategoryButton extends React.Component{
   }
   handleClick(e){
     let { createSearch, category, loggedIn, history } = this.props;
-    e.preventDefault();
+    // e.preventDefault();
     let url = loggedIn ? `/search_result?query=${category.name}` : `/anon/search_result?query=${category.name}`;
+    // debugger;
     createSearch(category.name)
       .then(() => {
         history.push(url);
+        // debugger;
       });
   }
   render(){
     let { category } = this.props;
     return(
-      <div className="category-button">
+      <div className="category-button" onClick={this.handleClick}>
         <p>{category.name}</p>
         <div className="category-button-expanding-border"></div>
       </div>

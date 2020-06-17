@@ -4,7 +4,17 @@
 }
 
 .search-result-footer{
+  position: relative;
   margin-top: 30px;
+  border-top: 1px solid #d5d5d5;
+  padding-top: 20px;
+}
+
+.full-width-border{
+  position: absolute;
+  bottom: 20px;
+  width: 100vw;
+  border: 1px solid #d5d5d5;
 }
 
 .sr-footer > div{

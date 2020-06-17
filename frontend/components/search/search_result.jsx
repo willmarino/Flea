@@ -78,16 +78,18 @@ class SearchResult extends React.Component{
   componentDidUpdate(prevProps){
     if(prevProps.pageLoaded[prevProps.pageLoaded.length - 1] === "none" &&
       this.props.pageLoaded[this.props.pageLoaded.length - 1] === "searchmain"){
-      this.compileAll(this.props);
-    }else if(prevProps.query !== this.props.query){
-      this.props.fetchSearchMain(this.props.query)
-      .then(this.setState({loading: true}, () => {
-        setTimeout(() => {this.setState({loading: false})}, 1000);
-      }))
+      // this.compileAll(this.props);
+    }else if(prevProps.query !== this.props.query && !this.state.loading){
+      this.props.fetchSearchMain(this.props.query);
+      this.setState({ loading: true }, () => {
+        setTimeout(() => {
+          this.setState({ loading: false });
+        }, 1000);
+      })
     }
   }
 
-  compileAll(props){
+  // compileAll(props){
     // this.compileTags(props);
     // this.compileFilters(props);
     // this.compileProducts(props);
@@ -97,7 +99,7 @@ class SearchResult extends React.Component{
       // this.compilePriceFilter();
       // this.compileCategoryFilters();
     // });
-  }
+  // }
 
   // compileCategoryFilters(){
   //   let categories = this.props.categories.searchIds.map((id) => this.props.categories[id]);
@@ -266,11 +268,6 @@ class SearchResult extends React.Component{
       return <DefaultSpinner/>;
     }
 
-    // pull entities out of state
-    // let tags = this.state.tags;
-    // let filters = this.state.filters;
-    // let products = this.state.products;
-
     let category;
     if(!this.state.generalFilters.category){
       category = 'All Categories';
@@ -281,25 +278,13 @@ class SearchResult extends React.Component{
       <CSSTransition in={!this.state.loading} classNames={'fade-shrink'} appear={true} timeout={1500}>
         <div className='sr-container'>
           <SearchTags tags={tags}/>
-          {/* <div className='sr-tags'>
-            <ul>
-              {this.state.tags}
-            </ul>
-          </div> */}
-
           <div className='sr-main'>
-            {/* <div className='sr-filters'>
-              {this.state.filters}
-            </div> */}
             <div className='sr-products-and-header'>
               <div className='sr-products-header'>
                 <p id='srph-one'>{category}</p>
                 <p id='srph-two'>> "{this.props.query}"</p>
                 <p id='srph-three'>({products.searchIds.length} Results)</p>
               </div>
-              {/* <div className='sr-products'>
-                {this.state.products}
-              </div> */}
               <ProductsBox products={this.props.products.searchIds.map((id) => this.props.products[id])} loggedIn={this.props.loggedIn}/>
             </div>
           </div>
