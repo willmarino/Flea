@@ -188,7 +188,7 @@ class AddToCartForm extends React.Component{
         <div className="top-bar">
           <Link to={showPath}><p className="add-to-cart-shop-name">{this.props.shop.name}</p></Link>
           <div className="stars">{this.props.productAvg}</div>
-          <div className="review_count">({this.props.pCount})</div>
+          <div className="review-count">({this.props.pCount})</div>
         </div>
         <p className="product-title">{this.capitalize(this.props.product.name)}</p>
         <p className="price">${this.props.product.price}</p>

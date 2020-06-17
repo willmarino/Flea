@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductPreview from '../products/product_preview/product_preview';
+import ProductPreview from './product_preview/product_preview';
 import { CSSTransition } from 'react-transition-group';
 
-class ShopProductsBox extends React.Component{
+class ProductsBox extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -31,13 +31,13 @@ class ShopProductsBox extends React.Component{
       )
     }
     return(
-      <CSSTransition classNames={'fade-shrink'} in={this.state.newProducts} timeout={1500} appear={true}>
+      // <CSSTransition classNames={'fade-shrink'} in={this.state.newProducts} timeout={1500} appear={true}>
         <ul className="shop-show-products">
           {productsList}
         </ul>
-      </CSSTransition>
+      // </CSSTransition>
     )
   }
 }
 
-export default ShopProductsBox;
+export default ProductsBox;

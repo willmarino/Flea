@@ -1,7 +1,7 @@
 import React from 'react';
 // import IndexItem from '../products/index/index_item';
 // import ProductPreview from '../products/product_preview/product_preview';
-import ShopProductsBox from './shop_products_box';
+import ProductsBox from '../products/products_box';
 
 class ShopProducts extends React.Component{
   constructor(props){
@@ -131,7 +131,7 @@ class ShopProducts extends React.Component{
               <p id="pc-admires">{Object.keys(this.props.shopFavorites).length} Admirers</p>
             </div>
           </div>
-          <ShopProductsBox products={this.state.products}/>
+          <ProductsBox products={this.state.products} loggedIn={this.props.loggedIn}/>
           {/* <ul className="shop-show-products">
             {productsList}
           </ul> */}

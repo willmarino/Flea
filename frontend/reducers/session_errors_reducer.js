@@ -3,7 +3,6 @@ import { SIGN_UP_USER } from "../actions/users_actions";
 
 
 const SessionErrorsReducer = (state=[], action) => {
-    if(action.type === RECEIVE_ERRORS) debugger;
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_ERRORS:
