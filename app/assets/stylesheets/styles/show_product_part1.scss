@@ -114,7 +114,8 @@
 
 #description-body{
   font-size: 14px;
-  color: 		#303030;
+  color: #222222;
+  line-height: 15px;
 }
 
 
@@ -174,6 +175,13 @@
 .add-to-cart-shop-name{
   font-size: 16px;
   font-family: 'Arimo';
+  // color: #222;
+  color: black;
+  text-decoration: underline;
+  transition: all .3s;
+}
+
+.add-to-cart-shop-name:hover{
   color: #222;
 }
 
@@ -194,6 +202,7 @@
 
 .review-count{
   color:#484848;
+  font-size: 12px;
 }
 
 .product-title{

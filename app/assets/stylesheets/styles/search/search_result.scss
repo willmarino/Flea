@@ -3,7 +3,7 @@
   max-width: 1260px;
 
   margin: 0 auto;
-  margin-top: 30px;
+  // margin-top: 30px;
   margin-bottom: 30px;
 }
 
@@ -33,42 +33,74 @@
 }
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-.sr-tags{
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 20px;
-}
+// .sr-tags{
+//   height: 30px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   margin-bottom: 20px;
+// }
 
-.sr-tags > ul{
+.search-result-tags-container{
+  display: flex;
   width: 100%;
-  height: 100%;
+  margin: 20px 0 20px 0;
+}
+
+// .sr-tags > ul{
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+// }
+
+// .sr-tag{
+//   margin-right: 10px;
+//   height: 100%;
+//   text-align: center;
+//   font-size: 14px;
+//   background: #fa9c71;
+//   border-radius: 15px;
+//   padding: 5px 15px;
+//   box-sizing: border-box;
+//   transition: background .3s, box-shadow .3s;
+// }
+
+.search-result-tag{
+  height: 35px;
+  width: 80px;
+
   display: flex;
-}
+  justify-content: center;
+  align-items: center;
 
-.sr-tag{
-  margin-right: 10px;
-  height: 100%;
-  text-align: center;
-  font-size: 14px;
-  background: #fa9c71;
   border-radius: 15px;
-  padding: 5px 15px;
-  box-sizing: border-box;
-  transition: background .3s, box-shadow .3s;
+
+  background: #fa9c71;
+  transition: all .3s;
 }
 
-.sr-tag:hover{
+.search-result-tag:not(:first-child){
+  margin-left: 5px;
+}
+
+.search-result-tag:not(:last-child){
+  margin-right: 5px;
+}
+
+.search-result-tag > p{
+  font-size: 12px;
+}
+
+.search-result-tag:hover{
   box-shadow: 0px 0px 1px #222;
   background: #f76c2d;
   cursor: pointer;
 }
 
-.sr-tag-p{
-  line-height: 20px;
-  font-family: 'Arimo';
-}
+// .sr-tag-p{
+//   line-height: 20px;
+//   font-family: 'Arimo';
+// }
 
 
 .sr-main{
@@ -85,6 +117,9 @@
   display: flex;
   margin-left: 10px;
   margin-bottom: 15px;
+}
+.sr-products-and-header{
+  width: 100%;
 }
 
 .sr-products-header > p{

@@ -97,7 +97,6 @@ export const fetchUserById = (id) => (dispatch) => (
   UserApi.fetchUserById(id)
     .then(res => {
       // dispatch(receiveUserSimple(res.user))
-      debugger;
       dispatch(receiveUser(res.user))
     })
 )

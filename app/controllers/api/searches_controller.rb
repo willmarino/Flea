@@ -134,16 +134,17 @@ class Api::SearchesController < ApplicationController
       end
     end
     @products.each do |p|
-      (0...p.options.length).each do |i|
-        option = p.options[i]
-        if !@filters[option]
-          @filters[option] = p.options_details[i]
-        elsif @filters[option] != p.options_details[i]
-          p.options_details[i].each do |opdet|
-            @filters[option] << opdet if !@filters[option].include?(opdet)
-          end
-        end
-      end
+      # not going to do filtering by each item characteristic from the search page
+      # (0...p.options.length).each do |i|
+      #   option = p.options[i]
+      #   if !@filters[option]
+      #     @filters[option] = p.options_details[i]
+      #   elsif @filters[option] != p.options_details[i]
+      #     p.options_details[i].each do |opdet|
+      #       @filters[option] << opdet if !@filters[option].include?(opdet)
+      #     end
+      #   end
+      # end
       # tags
       p.tags.each do |tag|
         if !@tags.include?(tag)
