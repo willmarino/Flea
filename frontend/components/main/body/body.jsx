@@ -7,6 +7,7 @@ import ProductShowContainer from '../../products/show/product_show_container';
 import ShopShowContainer from '../../shop/shop_show_container';
 import CartContainer from '../../new_cart/cart_container';
 import SearchResultContainer from '../../search/search_result_container';
+import ShopManagerLandingContainer from '../../shop_manager/shop_manager_landing_container';
 
 const Body = () => {
   return(
@@ -21,6 +22,7 @@ const Body = () => {
       <Route path={'/shops/:shopId'} component={ShopShowContainer}/>
       <Route path={'/cart'} component={CartContainer}/>
       <Route path={'/search_result'} component={SearchResultContainer}/>
+      <Route path={'/shops-manager'} component={ShopManagerLandingContainer}/>
     </Switch>
     // <Route exact path={userProfilePath} component={UserProfileContainer}/>
   )

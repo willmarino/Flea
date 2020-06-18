@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ShopManagerSidebarSales from './shop_manager_sidebar_sales';
-import { receiveShopManagerChange } from '../../../../actions/shop_manager_actions';
+import { receievShopManagerChange } from '../../../../../actions/shop_manager_actions';
 
 const msp = (state) => {
   return({
