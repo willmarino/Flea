@@ -1,18 +1,42 @@
-.SMS-main-list{
+// .SMS-main-list{
+//   width: 100%;
+//   height: 55%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+
+// }
+
+// .SMS-main-item{
+//   height: 40px;
+// }
+
+// .SMS-main-item div{
+//   display: flex;
+// }
+
+// .SMS-main-item div p{
+//   padding: 5px;
+// }
+
+// -----------------------
+
+.SMSM-list{
+  width: 100%;
+  height: 55%;
   display: flex;
   flex-direction: column;
-
-  height: 55%;
+  align-items: center;
 }
 
-.SMS-main-item{
-  height: 40px;
-}
-
-.SMS-main-item div{
+.SMSM-header{
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
+  padding: 10px 0px 10px 20px;
 }
 
-.SMS-main-item div p{
-  padding: 5px;
+.SMSM-header > p{
+  margin-left: 15px;
+  font-size: 18px;
 }

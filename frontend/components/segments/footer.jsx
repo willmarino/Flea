@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Footer extends React.Component{
   constructor(props){
@@ -7,6 +8,10 @@ class Footer extends React.Component{
   }
 
   render(){
+    let { history } = this.props;
+    if(history.location.pathname.startsWith('/shops-manager')){
+      return null;
+    }
     return(
       <div className="footer">
         <div className="top">
@@ -71,4 +76,4 @@ class Footer extends React.Component{
   }
 }
 
-export default Footer;
+export default withRouter(Footer);

@@ -16,7 +16,8 @@ class ProductShow extends React.Component{
             limit: 4,
             limitMessage: '+ More',
             mounted: false,
-            displayChange: false
+            displayChange: false,
+            loading: false
         };
         this.limitChanged = false;
         this.allReviewInfo = null;
@@ -41,6 +42,11 @@ class ProductShow extends React.Component{
 
     componentDidUpdate(prevProps){
         if(prevProps.curProdId !== this.props.curProdId && prevProps.curPath.includes('/products/')){
+            this.setState({loading: true}, () => {
+                setTimeout(() => {
+                    this.setState({loading: false})
+                }, 1500)
+            })
             this.props.fetchProductShow(this.props.curProdId);
             window.scrollTo(0, 0);
             this.props.addView(this.props.curProdId);
@@ -134,6 +140,8 @@ class ProductShow extends React.Component{
             return <DefaultSpinner/>;
         }else if(this.props.products[this.props.curProdId] && !this.props.shops[this.props.products[this.props.curProdId].shop_id]){
             return <DefaultSpinner/>;
+        }else if(this.state.loading){
+            return <DefaultSpinner/>;
         }
         let curProd = this.props.products[this.props.curProdId];
         let curShop = this.props.shops[curProd.shop_id];
@@ -166,7 +174,7 @@ class ProductShow extends React.Component{
         this.limitChanged = false;
         this.compileMiniPhotos();
         return(
-            <CSSTransition classNames={'fade-shrink'} in={this.state.mounted || this.state.displayChange} timeout={1500} appear={true}>
+            <CSSTransition classNames={'fade-shrink'} in={!this.state.loading} timeout={1500} appear={true}>
                 <div className="product-show-container" id='prod-show'>
                     <div className="product">
                         <div className="photo-reviews">
