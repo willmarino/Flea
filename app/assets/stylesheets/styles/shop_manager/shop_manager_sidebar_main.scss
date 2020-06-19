@@ -27,16 +27,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 15px;
 }
 
 .SMSM-header{
+  position: relative;
   width: 100%;
   box-sizing: border-box;
   display: flex;
+  align-items: center;
   padding: 10px 0px 10px 20px;
 }
 
 .SMSM-header > p{
   margin-left: 15px;
-  font-size: 18px;
+  font-size: 22px;
+}
+
+.SMSM-header-modal{
+  position: absolute;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+#SMSMHM-top-row{
+  background: 	#B8B8B8;
+}
+
+.SMSM-header-modal-row{
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.SMSM-header-modal-row:hover{
+  background: 	#D0D0D0;
 }
