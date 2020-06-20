@@ -12,7 +12,7 @@ class ShopManagerSideBar extends React.Component{
     return(
       <div className="shop-manager-sidebar-container">
         <ShopManagerSideBarMainContainer/>
-        <ShopManagerSideBarSalesContainer/>
+        {/* <ShopManagerSideBarSalesContainer/> */}
         <SHopManagerSidebarBottomContainer/>
       </div>
     )

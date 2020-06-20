@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import SMSMHeader from './smsm_header';
 import SMSMTab from './smsm_tab';
 import { BsClipboardData } from 'react-icons/bs';
@@ -16,8 +17,10 @@ class SMSM extends React.Component{
   }
 
   render(){
+    let { history } = this.props;
     let tabs = this.state.tabs.map((tab) => {
-      return <SMSMTab name={tab.name} url={tab.url} icon={tab.icon}/>
+      let focused = (history.location.pathname === tab.url);
+      return <SMSMTab name={tab.name} url={tab.url} icon={tab.icon} focused={focused}/>
     })
     return(
       <ul className="SMSM-list">
@@ -28,7 +31,7 @@ class SMSM extends React.Component{
   }
 }
 
-export default SMSM;
+export default withRouter(SMSM);
 
 
 
