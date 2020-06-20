@@ -90,6 +90,7 @@
 
   // transitions
   @import './new_styles/transitions/fade_shrink.scss';
+  @import './new_styles/transitions/fast_fade.scss';
 
   // product preview stlyings
   @import './new_styles/product_preview/simple_product_preview.scss';
@@ -139,6 +140,9 @@
 
   // errors
   @import './new_styles/errors/error-text.scss';
+
+  // shop-manager
+  @import './styles/shop_manager/smsb.scss';
 
 
 
