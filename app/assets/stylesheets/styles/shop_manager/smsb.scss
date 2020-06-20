@@ -1,0 +1,32 @@
+.SMSB-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-top: 1px solid #B8B8B8;
+  padding: 10px 0px 10px 20px;
+}
+
+.SMSB-user-interactor{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.SMSB-user-interactor-info{
+  display: flex;
+  align-items: center;
+}
+
+.SMSB-user-interactor-info > img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.SMSB-user-interactor-info > p{
+  margin-left: 15px;
+}
