@@ -1,11 +1,15 @@
 .SMSB-container{
   width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   border-top: 1px solid #B8B8B8;
-  padding: 10px 0px 10px 20px;
+}
+
+.SMSB-container:hover{
+  cursor: pointer;
 }
 
 .SMSB-user-interactor{
@@ -13,11 +17,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-right: 1px solid #e1e3df;
 }
 
 .SMSB-user-interactor-info{
   display: flex;
   align-items: center;
+  padding: 10px 0px 10px 20px;
 }
 
 .SMSB-user-interactor-info > img{
@@ -29,4 +35,36 @@
 
 .SMSB-user-interactor-info > p{
   margin-left: 15px;
+}
+
+.SMSB-icon-left{
+  padding-right: 15px;
+}
+
+.SMSB-icon-right{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.smsb-modal-container{
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #e1e3df;
+  box-shadow: 0 0 1px 1px #e1e3df;
+}
+
+.smsb-modal-container > p{
+  height: 30px;
+  width: 100%;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
 }
