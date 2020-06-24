@@ -1,10 +1,28 @@
 .DM-listings-item{
-  height: 250px;
-  width: 150px;
+  height: 260px;
+  width: 220px;
+  background: white;
+  border: 1px solid #c3c3c3;
+  border-radius: 4px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .DM-listings-item img{
-  height: 50%;
+  height: 56%;
   width: 100%;
   object-fit: cover;
+}
+
+.DM-listings-item-details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+}
+
+.DM-listings-item-selection{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

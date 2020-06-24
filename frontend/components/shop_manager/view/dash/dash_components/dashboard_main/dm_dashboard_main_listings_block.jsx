@@ -25,7 +25,7 @@ class DMDMListingsBlock extends React.Component{
       <div className="SM-dashboard-main-listings-block-container">
         <div className="SM-dashboard-main-stat-block-header">
           <p>Listings</p>
-          <p>View all listings</p>
+          <p className='SM-dashboard-main-stat-blocker-header-link'>View all listings</p>
         </div>
         <div className="SM-dashboard-main-stat-block-body">
           <div className="SM-dashboard-main-stat-block-body-bar">

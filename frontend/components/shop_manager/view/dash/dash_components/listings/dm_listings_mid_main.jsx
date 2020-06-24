@@ -22,7 +22,7 @@ class DMListingsMidMain extends React.Component{
   render(){
     return(
       <div className="SML-mid-main">
-        <div className="SML-mid-main-header">
+        {/* <div className="SML-mid-main-header">
           <div className="SML-mid-main-header-one">
             <div className="SML-mid-main-header-box" id="SML-mid-main-box-one">
               <p>1</p>
@@ -45,7 +45,7 @@ class DMListingsMidMain extends React.Component{
               <p>Editing Options</p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="SML-mid-products">
           {this.productsList}
         </div>

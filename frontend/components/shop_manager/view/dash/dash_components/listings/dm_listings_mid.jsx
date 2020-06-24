@@ -11,7 +11,7 @@ class DMListingsMid extends React.Component{
     return(
       <div className="SML-mid-container">
         <DMListingsMidMain products={this.props.products}/>
-        <DMListingsMidSidebar/>
+        {/* <DMListingsMidSidebar/> */}
       </div>
     )
   }

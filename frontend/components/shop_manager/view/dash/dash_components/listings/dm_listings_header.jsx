@@ -18,11 +18,11 @@ class DMListingsHeader extends React.Component{
       <div className="SML-header">
         <p>Listings</p>
         <div className="SML-header-right">
-          <div className="shop-listings-search">
+          {/* <div className="shop-listings-search">
             <p className="shop-listings-search-mag">E</p>
             <input type="text"/>
             <p className="shop-listings-search-clear">X</p>
-          </div>
+          </div> */}
           <div className="SML-header-right-two">
             <p className="SML-header-right-two-plus">+</p>
             <p onClick={this.handleNavigate} className="SML-header-right-two-add">Add Listings</p>

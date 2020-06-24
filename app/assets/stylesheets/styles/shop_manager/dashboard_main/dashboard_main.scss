@@ -19,12 +19,25 @@
 
 .SM-dashboard-main-info{
   width: 100%;
-  padding: 60px;
+  padding: 60px 0px 60px 0px;
   box-sizing: border-box;
+}
+
+.SM-dashboard-main-info > p{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.SM-dashboard-main-info a{
+  font-size: 14px;
+  color: black;
+  text-decoration: underline;
 }
 
 .SM-dashboard-main-info-projects{
   display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .SM-dashboard-main-stat-displays{
@@ -36,31 +49,46 @@
 
 .SM-dashboard-main-orders-block-container{
   width: 45%;
-  // border: 1px solid gray;
+  // border: 1px solid #c3c3c3;
 }
 
 .SM-dashboard-main-listings-block-container{
   width: 45%;
-  // border: 1px solid gray;
+  // border: 1px solid #c3c3c3;
 }
 
 .SM-dashboard-main-stat-block-header{
   display: flex;
   justify-content: space-between;
-  border: 1px solid gray;
+  border: 1px solid #c3c3c3;
   border-bottom: none;
   padding: 15px;
 }
 
+.SM-dashboard-main-stats-block-container:last-of-type{
+  // font-size: 13px;
+  // text-decoration: underline;
+}
+
 .SM-dashboard-main-stat-block-body{
-  padding-left: 15px;
-  padding-right: 15px;
-  border: 1px solid gray;
+  // padding-left: 15px;
+  // padding-right: 15px;
+  border: 1px solid #c3c3c3;
 }
 
 .SM-dashboard-main-stat-block-body-bar{
   display: flex;
   justify-content: space-between;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.SM-dashboard-main-stat-block-body-bar:first-of-type{
+  border-bottom: 1px solid #c3c3c3;
+}
+
+.SM-dashboard-main-stat-block-body-bar > p{
+  font-size: 14px;
 }

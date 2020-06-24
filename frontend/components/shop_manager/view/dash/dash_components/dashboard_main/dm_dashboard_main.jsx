@@ -61,11 +61,11 @@ class DMDashboardMain extends React.Component{
       <div className="SM-dashboard-main-container">
         <div className="SM-dashboard-main-header">
           <div className="SM-dashboard-main-header-one">
-            <p>Stats Overview for</p>
-            <div onClick={this.handleModalSwitch} >
+            <p>Stats Overview</p>
+            {/* <div onClick={this.handleModalSwitch} >
               <p>{this.state.timePeriod}</p>
               {this.state.modal}
-            </div>
+            </div> */}
           </div>
           <p>View Detailed Stats</p>
         </div>
@@ -75,22 +75,22 @@ class DMDashboardMain extends React.Component{
           numOrders={orders.shopOrderIds.length}
           numProductOrders={productOrders.shopProductOrderIds.length}
           revenue={this.aggregateRevenue(productOrders.shopProductOrderIds.map((id) => productOrders[id]))}/>
-        <div className="SM-dashboard-main-info">
-          <p>Hey, while youre here check out my other projects</p>
-          <div className="SM-dashboard-main-info-projects">
-            <div>
-              <a href="http://o-o-t-d.herokuapp.com/#/splash" target="_blank">OOTD</a>
-            </div>
-            <div>
-              <a href="https://willmarino.github.io/Astro/" target="_blank">Astro</a>
-            </div>
-          </div>
-        </div>
         <div className="SM-dashboard-main-stat-displays">
           <DMDMOrdersBlock orders={orders.shopOrderIds.map((id) => orders[id])}/>
           <DMDMListingsBlock listings={ products.shopProductIds.map((id) => products[id])}/>
         </div>
-        <DMDMActivityBlock/>
+        {/* <DMDMActivityBlock/> */}
+        <div className="SM-dashboard-main-info">
+          <p>Hey, while youre here check out my other projects</p>
+          <div className="SM-dashboard-main-info-projects">
+            <div>
+              <a href="http://o-o-t-d.herokuapp.com/#/splash" target="_blank">OOTD - An online wardrobe organizer</a>
+            </div>
+            <div>
+              <a href="https://willmarino.github.io/Astro/" target="_blank">Astro - A 2d sidescrolling action game</a>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

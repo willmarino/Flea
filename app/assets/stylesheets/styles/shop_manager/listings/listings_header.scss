@@ -1,7 +1,12 @@
 .SM-dash-container{
   width: 100%;
-  // width: 100vh;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SM-dash-container p{
+  // color: #222;
 }
 
 .SML-container{
@@ -12,6 +17,7 @@
   height: 7vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
   border-bottom: 1px solid gray;
   box-sizing: border-box;
@@ -23,9 +29,11 @@
 
 .SML-header-right-two{
   width: 120px;
-  height: 30px;
-  position: relative;
-  background: gray;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: black;
+  opacity: .9;
 }
 
 .SML-header-right-two:hover{
@@ -34,13 +42,13 @@
 
 
 .SML-header-right-two-plus{
-  position: absolute;
-  top: 6px;
-  left: 5px;
+  font-size: 16px;
+  margin-right: 5px;
+  color: white;
 }
 
 .SML-header-right-two-add{
-  position: absolute;
-  top: 6px;
-  left: 20px;
+  font-size: 14px;
+  color: white;
+  margin-right: 10px;
 }

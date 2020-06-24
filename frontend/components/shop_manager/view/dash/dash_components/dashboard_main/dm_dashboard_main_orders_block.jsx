@@ -37,7 +37,7 @@ class DMDMOrdersBlock extends React.Component{
       <div className="SM-dashboard-main-orders-block-container">
         <div className="SM-dashboard-main-stat-block-header">
           <p>Orders</p>
-          <p>View all orders</p>
+          <p className='SM-dashboard-main-stat-blocker-header-link'>View all orders</p>
         </div>
         <div className="SM-dashboard-main-stat-block-body">
           <div className="SM-dashboard-main-stat-block-body-bar">

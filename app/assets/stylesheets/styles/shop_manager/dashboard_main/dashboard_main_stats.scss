@@ -12,8 +12,24 @@
   height: 100px;
   padding-top: 15px;
   padding-bottom: 15px;
-  border: 1px solid gray;
+  border-right: 1px solid #c3c3c3;
+  border-top: 1px solid #c3c3c3;
+  border-bottom: 1px solid #c3c3c3;
 }
+
+.SM-dashboard-main-stats-block-container:first-child{
+  border-left: 1px solid #c3c3c3;
+}
+
+.SM-dashboard-main-stat-blocker-header-link{
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.SM-dashboard-main-stat-blocker-header-link:hover{
+  cursor: pointer;
+}
+
 
 .SM-dashboard-main-stats-block-container > p{
   text-align: center;
