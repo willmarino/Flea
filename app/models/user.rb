@@ -65,6 +65,15 @@ class User < ApplicationRecord
     through: :orders,
     source: :items
   
+  has_many :created_conversations,
+    class_name: "Conversation",
+    primary_key: :id,
+    foreign_key: :creator_id
+
+  has_many :received_conversations,
+    class_name: "Conversation",
+    primary_key: :id,
+    foreign_key: :receiver_id
 
 
   has_one_attached :photo
