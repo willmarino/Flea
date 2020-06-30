@@ -1,19 +1,20 @@
 class Conversation < ApplicationRecord
-  validates :creator_id, :receiver_id, presence: true
+  # in order to initialize a conversation, you call Conversation.create and shovel both users into the conversation's users association array
+  # in order to add messages to this conversation, you call conversation.add_message with the senders id, the receivers id, and the body text
+  # these messages will be accessible as conversation.messages, and as user.conversations[x].messages,
+  # x being a number corresponding to the index of the conversation you are looking for the users.conversations array
 
-  belongs_to :creator,
-    class_name: "User",
-    primary_key: :id,
-    foreign_key: :creator_id
+  has_and_belongs_to_many :users
 
-  belongs_to :receiver,
-    class_name: "User",
-    primary_key: :id,
-    foreign_key: :receiver_id
+  def add_message(sender_id, receiver_id, body)
+    message = { "sender_id": "#{sender_id}", "receiver_id": "#{receiver_id}", "body": "#{body}" }.to_json
+    self.messages << message
+    self.save!
+  end
 
-  has_many :messages,
-    class_name: "Message",
-    primary_key: :id,
-    foreign_key: :conversation_id
+  def clear
+    self.messages = []
+    self.save!
+  end
 
 end
