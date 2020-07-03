@@ -117,6 +117,9 @@ Rails.application.routes.draw do
         get 'by_product'
       end
     end
+
+    resources :conversations, only: [:show, :index, :destroy, :create]
+
   end
 
 end
