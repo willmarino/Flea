@@ -18,7 +18,12 @@ class RegisterForm extends React.Component{
         password: ''
       }
     }
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
+  // handleSubmit(){
+  //   let { signupUser, closeModal } = this.props;
+  //   signupUser
+  // }
   render(){
     let { openModal, errors, signupUser } = this.props;
     let { info } = this.state;
@@ -31,6 +36,7 @@ class RegisterForm extends React.Component{
         <StandardFormHeader navFunction={() => openModal('login')} buttonMessage={'Login'} headerMessage={'Sign Up'}/>
         {inputForms}
         <StandardSubmitButton submitMessage={'Register'} submitFunc={signupUser} info={info}/>
+        {/* <StandardSubmitButton submitMessage={'Register'} submitFunc={this.handleSubmit} info={info}/> */}
       </div>
     )
   }
