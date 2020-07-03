@@ -23,7 +23,7 @@ class ConversationsController < ApplicationController
   def destroy
     conversation = Conversation.find(conversation_id)
     conversation.destroy
-    render json: {"conversation_id" : conversation_id}
+    # render json: {"conversation_id" : conversation_id}
   end
 
   def update
