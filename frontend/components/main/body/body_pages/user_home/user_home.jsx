@@ -27,6 +27,7 @@ class UserHome extends React.Component{
   }
 
   render(){
+    debugger;
     let { products, categories, loggedIn, tags } = this.props;
     if(!products.indexIds || !this.props.tags.suggestedIds || !this.props.products.recentlyViewedIds){
       return <DefaultSpinner/>

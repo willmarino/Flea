@@ -5,6 +5,7 @@ import AnonHeaderOptions from './header_options/anon_header_options';
 import UserHeaderOptions from './header_options/user_header_options';
 
 const HeaderTop = (props) => {
+  debugger;
   let options;
     if(!props.loggedIn){
       options = <AnonHeaderOptions/>
