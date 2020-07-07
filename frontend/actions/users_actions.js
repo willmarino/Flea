@@ -10,6 +10,8 @@ import { receiveProducts } from '../actions/newest_product_actions';
 import { receiveShopFavorites, receiveSFIdsProfile } from '../actions/shop_favorite_actions';
 import { receiveProductFavorites, receivePFIdsProfile } from '../actions/product_favorite_actions';
 
+import { closeModal } from './modal_actions';
+
 export const SIGN_UP_USER = "SIGN_UP_USER";
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
@@ -58,7 +60,11 @@ export const receiveUserSimple = (user) => ({
 export const signupUser = (user) => dispatch => (
   UserApi.createUser(user)
     .then(
-      user => dispatch(receiveUser(user)), 
+      res => {
+        dispatch(receiveUser(res.login_obj.user));
+        dispatch(receiveCart(res.login_obj.cart));
+        dispatch(closeModal());
+      }, 
       errors => dispatch(receiveErrors(errors.responseJSON))
     )
 );

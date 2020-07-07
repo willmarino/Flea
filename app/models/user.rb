@@ -65,8 +65,7 @@ class User < ApplicationRecord
     through: :orders,
     source: :items
   
-
-
+  has_and_belongs_to_many :conversations
   has_one_attached :photo
 
   def ensure_photo
@@ -76,8 +75,13 @@ class User < ApplicationRecord
   end
 
   def set_photourl
-    if self.photo.attached?
-      self.photoURL = rails_blob_path(self.photo, only_path: true)
+    while true
+      if self.photo.attached?
+        self.photoURL = rails_blob_path(self.photo, only_path: true)
+        break
+      else
+        self.ensure_photo
+      end
     end
   end
 
