@@ -1,4 +1,4 @@
-class ConversationsController < ApplicationController
+class Api::ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(conversation_id)
@@ -12,26 +12,45 @@ class ConversationsController < ApplicationController
   end
 
   def create
+    debugger
     safe_params = convo_params
-    s_id = safe_params["sender_id"]
-    r_id = safe_params["receiver_id"]
+    sender_id = safe_params["sender_id"]
+    receiver_id = safe_params["receiver_id"]
+    sender = User.find(sender_id)
+    receiver = User.find(receiver_id)
     body = safe_params["body"]
-    @conversation = Conversation.create!(sender_id: s_id, receiver_id: r_id, body: body)
+    debugger
+    @conversation = nil
+    sender.conversations.each do |c|
+      if c.users.include?(receiver)
+        @conversation = c
+        break
+      end
+    end
+    if @conversation
+      @conversation.add_message(sender_id, receiver_id, body)
+    else
+      @conversation = Conversation.create!
+      sender.conversations << @conversation
+      receiver.conversations << @conversation
+      @conversation.add_message(sender_id, receiver_id, body)
+    end
+    debugger
     render :show
   end
 
   def destroy
-    conversation = Conversation.find(conversation_id)
-    conversation.destroy
-    # render json: {"conversation_id" : conversation_id}
-  end
-
-  def update
-
+    @conversation = Conversation.find(conversation_id)
+    users = @conversation.users
+    users.each do |user|
+      user.remove_conversation(@conversation.id)
+    end
+    @conversation.destroy
+    render :destroy
   end
 
   def convo_params
-    params.require(:conversation).permit(:sender_id, :receiver_id, :body)
+    params.require(:info).permit(:sender_id, :receiver_id, :body)
   end
 
 end

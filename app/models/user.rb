@@ -150,6 +150,14 @@ class User < ApplicationRecord
     end
   end
 
+  def remove_conversation(id)
+    self.conversations.each do |c|
+      if c.id == id
+        self.conversations.delete(Conversation.find(id))
+      end
+    end
+    self.save!
+  end
   
 
 end
