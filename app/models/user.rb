@@ -65,8 +65,7 @@ class User < ApplicationRecord
     through: :orders,
     source: :items
   
-
-
+  has_and_belongs_to_many :conversations
   has_one_attached :photo
 
   def ensure_photo
