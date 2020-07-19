@@ -9,6 +9,10 @@
 require 'open-uri'
 require 'faker'
 
+User.all.each do |user|
+    user.conversations = []
+end
+Conversation.destroy_all
 User.destroy_all
 Shop.destroy_all
 Product.destroy_all
