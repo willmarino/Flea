@@ -1,0 +1,29 @@
+.DMM-body-sidebar-container{
+  width: 20%;
+  min-width: 250px;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #dfdfdf;
+}
+
+.DMM-body-sidebar-row{
+  padding: 10px;
+  border-radius: 8px;
+
+  transition: all .3s;
+
+  p{
+    font-size: 14px;
+  }
+}
+
+.DMM-body-sidebar-row:hover{
+  background: #eaebeb;
+  cursor: pointer;
+}
+
+.DMM-body-sidebar-row-focused{
+  background: #eaebeb;
+}
