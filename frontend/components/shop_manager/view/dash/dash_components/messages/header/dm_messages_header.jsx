@@ -1,4 +1,5 @@
 import React from 'react';
+import DMMessagesSearchbarContainer from './dm_messages_searchbar_container';
 
 class DMMessagesHeader extends React.Component{
   constructor(props){
@@ -9,7 +10,7 @@ class DMMessagesHeader extends React.Component{
       <div className="SMM-header">
         <div className="SMM-header-left">
           <p>Messages</p>
-          {/* search */}
+          <DMMessagesSearchbarContainer/>
         </div>
         <div className="SMM-header-options">
 
