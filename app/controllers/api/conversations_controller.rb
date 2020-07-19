@@ -12,14 +12,12 @@ class Api::ConversationsController < ApplicationController
   end
 
   def create
-    debugger
     safe_params = convo_params
     sender_id = safe_params["sender_id"]
     receiver_id = safe_params["receiver_id"]
     sender = User.find(sender_id)
     receiver = User.find(receiver_id)
     body = safe_params["body"]
-    debugger
     @conversation = nil
     sender.conversations.each do |c|
       if c.users.include?(receiver)
@@ -35,7 +33,6 @@ class Api::ConversationsController < ApplicationController
       receiver.conversations << @conversation
       @conversation.add_message(sender_id, receiver_id, body)
     end
-    debugger
     render :show
   end
 
