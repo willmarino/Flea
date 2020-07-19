@@ -4,6 +4,7 @@ import SMSMHeader from './smsm_header';
 import SMSMTab from './smsm_tab';
 import { BsClipboardData } from 'react-icons/bs';
 import { FiShoppingBag } from 'react-icons/fi';
+import { RiMessage2Line } from 'react-icons/ri';
 
 class SMSM extends React.Component{
   constructor(props){
@@ -11,7 +12,8 @@ class SMSM extends React.Component{
     this.state = {
       tabs: [
         {name: 'Dashboard', url: '/shops-manager/dashboard', icon: <BsClipboardData/>},
-        {name: 'Listings', url: '/shops-manager/listings', icon: <FiShoppingBag/>}
+        {name: 'Listings', url: '/shops-manager/listings', icon: <FiShoppingBag/>},
+        {name: 'Messages', url: '/shops-manager/messages', icon: <RiMessage2Line/>}
       ]
     }
   }

@@ -1,0 +1,25 @@
+.SMM-header{
+  width: 100%;
+  height: 7vh;
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SMM-header-left{
+  display: flex;
+
+}
+
+.SMM-header-left > p{
+  font-size: 20px;
+}
+
+.SMM-header-options{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
