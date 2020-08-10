@@ -14,12 +14,18 @@ import { closeModal } from './modal_actions';
 
 export const SIGN_UP_USER = "SIGN_UP_USER";
 export const RECEIVE_USER = "RECEIVE_USER";
+export const SIMPLE_RECEIVE_USER = "SIMPLE_RECEIVE_USER";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const RECENTLY_VIEWED_PRODUCTS = "RECENTLY_VIEWED_PRODUCTS";
 export const RECEIVE_AUTHORS = "RECEIVE_AUTHORS";
 export const RECEIVE_HAPPY_USER_IDS = "RECEIVE_HAPPY_USER_IDS";
+
+export const simpleReceiveUser = (user) => ({
+  type: SIMPLE_RECEIVE_USER,
+  user
+})
 
 export const receiveUser = (user) => ({
   type: SIGN_UP_USER,
@@ -102,8 +108,7 @@ export const fetchUserCart = (userId) => dispatch => (
 export const fetchUserById = (id) => (dispatch) => (
   UserApi.fetchUserById(id)
     .then(res => {
-      // dispatch(receiveUserSimple(res.user))
-      dispatch(receiveUser(res.user))
+      dispatch(simpleReceiveUser(res.user))
     })
 )
 

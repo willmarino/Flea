@@ -1,0 +1,96 @@
+.create-message-container{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.message-creation-header{
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.message-creation-input{
+  width: 100%;
+  height: 45px;
+  
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid	#E0E0E0;
+  border-radius: 3px;
+
+  margin-bottom: 10px;
+
+  transition: all .3s;
+}
+
+.message-creation-input:hover{
+  border: 1px solid 	#B0B0B0; 
+}
+
+.message-creation-input:focus{
+  border: 1px solid black; 
+}
+
+#tall-message-creation-input{
+  height: 90px
+}
+
+.message-creation-two{
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+#cmb-one{
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+  transition: all .3s;
+  #cmb-one-text{
+    font-size: 16px;
+    
+  }
+}
+
+#cmb-one:hover{
+  cursor: pointer;
+  background: #eeeeee;
+}
+
+#cmb-two{
+  width: 65px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+
+  background: black;
+  color: white;
+
+  transition: all .3s;
+  #cmb-two-text{
+    font-size: 16px;
+    
+  }
+}
+
+#cmb-two:hover{
+  cursor: pointer;
+  opacity: (0.9);
+}

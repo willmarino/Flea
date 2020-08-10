@@ -63,6 +63,20 @@
   background: #eaebeb;
 }
 
+.SMM-header-op-2{
+  background: black;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all .3s;
+}
+
+.SMM-header-op-2:hover{
+  box-shadow: 0 0 3px 3px #E0E0E0;
+  cursor: pointer;
+}
+
 .SMM-header-op-2 > p{
   font-size: 14px;
+  color: white;
 }

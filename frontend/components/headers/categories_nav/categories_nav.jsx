@@ -16,7 +16,7 @@ class CategoriesNav extends React.Component{
     return(
       <ul className="categories-nav-container">
         {categories.map((category) => {
-          return <CategoryButtonContainer category={category}/>
+          return <CategoryButtonContainer category={category} key={category.name}/>
         })}
       </ul>
     )

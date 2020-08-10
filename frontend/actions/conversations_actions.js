@@ -4,6 +4,8 @@ export const RECEIVE_CONVERSATIONS = "RECEIVE_CONVERSATIONS";
 export const RECEIVE_CONVERSATION = "RECEIVE_CONVERSATION";
 export const REMOVE_CONVERSATION = "REMOVE_CONVERSATION";
 
+import { closeModal } from './modal_actions';
+
 const receiveConversations = (conversations) => ({
   type: RECEIVE_CONVERSATIONS,
   conversations
@@ -33,11 +35,11 @@ export const fetchConversation = (conversationId) => (dispatch) => (
     })
 )
 
-// export const createMessage = (senderId, receiverId, body) => (dispatch) => (
 export const createMessage = (info) => (dispatch) => (
   ConversationUtil.createMessage(info)
     .then((res) => {
       dispatch(receiveConversation(res.conversation));
+      dispatch(closeModal());
     })
 )
 

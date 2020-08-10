@@ -1,0 +1,41 @@
+.dmm-body-main-container{
+  width: 80%;
+}
+
+.dmmbm-header-container{
+  height: 50px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 5px 10px;
+
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.dmmbm-header-button{
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0px 10px;
+  margin-right: 10px;
+  p{
+    font-size: 12px;
+  }
+  transition: all .3s;
+}
+
+.dmmbm-header-button:hover{
+  background: #eaebeb;
+  cursor: pointer;
+}
+
+
+.dmmbm-message-display{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

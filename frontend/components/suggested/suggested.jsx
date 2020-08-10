@@ -31,7 +31,6 @@ class Suggested extends React.Component{
   }
 
   render(){
-    debugger;
     this.compileSearchesList();
     return(
       <div className='suggested-searches-container'>

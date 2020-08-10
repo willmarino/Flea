@@ -2,7 +2,8 @@ import {
   SIGN_UP_USER,
   RECEIVE_USERS,
   RECEIVE_USER,
-  RECEIVE_HAPPY_USER_IDS
+  RECEIVE_HAPPY_USER_IDS,
+  SIMPLE_RECEIVE_USER
 } from '../actions/users_actions';
 import { LOG_IN_USER } from '../actions/session_actions';
 
@@ -10,6 +11,8 @@ const UsersReducer = (state={}, action) => {
   Object.freeze(state);
   let newState = {};
   switch(action.type){
+    case SIMPLE_RECEIVE_USER:
+      return Object.assign({}, state, { [action.user.id] : action.user });
     case RECEIVE_USER:
       return Object.assign({}, state, { [action.user.id] : action.user });
     case LOG_IN_USER:

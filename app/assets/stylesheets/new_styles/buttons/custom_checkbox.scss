@@ -1,0 +1,15 @@
+.custom-checkbox{
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 2px 2px	#D3D3D3;
+  margin-right: 15px;
+}
+
+.custom-checkbox:hover{
+  cursor: pointer;
+}
+
+.custom-checkbox-focused{
+  background: black;
+}

@@ -10,11 +10,11 @@ const ConversationsReducer = (state={}, action) => {
   switch(action.type){
     case RECEIVE_CONVERSATIONS:
       action.conversations.forEach((conversation) => {
-        newState[conversation.id] = conversation
+        newState[conversation.id] = conversation;
       });
-      return Object.assign(state, {}, newState);
+      return newState;
     case RECEIVE_CONVERSATION:
-      return Object.assign(state, {}, { [action.conversation.id] : action.conversation });
+      return Object.assign({}, state, { [action.conversation.id] : action.conversation });
     case REMOVE_CONVERSATION:
       newState = Object.assign(state, {});
       newState.delete(action.conversationId);

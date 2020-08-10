@@ -11,7 +11,7 @@ class ProductRow extends React.Component{
         let firstHalfProductList = [];
         let secondHalfProductList = [];
         rowOfProducts.forEach((product, i) => {
-            let p = <ProductPreview previewType={type} product={product} loggedIn={loggedIn}/>;
+            let p = <ProductPreview previewType={type} product={product} loggedIn={loggedIn} key={product.name}/>;
             if(i < (rowOfProducts.length / 2)){
                 firstHalfProductList.push(p);
             }else{

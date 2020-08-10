@@ -1,5 +1,5 @@
 import React from 'react';
-import DMMessagesHeader from './header/dm_messages_header';
+import DMMessagesHeaderContainer from './header/dm_messages_header_container';
 import DMMessagesBody from './body/dm_messages_body';
 
 class DMMessages extends React.Component{
@@ -10,7 +10,7 @@ class DMMessages extends React.Component{
   render(){
     return(
       <div className="DMM-container">
-        <DMMessagesHeader/>
+        <DMMessagesHeaderContainer/>
         <DMMessagesBody/>
       </div>
     )

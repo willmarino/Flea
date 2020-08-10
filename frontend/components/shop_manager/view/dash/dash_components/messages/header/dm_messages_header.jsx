@@ -1,13 +1,16 @@
 import React from 'react';
 import DMMessagesSearchbarContainer from './dm_messages_searchbar_container';
+import MainModalContainer from '../../../../../../modal/main_modal_container';
 
 class DMMessagesHeader extends React.Component{
   constructor(props){
     super(props);
   }
   render(){
+    let { openModal } = this.props;
     return(
       <div className="SMM-header">
+        <MainModalContainer/>
         <div className="SMM-header-left">
           <p>Messages</p>
           <DMMessagesSearchbarContainer/>
@@ -21,7 +24,7 @@ class DMMessagesHeader extends React.Component{
             </div>
           </div>
 
-          <div className="SMM-header-op-2">
+          <div className="SMM-header-op-2" onClick={() => { openModal('message') }}>
             <p>Compose</p>
           </div>
 

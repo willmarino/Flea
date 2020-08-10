@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SessionModal from './session_modal';
+import MainModal from './main_modal';
 import { closeModal } from '../../actions/modal_actions';
 
 const msp = state => ({
@@ -10,4 +10,4 @@ const mdp = dispatch => ({
   closeModal: () => dispatch(closeModal())
 });
 
-export default connect(msp, mdp)(SessionModal);
+export default connect(msp, mdp)(MainModal);

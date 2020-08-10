@@ -22,7 +22,7 @@ class SMSM extends React.Component{
     let { history } = this.props;
     let tabs = this.state.tabs.map((tab) => {
       let focused = (history.location.pathname === tab.url);
-      return <SMSMTab name={tab.name} url={tab.url} icon={tab.icon} focused={focused}/>
+      return <SMSMTab name={tab.name} url={tab.url} icon={tab.icon} focused={focused} key={tab.name}/>
     })
     return(
       <ul className="SMSM-list">

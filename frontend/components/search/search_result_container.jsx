@@ -4,14 +4,12 @@ import SearchResult from './search_result';
 import { fetchSearchMain, createSearch } from '../../actions/newest_search_actions';
 
 const msp = (state, ownProps) => {
-  // debugger;
   let wholeQueryString = ownProps.location.search;
   let queryParts = wholeQueryString.split("=");
   let query = queryParts[queryParts.length - 1];
   let oldQuery = query;
   let newQueryParts = query.split('%20');
   query = newQueryParts.join(" ");
-  // debugger;
   return({
     searches : state.entities.searches,
     products : state.entities.products,

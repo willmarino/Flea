@@ -1,5 +1,6 @@
 import React from 'react';
 import DMMBodySidebar from './dmm_body_sidebar';
+import DMMBodyMain from './dmm_body_main/dmm_body_main';
 
 
 class DMMessagesBody extends React.Component{
@@ -20,7 +21,7 @@ class DMMessagesBody extends React.Component{
     return(
       <div className="DMM-body">
         <DMMBodySidebar setFilter={this.setFilter} curFilter={this.state.messageFilter}/>
-
+        <DMMBodyMain/>
       </div>
     )
   }

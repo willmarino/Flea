@@ -24,7 +24,6 @@ class DMMessagesSearchbar extends React.Component{
     }else{
       floatingMsg = this.state.sampleSearch;
     }
-    debugger;
     return(
       <form className="DMM-searchbar-container" >
         <input type="text" placeholder="Search your messages" className="DMM-searchbar" value={this.state.searchQuery} onChange={this.update}/>

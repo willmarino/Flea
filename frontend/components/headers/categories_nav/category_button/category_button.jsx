@@ -9,11 +9,9 @@ class CategoryButton extends React.Component{
     let { createSearch, category, loggedIn, history } = this.props;
     // e.preventDefault();
     let url = loggedIn ? `/search_result?query=${category.name}` : `/anon/search_result?query=${category.name}`;
-    // debugger;
     createSearch(category.name)
       .then(() => {
         history.push(url);
-        // debugger;
       });
   }
   render(){

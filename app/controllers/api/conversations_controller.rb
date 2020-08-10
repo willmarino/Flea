@@ -6,15 +6,15 @@ class Api::ConversationsController < ApplicationController
   end
 
   def index
-    user_id = params.user_id
+    user_id = params["user_id"]
     @conversations = User.find(user_id).conversations
     render :index
   end
 
   def create
     safe_params = convo_params
-    sender_id = safe_params["sender_id"]
-    receiver_id = safe_params["receiver_id"]
+    sender_id = current_user.id
+    receiver_id = User.find_by(username: safe_params["recipient"]).id
     sender = User.find(sender_id)
     receiver = User.find(receiver_id)
     body = safe_params["body"]
@@ -47,7 +47,7 @@ class Api::ConversationsController < ApplicationController
   end
 
   def convo_params
-    params.require(:info).permit(:sender_id, :receiver_id, :body)
+    params.require(:info).permit(:sender_id, :recipient, :body)
   end
 
 end

@@ -59,7 +59,6 @@ export const fetchSuggestedTerms = (query) => dispatch => (
 export const fetchSearchMain = (queryStr) => dispatch => (
   SearchUtil.fetchSearchMain(queryStr)
     .then(res => {
-      // debugger;
       dispatch(receiveClearPageLoaded());
       dispatch(receiveFilters(res.filters));
       dispatch(receiveProducts(res.products));
@@ -69,9 +68,7 @@ export const fetchSearchMain = (queryStr) => dispatch => (
       dispatch(receiveTags(res.tags));
       dispatch(receiveSearchTagIds(res.tag_ids));
       dispatch(receiveSearchProductIds(res.product_ids));
-      // debugger;
       dispatch(receivePageLoaded('searchmain')); 
-      // debugger;
     })
 )
 

@@ -10,7 +10,7 @@ const ProductIndex = (props) => {
     let sampleProduct = rowOfProducts[0];
     let category = categories[sampleProduct.high_level_category].name;
     return(
-      <ProductRow type="complex" rowOfProducts={rowOfProducts} category={category} loggedIn={loggedIn}/>
+      <ProductRow type="complex" rowOfProducts={rowOfProducts} category={category} loggedIn={loggedIn} key={i}/>
     )
   })
 

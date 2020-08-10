@@ -1,12 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import SessionModalContainer from '../modal/session_modal_container';
+import MainModalContainer from '../modal/main_modal_container';
 import HeaderTop from './header_top';
 import CategoriesNavContainer from './categories_nav/categories_nav_container';
 
 const Header = (props) => {
   let { history } = props;
-  debugger;
   if(history.location.pathname.startsWith('/shops-manager')){
     return null;
   }
@@ -15,7 +14,7 @@ const Header = (props) => {
       <div className="main-header-container">
         <HeaderTop loggedIn={props.loggedIn}/>
         <CategoriesNavContainer/>
-        <SessionModalContainer/>
+        <MainModalContainer/>
       </div>
     </div>
   )

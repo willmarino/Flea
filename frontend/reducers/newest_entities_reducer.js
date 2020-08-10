@@ -15,6 +15,7 @@ import ProductOrdersReducer from './product_orders_reducer';
 import UsersReducer from './users_reducer';
 import ShopFavoritesReducer from './shop_favorites_reducer';
 import ProductFavoritesReducer from './product_favorites_reducer';
+import ConversationsReducer from './conversations_reducer';
 
 const NewestEntitiesReducer = combineReducers({
   products : NewestProductsReducer,
@@ -32,7 +33,8 @@ const NewestEntitiesReducer = combineReducers({
   orders : OrdersReducer,
   productOrders : ProductOrdersReducer,
   shopFavorites : ShopFavoritesReducer,
-  productFavorites : ProductFavoritesReducer
+  productFavorites : ProductFavoritesReducer,
+  conversations: ConversationsReducer
 })
 
 export default NewestEntitiesReducer;
