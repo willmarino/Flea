@@ -48,20 +48,16 @@ class MainSearchbar extends React.Component{
   }
 
   changeHighlightedTerm(num){
-    // debugger;
     // if(num === 40){
     //   let selectedTerm = (this.state.selectedTerm !== null) ? this.state.selectedTerm : 'null';
     //   let terms = this.state.modal.props.children;
-    //   debugger;
     //   if(selectedTerm === 'null'){
     //     selectedTerm = 0;
     //   }else{
     //     selectedTerm += 1;
-    //     debugger;
     //   }
 
     //   terms[selectedTerm] = <li key={terms[selectedTerm]} className='suggested-search-term highlighted-term'>{terms[selectedTerm]}</li>;
-    //   debugger;
 
     //   this.setState({ selectedTerm });
     // }else if(num === 38){

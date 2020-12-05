@@ -96,7 +96,6 @@ class Api::SearchesController < ApplicationController
   end
 
   def search_main
-    # debugger
     query = params[:queryStr].downcase
     @products = []
     @product_ids = []
@@ -134,7 +133,6 @@ class Api::SearchesController < ApplicationController
         end
       end
       if c.name.downcase.include?(query.downcase)
-        # debugger
         c.products.each do |p|
           @products << p if !@products.include?(p)
           @product_ids << p.id
@@ -173,7 +171,6 @@ class Api::SearchesController < ApplicationController
       end
       @shops << cur_shop if !@shops.include?(cur_shop)
     end
-    # debugger
     render :search_main
 
   end

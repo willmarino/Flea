@@ -6,7 +6,6 @@ import CategoriesNavContainer from './categories_nav/categories_nav_container';
 
 const Header = (props) => {
   let { history } = props;
-  debugger;
   if(history.location.pathname.startsWith('/shops-manager')){
     return null;
   }
