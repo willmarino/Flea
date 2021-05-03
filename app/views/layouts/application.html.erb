@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
     <title>Flea</title>
     <%= csrf_meta_tags %>
@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
      <meta property="og:title" content="Flea" />
-     <meta property='og:image' content="<%= 'https://personal-site-bucket.s3.amazonaws.com/Screen+Shot+2021-05-03+at+10.39.50+AM.png'%>"/>
+     <meta property='og:image' content="<%= image_url('og_tag_pic.png')%>"/>
      <meta property="og:description"
        content="A simplified imitation of Etsy"
      />
