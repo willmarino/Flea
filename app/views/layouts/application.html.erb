@@ -14,6 +14,16 @@
     <link href="https://fonts.googleapis.com/css?family=Arimo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
+     <meta property="og:title" content="Flea" />
+     <meta property='og:image' content="<%= 'https://personal-site-bucket.s3.amazonaws.com/Screen+Shot+2021-05-03+at+10.39.50+AM.png'%>"/>
+     <meta property="og:description"
+       content="A simplified imitation of Etsy"
+     />
+     <meta property="og:url"
+       content="https://flea.herokuapp.com/#/"
+     />
+
+
     <% if logged_in? %>
       <script type="text/javascript">
         window.currentuser = <%= render('/api/users/user.json.jbuilder', user: current_user).html_safe %>
