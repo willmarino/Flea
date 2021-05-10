@@ -7,7 +7,7 @@
     "@babel/preset-react": "^7.10.4",
     "@fortawesome/fontawesome-free": "^5.13.1",
     "babel-loader": "^8.1.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "logger": "0.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
